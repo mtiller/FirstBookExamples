@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter2.CoolingGlass")
+experiment StopTime=10 NumberOfIntervals=500
+simulate
+plot({"T","T_ambient"});

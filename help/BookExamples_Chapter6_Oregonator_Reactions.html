@@ -1,0 +1,167 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Reactions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Oregonator.Reactions"></A><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator"
+>BookExamples.Chapter6.Oregonator</A>.Reactions</H2>
+<P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_AY"
+>R_AY</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_XY"
+>R_XY</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_AX"
+>R_AX</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_2X"
+>R_2X</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_BZ"
+>R_BZ</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE R_AY<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Oregonator.Reactions.R_AY"></A><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions"
+>BookExamples.Chapter6.Oregonator.Reactions</A>.R_AY</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k_AY</TD><TD>1.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v</TD><TD>0.001</TD><TD>[m3]</TD></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k</TD><TD>k_AY</TD><TD>Reaction coefficient</TD></TR>
+<TR><TD>reactants[:, 2]</TD><TD>{{1,A},{1,Y}}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>products[:, 2]</TD><TD>{{1,X},{1,P}}</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> R_AY 
+  <font color="blue">parameter </font>Real k_AY=1.0;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Chemistry.Basic.Reaction</A>(
+    k=k_AY, 
+    reactants={{1,A},{1,Y}}, 
+    products={{1,X},{1,P}});
+<font color="blue">end </font>R_AY;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE R_XY<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Oregonator.Reactions.R_XY"></A><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions"
+>BookExamples.Chapter6.Oregonator.Reactions</A>.R_XY</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k_XY</TD><TD>1.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v</TD><TD>0.001</TD><TD>[m3]</TD></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k</TD><TD>k_XY</TD><TD>Reaction coefficient</TD></TR>
+<TR><TD>reactants[:, 2]</TD><TD>{{1,X},{1,Y}}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>products[:, 2]</TD><TD>{{2,P}}</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> R_XY 
+  <font color="blue">parameter </font>Real k_XY=1.0;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Chemistry.Basic.Reaction</A>(
+    k=k_XY, 
+    reactants={{1,X},{1,Y}}, 
+    products={{2,P}});
+<font color="blue">end </font>R_XY;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE R_AX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Oregonator.Reactions.R_AX"></A><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions"
+>BookExamples.Chapter6.Oregonator.Reactions</A>.R_AX</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k_AX</TD><TD>50.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v</TD><TD>0.001</TD><TD>[m3]</TD></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k</TD><TD>k_AX</TD><TD>Reaction coefficient</TD></TR>
+<TR><TD>reactants[:, 2]</TD><TD>{{1,A},{1,X}}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>products[:, 2]</TD><TD>{{2,X},{2,Z}}</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> R_AX 
+  <font color="blue">parameter </font>Real k_AX=50.0;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Chemistry.Basic.Reaction</A>(
+    k=k_AX, 
+    reactants={{1,A},{1,X}}, 
+    products={{2,X},{2,Z}});
+<font color="blue">end </font>R_AX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE R_2X<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Oregonator.Reactions.R_2X"></A><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions"
+>BookExamples.Chapter6.Oregonator.Reactions</A>.R_2X</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k_2X</TD><TD>2*0.0013</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v</TD><TD>0.001</TD><TD>[m3]</TD></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k</TD><TD>k_2X</TD><TD>Reaction coefficient</TD></TR>
+<TR><TD>reactants[:, 2]</TD><TD>{{2,X}}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>products[:, 2]</TD><TD>{{1,A},{1,P}}</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> R_2X 
+  <font color="blue">parameter </font>Real k_2X=2*0.0013;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Chemistry.Basic.Reaction</A>(
+    k=k_2X, 
+    reactants={{2,X}}, 
+    products={{1,A},{1,P}});
+<font color="blue">end </font>R_2X;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE R_BZ<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Oregonator.Reactions.R_BZ"></A><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions"
+>BookExamples.Chapter6.Oregonator.Reactions</A>.R_BZ</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k_BZ</TD><TD>1.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v</TD><TD>0.001</TD><TD>[m3]</TD></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k</TD><TD>k_BZ</TD><TD>Reaction coefficient</TD></TR>
+<TR><TD>reactants[:, 2]</TD><TD>{{1,B},{1,Z}}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>products[:, 2]</TD><TD>{{1,Y}}</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> R_BZ 
+  <font color="blue">parameter </font>Real k_BZ=1.0;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Chemistry.Basic.Reaction</A>(
+    k=k_BZ, 
+    reactants={{1,B},{1,Z}}, 
+    products={{1,Y}});
+<font color="blue">end </font>R_BZ;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Sep 10 16:48:18 2003
+.
+</address></BODY>
+</HTML>

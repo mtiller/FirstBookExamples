@@ -1,0 +1,279 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FactoryModels<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter10.FactoryModels"></A><A HREF="BookExamples_Chapter10.html#BookExamples.Chapter10"
+>BookExamples.Chapter10</A>.FactoryModels</H2>
+<A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.Actuator"
+><IMG SRC="BookExamples.Chapter10.FactoryModels.ActuatorI.png" ALT="BookExamples.Chapter10.FactoryModels.Actuator" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.BeltController"
+><IMG SRC="BookExamples.Chapter10.FactoryModels.BeltControllerI.png" ALT="BookExamples.Chapter10.FactoryModels.BeltController" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ConveyorBelt"
+><IMG SRC="BookExamples.Chapter10.FactoryModels.ConveyorBeltI.png" ALT="BookExamples.Chapter10.FactoryModels.ConveyorBelt" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ElectricMotor"
+><IMG SRC="BookExamples.Chapter10.FactoryModels.ElectricMotorI.png" ALT="BookExamples.Chapter10.FactoryModels.ElectricMotor" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.Factory"
+><IMG SRC="BookExamples.Chapter10.FactoryModels.FactoryI.png" ALT="BookExamples.Chapter10.FactoryModels.Factory" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.PlantModel"
+><IMG SRC="BookExamples.Chapter10.FactoryModels.PlantModelI.png" ALT="BookExamples.Chapter10.FactoryModels.PlantModel" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.Actuator"
+>Actuator</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.BeltController"
+>BeltController</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ConveyorBelt"
+>ConveyorBelt</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ElectricMotor"
+>ElectricMotor</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.Factory"
+>Factory</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.PlantModel"
+>PlantModel</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Actuator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.FactoryModels.ActuatorI.png" ALT="BookExamples.Chapter10.FactoryModels.Actuator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.FactoryModels.Actuator"></A><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels"
+>BookExamples.Chapter10.FactoryModels</A>.Actuator</H2>
+<IMG SRC="BookExamples.Chapter10.FactoryModels.ActuatorD.png" ALT="BookExamples.Chapter10.FactoryModels.Actuator">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> Actuator 
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> driver;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> p;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> n;
+<font color="blue">end </font>Actuator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BeltController<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.FactoryModels.BeltControllerI.png" ALT="BookExamples.Chapter10.FactoryModels.BeltController" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.FactoryModels.BeltController"></A><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels"
+>BookExamples.Chapter10.FactoryModels</A>.BeltController</H2>
+<IMG SRC="BookExamples.Chapter10.FactoryModels.BeltControllerD.png" ALT="BookExamples.Chapter10.FactoryModels.BeltController">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Kd</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Kp</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Td</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> BeltController 
+  <font color="blue">parameter </font>Real Kd(start=1.0);
+  <font color="blue">parameter </font>Real Kp(start=1.0);
+  <font color="blue">parameter </font>Real Td(start=0.01);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> n;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> p;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> phi;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> omega;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> speed_profile(
+    amplitude={0.5}, 
+    rising={2.0}, 
+    falling={2.0}, 
+    period={10.0}, 
+    offset={0}, 
+    startTime={.2});
+  <A HREF="../../Modelica/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Integrator"
+>Modelica.Blocks.Continuous.Integrator</A> position_profile;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalVoltage"
+>Modelica.Electrical.Analog.Sources.SignalVoltage</A> motor_voltage;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> pos_error;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> Pcontrol(k={Kp});
+  <A HREF="../../Modelica/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.TransferFunction"
+>Modelica.Blocks.Continuous.TransferFunction</A> Dcontrol(b={Kd,0}, a={Td,1});
+  <A HREF="../../Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> sum;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(speed_profile.outPort, position_profile.inPort);
+  <font color="red">connect</font>(motor_voltage.p, p);
+  <font color="red">connect</font>(motor_voltage.n, n);
+  <font color="red">connect</font>(phi, pos_error.inPort1);
+  <font color="red">connect</font>(pos_error.outPort, Pcontrol.inPort);
+  <font color="red">connect</font>(Dcontrol.inPort, pos_error.outPort);
+  <font color="red">connect</font>(sum.outPort, motor_voltage.inPort);
+  <font color="red">connect</font>(Dcontrol.outPort, sum.inPort2);
+  <font color="red">connect</font>(Pcontrol.outPort, sum.inPort1);
+  <font color="red">connect</font>(position_profile.outPort, pos_error.inPort2);
+<font color="blue">end </font>BeltController;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConveyorBelt<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.FactoryModels.ConveyorBeltI.png" ALT="BookExamples.Chapter10.FactoryModels.ConveyorBelt" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.FactoryModels.ConveyorBelt"></A><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels"
+>BookExamples.Chapter10.FactoryModels</A>.ConveyorBelt</H2>
+<IMG SRC="BookExamples.Chapter10.FactoryModels.ConveyorBeltD.png" ALT="BookExamples.Chapter10.FactoryModels.ConveyorBelt">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>gears</TD><TD>redeclare Rotational.IdealGear gears(ratio=5)</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">class</font> ConveyorBelt 
+  <font color="blue">import </font><A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Rotational.Interfaces.Flange_a</A> axle;
+  <font color="blue">replaceable </font><A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGear"
+>Rotational.IdealGear</A> gears(ratio=5)<font color="blue"> extends </font>
+    Rotational.Interfaces.TwoFlanges;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.IdealGearR2T"
+>Rotational.IdealGearR2T</A> belt;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational.SlidingMass"
+>Modelica.Mechanics.Translational.SlidingMass</A> product(m=1);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Rotational.Fixed</A> ground;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Rotational.Damper</A> bearings(d=20);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Rotational.Inertia</A> shaft(J=.3);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(gears.flange_a, axle);
+  <font color="red">connect</font>(belt.flange_b, product.flange_a);
+  <font color="red">connect</font>(bearings.flange_b, belt.flange_a);
+  <font color="red">connect</font>(bearings.flange_a, ground.flange_b);
+  <font color="red">connect</font>(shaft.flange_b, belt.flange_a);
+  <font color="red">connect</font>(gears.flange_b, shaft.flange_a);
+<font color="blue">end </font>ConveyorBelt;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElectricMotor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.FactoryModels.ElectricMotorI.png" ALT="BookExamples.Chapter10.FactoryModels.ElectricMotor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.FactoryModels.ElectricMotor"></A><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels"
+>BookExamples.Chapter10.FactoryModels</A>.ElectricMotor</H2>
+<IMG SRC="BookExamples.Chapter10.FactoryModels.ElectricMotorD.png" ALT="BookExamples.Chapter10.FactoryModels.ElectricMotor">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ElectricMotor 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.Actuator"
+>Actuator</A>;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> rotor(J=0.2);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.EMF"
+>Modelica.Electrical.Analog.Basic.EMF</A> EMF1;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> R1(R=250);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Modelica.Electrical.Analog.Basic.Inductor</A> L1(L=2);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(EMF1.flange_b, rotor.flange_a);
+  <font color="red">connect</font>(L1.n, EMF1.p);
+  <font color="red">connect</font>(R1.n, L1.p);
+  <font color="red">connect</font>(R1.p, p);
+  <font color="red">connect</font>(EMF1.n, n);
+  <font color="red">connect</font>(rotor.flange_b, driver);
+<font color="blue">end </font>ElectricMotor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Factory<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.FactoryModels.FactoryI.png" ALT="BookExamples.Chapter10.FactoryModels.Factory" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.FactoryModels.Factory"></A><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels"
+>BookExamples.Chapter10.FactoryModels</A>.Factory</H2>
+<IMG SRC="BookExamples.Chapter10.FactoryModels.FactoryD.png" ALT="BookExamples.Chapter10.FactoryModels.Factory">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>motor</TD><TD>redeclare ElectricMotor motor</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Factory 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.BeltController"
+>BeltController</A> controller(
+    Kd=-20, 
+    Kp=-500, 
+    Td=0.01);
+  <font color="blue">replaceable </font><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ElectricMotor"
+>ElectricMotor</A> motor;
+  <A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ConveyorBelt"
+>ConveyorBelt</A> conveyor;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> ground;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.AngleSensor"
+>Modelica.Mechanics.Rotational.Sensors.AngleSensor</A> position_sensor;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.SpeedSensor"
+>Modelica.Mechanics.Rotational.Sensors.SpeedSensor</A> speed_sensor;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(controller.p, motor.p);
+  <font color="red">connect</font>(controller.n, motor.n);
+  <font color="red">connect</font>(motor.driver, conveyor.axle);
+  <font color="red">connect</font>(ground.p, motor.n);
+  <font color="red">connect</font>(position_sensor.flange_a, motor.driver);
+  <font color="red">connect</font>(position_sensor.outPort, controller.phi);
+  <font color="red">connect</font>(speed_sensor.flange_a, motor.driver);
+  <font color="red">connect</font>(speed_sensor.outPort, controller.omega);
+<font color="blue">end </font>Factory;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlantModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.FactoryModels.PlantModelI.png" ALT="BookExamples.Chapter10.FactoryModels.PlantModel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.FactoryModels.PlantModel"></A><A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels"
+>BookExamples.Chapter10.FactoryModels</A>.PlantModel</H2>
+<IMG SRC="BookExamples.Chapter10.FactoryModels.PlantModelD.png" ALT="BookExamples.Chapter10.FactoryModels.PlantModel">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PlantModel 
+  <A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ElectricMotor"
+>ElectricMotor</A> motor;
+  <A HREF="BookExamples_Chapter10_FactoryModels.html#BookExamples.Chapter10.FactoryModels.ConveyorBelt"
+>ConveyorBelt</A> conveyor;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> ground;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalVoltage"
+>Modelica.Electrical.Analog.Sources.SignalVoltage</A> SignalVoltage1;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> v;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.AngleSensor"
+>Modelica.Mechanics.Rotational.Sensors.AngleSensor</A> AngleSensor1;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> pos;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(motor.driver, conveyor.axle);
+  <font color="red">connect</font>(ground.p, motor.n);
+  <font color="red">connect</font>(SignalVoltage1.n, motor.p);
+  <font color="red">connect</font>(SignalVoltage1.p, ground.p);
+  <font color="red">connect</font>(SignalVoltage1.inPort, v);
+  <font color="red">connect</font>(AngleSensor1.flange_a, motor.driver);
+  <font color="red">connect</font>(AngleSensor1.outPort, pos);
+<font color="blue">end </font>PlantModel;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Sep 10 16:47:56 2003
+.
+</address></BODY>
+</HTML>

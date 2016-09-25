@@ -1,0 +1,158 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Basic"></A><A HREF="BookExamples_Chapter6_Chemistry.html#BookExamples.Chapter6.Chemistry"
+>BookExamples.Chapter6.Chemistry</A>.Basic</H2>
+<P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Reaction</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reservoir"
+>Reservoir</A>
+</TD><TD>Reservoir of fixed composition</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Stationary"
+>Stationary</A>
+</TD><TD>Stationary concentration</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Volume"
+>Volume</A>
+</TD><TD>Volume containing a chemical mixture</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Volume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Basic.Volume"></A><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic"
+>BookExamples.Chapter6.Chemistry.Basic</A>.Volume</H2>
+<B>Volume containing a chemical mixture</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v</TD><TD>.001</TD><TD>[m3]</TD></TR>
+<TR><TD>i_moles[nspecies]</TD><TD>fill(1, nspecies)</TD><TD>[mol]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Volume <font color="darkgreen">&quot;Volume containing a chemical mixture&quot;</font> 
+  <font color="blue">import </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">parameter </font>Integer nspecies;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SIunits.Volume</A> v=.001;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.AmountOfSubstance"
+>SIunits.AmountOfSubstance</A> i_moles[nspecies]=<font color="red">fill</font>(1, nspecies);
+  <A HREF="BookExamples_Chapter6_Chemistry_Interfaces.html#BookExamples.Chapter6.Chemistry.Interfaces.Mixture"
+>Interfaces.Mixture</A> p(nspecies=nspecies);
+<font color="blue">protected </font>
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.AmountOfSubstance"
+>Modelica.SIunits.AmountOfSubstance</A> moles[nspecies](start=i_moles);
+<font color="blue">equation </font>
+  <font color="red">der</font>(moles) = p.r;
+  p.c = moles/v;
+<font color="blue">end </font>Volume;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Stationary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Basic.Stationary"></A><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic"
+>BookExamples.Chapter6.Chemistry.Basic</A>.Stationary</H2>
+<B>Stationary concentration</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>stat_species</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>c</TD><TD>&nbsp;</TD><TD>[mol/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Stationary <font color="darkgreen">&quot;Stationary concentration&quot;</font> 
+  <font color="blue">parameter </font>Integer nspecies;
+  <font color="blue">parameter </font>Integer stat_species;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Concentration"
+>Modelica.SIunits.Concentration</A> c;
+  <A HREF="BookExamples_Chapter6_Chemistry_Interfaces.html#BookExamples.Chapter6.Chemistry.Interfaces.Mixture"
+>Interfaces.Mixture</A> p(nspecies=nspecies);
+<font color="blue">protected </font>
+  <A HREF="BookExamples_Chapter6_Chemistry_Types.html#BookExamples.Chapter6.Chemistry.Types.MolarFlowRate"
+>Types.MolarFlowRate</A> r;
+<font color="blue">equation </font>
+  p.c[stat_species] = c;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nspecies<font color="blue"> loop</font>
+    p.r[i] = <font color="blue">if </font>i == stat_species<font color="blue"> then </font>r<font color="blue"> else </font>0.0;
+  <font color="blue">end for</font>;
+<font color="blue">end </font>Stationary;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Reaction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Basic.Reaction"></A><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic"
+>BookExamples.Chapter6.Chemistry.Basic</A>.Reaction</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>0.001</TD><TD>[m3]</TD></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k</TD><TD>&nbsp;</TD><TD>Reaction coefficient</TD></TR>
+<TR><TD>reactants[:, 2]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>products[:, 2]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> Reaction 
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> v=0.001;
+  <font color="blue">parameter </font>Integer nspecies;
+  <A HREF="BookExamples_Chapter6_Chemistry_Interfaces.html#BookExamples.Chapter6.Chemistry.Interfaces.Mixture"
+>Interfaces.Mixture</A> p(nspecies=nspecies);
+  <font color="blue">parameter </font>Real k <font color="darkgreen">&quot;Reaction coefficient&quot;</font>;
+  <font color="blue">parameter </font>Integer reactants[:, 2];
+  <font color="blue">parameter </font>Integer products[:, 2];
+<font color="blue">protected </font>
+  <A HREF="BookExamples_Chapter6_Chemistry_Types.html#BookExamples.Chapter6.Chemistry.Types.MolarFlowRate"
+>Types.MolarFlowRate</A> reaction_rate <font color="darkgreen">&quot;Reaction rate&quot;</font>;
+  <font color="blue">parameter </font>Real mult[nspecies]=<font color="red">Chemistry.Functions.CalcMultiplier</font>(nspecies, 
+      reactants, products);
+<font color="blue">equation </font>
+  reaction_rate = <font color="red">Chemistry.Functions.CalcReactionRate</font>(nspecies, k, p.c, 
+    reactants);
+  p.r = mult*reaction_rate*v;
+<font color="blue">end </font>Reaction;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Reservoir<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Basic.Reservoir"></A><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic"
+>BookExamples.Chapter6.Chemistry.Basic</A>.Reservoir</H2>
+<B>Reservoir of fixed composition</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>nspecies</TD><TD>nspecies</TD><TD>&nbsp;</TD></TR>
+<TR><TD>c[nspecies]</TD><TD>&nbsp;</TD><TD>[mol/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Reservoir <font color="darkgreen">&quot;Reservoir of fixed composition&quot;</font> 
+  <font color="blue">parameter </font>Integer nspecies=nspecies;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Concentration"
+>Modelica.SIunits.Concentration</A> c[nspecies];
+  <A HREF="BookExamples_Chapter6_Chemistry_Interfaces.html#BookExamples.Chapter6.Chemistry.Interfaces.Mixture"
+>Interfaces.Mixture</A> p(nspecies=nspecies);
+<font color="blue">equation </font>
+  p.c = c;
+<font color="blue">end </font>Reservoir;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Sep 10 16:48:16 2003
+.
+</address></BODY>
+</HTML>

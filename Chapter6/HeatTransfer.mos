@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter6.HeatTransfer")
+experiment StopTime=50 NumberOfIntervals=500
+simulate
+plot({"T[2]","T[4]","T[6]","T[8]"});

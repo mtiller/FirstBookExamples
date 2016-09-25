@@ -1,0 +1,469 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Chapter8<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter8"></A><A HREF="BookExamples.html#BookExamples"
+>BookExamples</A>.Chapter8</H2>
+<B>Models from Chapter 8</B>
+<P>
+<A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ACDC"
+><IMG SRC="BookExamples.Chapter8.ACDCI.png" ALT="BookExamples.Chapter8.ACDC" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter8_BacklashComparison.html#BookExamples.Chapter8.BacklashComparison"
+><IMG SRC="BookExamples.Chapter8.BacklashComparisonI.png" ALT="BookExamples.Chapter8.BacklashComparison" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.BacklashCOR"
+><IMG SRC="BookExamples.Chapter8.BacklashCORI.png" ALT="BookExamples.Chapter8.BacklashCOR" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.HHCell"
+><IMG SRC="BookExamples.Chapter8.HHCellI.png" ALT="BookExamples.Chapter8.HHCell" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.IdealDiode"
+><IMG SRC="BookExamples.Chapter8.IdealDiodeI.png" ALT="BookExamples.Chapter8.IdealDiode" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.SolidifyingRod"
+><IMG SRC="BookExamples.Chapter8.SolidifyingRodI.png" ALT="BookExamples.Chapter8.SolidifyingRod" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.SpringBacklash"
+><IMG SRC="BookExamples.Chapter8.SpringBacklashI.png" ALT="BookExamples.Chapter8.SpringBacklash" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ThermalCapacitanceNL"
+><IMG SRC="BookExamples.Chapter8.ThermalCapacitanceNLI.png" ALT="BookExamples.Chapter8.ThermalCapacitanceNL" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE>The models in this package are taken from
+Chapter 8 of:
+
+'Introduction to Physical Modeling with Modelica'
+
+by Michael Tiller
+</PRE><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ACDC"
+>ACDC</A>
+</TD><TD>AC to DC power supply</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8_BacklashComparison.html#BookExamples.Chapter8.BacklashComparison"
+>BacklashComparison</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.BacklashCOR"
+>BacklashCOR</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.HHCell"
+>HHCell</A>
+</TD><TD>A Hodgkin-Huxley Nerve Cell</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8_HodgkinHuxley.html#BookExamples.Chapter8.HodgkinHuxley"
+>HodgkinHuxley</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.IdealDiode"
+>IdealDiode</A>
+</TD><TD>An Ideal Diode</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.LinearPropertyModel"
+>LinearPropertyModel</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.SimplePropertyModel"
+>SimplePropertyModel</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.SolidifyingRod"
+>SolidifyingRod</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.SpringBacklash"
+>SpringBacklash</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ThermalCapacitanceNL"
+>ThermalCapacitanceNL</A>
+</TD><TD>Non-linear rod section</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ThermalPropertyModel"
+>ThermalPropertyModel</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ACDC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter8.ACDCI.png" ALT="BookExamples.Chapter8.ACDC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter8.ACDC"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.ACDC</H2>
+<B>AC to DC power supply</B><p>
+<IMG SRC="BookExamples.Chapter8.ACDCD.png" ALT="BookExamples.Chapter8.ACDC">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ACDC <font color="darkgreen">&quot;AC to DC power supply&quot;</font> 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> leak(R=10e+6);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> ground;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SineVoltage"
+>Modelica.Electrical.Analog.Sources.SineVoltage</A> voltage(V=120, freqHz=60);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealDiode"
+>Modelica.Electrical.Analog.Ideal.IdealDiode</A> diode;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
+>Modelica.Electrical.Analog.Basic.Capacitor</A> capacitor(C=1e-4);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> short(R=1e-5);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealTransformer"
+>Modelica.Electrical.Analog.Ideal.IdealTransformer</A> transformer(n=22);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealSwitch</A> switch(Gon=0);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> load(R=3000);
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanPulse"
+>Modelica.Blocks.Sources.BooleanPulse</A> load_switch(period={.5});
+<font color="blue">equation </font>
+  <font color="red">connect</font>(load.p, switch.n);
+  <font color="red">connect</font>(ground.p, voltage.p);
+  <font color="red">connect</font>(capacitor.p, leak.p);
+  <font color="red">connect</font>(short.n, leak.p);
+  <font color="red">connect</font>(switch.p, short.n);
+  <font color="red">connect</font>(transformer.p1, ground.p);
+  <font color="red">connect</font>(voltage.n, transformer.n1);
+  <font color="red">connect</font>(leak.n, transformer.p2);
+  <font color="red">connect</font>(capacitor.n, leak.n);
+  <font color="red">connect</font>(load.n, capacitor.n);
+  <font color="red">connect</font>(ground.p, transformer.p2);
+  <font color="red">connect</font>(load_switch.outPort, switch.control);
+  <font color="red">connect</font>(transformer.n2, diode.p);
+  <font color="red">connect</font>(diode.n, short.p);
+<font color="blue">end </font>ACDC;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BacklashCOR<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter8.BacklashCORI.png" ALT="BookExamples.Chapter8.BacklashCOR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter8.BacklashCOR"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.BacklashCOR</H2>
+<IMG SRC="BookExamples.Chapter8.BacklashCORD.png" ALT="BookExamples.Chapter8.BacklashCOR">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>b</TD><TD>0.05</TD><TD>[rad]</TD></TR>
+<TR><TD>I1</TD><TD>1</TD><TD>[kg.m2]</TD></TR>
+<TR><TD>I2</TD><TD>1</TD><TD>[kg.m2]</TD></TR>
+<TR><TD>K</TD><TD>1</TD><TD>Coefficient of Restitution</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> BacklashCOR 
+  <font color="blue">import </font><A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <font color="blue">extends </font><A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Compliant"
+>Rotational.Interfaces.Compliant</A>;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> b=0.05;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Modelica.SIunits.Inertia</A> I1=1;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Modelica.SIunits.Inertia</A> I2=1;
+  <font color="blue">parameter </font>Real K=1 <font color="darkgreen">&quot;Coefficient of Restitution&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w1;
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w2;
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>Modelica.SIunits.AngularAcceleration</A> a1;
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>Modelica.SIunits.AngularAcceleration</A> a2;
+<font color="blue">equation </font>
+  w1 = <font color="red">der</font>(flange_a.phi);
+  w2 = <font color="red">der</font>(flange_b.phi);
+  a1 = <font color="red">der</font>(w1);
+  a2 = <font color="red">der</font>(w2);
+  tau = 0;
+<font color="blue">algorithm </font>
+  <font color="blue">when </font>phi_rel &gt;= b/2<font color="blue"> or </font>phi_rel &lt;= -b/2<font color="blue"> then</font>
+    <font color="red">reinit</font>(w1, ((I1 - K*I2)*<font color="red">pre</font>(w1) + I2*(1 + K)*<font color="red">pre</font>(w2))/(I1 + I2));
+    <font color="red">reinit</font>(w2, ((I2 - K*I1)*<font color="red">pre</font>(w2) + I1*(1 + K)*<font color="red">pre</font>(w1))/(I1 + I2));
+  <font color="blue">end when</font>;
+<font color="blue">end </font>BacklashCOR;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HHCell<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter8.HHCellI.png" ALT="BookExamples.Chapter8.HHCell" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter8.HHCell"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.HHCell</H2>
+<B>A Hodgkin-Huxley Nerve Cell</B><p>
+<IMG SRC="BookExamples.Chapter8.HHCellD.png" ALT="BookExamples.Chapter8.HHCell">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HHCell <font color="darkgreen">&quot;A Hodgkin-Huxley Nerve Cell&quot;</font> 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Modelica.SIunits.Diameter</A> d=.5e-3;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Modelica.SIunits.Diameter</A> L=5e-3;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> area=(d/2)^2.0*Modelica.Constants.PI*L;
+<font color="blue">public </font>
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Pulse"
+>Modelica.Blocks.Sources.Pulse</A> pulse(
+    amplitude={-1e-8}, 
+    width={10}, 
+    period={20e-3}, 
+    startTime={.5});
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalCurrent"
+>Modelica.Electrical.Analog.Sources.SignalCurrent</A> is;
+  <A HREF="BookExamples_Chapter8_HodgkinHuxley.html#BookExamples.Chapter8.HodgkinHuxley.MembraneCapacitance"
+>HodgkinHuxley.MembraneCapacitance</A> C(membrane_area=area);
+  <A HREF="BookExamples_Chapter8_HodgkinHuxley.html#BookExamples.Chapter8.HodgkinHuxley.SodiumChannel"
+>HodgkinHuxley.SodiumChannel</A> HH_Na(membrane_area=area);
+  <A HREF="BookExamples_Chapter8_HodgkinHuxley.html#BookExamples.Chapter8.HodgkinHuxley.PotassiumChannel"
+>HodgkinHuxley.PotassiumChannel</A> HH_K(membrane_area=area);
+  <A HREF="BookExamples_Chapter8_HodgkinHuxley.html#BookExamples.Chapter8.HodgkinHuxley.LeakageChannel"
+>HodgkinHuxley.LeakageChannel</A> HH_L(membrane_area=area);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> g;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(pulse.outPort, is.inPort);
+  <font color="red">connect</font>(HH_Na.p, is.p);
+  <font color="red">connect</font>(HH_K.p, is.p);
+  <font color="red">connect</font>(HH_L.p, is.p);
+  <font color="red">connect</font>(C.p, is.p);
+  <font color="red">connect</font>(is.n, C.n);
+  <font color="red">connect</font>(HH_Na.n, C.n);
+  <font color="red">connect</font>(HH_K.n, C.n);
+  <font color="red">connect</font>(HH_L.n, C.n);
+  <font color="red">connect</font>(HH_Na.n, g.p);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>HHCell;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealDiode<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter8.IdealDiodeI.png" ALT="BookExamples.Chapter8.IdealDiode" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter8.IdealDiode"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.IdealDiode</H2>
+<B>An Ideal Diode</B><p>
+<IMG SRC="BookExamples.Chapter8.IdealDiodeD.png" ALT="BookExamples.Chapter8.IdealDiode">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealDiode <font color="darkgreen">&quot;An Ideal Diode&quot;</font> 
+  <font color="blue">extends </font><A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A>;
+<font color="blue">protected </font>
+  Real s <font color="darkgreen">&quot;Parametric independent variable&quot;</font>;
+  Boolean open;
+<font color="blue">equation </font>
+  open = s &lt;= 0;
+  v = <font color="blue">if </font>open<font color="blue"> then </font>s<font color="blue"> else </font>0;
+  i = <font color="blue">if </font>open<font color="blue"> then </font>0<font color="blue"> else </font>s;
+<font color="blue">end </font>IdealDiode;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LinearPropertyModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter8.LinearPropertyModel"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.LinearPropertyModel</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> LinearPropertyModel 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ThermalPropertyModel"
+>ThermalPropertyModel</A>(u(start=300*900), T(start=300));
+<font color="blue">equation </font>
+  u = 900*T;
+<font color="blue">end </font>LinearPropertyModel;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimplePropertyModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter8.SimplePropertyModel"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.SimplePropertyModel</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Tl</TD><TD>1000</TD><TD>[K]</TD></TR>
+<TR><TD>Tu</TD><TD>1100</TD><TD>[K]</TD></TR>
+<TR><TD>cp_s</TD><TD>900</TD><TD>[J/(kg.K)]</TD></TR>
+<TR><TD>cp_m</TD><TD>9000</TD><TD>[J/(kg.K)]</TD></TR>
+<TR><TD>cp_l</TD><TD>900</TD><TD>[J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SimplePropertyModel 
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Tl=1000;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Tu=1100;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>Modelica.SIunits.SpecificHeatCapacity</A> cp_s=900;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>Modelica.SIunits.SpecificHeatCapacity</A> cp_m=9000;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>Modelica.SIunits.SpecificHeatCapacity</A> cp_l=900;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ThermalPropertyModel"
+>ThermalPropertyModel</A>(u(start=cp_s*300));
+<font color="blue">equation </font>
+  <font color="red">assert</font>(T &gt;= 200<font color="blue"> and </font>T &lt;= 2000, &quot;T out of range&quot;);
+  <font color="blue">if </font>T &lt;= Tl<font color="blue"> then</font>
+    u = cp_s*T;
+  <font color="blue">elseif </font>T &lt;= Tu<font color="blue"> then</font>
+    u = cp_m*(T - Tl) + Tl*cp_s;
+  <font color="blue">else</font>
+    u = cp_l*(T - Tu) + cp_m*(Tu - Tl) + Tl*cp_s;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>SimplePropertyModel;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SolidifyingRod<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter8.SolidifyingRodI.png" ALT="BookExamples.Chapter8.SolidifyingRod" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter8.SolidifyingRod"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.SolidifyingRod</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>L</TD><TD>0.3</TD><TD>Total length [m]</TD></TR>
+<TR><TD>A</TD><TD>4.0</TD><TD>Cross-sectional area [m2]</TD></TR>
+<TR><TD>rho</TD><TD>5.0</TD><TD>[kg/m3]</TD></TR>
+<TR><TD>k</TD><TD>0.5</TD><TD>[W/(m.K)]</TD></TR>
+<TR><TD>h</TD><TD>10</TD><TD>[W/(m2.K)]</TD></TR>
+<TR><TD>nsections</TD><TD>30</TD><TD># of sections</TD></TR>
+<TR><TD>sec_L</TD><TD>L/nsections</TD><TD>[m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SolidifyingRod 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <font color="blue">import </font><A HREF="../../Thermal/help/Thermal_Basic1D.html#Thermal.Basic1D"
+>Thermal.Basic1D</A>;
+  <font color="blue">import </font>BCs = <A HREF="../../Thermal/help/Thermal_BoundaryConditions.html#Thermal.BoundaryConditions"
+>Thermal.BoundaryConditions</A>;
+  <font color="blue">import </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> L=0.3 <font color="darkgreen">&quot;Total length&quot;</font>;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SIunits.Area</A> A=4.0 <font color="darkgreen">&quot;Cross-sectional area&quot;</font>;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>SIunits.Density</A> rho=5.0;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SIunits.ThermalConductivity</A> k=0.5;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SIunits.CoefficientOfHeatTransfer</A> h=10;
+  <font color="blue">parameter </font>Integer nsections=30 <font color="darkgreen">&quot;# of sections&quot;</font>;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SIunits.Length</A> sec_L=L/nsections;
+  <font color="darkgreen">// Components</font>
+  <A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ThermalCapacitanceNL"
+>BookExamples.Chapter8.ThermalCapacitanceNL</A> cap[nsections](
+    <font color="blue">each </font>V=sec_L*A, 
+    <font color="blue">each </font>rho=rho, 
+    <font color="blue">redeclare </font><font color="blue">each </font><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.SimplePropertyModel"
+>BookExamples.Chapter8.SimplePropertyModel</A> props(Tu=1010, cp_m=90000));
+  <A HREF="../../Thermal/help/Thermal_BoundaryConditions.html#Thermal.BoundaryConditions.FixedTemperature"
+>BCs.FixedTemperature</A> Tr(T=1800);
+  <A HREF="../../Thermal/help/Thermal_Basic1D.html#Thermal.Basic1D.Conduction"
+>Basic1D.Conduction</A> c_cond[nsections - 1](
+    <font color="blue">each </font>L=sec_L, 
+    <font color="blue">each </font>A=A, 
+    <font color="blue">each </font>k=k);
+  <A HREF="../../Thermal/help/Thermal_Basic1D.html#Thermal.Basic1D.Convection"
+>Basic1D.Convection</A> r_conv(A=A, h=h);
+<font color="blue">equation </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nsections - 1<font color="blue"> loop</font>
+    <font color="red">connect</font>(c_cond[i].a, cap[i].n);
+    <font color="red">connect</font>(c_cond[i].b, cap[i + 1].n);
+  <font color="blue">end for</font>;
+  <font color="red">connect</font>(Tr.n, r_conv.b);
+  <font color="red">connect</font>(r_conv.a, cap[nsections].n);
+<font color="blue">end </font>SolidifyingRod;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringBacklash<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter8.SpringBacklashI.png" ALT="BookExamples.Chapter8.SpringBacklash" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter8.SpringBacklash"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.SpringBacklash</H2>
+<IMG SRC="BookExamples.Chapter8.SpringBacklashD.png" ALT="BookExamples.Chapter8.SpringBacklash">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>b</TD><TD>0.05</TD><TD>Backlash amount [rad]</TD></TR>
+<TR><TD>c</TD><TD>1e+5</TD><TD>Spring stiffness</TD></TR>
+<TR><TD>d</TD><TD>0</TD><TD>Damping coefficient</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SpringBacklash 
+  <font color="blue">import </font><A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>;
+  <font color="blue">extends </font><A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Compliant"
+>Rotational.Interfaces.Compliant</A>;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> b=0.05 <font color="darkgreen">&quot;Backlash amount&quot;</font>;
+  <font color="blue">parameter </font>Real c=1e+5 <font color="darkgreen">&quot;Spring stiffness&quot;</font>;
+  <font color="blue">parameter </font>Real d=0 <font color="darkgreen">&quot;Damping coefficient&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w_rel;
+<font color="blue">equation </font>
+  w_rel = <font color="red">der</font>(phi_rel);
+  <font color="blue">if </font>phi_rel &lt;= -b/2<font color="blue"> then</font>
+    tau = c*(phi_rel + b/2) + d*w_rel;
+  <font color="blue">elseif </font>phi_rel &gt;= b/2<font color="blue"> then</font>
+    tau = c*(phi_rel - b/2) + d*w_rel;
+  <font color="blue">else</font>
+    tau = 0;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>SpringBacklash;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalCapacitanceNL<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter8.ThermalCapacitanceNLI.png" ALT="BookExamples.Chapter8.ThermalCapacitanceNL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter8.ThermalCapacitanceNL"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.ThermalCapacitanceNL</H2>
+<B>Non-linear rod section</B><p>
+<IMG SRC="BookExamples.Chapter8.ThermalCapacitanceNLD.png" ALT="BookExamples.Chapter8.ThermalCapacitanceNL">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>rho</TD><TD>&nbsp;</TD><TD>[kg/m3]</TD></TR>
+<TR><TD>V</TD><TD>&nbsp;</TD><TD>[m3]</TD></TR>
+<TR><TD>props</TD><TD>redeclare ThermalPropertyModel props(T=n.T)</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThermalCapacitanceNL <font color="darkgreen">&quot;Non-linear rod section&quot;</font> 
+  <A HREF="../../Thermal/help/Thermal_Interfaces.html#Thermal.Interfaces.Node"
+>Thermal.Interfaces.Node</A> n;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Modelica.SIunits.Density</A> rho;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V;
+  <font color="blue">replaceable </font><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8.ThermalPropertyModel"
+>ThermalPropertyModel</A> props(T=n.T);
+<font color="blue">equation </font>
+  <font color="darkgreen">// Conservation of energy</font>
+  V*rho*<font color="red">der</font>(props.u) = n.q;
+<font color="blue">end </font>ThermalCapacitanceNL;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalPropertyModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter8.ThermalPropertyModel"></A><A HREF="BookExamples_Chapter8.html#BookExamples.Chapter8"
+>BookExamples.Chapter8</A>.ThermalPropertyModel</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> ThermalPropertyModel 
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T;
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.SpecificInternalEnergy"
+>Modelica.SIunits.SpecificInternalEnergy</A> u;
+<font color="blue">end </font>ThermalPropertyModel;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Sep 15 14:02:17 2003
+.
+</address></BODY>
+</HTML>

@@ -1,0 +1,8 @@
+checkModel("BookExamples.Chapter7.EmptyingTank1");
+checkModel("BookExamples.Chapter7.EmptyingTank2");
+translateModel("BookExamples.Chapter7.EmptyingTank3");
+
+experiment StopTime=5 NumberOfIntervals=500
+x := 2;
+simulate
+plot({"x"});

@@ -1,0 +1,300 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SensorComparison<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison"></A><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7"
+>BookExamples.Chapter7</A>.SensorComparison</H2>
+<A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestSampling"
+><IMG SRC="BookExamples.Chapter7.SensorComparison.TestSamplingI.png" ALT="BookExamples.Chapter7.SensorComparison.TestSampling" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestCounting"
+><IMG SRC="BookExamples.Chapter7.SensorComparison.TestCountingI.png" ALT="BookExamples.Chapter7.SensorComparison.TestCounting" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestPeriod"
+><IMG SRC="BookExamples.Chapter7.SensorComparison.TestPeriodI.png" ALT="BookExamples.Chapter7.SensorComparison.TestPeriod" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestQuantized"
+><IMG SRC="BookExamples.Chapter7.SensorComparison.TestQuantizedI.png" ALT="BookExamples.Chapter7.SensorComparison.TestQuantized" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestAll"
+><IMG SRC="BookExamples.Chapter7.SensorComparison.TestAllI.png" ALT="BookExamples.Chapter7.SensorComparison.TestAll" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.SamplingCase1"
+>SamplingCase1</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.SamplingCase2"
+>SamplingCase2</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.CountingCase1"
+>CountingCase1</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.CountingCase2"
+>CountingCase2</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.PeriodCase1"
+>PeriodCase1</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.PeriodCase2"
+>PeriodCase2</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.QuantizedCase1"
+>QuantizedCase1</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.QuantizedCase2"
+>QuantizedCase2</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestSampling"
+>TestSampling</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestCounting"
+>TestCounting</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestPeriod"
+>TestPeriod</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestQuantized"
+>TestQuantized</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.TestAll"
+>TestAll</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SamplingCase1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.SamplingCase1"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.SamplingCase1</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.SamplingCase1D.png" ALT="BookExamples.Chapter7.SensorComparison.SamplingCase1">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SamplingCase1 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(<font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SampleHoldSensor"
+>SampleHoldSensor</A> sensor(sample_interval=0.01));
+<font color="blue">end </font>SamplingCase1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SamplingCase2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.SamplingCase2"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.SamplingCase2</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.SamplingCase2D.png" ALT="BookExamples.Chapter7.SensorComparison.SamplingCase2">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SamplingCase2 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(<font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SampleHoldSensor"
+>SampleHoldSensor</A> sensor(sample_interval=0.015));
+<font color="blue">end </font>SamplingCase2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CountingCase1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.CountingCase1"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.CountingCase1</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.CountingCase1D.png" ALT="BookExamples.Chapter7.SensorComparison.CountingCase1">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CountingCase1 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(controller(k={10}), <font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.CountingSensor"
+>CountingSensor</A> sensor(divisions=64, sample_interval=0.02));
+<font color="blue">end </font>CountingCase1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CountingCase2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.CountingCase2"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.CountingCase2</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.CountingCase2D.png" ALT="BookExamples.Chapter7.SensorComparison.CountingCase2">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CountingCase2 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(controller(k={10}), <font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.CountingSensor"
+>CountingSensor</A> sensor(divisions=64, sample_interval=0.06));
+<font color="blue">end </font>CountingCase2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PeriodCase1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.PeriodCase1"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.PeriodCase1</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.PeriodCase1D.png" ALT="BookExamples.Chapter7.SensorComparison.PeriodCase1">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PeriodCase1 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(<font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.PeriodSensor"
+>PeriodSensor</A> sensor(divisions=16));
+<font color="blue">end </font>PeriodCase1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PeriodCase2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.PeriodCase2"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.PeriodCase2</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.PeriodCase2D.png" ALT="BookExamples.Chapter7.SensorComparison.PeriodCase2">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PeriodCase2 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(<font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.PeriodSensor"
+>PeriodSensor</A> sensor(divisions=8));
+<font color="blue">end </font>PeriodCase2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE QuantizedCase1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.QuantizedCase1"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.QuantizedCase1</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.QuantizedCase1D.png" ALT="BookExamples.Chapter7.SensorComparison.QuantizedCase1">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> QuantizedCase1 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(<font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.QuantizedSensor"
+>QuantizedSensor</A> sensor(sample_interval=0.01, bits=8));
+<font color="blue">end </font>QuantizedCase1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE QuantizedCase2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter7.SensorComparison.QuantizedCase2"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.QuantizedCase2</H2>
+<IMG SRC="BookExamples.Chapter7.SensorComparison.QuantizedCase2D.png" ALT="BookExamples.Chapter7.SensorComparison.QuantizedCase2">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> QuantizedCase2 
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A>(<font color="blue">redeclare </font><A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.QuantizedSensor"
+>QuantizedSensor</A> sensor(sample_interval=0.01, bits=4));
+<font color="blue">end </font>QuantizedCase2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestSampling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter7.SensorComparison.TestSamplingI.png" ALT="BookExamples.Chapter7.SensorComparison.TestSampling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter7.SensorComparison.TestSampling"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.TestSampling</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestSampling 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A> ideal;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.SamplingCase1"
+>SamplingCase1</A> sampling1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.SamplingCase2"
+>SamplingCase2</A> sampling2;
+<font color="blue">end </font>TestSampling;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestCounting<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter7.SensorComparison.TestCountingI.png" ALT="BookExamples.Chapter7.SensorComparison.TestCounting" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter7.SensorComparison.TestCounting"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.TestCounting</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestCounting 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A> ideal(controller(k={10}));
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.CountingCase1"
+>CountingCase1</A> counting1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.CountingCase2"
+>CountingCase2</A> counting2;
+<font color="blue">end </font>TestCounting;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestPeriod<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter7.SensorComparison.TestPeriodI.png" ALT="BookExamples.Chapter7.SensorComparison.TestPeriod" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter7.SensorComparison.TestPeriod"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.TestPeriod</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestPeriod 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A> ideal;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.PeriodCase1"
+>PeriodCase1</A> period1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.PeriodCase2"
+>PeriodCase2</A> period2;
+<font color="blue">end </font>TestPeriod;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestQuantized<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter7.SensorComparison.TestQuantizedI.png" ALT="BookExamples.Chapter7.SensorComparison.TestQuantized" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter7.SensorComparison.TestQuantized"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.TestQuantized</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestQuantized 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A> ideal;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.QuantizedCase1"
+>QuantizedCase1</A> quantized1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.QuantizedCase2"
+>QuantizedCase2</A> quantized2;
+<font color="blue">end </font>TestQuantized;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestAll<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter7.SensorComparison.TestAllI.png" ALT="BookExamples.Chapter7.SensorComparison.TestAll" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter7.SensorComparison.TestAll"></A><A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison"
+>BookExamples.Chapter7.SensorComparison</A>.TestAll</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestAll 
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A> ideal1;
+  <A HREF="BookExamples_Chapter7.html#BookExamples.Chapter7.SensorBenchmark"
+>SensorBenchmark</A> ideal2(controller(k={10}));
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.SamplingCase1"
+>SamplingCase1</A> sampling1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.SamplingCase2"
+>SamplingCase2</A> sampling2;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.CountingCase1"
+>CountingCase1</A> counting1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.CountingCase2"
+>CountingCase2</A> counting2;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.PeriodCase1"
+>PeriodCase1</A> period1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.PeriodCase2"
+>PeriodCase2</A> period2;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.QuantizedCase1"
+>QuantizedCase1</A> quantized1;
+  <A HREF="BookExamples_Chapter7_SensorComparison.html#BookExamples.Chapter7.SensorComparison.QuantizedCase2"
+>QuantizedCase2</A> quantized2;
+<font color="blue">end </font>TestAll;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Sep 10 16:48:14 2003
+.
+</address></BODY>
+</HTML>

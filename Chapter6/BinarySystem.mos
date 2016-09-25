@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter6.BinarySystem")
+experiment StopTime=31.5581e+6 NumberOfIntervals=500
+simulate
+plot({"earth.b.x[1]","earth.b.x[2]"});

@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter9.ParticleField")
+experiment StopTime=5 Tolerance=1e-8 NumberOfIntervals=500
+simulate
+

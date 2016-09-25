@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter3.ControlSystem3")
+experiment StopTime=20 NumberOfIntervals=500
+simulate
+plot({"Difference.inPort1.signal[1]","Difference.inPort2.signal[1]"});

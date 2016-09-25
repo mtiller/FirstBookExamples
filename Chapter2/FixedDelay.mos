@@ -1,0 +1,6 @@
+translateModel("BookExamples.Chapter2.FixedDelay")
+x := 1 ; 
+y := 1 ; 
+experiment StopTime=7.5 NumberOfIntervals=500
+simulate
+plot({"x","y","z"});

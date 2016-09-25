@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter7.BouncingBall1");
+experiment StopTime=5 NumberOfIntervals=500
+simulate
+plot({"h"});

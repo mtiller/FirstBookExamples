@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter3.RLC2")
+experiment StopTime=2 NumberOfIntervals=500
+simulate
+plot({"V_c","V_a"});

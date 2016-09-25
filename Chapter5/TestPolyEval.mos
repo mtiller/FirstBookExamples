@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter5.TestPolyEval");
+experiment StopTime=10 NumberOfIntervals=500
+simulate
+plot({"y","y2", "fdy"});
