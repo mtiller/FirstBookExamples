@@ -1,5 +1,7 @@
 # Examples from "Introduction to Physical Modeling with Modelica"
 
+![Logo](https://rawgithub.com/xogeny/FirstBookExamples/master/animated-logo.gif)
+
 In this directory, you will find the examples from my first book on
 Modelica, "Introduction to Physical Modeling with Modelica".  These are
 the models that originally accompanied the book on CD.  At some point,
