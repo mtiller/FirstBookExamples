@@ -1,0 +1,127 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>SimpleCar</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="SimpleCar.Tests"></A><A HREF="SimpleCar.html#SimpleCar"
+>SimpleCar</A>.Tests</H2>
+<B>Models to test various models</B>
+<P>
+<A HREF="SimpleCar_Tests.html#SimpleCar.Tests.SingleControlVolume"
+><IMG SRC="SimpleCar.Tests.SingleControlVolumeI.gif" ALT="SimpleCar.Tests.SingleControlVolume" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Tests.html#SimpleCar.Tests.TestValve"
+><IMG SRC="SimpleCar.Tests.TestValveI.gif" ALT="SimpleCar.Tests.TestValve" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Tests.html#SimpleCar.Tests.TestTransmission"
+><IMG SRC="SimpleCar.Tests.TestTransmissionI.gif" ALT="SimpleCar.Tests.TestTransmission" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE>The models in this package are used to verify that all the models are
+working properly.  These models are not as interesting as the models
+found in the 'Examples' package because they do not represent typical
+or meaningful configurations of components.  Instead, these models
+test the function of models by conducting virtual experiments on them
+to validate the basics of their performance.
+</PRE><P>
+<HR>
+<H2><IMG SRC="SimpleCar.Tests.SingleControlVolumeI.gif" ALT="SimpleCar.Tests.SingleControlVolume" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Tests.SingleControlVolume"></A><A HREF="SimpleCar_Tests.html#SimpleCar.Tests"
+>SimpleCar.Tests</A>.SingleControlVolume</H2>
+<B>Test a single control volume</B><p>
+<IMG SRC="SimpleCar.Tests.SingleControlVolumeD.gif" ALT="SimpleCar.Tests.SingleControlVolume">
+<H3>Information</H3>
+<PRE>This model looks at what happens to the states inside a control volume when the volume is change sinusoidally
+(closely approximating the volume change in a combustion chamber).
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+model SingleControlVolume &quot;Test a single control volume&quot; 
+  extends <A HREF="../../Modelica/help/Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.ControlVolume"
+>Engine.Components.ControlVolume</A> control_volume;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> volume(amplitude={.25}, offset={1});
+equation 
+  connect(volume.outPort, control_volume.volume);
+end SingleControlVolume;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Tests.TestValveI.gif" ALT="SimpleCar.Tests.TestValve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Tests.TestValve"></A><A HREF="SimpleCar_Tests.html#SimpleCar.Tests"
+>SimpleCar.Tests</A>.TestValve</H2>
+<B>Test an engine valve</B><p>
+<IMG SRC="SimpleCar.Tests.TestValveD.gif" ALT="SimpleCar.Tests.TestValve">
+<H3>Information</H3>
+<PRE>This model exercises the valve model by opening and closing the valve (via a valvetrain cam).
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+model TestValve &quot;Test an engine valve&quot; 
+  extends <A HREF="../../Modelica/help/Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Reservoir"
+>Engine.Components.Reservoir</A> upstream;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Valve"
+>Engine.Components.Valve</A> valve;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.ControlVolume"
+>Engine.Components.ControlVolume</A> control_volume;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> volume(k={0.004});
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Cam"
+>Engine.Components.Cam</A> cam;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> camshaft(w(start=157));
+equation 
+  connect(volume.outPort, control_volume.volume);
+  connect(cam.valve_lift, valve.lift);
+  connect(camshaft.flange_b, cam.camshaft);
+  connect(upstream.tap, valve.a);
+  connect(valve.b, control_volume.state);
+end TestValve;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Tests.TestTransmissionI.gif" ALT="SimpleCar.Tests.TestTransmission" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Tests.TestTransmission"></A><A HREF="SimpleCar_Tests.html#SimpleCar.Tests"
+>SimpleCar.Tests</A>.TestTransmission</H2>
+<B>Test the transmission and shift control</B><p>
+<IMG SRC="SimpleCar.Tests.TestTransmissionD.gif" ALT="SimpleCar.Tests.TestTransmission">
+<H3>Information</H3>
+<PRE>This model tests the transmission and its control strategy by running the transmission
+through a range of speeds such that all gears are engaged.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+model TestTransmission &quot;Test the transmission and shift control&quot; 
+  extends <A HREF="../../Modelica/help/Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="SimpleCar_Transmission.html#SimpleCar.Transmission.FiveSpeed"
+>Transmission.FiveSpeed</A> transmission;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> engine;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> driveline(J=100);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Torque"
+>Modelica.Mechanics.Rotational.Torque</A> engine_torque;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> torque_profile(height={100});
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Modelica.Mechanics.Rotational.Damper</A> bearing(d=10);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> mount;
+  <A HREF="SimpleCar_Transmission.html#SimpleCar.Transmission.SimpleShiftStrategy"
+>Transmission.SimpleShiftStrategy</A> shift_strategy(tire_radius=0.35, 
+      up_shift_schedule={10,20,30,40});
+equation 
+  connect(driveline.flange_b, transmission.driveline);
+  connect(transmission.engine, engine.flange_a);
+  connect(engine_torque.flange_b, engine.flange_b);
+  connect(torque_profile.outPort, engine_torque.inPort);
+  connect(driveline.flange_a, bearing.flange_b);
+  connect(bearing.flange_a, mount.flange_b);
+  connect(shift_strategy.gear_request, transmission.gear_selector);
+  connect(transmission.driveline, shift_strategy.wheel);
+end TestTransmission;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Feb 13 21:46:13 2001
+.
+</address></BODY>
+</HTML>

@@ -1,0 +1,123 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>SimpleCar</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="SimpleCar.Vehicles"></A><A HREF="SimpleCar.html#SimpleCar"
+>SimpleCar</A>.Vehicles</H2>
+<B>Vehicle models</B>
+<P>
+<A HREF="SimpleCar_Vehicles.html#SimpleCar.Vehicles.PassengerCar"
+><IMG SRC="SimpleCar.Vehicles.PassengerCarI.gif" ALT="SimpleCar.Vehicles.PassengerCar" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Vehicles.html#SimpleCar.Vehicles.SportsCar"
+><IMG SRC="SimpleCar.Vehicles.SportsCarI.gif" ALT="SimpleCar.Vehicles.SportsCar" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE>This package contains several &quot;complete vehicle&quot; models.  These are models
+that combine the engine, transmission and chassis subsystems from the other
+parts of the 'SimpleCar' package into a complete vehicle.
+</PRE><P>
+<HR>
+<H2><IMG SRC="SimpleCar.Vehicles.SportsCarI.gif" ALT="SimpleCar.Vehicles.SportsCar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Vehicles.SportsCar"></A><A HREF="SimpleCar_Vehicles.html#SimpleCar.Vehicles"
+>SimpleCar.Vehicles</A>.SportsCar</H2>
+<B>Vehicle model with the characteristics of a sports car.</B><p>
+<IMG SRC="SimpleCar.Vehicles.SportsCarD.gif" ALT="SimpleCar.Vehicles.SportsCar">
+<H3>Modelica definition</H3>
+<PRE>
+model SportsCar 
+  &quot;Vehicle model with the characteristics of a sports car.&quot; 
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Modelica.Mechanics.Translational.Interfaces.Flange_a</A> road;
+  replaceable <A HREF="SimpleCar_Chassis.html#SimpleCar.Chassis.SportsCarChassis"
+>Chassis.SportsCarChassis</A> chassis;
+  replaceable <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.I4_Engine"
+>Engine.Components.I4_Engine</A> engine(
+    spark_advance=20, 
+    burn_duration=60, 
+    evo=64, 
+    ivo=165, 
+    evc=190, 
+    ivc=290);
+  <A HREF="SimpleCar_Engine.html#SimpleCar.Engine.SportsCarGeometry"
+>Engine.SportsCarGeometry</A> geometry;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Reservoir"
+>Engine.Components.Reservoir</A> intake_ambient;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Reservoir"
+>Engine.Components.Reservoir</A> exhaust_manifold;
+  <A HREF="SimpleCar_Transmission.html#SimpleCar.Transmission.SportsCarTransmission"
+>Transmission.SportsCarTransmission</A> transmission(k_on=2, k_off=6);
+  <A HREF="SimpleCar_Transmission.html#SimpleCar.Transmission.SimpleShiftStrategy"
+>Transmission.SimpleShiftStrategy</A> shift_strategy(tire_radius=0.35, 
+      up_shift_schedule={30,60,80,95});
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> speed;
+equation 
+  connect(chassis.road, road);
+  connect(geometry.geom, engine.engine_geometry);
+  connect(exhaust_manifold.tap, engine.exhaust);
+  connect(transmission.engine, engine.crankshaft);
+  connect(transmission.driveline, chassis.power);
+  connect(chassis.wheel, shift_strategy.wheel);
+  connect(chassis.speed, speed);
+  connect(shift_strategy.gear_request, transmission.gear_selector);
+  connect(intake_ambient.tap, engine.intake);
+end SportsCar;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Vehicles.PassengerCarI.gif" ALT="SimpleCar.Vehicles.PassengerCar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Vehicles.PassengerCar"></A><A HREF="SimpleCar_Vehicles.html#SimpleCar.Vehicles"
+>SimpleCar.Vehicles</A>.PassengerCar</H2>
+<B>A sample passenger car model</B><p>
+<IMG SRC="SimpleCar.Vehicles.PassengerCarD.gif" ALT="SimpleCar.Vehicles.PassengerCar">
+<H3>Information</H3>
+<PRE>This model brings together a complete vehicle model with an engine, transmission, shift strategy and chassis.
+The throttle of the vehicle is presumably controlled by an external &quot;driver&quot; model.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+model PassengerCar &quot;A sample passenger car model&quot; 
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Modelica.Mechanics.Translational.Interfaces.Flange_a</A> road;
+  replaceable <A HREF="SimpleCar_Chassis.html#SimpleCar.Chassis.GenericCar"
+>Chassis.GenericCar</A> chassis(vehicle_mass=1200) extends Interfaces.Chassis;
+  replaceable <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.I4_Engine"
+>Engine.Components.I4_Engine</A> engine(spark_advance=20, burn_duration=80)
+     extends Interfaces.Engine;
+  <A HREF="SimpleCar_Engine.html#SimpleCar.Engine.GeometrySource"
+>Engine.GeometrySource</A> geometry(
+    bore=0.080, 
+    stroke=0.080, 
+    conrod=0.157);
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Reservoir"
+>Engine.Components.Reservoir</A> intake_manifold;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Reservoir"
+>Engine.Components.Reservoir</A> exhaust_manifold;
+  replaceable <A HREF="SimpleCar_Transmission.html#SimpleCar.Transmission.FiveSpeed"
+>Transmission.FiveSpeed</A> transmission extends Interfaces.Transmission;
+  replaceable <A HREF="SimpleCar_Transmission.html#SimpleCar.Transmission.SimpleShiftStrategy"
+>Transmission.SimpleShiftStrategy</A> shift_strategy(tire_radius=0.35, 
+      up_shift_schedule={10,20,30,40}) extends Interfaces.ShiftStrategy;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> speed;
+  <A HREF="SimpleCar_Engine_Components.html#SimpleCar.Engine.Components.Manifold"
+>Engine.Components.Manifold</A> intake_manifold1;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> throttle;
+equation 
+  connect(chassis.road, road);
+  connect(geometry.geom, engine.engine_geometry);
+  connect(exhaust_manifold.tap, engine.exhaust);
+  connect(transmission.engine, engine.crankshaft);
+  connect(transmission.driveline, chassis.power);
+  connect(shift_strategy.gear_request, transmission.gear_selector);
+  connect(chassis.wheel, shift_strategy.wheel);
+  connect(chassis.speed, speed);
+  connect(intake_manifold1.manifold, engine.intake);
+  connect(intake_manifold.tap, intake_manifold1.ambient);
+  connect(intake_manifold1.throttle_angle, throttle);
+end PassengerCar;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Feb 13 21:47:12 2001
+.
+</address></BODY>
+</HTML>
