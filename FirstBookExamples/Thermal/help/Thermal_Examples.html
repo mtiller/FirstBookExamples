@@ -1,0 +1,156 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Thermal</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Thermal.Examples"></A><A HREF="Thermal.html#Thermal"
+>Thermal</A>.Examples</H2>
+<A HREF="Thermal_Examples.html#Thermal.Examples.TwoMasses"
+><IMG SRC="Thermal.Examples.TwoMassesI.gif" ALT="Thermal.Examples.TwoMasses" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Thermal_Examples.html#Thermal.Examples.ThermalSpring"
+><IMG SRC="Thermal.Examples.ThermalSpringI.gif" ALT="Thermal.Examples.ThermalSpring" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Thermal_Examples.html#Thermal.Examples.AllModes"
+><IMG SRC="Thermal.Examples.AllModesI.gif" ALT="Thermal.Examples.AllModes" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<HR>
+<H2><IMG SRC="Thermal.Examples.TwoMassesI.gif" ALT="Thermal.Examples.TwoMasses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Thermal.Examples.TwoMasses"></A><A HREF="Thermal_Examples.html#Thermal.Examples"
+>Thermal.Examples</A>.TwoMasses</H2>
+<B>Simple conduction test</B><p>
+<IMG SRC="Thermal.Examples.TwoMassesD.gif" ALT="Thermal.Examples.TwoMasses">
+<H3>Information</H3>
+<PRE>This tests the thermal response of two masses connected by a conducting element.  This example
+
+also helps verify that the Modelica sign conventions have been obeyed.
+
+The expected solution would be for the mass with the higher temperature to cool off while the
+mass with a warmer temperature heats up.  They should each asymptotically approach the
+temperature that results from dividing the total initial energy in the system by the
+sum of the mass of each element times that elements specific heat.  In other words:
+
+Tf = (T1(t=0)*m1*cp1+T2(t=0)*m2*cp2)/(m1*cp1+m2*cp2)
+
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+model TwoMasses &quot;Simple conduction test&quot;
+  discrete Modelica.SIunits.Temperature Tf
+    &quot;Projected final temperature&quot;;
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> mass1(n(T(start=400, fixed=true)));
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> mass2;
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Conduction"
+>Basic1D.Conduction</A> conduction;
+equation
+  connect(mass1.n, conduction.a);
+  connect(conduction.b, mass2.n);
+algorithm
+  when (initial()) then
+    Tf := (mass1.n.T*mass1.V*mass1.rho*mass1.cp + mass2.n.T*mass2.V*mass2.rho*
+      mass2.cp)/(mass1.V*mass1.rho*mass1.cp + mass2.V*mass2.rho*mass2.cp);
+  end when;
+end TwoMasses;
+</PRE>
+<HR>
+<H2><IMG SRC="Thermal.Examples.ThermalSpringI.gif" ALT="Thermal.Examples.ThermalSpring" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Thermal.Examples.ThermalSpring"></A><A HREF="Thermal_Examples.html#Thermal.Examples"
+>Thermal.Examples</A>.ThermalSpring</H2>
+<B>Thermal Spring Test</B><p>
+<IMG SRC="Thermal.Examples.ThermalSpringD.gif" ALT="Thermal.Examples.ThermalSpring">
+<H3>Information</H3>
+<PRE>This example tests the &quot;ThermalSpring&quot; model.  The thermal spring model is a means by which
+thermal energy can be translated into mechanical energy through thermal expansion.  This example
+tests the effect of allow or disallowing such expansion.  In the case where the expansion is allowed,
+it does work on an inertia.  When the expansion is not allowed, the energy is stored as potential
+energy within the spring.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+model ThermalSpring &quot;Thermal Spring Test&quot;
+  <A HREF="Thermal_MixedDomain.html#Thermal.MixedDomain.RotationalSpring"
+>MixedDomain.RotationalSpring</A> spring1(unstretched_nom=1);
+  <A HREF="Thermal_MixedDomain.html#Thermal.MixedDomain.RotationalSpring"
+>MixedDomain.RotationalSpring</A> spring2(unstretched_nom=1);
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> mass1(n(T(start=300, fixed=true)));
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Conduction"
+>Basic1D.Conduction</A> Conduction1;
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> mass2(n(T(start=400, fixed=true)));
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> mount2(phi0=1);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> mount3;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> mount1;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> inertia;
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> mass3(n(T(start=300, fixed=true)));
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Conduction"
+>Basic1D.Conduction</A> Conduction2;
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> mass4(n(T(start=400, fixed=true)));
+equation
+  connect(mass2.n, Conduction1.b);
+  connect(Conduction1.a, mass1.n);
+  connect(mount2.flange_b, spring2.flange_b);
+  connect(spring2.flange_a, mount3.flange_b);
+  connect(inertia.flange_b, spring1.flange_b);
+  connect(spring1.flange_a, mount1.flange_b);
+  connect(mass4.n, Conduction2.b);
+  connect(Conduction2.a, mass3.n);
+  connect(spring1.node_a, mass1.n);
+  connect(spring2.node_a, mass3.n);
+end ThermalSpring;
+</PRE>
+<HR>
+<H2><IMG SRC="Thermal.Examples.AllModesI.gif" ALT="Thermal.Examples.AllModes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Thermal.Examples.AllModes"></A><A HREF="Thermal_Examples.html#Thermal.Examples"
+>Thermal.Examples</A>.AllModes</H2>
+<B>Test all basic modes of heat transfer</B><p>
+<IMG SRC="Thermal.Examples.AllModesD.gif" ALT="Thermal.Examples.AllModes">
+<H3>Information</H3>
+<PRE>This model tests the basic modes of heat transfer (conduction, convection and radiation) along with fixed and
+variable temperature bounday conditions.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+model AllModes &quot;Test all basic modes of heat transfer&quot;
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.BlackBodyRadiation"
+>Basic1D.BlackBodyRadiation</A> radiation(F=.5, A=.1);
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> body2(V=2);
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Basic1D.Capacitance</A> body1(V=2);
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Convection"
+>Basic1D.Convection</A> convection(h=30, A=1);
+  <A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Conduction"
+>Basic1D.Conduction</A> conduction(k=10);
+  <A HREF="Thermal_BoundaryConditions.html#Thermal.BoundaryConditions.FixedTemperature"
+>BoundaryConditions.FixedTemperature</A> LeftBC(T=600);
+  <A HREF="Thermal_BoundaryConditions.html#Thermal.BoundaryConditions.VariableTemperature"
+>BoundaryConditions.VariableTemperature</A> TempBC;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> RightTemp(
+    amplitude={800},
+    rising={.25},
+    width={1},
+    falling={.25},
+    period={2.5},
+    offset={500},
+    startTime={1});
+equation
+  connect(conduction.b, body2.n);
+  connect(conduction.a, body1.n);
+  connect(body2.n, radiation.a);
+  connect(convection.a, body1.n);
+  connect(LeftBC.n, convection.b);
+  connect(radiation.b, TempBC.n);
+  connect(RightTemp.outPort, TempBC.T);
+end AllModes;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Feb 13 21:36:36 2001
+.
+</address></BODY>
+</HTML>

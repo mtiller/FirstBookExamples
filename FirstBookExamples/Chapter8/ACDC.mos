@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter8.ACDC")
+experiment StopTime=1 NumberOfIntervals=500
+simulate
+plot({"load.v","capacitor.v","switch.off"});

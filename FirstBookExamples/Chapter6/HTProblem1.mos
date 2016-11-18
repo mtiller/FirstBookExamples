@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter6.HTProblem1")
+experiment StopTime=50 Tolerance=1e-4 NumberOfIntervals=500
+simulate
+plot({"rod.c_cond[2].a.T","rod.c_cond[4].a.T","rod.c_cond[6].a.T","rod.c_cond[8].a.T","rod.r_cond.a.T"});

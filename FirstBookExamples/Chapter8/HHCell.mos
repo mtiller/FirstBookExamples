@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter8.HHCell")
+experiment StopTime=0.8 NumberOfIntervals=4000
+simulate
+plot({"HH_Na.v","HH_Na.i","HH_K.n_prob"});

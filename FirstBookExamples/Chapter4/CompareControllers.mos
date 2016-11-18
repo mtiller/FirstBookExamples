@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter4.CompareControllers")
+experiment StopTime=20 NumberOfIntervals=500
+simulate
+plot({"pic.con.command.signal[1]","pic.con.sensor.signal[1]","pc.con.sensor.signal[1]","pdc.con.sensor.signal[1]"});

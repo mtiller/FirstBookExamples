@@ -1,0 +1,5 @@
+translateModel("BookExamples.Chapter2.SimplePendulum")
+experiment StopTime=10 NumberOfIntervals=500
+theta := 0.1;
+simulate
+plot({"omega","theta"});

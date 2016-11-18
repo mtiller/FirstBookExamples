@@ -1,6 +1,0 @@
-translateModel("BookExamples.Chapter2.ComparePendulums")
-experiment StopTime=10 NumberOfIntervals=500
-linear.theta := 0.2; 
-nonlinear.theta := 0.2; 
-simulate
-plot({"linear.theta","nonlinear.theta"});

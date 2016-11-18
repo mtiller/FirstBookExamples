@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter7.LogicCircuitWithLag");
+experiment StopTime=16 NumberOfIntervals=500
+simulate
+plot({"i1.outPort.signal[1]","i2.outPort.signal[1]","i1.outPort.signal[1]","o1","o2"});

@@ -1,0 +1,150 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>Thermal</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="Thermal.Basic1D"></A><A HREF="Thermal.html#Thermal"
+>Thermal</A>.Basic1D</H2>
+<A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+><IMG SRC="Thermal.Basic1D.CapacitanceI.gif" ALT="Thermal.Basic1D.Capacitance" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Conduction"
+><IMG SRC="Thermal.Basic1D.ConductionI.gif" ALT="Thermal.Basic1D.Conduction" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Thermal_Basic1D.html#Thermal.Basic1D.Convection"
+><IMG SRC="Thermal.Basic1D.ConvectionI.gif" ALT="Thermal.Basic1D.Convection" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="Thermal_Basic1D.html#Thermal.Basic1D.BlackBodyRadiation"
+><IMG SRC="Thermal.Basic1D.BlackBodyRadiationI.gif" ALT="Thermal.Basic1D.BlackBodyRadiation" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<HR>
+<H2><IMG SRC="Thermal.Basic1D.CapacitanceI.gif" ALT="Thermal.Basic1D.Capacitance" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Thermal.Basic1D.Capacitance"></A><A HREF="Thermal_Basic1D.html#Thermal.Basic1D"
+>Thermal.Basic1D</A>.Capacitance</H2>
+<B>Thermal capacitance</B><p>
+<IMG SRC="Thermal.Basic1D.CapacitanceD.gif" ALT="Thermal.Basic1D.Capacitance">
+<H3>Information</H3>
+<PRE>This is a generic model for thermal capacitance of material.  No
+specific geometry is assumped beyond a total volume.  This model
+also assumes a single uniform temperature for the entire volume.
+
+It is also assumed that the density and specific heat capacity are
+indepedent of temperature.
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>1.0</TD><TD> [J/(kg.K)]</TD></TR>
+<TR><TD>rho</TD><TD>1.0</TD><TD> [kg/m3]</TD></TR>
+<TR><TD>V</TD><TD>1.0</TD><TD> [m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+model Capacitance &quot;Thermal capacitance&quot;
+  parameter Modelica.SIunits.SpecificHeatCapacity cp=1.0;
+  parameter Modelica.SIunits.Density rho=1.0;
+  parameter Modelica.SIunits.Volume V=1.0;
+  <A HREF="Thermal_Interfaces.html#Thermal.Interfaces.Node_a"
+>Interfaces.Node_a</A> n;
+equation
+  V*cp*rho*der(n.T) = n.q;
+end Capacitance;
+</PRE>
+<HR>
+<H2><IMG SRC="Thermal.Basic1D.ConductionI.gif" ALT="Thermal.Basic1D.Conduction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Thermal.Basic1D.Conduction"></A><A HREF="Thermal_Basic1D.html#Thermal.Basic1D"
+>Thermal.Basic1D</A>.Conduction</H2>
+<B>Linear heat conduction</B><p>
+<IMG SRC="Thermal.Basic1D.ConductionD.gif" ALT="Thermal.Basic1D.Conduction">
+<H3>Information</H3>
+<PRE>This is a model for linear heat conduction.  The constitutive equation for heat conduction is:
+
+
+q = k*(a.T-b.T)/L;
+
+Both 'k' and 'L' are parameters.  The thermal conductivity, k, is not a function of temperature
+in this model.
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>1.0</TD><TD> [W/(m.K)]</TD></TR>
+<TR><TD>L</TD><TD>1.0</TD><TD> [m]</TD></TR>
+<TR><TD>A</TD><TD>1.0</TD><TD> [m2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+model Conduction &quot;Linear heat conduction&quot;
+  extends <A HREF="Thermal_Interfaces.html#Thermal.Interfaces.Element1D"
+>Interfaces.Element1D</A>;
+  parameter Modelica.SIunits.ThermalConductivity k=1.0;
+  parameter Modelica.SIunits.Length L=1.0;
+  parameter Modelica.SIunits.Area A=1.0;
+equation
+  q = A*k*dT/L;
+end Conduction;
+</PRE>
+<HR>
+<H2><IMG SRC="Thermal.Basic1D.ConvectionI.gif" ALT="Thermal.Basic1D.Convection" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Thermal.Basic1D.Convection"></A><A HREF="Thermal_Basic1D.html#Thermal.Basic1D"
+>Thermal.Basic1D</A>.Convection</H2>
+<B>Linear heat convection</B><p>
+<IMG SRC="Thermal.Basic1D.ConvectionD.gif" ALT="Thermal.Basic1D.Convection">
+<H3>Information</H3>
+<PRE>This is model of linear heat convection.  The basic constitutive equation for convection is:
+
+q = h*(a.T-b.T);
+
+It is assumed in this model that 'h' is a parameter and therefore not a function of temperature.
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>1.0</TD><TD> [W/(m2.K)]</TD></TR>
+<TR><TD>A</TD><TD>1.0</TD><TD> [m2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+model Convection &quot;Linear heat convection&quot;
+  extends <A HREF="Thermal_Interfaces.html#Thermal.Interfaces.Element1D"
+>Interfaces.Element1D</A>;
+  parameter Modelica.SIunits.CoefficientOfHeatTransfer h=1.0;
+  parameter Modelica.SIunits.Area A=1.0;
+equation
+  q = A*h*dT;
+end Convection;
+</PRE>
+<HR>
+<H2><IMG SRC="Thermal.Basic1D.BlackBodyRadiationI.gif" ALT="Thermal.Basic1D.BlackBodyRadiation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Thermal.Basic1D.BlackBodyRadiation"></A><A HREF="Thermal_Basic1D.html#Thermal.Basic1D"
+>Thermal.Basic1D</A>.BlackBodyRadiation</H2>
+<B>Black body radiation</B><p>
+<IMG SRC="Thermal.Basic1D.BlackBodyRadiationD.gif" ALT="Thermal.Basic1D.BlackBodyRadiation">
+<H3>Information</H3>
+<PRE>This simple radiation model uses the following constitutive equation:
+
+q = F*A*sigma*(a.T^4-b.T^4);
+
+where 'F' is a view factor (see &quot;A Heat Transfer Textbook&quot;, Lienhard, 1987), 'A' is the area of the radiating surface
+and sigma is the Stefan-Boltzmann constant.  It should be pointed out that 'F' should be chosen so that it
+corresponds to the surface for which the area, 'A', is being supplied.  In other words, each surface will have
+its own unique value for F (based on geometry) and it is important the values of 'F' and 'A' be consistent with
+each other.
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>F</TD><TD></TD><TD>View factor</TD></TR>
+<TR><TD>A</TD><TD>1.0</TD><TD> [m2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+model BlackBodyRadiation &quot;Black body radiation&quot;
+  extends <A HREF="Thermal_Interfaces.html#Thermal.Interfaces.Element1D"
+>Interfaces.Element1D</A>;
+  parameter Real F &quot;View factor&quot;;
+  parameter Modelica.SIunits.Area A=1.0;
+equation
+  q = F*Modelica.Constants.sigma*A*(a.T^4 - b.T^4);
+end BlackBodyRadiation;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Feb 13 21:35:59 2001
+.
+</address></BODY>
+</HTML>

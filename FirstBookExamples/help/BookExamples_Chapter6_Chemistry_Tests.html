@@ -1,0 +1,99 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Tests<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Tests"></A><A HREF="BookExamples_Chapter6_Chemistry.html#BookExamples.Chapter6.Chemistry"
+>BookExamples.Chapter6.Chemistry</A>.Tests</H2>
+<P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Chemistry_Tests.html#BookExamples.Chapter6.Chemistry.Tests.NonReactingVolume"
+>NonReactingVolume</A>
+</TD><TD>Does nothing</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Chemistry_Tests.html#BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReaction"
+>ThreeSpecies_SingleReaction</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NonReactingVolume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Tests.NonReactingVolume"></A><A HREF="BookExamples_Chapter6_Chemistry_Tests.html#BookExamples.Chapter6.Chemistry.Tests"
+>BookExamples.Chapter6.Chemistry.Tests</A>.NonReactingVolume</H2>
+<B>Does nothing</B><p>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NonReactingVolume <font color="darkgreen">&quot;Does nothing&quot;</font>
+  <A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Volume"
+>Chemistry.Basic.Volume</A> v(nspecies=5);
+<font color="blue">end </font>NonReactingVolume;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThreeSpecies_SingleReaction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReaction"></A><A HREF="BookExamples_Chapter6_Chemistry_Tests.html#BookExamples.Chapter6.Chemistry.Tests"
+>BookExamples.Chapter6.Chemistry.Tests</A>.ThreeSpecies_SingleReaction</H2>
+<IMG SRC="BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReactionD.png" ALT="BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReaction">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThreeSpecies_SingleReaction
+  <font color="blue">model</font> BimolecularReaction
+    <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Chemistry.Basic.Reaction</A>(
+      k=2.1e-5,
+      reactants={{1,1},{1,2},{2,3}},
+      products={{1,5},{1,6}});
+  <font color="blue">end </font>BimolecularReaction;
+  <A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Volume"
+>Chemistry.Basic.Volume</A> v(nspecies=6, v=1);
+  <A HREF="BookExamples_Chapter6_Chemistry_Tests.html#BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReaction.BimolecularReaction"
+>BimolecularReaction</A> reaction(nspecies=6, v=1);
+  <A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Stationary"
+>Chemistry.Basic.Stationary</A> s1(
+    stat_species=1,
+    nspecies=6,
+    c=.2);
+  <A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Stationary"
+>Chemistry.Basic.Stationary</A> s4(
+    stat_species=4,
+    nspecies=6,
+    c=.1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(reaction.p, v.p);
+  <font color="red">connect</font>(s1.p, v.p);
+  <font color="red">connect</font>(s4.p, v.p);
+<font color="blue">end </font>ThreeSpecies_SingleReaction;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BimolecularReaction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReaction.BimolecularReaction"></A><A HREF="BookExamples_Chapter6_Chemistry_Tests.html#BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReaction"
+>BookExamples.Chapter6.Chemistry.Tests.ThreeSpecies_SingleReaction</A>.BimolecularReaction</H2>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>0.001</TD><TD>[m3]</TD></TR>
+<TR><TD>nspecies</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k</TD><TD>2.1e-5</TD><TD>Reaction coefficient</TD></TR>
+<TR><TD>reactants[:, 2]</TD><TD>{{1,1},{1,2},{2,3}}</TD><TD>&nbsp;</TD></TR>
+<TR><TD>products[:, 2]</TD><TD>{{1,5},{1,6}}</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> BimolecularReaction
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Reaction"
+>Chemistry.Basic.Reaction</A>(
+    k=2.1e-5,
+    reactants={{1,1},{1,2},{2,3}},
+    products={{1,5},{1,6}});
+<font color="blue">end </font>BimolecularReaction;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Sep 10 16:48:18 2003
+.
+</address></BODY>
+</HTML>

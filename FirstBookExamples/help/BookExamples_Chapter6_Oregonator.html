@@ -1,0 +1,166 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Oregonator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter6.Oregonator"></A><A HREF="BookExamples_Chapter6.html#BookExamples.Chapter6"
+>BookExamples.Chapter6</A>.Oregonator</H2>
+<A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.ChemicalSystem"
+><IMG SRC="BookExamples.Chapter6.Oregonator.ChemicalSystemI.png" ALT="BookExamples.Chapter6.Oregonator.ChemicalSystem" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.ODESystem"
+><IMG SRC="BookExamples.Chapter6.Oregonator.ODESystemI.png" ALT="BookExamples.Chapter6.Oregonator.ODESystem" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.DebugSystem"
+><IMG SRC="BookExamples.Chapter6.Oregonator.DebugSystemI.png" ALT="BookExamples.Chapter6.Oregonator.DebugSystem" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Types and constants</H3>
+<font color="blue">constant </font>Integer A=1 <font color="darkgreen">&quot;BrO3(-)&quot;</font>;<p>
+<font color="blue">constant </font>Integer B=2 <font color="darkgreen">&quot;Organic Species&quot;</font>;<p>
+<font color="blue">constant </font>Integer P=3 <font color="darkgreen">&quot;HOBr&quot;</font>;<p>
+<font color="blue">constant </font>Integer X=4 <font color="darkgreen">&quot;HBrO2&quot;</font>;<p>
+<font color="blue">constant </font>Integer Y=5 <font color="darkgreen">&quot;Br(-)&quot;</font>;<p>
+<font color="blue">constant </font>Integer Z=6 <font color="darkgreen">&quot;Ce4+&quot;</font>;<p>
+<font color="blue">constant </font>Integer nspecies=6;<p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions"
+>Reactions</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.ChemicalSystem"
+>ChemicalSystem</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.ODESystem"
+>ODESystem</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.DebugSystem"
+>DebugSystem</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ChemicalSystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter6.Oregonator.ChemicalSystemI.png" ALT="BookExamples.Chapter6.Oregonator.ChemicalSystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter6.Oregonator.ChemicalSystem"></A><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator"
+>BookExamples.Chapter6.Oregonator</A>.ChemicalSystem</H2>
+<IMG SRC="BookExamples.Chapter6.Oregonator.ChemicalSystemD.png" ALT="BookExamples.Chapter6.Oregonator.ChemicalSystem">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ChemicalSystem
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Volume"
+>Chemistry.Basic.Volume</A> v(
+    nspecies=nspecies,
+    v=1,
+    i_moles=<font color="red">fill</font>(1, nspecies));
+  <A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_AY"
+>Reactions.R_AY</A> r_ay(nspecies=nspecies, v=1);
+  <A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_XY"
+>Reactions.R_XY</A> r_xy(nspecies=nspecies, v=1);
+  <A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_AX"
+>Reactions.R_AX</A> r_ax(nspecies=nspecies, v=1);
+  <A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_2X"
+>Reactions.R_2X</A> r_2x(nspecies=nspecies, v=1);
+  <A HREF="BookExamples_Chapter6_Oregonator_Reactions.html#BookExamples.Chapter6.Oregonator.Reactions.R_BZ"
+>Reactions.R_BZ</A> r_bz(nspecies=nspecies, v=1);
+  <A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Stationary"
+>Chemistry.Basic.Stationary</A> c_A(
+    stat_species=A,
+    nspecies=nspecies,
+    c=1.0);
+  <A HREF="BookExamples_Chapter6_Chemistry_Basic.html#BookExamples.Chapter6.Chemistry.Basic.Stationary"
+>Chemistry.Basic.Stationary</A> c_B(
+    stat_species=B,
+    nspecies=nspecies,
+    c=1.0);
+  <font color="darkgreen"></font>
+  Real cA=v.moles[A];
+  Real cB=v.moles[B];
+  Real cP=v.moles[P];
+  Real cX=v.moles[X];
+  Real cY=v.moles[Y];
+  Real cZ=v.moles[Z];
+<font color="blue">protected </font>
+  Real dcx;
+  Real dcy;
+  Real dcz;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(v.p, r_ay.p);
+  <font color="red">connect</font>(v.p, r_xy.p);
+  <font color="red">connect</font>(v.p, r_ax.p);
+  <font color="red">connect</font>(v.p, r_2x.p);
+  <font color="red">connect</font>(v.p, r_bz.p);
+  <font color="red">connect</font>(v.p, c_A.p);
+  <font color="red">connect</font>(v.p, c_B.p);
+  dcx = <font color="red">der</font>(cX);
+  dcy = <font color="red">der</font>(cY);
+  dcz = <font color="red">der</font>(cZ);
+<font color="blue">end </font>ChemicalSystem;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ODESystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter6.Oregonator.ODESystemI.png" ALT="BookExamples.Chapter6.Oregonator.ODESystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter6.Oregonator.ODESystem"></A><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator"
+>BookExamples.Chapter6.Oregonator</A>.ODESystem</H2>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ODESystem
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <font color="darkgreen"></font>
+  Real x(start=1);
+  Real y(start=1);
+  Real z(start=1);
+  Real dx;
+  Real dy;
+  Real dz;
+  <font color="blue">constant </font>Real alpha=50;
+  <font color="blue">constant </font>Real beta=1.0;
+  <font color="blue">constant </font>Real gamma=0.0013;
+  <font color="blue">constant </font>Real f=2;
+  Real rate_xy;
+  Real rate_2x;
+  Real rate_ax;
+  Real rate_ay;
+  Real rate_bz;
+<font color="blue">equation </font>
+  rate_ay = y;
+  rate_xy = x*y;
+  rate_ax = alpha*x;
+  rate_2x = 2*gamma*x*x;
+  rate_bz = beta*z;
+  dx = -x*y - 2*gamma*x*x + alpha*x + y;
+  dy = -x*y - y + (f/2)*beta*z;
+  dz = 2*alpha*x - beta*z;
+  <font color="red">der</font>(x) = -x*y - 2*gamma*x*x + alpha*x + y;
+  <font color="red">der</font>(y) = -x*y - y + (f/2)*beta*z;
+  <font color="red">der</font>(z) = 2*alpha*x - beta*z;
+<font color="blue">end </font>ODESystem;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DebugSystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter6.Oregonator.DebugSystemI.png" ALT="BookExamples.Chapter6.Oregonator.DebugSystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter6.Oregonator.DebugSystem"></A><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator"
+>BookExamples.Chapter6.Oregonator</A>.DebugSystem</H2>
+<IMG SRC="BookExamples.Chapter6.Oregonator.DebugSystemD.png" ALT="BookExamples.Chapter6.Oregonator.DebugSystem">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DebugSystem
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.ChemicalSystem"
+>ChemicalSystem</A>;
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter6_Oregonator.html#BookExamples.Chapter6.Oregonator.ODESystem"
+>ODESystem</A>;
+<font color="blue">end </font>DebugSystem;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Sep 10 16:48:07 2003
+.
+</address></BODY>
+</HTML>

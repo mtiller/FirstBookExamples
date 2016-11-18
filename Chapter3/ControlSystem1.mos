@@ -1,4 +1,0 @@
-translateModel("BookExamples.Chapter3.ControlSystem1")
-experiment StopTime=20 NumberOfIntervals=500
-simulate
-plot({"w_c","w_m"});

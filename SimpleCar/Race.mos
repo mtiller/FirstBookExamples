@@ -1,5 +1,0 @@
-Evaluate:=true;
-translateModel("SimpleCar.Examples.Race")
-experiment StopTime=10 NumberOfIntervals=500
-simulate
-plot({"sports_car.chassis.kmh","sports_car.engine.crankshaft_inertia.w"});

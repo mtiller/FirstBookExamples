@@ -1,0 +1,4 @@
+translateModel("BookExamples.Chapter5.TestPiecewise");
+experiment StopTime=9.999 NumberOfIntervals=500
+simulate
+plot({"y"});
