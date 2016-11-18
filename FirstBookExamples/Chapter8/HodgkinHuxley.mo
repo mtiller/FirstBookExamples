@@ -53,17 +53,18 @@ package HodgkinHuxley
              *Modelica.Math.exp(-(E + V_ah)/20);
     b_h = 1/(1 + Modelica.Math.exp(-(E + V_bh)/10));
     annotation (
-      Icon(
-        Line(points=[-98, 0; -80, 0; -70, 20; -60, -20; -50, 20; -40, -20; -30,
-               20; -20, -20; -10, 20; 0, -20; 10, 20; 20, 0; 40, 0], style(
-              color=0)),
-        Line(points=[40, 60; 40, -60], style(color=0)),
-        Line(points=[50, 30; 50, -30], style(color=0)),
-        Line(points=[50, 0; 100, 0], style(color=0)),
-        Line(points=[0, -30; -60, 32], style(color=0)),
-        Line(points=[-60, 32; -54, 32], style(color=0)),
-        Line(points=[-60, 32; -60, 26], style(color=0)),
-        Text(extent=[60, 40; 100, 20], string="Na")));
+      Icon(graphics={
+          Line(points={{-98,0},{-80,0},{-70,20},{-60,-20},{-50,20},{
+                -40,-20},{-30,20},{-20,-20},{-10,20},{0,-20},{10,20},
+                {20,0},{40,0}}, color={0,0,0}),
+          Line(points={{40,60},{40,-60}}, color={0,0,0}),
+          Line(points={{50,30},{50,-30}}, color={0,0,0}),
+          Line(points={{50,0},{100,0}}, color={0,0,0}),
+          Line(points={{0,-30},{-60,32}}, color={0,0,0}),
+          Line(points={{-60,32},{-54,32}}, color={0,0,0}),
+          Line(points={{-60,32},{-60,26}}, color={0,0,0}),
+          Text(extent={{60,40},{100,20}}, textString=
+                                              "Na")}));
   end SodiumChannel;
 
   model PotassiumChannel "Hodgkin-Huxley Potassium Channel"
@@ -87,17 +88,18 @@ package HodgkinHuxley
     b_n = 0.125
               *Modelica.Math.exp(-(E + V_bn)/80);
     annotation (
-      Icon(
-        Line(points=[-98, 0; -80, 0; -70, 20; -60, -20; -50, 20; -40, -20; -30,
-               20; -20, -20; -10, 20; 0, -20; 10, 20; 20, 0; 40, 0], style(
-              color=0)),
-        Line(points=[40, 60; 40, -60], style(color=0)),
-        Line(points=[50, 30; 50, -30], style(color=0)),
-        Line(points=[50, 0; 100, 0], style(color=0)),
-        Line(points=[0, -30; -60, 32], style(color=0)),
-        Line(points=[-60, 32; -54, 32], style(color=0)),
-        Line(points=[-60, 32; -60, 26], style(color=0)),
-        Text(extent=[60, 40; 100, 20], string="K")));
+      Icon(graphics={
+          Line(points={{-98,0},{-80,0},{-70,20},{-60,-20},{-50,20},{
+                -40,-20},{-30,20},{-20,-20},{-10,20},{0,-20},{10,20},
+                {20,0},{40,0}}, color={0,0,0}),
+          Line(points={{40,60},{40,-60}}, color={0,0,0}),
+          Line(points={{50,30},{50,-30}}, color={0,0,0}),
+          Line(points={{50,0},{100,0}}, color={0,0,0}),
+          Line(points={{0,-30},{-60,32}}, color={0,0,0}),
+          Line(points={{-60,32},{-54,32}}, color={0,0,0}),
+          Line(points={{-60,32},{-60,26}}, color={0,0,0}),
+          Text(extent={{60,40},{100,20}}, textString=
+                                              "K")}));
   end PotassiumChannel;
 
   model LeakageChannel "Hodgkin-Huxley Leakage Channel"
@@ -108,18 +110,19 @@ package HodgkinHuxley
   equation
     i = g_max*(v - E_L);
     annotation (
-      Diagram,
-      Icon(
-        Line(points=[-98, 0; -80, 0; -70, 20; -60, -20; -50, 20; -40, -20; -30,
-               20; -20, -20; -10, 20; 0, -20; 10, 20; 20, 0; 40, 0], style(
-              color=0)),
-        Line(points=[40, 60; 40, -60], style(color=0)),
-        Line(points=[50, 30; 50, -30], style(color=0)),
-        Line(points=[50, 0; 100, 0], style(color=0)),
-        Line(points=[0, -30; -60, 32], style(color=0)),
-        Line(points=[-60, 32; -54, 32], style(color=0)),
-        Line(points=[-60, 32; -60, 26], style(color=0)),
-        Text(extent=[60, 40; 100, 20], string="Leak")));
+      Diagram(graphics),
+      Icon(graphics={
+          Line(points={{-98,0},{-80,0},{-70,20},{-60,-20},{-50,20},{
+                -40,-20},{-30,20},{-20,-20},{-10,20},{0,-20},{10,20},
+                {20,0},{40,0}}, color={0,0,0}),
+          Line(points={{40,60},{40,-60}}, color={0,0,0}),
+          Line(points={{50,30},{50,-30}}, color={0,0,0}),
+          Line(points={{50,0},{100,0}}, color={0,0,0}),
+          Line(points={{0,-30},{-60,32}}, color={0,0,0}),
+          Line(points={{-60,32},{-54,32}}, color={0,0,0}),
+          Line(points={{-60,32},{-60,26}}, color={0,0,0}),
+          Text(extent={{60,40},{100,20}}, textString=
+                                              "Leak")}));
   end LeakageChannel;
 
   annotation (

@@ -2,7 +2,8 @@ within FirstBookExamples.Chapter7;
 model QuantizedSensor
   import Modelica.SIunits;
   import Modelica.Mechanics.Rotational;
-  extends Rotational.Interfaces.AbsoluteSensor;
+  extends
+    Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
 
   parameter Integer bits=4;
   parameter SIunits.Time sample_interval=0.02;

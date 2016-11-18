@@ -2,7 +2,8 @@ within FirstBookExamples.Chapter7;
 model SampleHoldSensor
   import Modelica.Mechanics.Rotational;
 
-  extends Rotational.Interfaces.AbsoluteSensor;
+  extends
+    Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
   Modelica.SIunits.AngularVelocity w;
   parameter Modelica.SIunits.Time sample_interval=0.1;
 equation

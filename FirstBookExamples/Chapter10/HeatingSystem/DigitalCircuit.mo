@@ -23,27 +23,37 @@ protected
 
 public
   Modelica.Electrical.Analog.Interfaces.PositivePin thermo_n
-    annotation (extent=[-70, 50; -50, 70], layer="icon");
+    annotation (                           layer="icon", Placement(
+        transformation(extent={{-70,50},{-50,70}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin furnace_p
-    annotation (extent=[-70, -10; -50, 10], layer="icon");
+    annotation (                            layer="icon", Placement(
+        transformation(extent={{-70,-10},{-50,10}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin furnace_n
-    annotation (extent=[-70, -70; -50, -50], layer="icon");
+    annotation (                             layer="icon", Placement(
+        transformation(extent={{-70,-70},{-50,-50}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin thermo_p
-    annotation (extent=[50, 50; 70, 70], layer="icon");
+    annotation (                         layer="icon", Placement(
+        transformation(extent={{50,50},{70,70}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin unused
-    annotation (extent=[50, -10; 70, 10], layer="icon");
+    annotation (                          layer="icon", Placement(
+        transformation(extent={{50,-10},{70,10}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin ground
-    annotation (extent=[50, -70; 70, -50], layer="icon");
+    annotation (                           layer="icon", Placement(
+        transformation(extent={{50,-70},{70,-50}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealSwitch furnace_switch
-    annotation (extent=[-40, -40; -20, -20], rotation=270);
+    annotation (Placement(transformation(
+        origin={-30,-30},
+        extent={{-10,-10},{10,10}},
+        rotation=270)));
 equation
   connect(thermo_n, ground)
-    annotation (points=[-60, 60; 0, 60; 0, -60; 60, -60]);
-  connect(unused, ground) annotation (points=[60, 0; 0, 0; 0, -60; 60, -60]);
+    annotation (Line(points={{-60,60},{0,60},{0,-60},{60,-60}}));
+  connect(unused, ground) annotation (Line(points={{60,0},{0,0},{0,
+          -60},{60,-60}}));
   connect(furnace_switch.p, furnace_p)
-    annotation (points=[-30, -20; -30, 0; -60, 0]);
+    annotation (Line(points={{-30,-20},{-30,0},{-60,0}}));
   connect(furnace_switch.n, furnace_n)
-    annotation (points=[-30, -40; -30, -60; -60, -60]);
+    annotation (Line(points={{-30,-40},{-30,-60},{-60,-60}}));
   thermo_p.i = 0;
   furnace_switch.control.signal[1] = not furnace_on;
 
@@ -61,13 +71,30 @@ algorithm
     furnace_on := true;
   end when;
   annotation (
-    Icon(
-      Rectangle(extent=[-50, 80; 50, -80], style(color=0, fillColor=9)),
-      Text(extent=[-66, 86; -54, 74], string="Tn"),
-      Text(extent=[-66, 26; -54, 14], string="Fp"),
-      Text(extent=[-66, -34; -54, -46], string="Fn"),
-      Text(extent=[54, 86; 66, 74], string="Tp"),
-      Text(extent=[54, -34; 66, -46], string="g"),
-      Ellipse(extent=[-10, 80; 10, 60], style(color=0, fillColor=0)),
-      Rectangle(extent=[-10, 80; 10, 72], style(color=0, fillColor=0))));
+    Icon(graphics={
+        Rectangle(
+          extent={{-50,80},{50,-80}},
+          lineColor={0,0,0},
+          fillColor={160,160,164},
+          fillPattern=FillPattern.Solid),
+        Text(extent={{-66,86},{-54,74}}, textString=
+                                             "Tn"),
+        Text(extent={{-66,26},{-54,14}}, textString=
+                                             "Fp"),
+        Text(extent={{-66,-34},{-54,-46}}, textString=
+                                               "Fn"),
+        Text(extent={{54,86},{66,74}}, textString=
+                                           "Tp"),
+        Text(extent={{54,-34},{66,-46}}, textString=
+                                             "g"),
+        Ellipse(
+          extent={{-10,80},{10,60}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-10,80},{10,72}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid)}));
 end DigitalCircuit;

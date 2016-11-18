@@ -2,7 +2,8 @@ within FirstBookExamples.Chapter7;
 model CountingSensor
   import Modelica.Mechanics.Rotational;
 
-  extends Rotational.Interfaces.AbsoluteSensor;
+  extends
+    Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
   parameter Integer divisions=4;
   parameter Modelica.SIunits.Time sample_interval=0.1;
 protected

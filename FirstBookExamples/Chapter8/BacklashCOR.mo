@@ -1,7 +1,7 @@
 within FirstBookExamples.Chapter8;
 model BacklashCOR
   import Modelica.Mechanics.Rotational;
-  extends Rotational.Interfaces.Compliant;
+  extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
   parameter Modelica.SIunits.Angle b=0.05;
   parameter Modelica.SIunits.Inertia I1=1;
   parameter Modelica.SIunits.Inertia I2=1;

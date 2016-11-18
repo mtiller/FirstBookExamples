@@ -10,35 +10,42 @@ model ConductingRod_Thermal
   parameter SIunits.ThermalConductivity k=1.0;
   parameter Integer n=10 "Number of sections";
 
-  Thermal.Interfaces.Node a annotation (extent=[-110, -10; -90, 10]);
-  Thermal.Interfaces.Node b annotation (extent=[90, -10; 110, 10]);
+  Thermal.Interfaces.Node a annotation (Placement(transformation(
+          extent={{-110,-10},{-90,10}}, rotation=0)));
+  Thermal.Interfaces.Node b annotation (Placement(transformation(
+          extent={{90,-10},{110,10}}, rotation=0)));
 protected
   parameter SIunits.Length dx=L/n;
   Basic1D.Capacitance cap[n](
     each V=dx*A,
     each rho=rho,
-    each cp=cp) annotation (extent=[-60, 0; -40, 20]);
+    each cp=cp) annotation (Placement(transformation(extent={{-60,0},
+            {-40,20}}, rotation=0)));
   Basic1D.Conduction c_cond[n - 1](
     each L=dx,
     each A=A,
-    each k=k) annotation (extent=[20, 0; 40, 20]);
+    each k=k) annotation (Placement(transformation(extent={{20,0},{40,
+            20}}, rotation=0)));
   Basic1D.Conduction l_cond(
     L=dx/2,
     A=A,
-    k=k) annotation (extent=[-60, -60; -40, -40]);
+    k=k) annotation (Placement(transformation(extent={{-60,-60},{-40,
+            -40}}, rotation=0)));
   Basic1D.Conduction r_cond(
     L=dx/2,
     A=A,
-    k=k) annotation (extent=[20, -60; 40, -40]);
+    k=k) annotation (Placement(transformation(extent={{20,-60},{40,
+            -40}}, rotation=0)));
 equation
   for i in 1:n - 1 loop
     connect(c_cond[i].a, cap[i].n);
     connect(c_cond[i].b, cap[i + 1].n);
   end for;
   connect(a, l_cond.a)
-    annotation (points=[-100, 0; -76, 0; -76, -50; -60, -50]);
+    annotation (Line(points={{-100,0},{-76,0},{-76,-50},{-60,-50}}));
   connect(l_cond.b, cap[1].n);
-  connect(b, r_cond.b) annotation (points=[100, 0; 70, 0; 70, -50; 40, -50]);
+  connect(b, r_cond.b) annotation (Line(points={{100,0},{70,0},{70,
+          -50},{40,-50}}));
   connect(r_cond.a, cap[n].n);
-  annotation (Icon);
+  annotation (Icon(graphics));
 end ConductingRod_Thermal;

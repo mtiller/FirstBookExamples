@@ -58,25 +58,33 @@ package Oregonator
     Chemistry.Basic.Volume v(
       nspecies=nspecies,
       v=1,
-      i_moles=fill(1, nspecies)) annotation (extent=[-60, 32; -40, 52]);
+      i_moles=fill(1, nspecies)) annotation (Placement(transformation(
+            extent={{-60,32},{-40,52}}, rotation=0)));
     Reactions.R_AY r_ay(nspecies=nspecies, v=1)
-      annotation (extent=[-20, 32; 0, 52]);
+      annotation (Placement(transformation(extent={{-20,32},{0,52}},
+            rotation=0)));
     Reactions.R_XY r_xy(nspecies=nspecies, v=1)
-      annotation (extent=[40, 32; 60, 52]);
+      annotation (Placement(transformation(extent={{40,32},{60,52}},
+            rotation=0)));
     Reactions.R_AX r_ax(nspecies=nspecies, v=1)
-      annotation (extent=[-58, -20; -38, 0]);
+      annotation (Placement(transformation(extent={{-58,-20},{-38,0}},
+            rotation=0)));
     Reactions.R_2X r_2x(nspecies=nspecies, v=1)
-      annotation (extent=[-20, -20; 0, 0]);
+      annotation (Placement(transformation(extent={{-20,-20},{0,0}},
+            rotation=0)));
     Reactions.R_BZ r_bz(nspecies=nspecies, v=1)
-      annotation (extent=[40, -20; 60, 0]);
+      annotation (Placement(transformation(extent={{40,-20},{60,0}},
+            rotation=0)));
     Chemistry.Basic.Stationary c_A(
       stat_species=A,
       nspecies=nspecies,
-      c=1.0) annotation (extent=[-60, -64; -40, -44]);
+      c=1.0) annotation (Placement(transformation(extent={{-60,-64},{
+              -40,-44}}, rotation=0)));
     Chemistry.Basic.Stationary c_B(
       stat_species=B,
       nspecies=nspecies,
-      c=1.0) annotation (extent=[-20, -64; 0, -44]);
+      c=1.0) annotation (Placement(transformation(extent={{-20,-64},{
+              0,-44}}, rotation=0)));
 
     Real cA=v.moles[A];
     Real cB=v.moles[B];
@@ -89,27 +97,28 @@ package Oregonator
     Real dcy;
     Real dcz;
   equation
-    connect(v.p, r_ay.p) annotation (points=[-60, 42; -70, 42; -70, 60; -28, 60;
-           -28, 42; -20, 42]);
+    connect(v.p, r_ay.p) annotation (Line(points={{-60,42},{-70,42},{
+            -70,60},{-28,60},{-28,42},{-20,42}}));
     connect(v.p, r_xy.p)
-      annotation (points=[-60, 42; -70, 42; -70, 60; 34, 60; 34, 42; 40, 42]);
+      annotation (Line(points={{-60,42},{-70,42},{-70,60},{34,60},{34,
+            42},{40,42}}));
     connect(v.p, r_ax.p)
-      annotation (points=[-60, 42; -70, 42; -70, -10; -58, -10]);
-    connect(v.p, r_2x.p) annotation (points=[-60, 42; -70, 42; -70, 12; -26, 12;
-           -26, -10; -20, -10]);
-    connect(v.p, r_bz.p) annotation (points=[-60, 42; -70, 42; -70, 12; 32, 12;
-           32, -10; 40, -10]);
+      annotation (Line(points={{-60,42},{-70,42},{-70,-10},{-58,-10}}));
+    connect(v.p, r_2x.p) annotation (Line(points={{-60,42},{-70,42},{
+            -70,12},{-26,12},{-26,-10},{-20,-10}}));
+    connect(v.p, r_bz.p) annotation (Line(points={{-60,42},{-70,42},{
+            -70,12},{32,12},{32,-10},{40,-10}}));
     connect(v.p, c_A.p)
-      annotation (points=[-60, 42; -70, 42; -70, -54; -60, -54]);
-    connect(v.p, c_B.p) annotation (points=[-60, 42; -70, 42; -70, -34; -26, -34;
-           -26, -54; -20, -54]);
+      annotation (Line(points={{-60,42},{-70,42},{-70,-54},{-60,-54}}));
+    connect(v.p, c_B.p) annotation (Line(points={{-60,42},{-70,42},{
+            -70,-34},{-26,-34},{-26,-54},{-20,-54}}));
     dcx = der(cX);
     dcy = der(cY);
     dcz = der(cZ);
     annotation (
       experiment(StopTime=30),
       Commands(file="Oregonator.mos" "Simulate Oregonator"),
-      Diagram);
+      Diagram(graphics));
   end ChemicalSystem;
 
   model ODESystem

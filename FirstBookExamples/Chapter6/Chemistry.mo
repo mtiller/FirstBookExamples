@@ -114,7 +114,8 @@ package Chemistry "A sample chemistry package"
     extends Modelica.Icons.Library;
     model NonReactingVolume "Does nothing"
       Chemistry.Basic.Volume v(nspecies=5)
-        annotation (extent=[-16, -12; 20, 20]);
+        annotation (Placement(transformation(extent={{-16,-12},{20,20}},
+              rotation=0)));
     end NonReactingVolume;
 
     model ThreeSpecies_SingleReaction
@@ -125,26 +126,30 @@ package Chemistry "A sample chemistry package"
           products={{1,5},{1,6}});
       end BimolecularReaction;
       Chemistry.Basic.Volume v(nspecies=6, v=1)
-        annotation (extent=[-28, 2; -8, 22]);
+        annotation (Placement(transformation(extent={{-28,2},{-8,22}},
+              rotation=0)));
       BimolecularReaction reaction(nspecies=6, v=1)
-        annotation (extent=[6, 32; 26, 52]);
+        annotation (Placement(transformation(extent={{6,32},{26,52}},
+              rotation=0)));
       Chemistry.Basic.Stationary s1(
         stat_species=1,
         nspecies=6,
         c=0.2)
-              annotation (extent=[-28, -32; -8, -12]);
+              annotation (Placement(transformation(extent={{-28,-32},
+                {-8,-12}}, rotation=0)));
       Chemistry.Basic.Stationary s4(
         stat_species=4,
         nspecies=6,
         c=0.1)
-              annotation (extent=[6, -56; 26, -36]);
+              annotation (Placement(transformation(extent={{6,-56},{
+                26,-36}}, rotation=0)));
     equation
       connect(reaction.p, v.p)
-        annotation (points=[6, 42; -48, 42; -48, 12; -28, 12]);
+        annotation (Line(points={{6,42},{-48,42},{-48,12},{-28,12}}));
       connect(s1.p, v.p)
-        annotation (points=[-28, -22; -38, -22; -38, 12; -28, 12]);
+        annotation (Line(points={{-28,-22},{-38,-22},{-38,12},{-28,12}}));
       connect(s4.p, v.p)
-        annotation (points=[6, -46; -48, -46; -48, 12; -28, 12]);
+        annotation (Line(points={{6,-46},{-48,-46},{-48,12},{-28,12}}));
     end ThreeSpecies_SingleReaction;
   end Tests;
 end Chemistry;

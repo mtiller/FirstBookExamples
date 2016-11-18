@@ -3,8 +3,10 @@ model Capacitor "An electrical capacitor"
   import Modelica.SIunits;
 
   parameter SIunits.Capacitance C=1e-6 "Capacitance";
-  ElectricalPin p annotation (extent=[-110, -10; -90, 10]);
-  ElectricalPin n annotation (extent=[90, -10; 110, 10]);
+  ElectricalPin p annotation (Placement(transformation(extent={{-110,
+            -10},{-90,10}}, rotation=0)));
+  ElectricalPin n annotation (Placement(transformation(extent={{90,
+            -10},{110,10}}, rotation=0)));
   SIunits.Voltage v;
 equation
   v = p.v - n.v;

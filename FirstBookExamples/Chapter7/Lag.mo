@@ -4,9 +4,11 @@ block Lag
   parameter Real threshold=0.7
                               "logical threshold";
   Modelica.Blocks.Interfaces.BooleanInPort inPort(n=1)
-    annotation (extent=[-110, -10; -90, 10]);
+    annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+          rotation=0)));
   Modelica.Blocks.Interfaces.BooleanOutPort outPort(n=1)
-    annotation (extent=[90, -10; 110, 10]);
+    annotation (Placement(transformation(extent={{90,-10},{110,10}},
+          rotation=0)));
 protected
   Real state "Continuous state of the wire";
 equation

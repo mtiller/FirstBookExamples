@@ -2,7 +2,8 @@ within FirstBookExamples.Chapter7;
 model PeriodSensor
   import Modelica.Mechanics.Rotational;
 
-  extends Rotational.Interfaces.AbsoluteSensor;
+  extends
+    Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
   parameter Integer divisions=4;
 protected
   parameter Modelica.SIunits.Angle trigger_interval=2*Modelica.Constants.pi/

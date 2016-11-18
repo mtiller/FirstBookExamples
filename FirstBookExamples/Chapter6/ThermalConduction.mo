@@ -7,8 +7,10 @@ model ThermalConduction "1-D Conduction Heat Transfer"
   parameter SIunits.Area A=1.0;
 
   // Connectors
-  ThermalNode a annotation (extent=[-110, -10; -90, 10]);
-  ThermalNode b annotation (extent=[90, -10; 110, 10]);
+  ThermalNode a annotation (Placement(transformation(extent={{-110,
+            -10},{-90,10}}, rotation=0)));
+  ThermalNode b annotation (Placement(transformation(extent={{90,-10},
+            {110,10}}, rotation=0)));
 equation
   a.q = A*k*(a.T - b.T)/L;
   b.q = -a.q;

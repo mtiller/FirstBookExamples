@@ -11,45 +11,82 @@ public
     width={10},
     period={20e-3},
     startTime={0.5})
-                    annotation (extent=[-100, -10; -80, 10]);
+                    annotation (Placement(transformation(extent={{
+            -100,-10},{-80,10}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SignalCurrent is
-    annotation (extent=[-70, 20; -30, -20], rotation=90);
+    annotation (Placement(transformation(
+        origin={-50,0},
+        extent={{20,-20},{-20,20}},
+        rotation=90)));
   HodgkinHuxley.MembraneCapacitance C(membrane_area=area)
-    annotation (extent=[-20, -10; 0, 10], rotation=-90);
+    annotation (Placement(transformation(
+        origin={-10,0},
+        extent={{-10,-10},{10,10}},
+        rotation=270)));
   HodgkinHuxley.SodiumChannel HH_Na(membrane_area=area)
-    annotation (extent=[0, -20; 40, 20], rotation=-90);
+    annotation (Placement(transformation(
+        origin={20,0},
+        extent={{-20,-20},{20,20}},
+        rotation=270)));
   HodgkinHuxley.PotassiumChannel HH_K(membrane_area=area)
-    annotation (extent=[30, -20; 70, 20], rotation=270);
+    annotation (Placement(transformation(
+        origin={50,0},
+        extent={{-20,-20},{20,20}},
+        rotation=270)));
   HodgkinHuxley.LeakageChannel HH_L(membrane_area=area)
-    annotation (extent=[60, -20; 100, 20], rotation=-90);
+    annotation (Placement(transformation(
+        origin={80,0},
+        extent={{-20,-20},{20,20}},
+        rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground g
-    annotation (extent=[10, -78; 30, -58]);
+    annotation (Placement(transformation(extent={{10,-78},{30,-58}},
+          rotation=0)));
 equation
-  connect(pulse.outPort, is.inPort) annotation (points=[-79, 0; -64.1, 0.1]);
-  connect(HH_Na.p, is.p) annotation (points=[20, 20; 20, 40; -50, 40; -50, 20]);
-  connect(HH_K.p, is.p) annotation (points=[50, 20; 50, 40; -50, 40; -50, 20]);
-  connect(HH_L.p, is.p) annotation (points=[80, 20; 80, 40; -50, 40; -50, 20]);
-  connect(C.p, is.p) annotation (points=[-10, 10; -10, 40; -50, 40; -50, 20]);
+  connect(pulse.y, is.u) annotation (Line(points={{-79,0},{-64.1,0.1}}));
+  connect(HH_Na.p, is.p) annotation (Line(points={{20,20},{20,40},{
+          -50,40},{-50,20}}));
+  connect(HH_K.p, is.p) annotation (Line(points={{50,20},{50,40},{-50,
+          40},{-50,20}}));
+  connect(HH_L.p, is.p) annotation (Line(points={{80,20},{80,40},{-50,
+          40},{-50,20}}));
+  connect(C.p, is.p) annotation (Line(points={{-10,10},{-10,40},{-50,
+          40},{-50,20}}));
   connect(is.n, C.n)
-    annotation (points=[-50, -20; -50, -40; -10, -40; -10, -10]);
+    annotation (Line(points={{-50,-20},{-50,-40},{-10,-40},{-10,-10}}));
   connect(HH_Na.n, C.n)
-    annotation (points=[20, -20; 20, -40; -10, -40; -10, -10]);
+    annotation (Line(points={{20,-20},{20,-40},{-10,-40},{-10,-10}}));
   connect(HH_K.n, C.n)
-    annotation (points=[50, -20; 50, -40; -10, -40; -10, -10]);
+    annotation (Line(points={{50,-20},{50,-40},{-10,-40},{-10,-10}}));
   connect(HH_L.n, C.n)
-    annotation (points=[80, -20; 80, -40; -10, -40; -10, -10]);
-  connect(HH_Na.n, g.p) annotation (points=[20, -20; 20, -58]);
+    annotation (Line(points={{80,-20},{80,-40},{-10,-40},{-10,-10}}));
+  connect(HH_Na.n, g.p) annotation (Line(points={{20,-20},{20,-58}}));
 
   annotation (experiment(StopTime=0.8),
               Commands(file="HHCell.mos" "Simulate HHCell"),
-    Diagram(
-      Line(points=[-100, 30; 100, 30], style(color=9, pattern=3)),
-      Line(points=[-100, -30; 100, -30], style(color=9, pattern=3)),
-      Line(points=[-100, 32; 100, 32], style(color=9, pattern=3)),
-      Line(points=[-100, -32; 100, -32], style(color=9, pattern=3)),
-      Text(
-        extent=[-92, 60; -56, 52],
-        string="Membrane Wall",
-        style(color=9)),
-      Line(points=[-70, 52; -70, 34], style(color=9, arrow=1))));
+    Diagram(graphics={
+        Line(
+          points={{-100,30},{100,30}},
+          color={160,160,164},
+          pattern=LinePattern.Dot),
+        Line(
+          points={{-100,-30},{100,-30}},
+          color={160,160,164},
+          pattern=LinePattern.Dot),
+        Line(
+          points={{-100,32},{100,32}},
+          color={160,160,164},
+          pattern=LinePattern.Dot),
+        Line(
+          points={{-100,-32},{100,-32}},
+          color={160,160,164},
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-92,60},{-56,52}},
+          lineColor={160,160,164},
+          textString=
+               "Membrane Wall"),
+        Line(
+          points={{-70,52},{-70,34}},
+          color={160,160,164},
+          arrow={Arrow.None,Arrow.Filled})}));
 end HHCell;

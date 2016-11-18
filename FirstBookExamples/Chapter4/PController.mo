@@ -7,5 +7,5 @@ protected
 equation
   e = command.signal[1] - sensor.signal[1];
   driver.signal[1] = Kp*e;
-  annotation (Diagram);
+  annotation (Diagram(graphics));
 end PController;

@@ -18,29 +18,41 @@ connectors).
   connector Node_a "A solid-filled thermal node"
     extends Node;
     annotation (
-      Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=45, fillColor=
-                45))),
-      Diagram(Rectangle(extent=[-100, 100; 100, -100], style(color=45,
-              fillColor=45)), Text(
-          extent=[-50, 50; 150, -150],
-          string="%name",
-          style(color=0))));
+      Icon(graphics={Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={255,127,0},
+            fillColor={255,127,0},
+            fillPattern=FillPattern.Solid)}),
+      Diagram(graphics={Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={255,127,0},
+            fillColor={255,127,0},
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-50,50},{150,-150}},
+            lineColor={0,0,0},
+            textString=
+                 "%name")}));
   end Node_a;
 
   connector Node_b "A outlined thermal node connector."
     extends Node;
     annotation (
-      Diagram(Rectangle(extent=[-100, 100; 100, -100], style(
-            color=45,
-            thickness=2,
-            fillColor=7)), Text(
-          extent=[-50, 50; 150, -150],
-          string="%name",
-          style(color=0, fillPattern=0))),
-      Icon(Rectangle(extent=[-100, 100; 100, -100], style(
-            color=45,
-            thickness=2,
-            fillColor=7))));
+      Diagram(graphics={Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={255,127,0},
+            lineThickness=0.5,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-50,50},{150,-150}},
+            lineColor={0,0,0},
+            textString=
+                 "%name")}),
+      Icon(graphics={Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={255,127,0},
+            lineThickness=0.5,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid)}));
   end Node_b;
 
   partial model Element1D "Basic thermal element"
@@ -48,8 +60,10 @@ connectors).
     Modelica.SIunits.HeatFlowRate q "Heat flow rate from a->b";
     Modelica.SIunits.Temperature dT "a.T-b.T";
   public
-    Node_a a annotation (extent=[-110, -10; -90, 10]);
-    Node_b b annotation (extent=[90, -10; 110, 10]);
+    Node_a a annotation (Placement(transformation(extent={{-110,-10},
+              {-90,10}}, rotation=0)));
+    Node_b b annotation (Placement(transformation(extent={{90,-10},{
+              110,10}}, rotation=0)));
   equation
     dT = a.T - b.T;
     a.q = q;

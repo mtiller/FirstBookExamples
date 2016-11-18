@@ -1,14 +1,19 @@
 within FirstBookExamples.Chapter3;
 model PendulumSystem1 "Simple Pendulum"
   extends FirstBookExamples.Icons.RunnableExample;
-  RotationalPendulum pend annotation (extent=[-70, -10; -50, 10], rotation=180);
-  FrictionlessJoint joint annotation (extent=[-8, -10; 12, 10]);
-  Modelica.Mechanics.Rotational.Fixed fixed
-    annotation (extent=[48, -10; 68, 10], rotation=90);
+  RotationalPendulum pend annotation (Placement(transformation(
+        origin={-60,0},
+        extent={{-10,-10},{10,10}},
+        rotation=180)));
+  FrictionlessJoint joint annotation (Placement(transformation(extent
+          ={{-8,-10},{12,10}}, rotation=0)));
+  Modelica.Mechanics.Rotational.Components.Fixed
+                                      fixed;
 equation
-  connect(pend.p, joint.a) annotation (points=[-50, -1.22461e-015; -32, -1.22461e-015;
-         -32, 0; -8, 0]);
-  connect(joint.b, fixed.flange_b) annotation (points=[12, 0; 58, 0]);
+  connect(joint.b, fixed.flange)
+    annotation (Line(points={{12,0},{35,0},{58,0}}, color={0,0,0}));
+  connect(pend.p, joint.a) annotation (Line(points={{-50,0},{-30,0},{-8,
+          0}}, color={0,0,0}));
   annotation (experiment(StopTime=20),
               Commands(file="PendulumSystem1.mos" "Simulate PendulumSystem1"));
 end PendulumSystem1;

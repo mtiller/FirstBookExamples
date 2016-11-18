@@ -1,7 +1,7 @@
 within FirstBookExamples.Chapter8;
 model SpringBacklash
   import Modelica.Mechanics.Rotational;
-  extends Rotational.Interfaces.Compliant;
+  extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
   parameter Modelica.SIunits.Angle b=0.05 "Backlash amount";
   parameter Real c=1e+5 "Spring stiffness";
   parameter Real d=0 "Damping coefficient";
