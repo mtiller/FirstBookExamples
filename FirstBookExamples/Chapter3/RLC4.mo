@@ -18,7 +18,7 @@ model RLC4 "An RLC circuit using standard components"
   Analog.Basic.Inductor L(L=100e-3)
     annotation (Placement(transformation(extent={{-60,40},{-40,60}},
           rotation=0)));
-  Analog.Sources.StepVoltage vs(startTime=1)
+  Analog.Sources.StepVoltage vs(startTime=1, V=1)
     annotation (Placement(transformation(extent={{-60,-44},{-40,-24}},
           rotation=0)));
   Analog.Basic.Ground g annotation (Placement(transformation(extent={
@@ -38,5 +38,5 @@ equation
   connect(R2.n, g.p) annotation (Line(points={{-14,0},{-14,-34},{30,
           -34},{30,-44}}));
   annotation (experiment(StopTime=2),
-              Commands(file="RLC4.mos" "Simulate RLC4"));
+              __Dymola_Commands(file="RLC4.mos" "Simulate RLC4"));
 end RLC4;

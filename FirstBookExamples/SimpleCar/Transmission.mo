@@ -73,11 +73,11 @@ package Transmission "Transmissions and transmission components"
     connect(gear1.flange_a, first_gear_clutch.flange_a) annotation (Line(
           points={{4,60},{24,60}}));
     connect(gear1.flange_b, inertia_driveline_side.flange_b) annotation (Line(
-          points={{-16,60},{-34,60},{-34,0},{-52,5.55112e-16}}, color
-          ={128,128,128}));
+          points={{-16,60},{-34,60},{-34,0},{-52,5.55112e-16}}, color=
+           {128,128,128}));
     connect(gear2.flange_b, inertia_driveline_side.flange_b) annotation (Line(
-          points={{-16,30},{-34,30},{-34,0},{-52,5.55112e-16}}, color
-          ={128,128,128}));
+          points={{-16,30},{-34,30},{-34,0},{-52,5.55112e-16}}, color=
+           {128,128,128}));
     connect(gear2.flange_a, second_gear_clutch.flange_a) annotation (Line(
           points={{4,30},{24,30}}, color={128,128,128}));
     connect(gear3.flange_a, third_gear_clutch.flange_a) annotation (Line(
@@ -155,7 +155,6 @@ package Transmission "Transmissions and transmission components"
           Line(points={{56,-16},{50,-16},{44,-14}}, color={0,0,0}),
           Line(points={{56,-30},{52,-30},{46,-26}}, color={0,0,0}),
           Line(points={{-12,-24},{-10,-24},{36,-24}}, color={0,0,0}),
-
           Line(points={{-32,4},{-18,12},{24,12}}, color={0,0,0}),
           Line(points={{-20,-2},{-18,-2},{8,-2}}, color={0,0,0}),
           Text(extent={{-60,60},{60,40}}, textString=

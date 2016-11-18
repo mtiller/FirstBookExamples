@@ -23,5 +23,5 @@ equation
   annotation (experiment(
       StopTime=2,
       NumberOfIntervals=500,
-      Tolerance=1E-8), Commands(file="RLC.mos" "Simulate RLC"));
+      Tolerance=1E-8), __Dymola_Commands(file="RLC.mos" "Simulate RLC"));
 end RLC;

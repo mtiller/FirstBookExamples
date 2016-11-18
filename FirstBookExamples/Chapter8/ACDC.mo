@@ -72,7 +72,7 @@ equation
   connect(diode.n, short.p) annotation (Line(points={{-40,20},{-30,20}}));
   annotation (
     experiment(StopTime=1),
-      Commands(file="ACDC.mos" "Simulate ACDC"),
+      __Dymola_Commands(file="ACDC.mos" "Simulate ACDC"),
     Diagram(graphics={
         Rectangle(
           extent={{-190,52},{60,-60}},

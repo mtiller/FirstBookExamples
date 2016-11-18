@@ -46,6 +46,6 @@ equation
           24}}));
   annotation (
     experiment(StopTime=20),
-    Commands(file="ControlSystem3.mos" "Simulate ControlSystem3"),
+    __Dymola_Commands(file="ControlSystem3.mos" "Simulate ControlSystem3"),
     Diagram(graphics));
 end ControlSystem3;

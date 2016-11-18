@@ -60,7 +60,6 @@ package Chassis "A collection of chassis models and related components"
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{16,2},{30,-12},{10,-12},{-4,-12},{-4,2},{16,2}},
-
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),

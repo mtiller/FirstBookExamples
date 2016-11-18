@@ -5,8 +5,8 @@ package BacklashComparison
     import Modelica.Mechanics.Rotational;
 
     Modelica.Mechanics.Rotational.Components.Inertia I1 annotation (
-        Placement(transformation(extent={{-38,-8},{-18,12}}, rotation
-            =0)));
+        Placement(transformation(extent={{-38,-8},{-18,12}}, rotation=
+             0)));
     Modelica.Mechanics.Rotational.Components.Inertia I2(J=3)
       annotation (Placement(transformation(extent={{18,-8},{38,12}},
             rotation=0)));
@@ -34,8 +34,8 @@ package BacklashComparison
     extends NoRigid;
     import Modelica.Mechanics.Rotational;
     Modelica.Mechanics.Rotational.Components.IdealGear gear(
-        useSupport=false) annotation (Placement(transformation(extent
-            ={{48,-8},{68,12}}, rotation=0)));
+        useSupport=false) annotation (Placement(transformation(extent=
+             {{48,-8},{68,12}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia I3 annotation (
         Placement(transformation(extent={{78,-8},{98,12}}, rotation=0)));
   equation
@@ -68,6 +68,6 @@ package BacklashComparison
     NoRigid_COR nr_cor;
     Rigid_COR r_cor;
     annotation (experiment(StopTime=1),
-                Commands(file="BacklashComparison.mos" "Run backlash comparison"));
+                __Dymola_Commands(file="BacklashComparison.mos" "Run backlash comparison"));
   end Comparison;
 end BacklashComparison;

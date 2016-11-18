@@ -9,10 +9,10 @@ model BeltController
   Modelica.Electrical.Analog.Interfaces.PositivePin p
     annotation (Placement(transformation(extent={{90,30},{110,50}},
           rotation=0)));
-  Modelica.Blocks.Interfaces.InPort phi
+  Modelica.Blocks.Interfaces.RealInput phi
     annotation (                             layer="icon", Placement(
         transformation(extent={{-120,30},{-100,50}}, rotation=0)));
-  Modelica.Blocks.Interfaces.InPort omega
+  Modelica.Blocks.Interfaces.RealInput omega
     annotation (                               layer="icon",
       Placement(transformation(extent={{-120,-50},{-100,-30}},
           rotation=0)));

@@ -49,9 +49,9 @@ package Chemistry "A sample chemistry package"
     model ConcentrationSensor
       parameter Integer species=1;
       Chemistry.Interfaces.Mixture p;
-      Modelica.Blocks.Interfaces.OutPort c;
+      Modelica.Blocks.Interfaces.RealOutput c;
     equation
-      c.signal[1] = p.c[species];
+      c= p.c[species];
     end ConcentrationSensor;
   end Sensors;
 

@@ -35,8 +35,8 @@ simulation time is specified.
       ivo=150,
       evc=205,
       ivc=310,
-      combustion_chamber) annotation (Placement(transformation(extent
-            ={{-20,-20},{20,40}}, rotation=0)));
+      combustion_chamber) annotation (Placement(transformation(extent=
+             {{-20,-20},{20,40}}, rotation=0)));
     Engine.Components.Dynamometer dyno annotation (Placement(
           transformation(extent={{-40,-70},{-20,-50}}, rotation=0)));
     Modelica.Blocks.Sources.Ramp speed_profile(
@@ -80,8 +80,8 @@ model.
     Engine.Components.Reservoir exhaust annotation (Placement(
           transformation(extent={{40,60},{60,80}}, rotation=0)));
     Engine.Components.IndividualCylinder cylinder1(spark_advance=20,
-        burn_duration=60) annotation (Placement(transformation(extent
-            ={{-20,-20},{20,40}}, rotation=0)));
+        burn_duration=60) annotation (Placement(transformation(extent=
+             {{-20,-20},{20,40}}, rotation=0)));
     Engine.GeometrySource sample_geometry(
       bore=0.08,
       stroke=0.08,

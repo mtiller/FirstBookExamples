@@ -15,8 +15,8 @@ class ConveyorBelt
     annotation (Placement(transformation(extent={{20,-10},{40,10}},
           rotation=0)));
   Modelica.Mechanics.Rotational.Components.Fixed ground annotation (
-      Placement(transformation(extent={{-30,-60},{-10,-40}}, rotation
-          =0)));
+      Placement(transformation(extent={{-30,-60},{-10,-40}}, rotation=
+           0)));
   Modelica.Mechanics.Rotational.Components.Damper bearings(d=20)
     annotation (Placement(transformation(
         origin={-20,-30},

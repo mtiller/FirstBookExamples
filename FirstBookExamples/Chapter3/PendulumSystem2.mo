@@ -17,8 +17,8 @@ model PendulumSystem2 "Simple Pendulum"
         origin={-2,-28},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Mechanics.Rotational.Components.Spring s2(c=2) annotation
-    (Placement(transformation(extent={{28,12},{48,32}}, rotation=0)));
+  Modelica.Mechanics.Rotational.Components.Spring s2(c=2) annotation (
+     Placement(transformation(extent={{28,12},{48,32}}, rotation=0)));
   Modelica.Mechanics.Rotational.Components.Damper d2(d=0.2)
     annotation (Placement(transformation(extent={{30,-10},{50,10}},
           rotation=0)));
@@ -43,5 +43,5 @@ equation
   connect(d2.flange_b, fixed.flange)
     annotation (Line(points={{50,0},{58,0},{58,22},{86,22}}));
   annotation (experiment(StopTime=20),
-              Commands(file="PendulumSystem2.mos" "Simulate PendulumSystem2"));
+              __Dymola_Commands(file="PendulumSystem2.mos" "Simulate PendulumSystem2"));
 end PendulumSystem2;

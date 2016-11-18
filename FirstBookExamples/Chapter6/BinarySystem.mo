@@ -16,6 +16,6 @@ equation
   connect(earth_sun.b2, earth.b)
     annotation (Line(points={{-16,-25},{-6,-25},{-6,45},{2,45}}));
   annotation (experiment(StopTime=31.5581e+6),
-              Commands(file="BinarySystem.mos" "Simulate BinarySystem"),
+              __Dymola_Commands(file="BinarySystem.mos" "Simulate BinarySystem"),
               Diagram(graphics));
 end BinarySystem;

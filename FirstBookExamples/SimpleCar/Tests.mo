@@ -30,8 +30,8 @@ package Tests "Models to test various models"
           transformation(extent={{-23,-55},{-3,-35}}, rotation=0)));
     Engine.Components.Cam cam annotation (Placement(transformation(
             extent={{-44,69},{-24,89}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia camshaft(w(start
-          =157)) annotation (Placement(transformation(extent={{-81,69},
+    Modelica.Mechanics.Rotational.Components.Inertia camshaft(w(start=
+           157)) annotation (Placement(transformation(extent={{-81,69},
               {-61,89}}, rotation=0)));
   equation
     connect(volume.y, control_volume.volume) annotation (Line(points=
@@ -60,8 +60,8 @@ package Tests "Models to test various models"
       annotation (Placement(transformation(extent={{-70,-20},{-50,0}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.Torque engine_torque(
-        useSupport=false) annotation (Placement(transformation(extent
-            ={{50,50},{70,70}}, rotation=0)));
+        useSupport=false) annotation (Placement(transformation(extent=
+             {{50,50},{70,70}}, rotation=0)));
     Modelica.Blocks.Sources.Ramp torque_profile(height={100}) annotation (Placement(
           transformation(extent={{10,50},{30,70}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Damper bearing(d=10)

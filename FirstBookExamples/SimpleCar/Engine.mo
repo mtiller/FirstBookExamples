@@ -93,7 +93,6 @@ thermodynamics.
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-58,-64},{-40,-52},{40,-52},{58,-64},{-58,-64}},
-
             lineColor={28,108,200},
             pattern=LinePattern.None,
             fillColor={255,255,255},
@@ -143,7 +142,6 @@ thermodynamics.
             points={{-100,96},{-60,96},{-40,80},{-20,60},{-20,46},{
                 -18,44},{-18,40},{18,40},{18,44},{20,46},{20,60},{40,
                 80},{60,96},{100,96},{100,100},{-100,100},{-100,96}},
-
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
@@ -174,7 +172,7 @@ set of engine geometry characteristics.
       "Computes combustion chamber volume as a function of piston position"
       Modelica.Mechanics.Translational.Interfaces.Flange_a piston annotation (Placement(
             transformation(extent={{-10,-90},{10,-70}}, rotation=0)));
-      Modelica.Blocks.Interfaces.OutPort volume(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput volume(final n=1) annotation (Placement(
             transformation(
             origin={-110,0},
             extent={{-10,-10},{10,10}},
@@ -225,7 +223,6 @@ set of engine geometry characteristics.
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-58,-64},{-40,-52},{40,-52},{58,-64},{-58,-64}},
-
               lineColor={28,108,200},
               pattern=LinePattern.None,
               fillColor={255,255,255},
@@ -300,13 +297,13 @@ contribution be provided for any flow variables.
       Real logV;
       Real logP;
     public
-      Modelica.Blocks.Interfaces.InPort volume(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput volume(final n=1) annotation (Placement(
             transformation(
             origin={110,0},
             extent={{-10,-10},{10,10}},
             rotation=180)));
     public
-      Modelica.Blocks.Interfaces.OutPort mass annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput mass annotation (Placement(
             transformation(
             origin={-60,110},
             extent={{-10,-10},{10,10}},
@@ -337,7 +334,6 @@ contribution be provided for any flow variables.
       annotation (
         Icon(graphics={
             Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,0}),
-
             Ellipse(
               extent={{14,46},{18,50}},
               lineColor={0,127,255},
@@ -467,7 +463,7 @@ connect a combustion model.
     model Throttle "Orifice with throttle plate"
       parameter Modelica.SIunits.Diameter dia=0.1 "Throttle diameter";
       extends Orifice(final Aref=Modelica.Constants.PI*(dia/2)^2);
-      Modelica.Blocks.Interfaces.InPort throttle_angle(final n=1)
+      Modelica.Blocks.Interfaces.RealInput throttle_angle(final n=1)
         "Throttle Angle [deg]" annotation (Placement(transformation(
             origin={0,110},
             extent={{-10,-10},{10,10}},
@@ -521,7 +517,6 @@ connect a combustion model.
               fillColor={192,192,192}),
             Polygon(
               points={{-40,-60},{-28,-52},{30,-52},{40,-60},{-40,-60}},
-
               lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={160,160,164}),
@@ -877,7 +872,7 @@ the spark strategy to change as engine conditions changed but this model just as
     public
       Interfaces.Gas cylinder annotation (Placement(transformation(
               extent={{-10,-50},{10,-30}}, rotation=0)));
-      Modelica.Blocks.Interfaces.InPort mass(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput mass(final n=1) annotation (Placement(
             transformation(
             origin={-60,-110},
             extent={{10,-10},{-10,10}},
@@ -917,7 +912,6 @@ the spark strategy to change as engine conditions changed but this model just as
               fillColor={192,192,192}),
             Polygon(
               points={{4,10},{4,2},{-2,2},{-2,0},{6,0},{6,10},{4,10}},
-
               lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
@@ -979,7 +973,7 @@ the burn duration is a fixed parameter.
       Types.RPM avg_rpm;
       Modelica.SIunits.Time previous_time;
 
-      Modelica.Blocks.Interfaces.InPort rpm(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput rpm(final n=1) annotation (Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
@@ -1128,8 +1122,8 @@ of \"revolutions per minute\".
             points={{66,-18},{66,-80},{0,-80}}, color={0,255,127}));
       connect(offset_shaft.cyl, crankslider.crank) annotation (Line(
             points={{0,-140},{0,-108}}, color={0,0,0}));
-      connect(offset_shaft.crank, crankshaft) annotation (Line(points
-            ={{-20,-160},{-20,-200},{0,-200}}, color={0,0,0}));
+      connect(offset_shaft.crank, crankshaft) annotation (Line(points=
+             {{-20,-160},{-20,-200},{0,-200}}, color={0,0,0}));
       connect(timing_belt.crankshaft, crankslider.crank) annotation (Line(
             points={{-80,-56},{-80,-108},{1.11022e-15,-108}}, color={
               0,0,0}));
@@ -1173,7 +1167,6 @@ of \"revolutions per minute\".
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-58,-64},{-40,-52},{40,-52},{58,-64},{-58,-64}},
-
               lineColor={28,108,200},
               pattern=LinePattern.None,
               fillColor={255,255,255},
@@ -1424,8 +1417,8 @@ force as is necessary to sustain a specified position).
       connect(crankshaft_inertia.flange_b, cylinder1.crankshaft) annotation (Line(
             points={{-80,-40},{-80,-19.6}}, color={0,0,0}));
       connect(crankshaft_inertia.flange_a, crankshaft) annotation (Line(
-            points={{-80,-60},{-80,-70},{-100,-70},{-100,-40}}, color
-            ={0,0,0}));
+            points={{-80,-60},{-80,-70},{-100,-70},{-100,-40}}, color=
+             {0,0,0}));
       power = crankshaft.tau*der(crankshaft.phi);
       annotation (
         Icon(graphics={
@@ -1589,7 +1582,7 @@ gases, the crankshaft and geometry information.
       Interfaces.Gas manifold annotation (                             layer=
             "icon", Placement(transformation(extent={{-10,-110},{10,
                 -90}}, rotation=0)));
-      Modelica.Blocks.Interfaces.InPort throttle_angle(final n=1) annotation (
+      Modelica.Blocks.Interfaces.RealInput throttle_angle(final n=1) annotation (
                                         layer="icon", Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       Engine.Components.Throttle throttle(dia=0.10) annotation (Placement(

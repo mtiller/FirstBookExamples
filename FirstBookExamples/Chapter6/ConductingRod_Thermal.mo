@@ -1,6 +1,6 @@
 within FirstBookExamples.Chapter6;
 model ConductingRod_Thermal
-  import Thermal.Basic1D;
+  import FirstBookExamples.Thermal.Basic1D;
   import Modelica.SIunits;
 
   parameter SIunits.Length L=1.0 "Total length";

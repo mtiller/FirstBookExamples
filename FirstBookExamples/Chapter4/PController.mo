@@ -5,7 +5,7 @@ block PController "A proporational gain controller"
 protected
   Real e "reference error";
 equation
-  e = command.signal[1] - sensor.signal[1];
-  driver.signal[1] = Kp*e;
+  e = command - sensor;
+  driver = Kp*e;
   annotation (Diagram(graphics));
 end PController;

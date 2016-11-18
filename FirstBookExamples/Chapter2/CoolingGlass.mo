@@ -8,6 +8,6 @@ model CoolingGlass
   Modelica.SIunits.Temperature T_ambient=300 + 20*time;
 equation
   m*cp*der(T) = -h*(T - T_ambient);
-  annotation (experiment(StopTime=10), Commands(file="CoolingGlass.mos"
+  annotation (experiment(StopTime=10), __Dymola_Commands(file="CoolingGlass.mos"
         "Simulate CoolingGlass"));
 end CoolingGlass;

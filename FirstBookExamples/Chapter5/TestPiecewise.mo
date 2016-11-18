@@ -12,5 +12,5 @@ equation
   der(x) = -y;
   der(z) = -x;
   annotation (experiment(StopTime=9.999),
-              Commands(file="TestPiecewise.mos" "Simulate TestPiecewise"));
+              __Dymola_Commands(file="TestPiecewise.mos" "Simulate TestPiecewise"));
 end TestPiecewise;

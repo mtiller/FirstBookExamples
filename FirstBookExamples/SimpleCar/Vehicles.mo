@@ -27,14 +27,14 @@ package Vehicles "Vehicle models"
           0.35, up_shift_schedule={10,20,30,40}) constrainedby
       Interfaces.ShiftStrategy annotation (Placement(transformation(
             extent={{-14,10},{26,50}}, rotation=0)));
-    Modelica.Blocks.Interfaces.OutPort speed annotation (Placement(
+    Modelica.Blocks.Interfaces.RealOutput speed annotation (Placement(
           transformation(
           origin={60,-110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
     Engine.Components.Manifold intake_manifold1 annotation (Placement(
           transformation(extent={{20,40},{40,60}}, rotation=0)));
-    Modelica.Blocks.Interfaces.InPort throttle annotation (Placement(
+    Modelica.Blocks.Interfaces.RealInput throttle annotation (Placement(
           transformation(extent={{-120,50},{-100,70}}, rotation=0)));
   equation
     connect(chassis.road, road) annotation (Line(points={{-62,-60},{
@@ -94,7 +94,6 @@ package Vehicles "Vehicle models"
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{16,2},{30,-12},{10,-12},{-4,-12},{-4,2},{16,2}},
-
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
@@ -157,7 +156,7 @@ The throttle of the vehicle is presumably controlled by an external \"driver\" m
         up_shift_schedule={30,60,80,95}) annotation (Placement(
           transformation(extent={{-52.4692,31.6109},{-12.4692,71.6109}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.OutPort speed annotation (Placement(
+    Modelica.Blocks.Interfaces.RealOutput speed annotation (Placement(
           transformation(
           origin={60,-110},
           extent={{-10,-10},{10,10}},
@@ -216,7 +215,6 @@ The throttle of the vehicle is presumably controlled by an external \"driver\" m
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{16,2},{30,-12},{10,-12},{-4,-12},{-4,2},{16,2}},
-
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
@@ -306,8 +304,8 @@ parts of the 'SimpleCar' package into a complete vehicle."),
           fillPattern=FillPattern.Solid),
         Polygon(
           points={{5,-3},{19,-17},{-1,-17},{-15,-17},{-15,-3},{5,-3}},
-
           lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid)}));
+
 end Vehicles;

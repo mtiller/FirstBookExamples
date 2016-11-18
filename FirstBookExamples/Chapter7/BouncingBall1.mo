@@ -18,5 +18,5 @@ equation
   m*a = f - m*Modelica.Constants.g_n;
   f = if h <= r then -c*(h - r) - d*v else 0.0;
   annotation (experiment(StopTime=5),
-              Commands(file="BouncingBall1.mos" "Simulate BouncingBall1"));
+              __Dymola_Commands(file="BouncingBall1.mos" "Simulate BouncingBall1"));
 end BouncingBall1;

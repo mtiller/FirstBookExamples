@@ -36,5 +36,5 @@ equation
   annotation (experiment(
       StopTime=10,
       NumberOfIntervals=500,
-      Tolerance=1E-8), Commands(file="TwoTanks.mos" "Simulate TwoTanks"));
+      Tolerance=1E-8), __Dymola_Commands(file="TwoTanks.mos" "Simulate TwoTanks"));
 end TwoTanks;

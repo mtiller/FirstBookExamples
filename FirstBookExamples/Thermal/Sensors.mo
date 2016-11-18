@@ -2,7 +2,7 @@ within FirstBookExamples.Thermal;
 package Sensors
   extends Modelica.Icons.Library;
   model TemperatureSensor "Absolute temperature sensor"
-    Modelica.Blocks.Interfaces.OutPort T annotation (Placement(
+    Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Interfaces.Node_a n annotation (Placement(transformation(extent={
               {-110,-10},{-90,10}}, rotation=0)));
@@ -81,7 +81,7 @@ sensor model.
               {-110,-10},{-90,10}}, rotation=0)));
     Interfaces.Node_b b annotation (Placement(transformation(extent={
               {90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.OutPort heat "Heat flow from a->b" annotation (Placement(
+    Modelica.Blocks.Interfaces.RealOutput heat "Heat flow from a->b" annotation (Placement(
           transformation(
           origin={0,-100},
           extent={{-10,-10},{10,10}},

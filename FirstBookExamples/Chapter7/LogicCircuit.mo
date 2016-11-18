@@ -44,6 +44,6 @@ equation
   connect(i1.y, and1.u1)
     annotation (Line(points={{-63,66},{-48,66},{-48,10},{-26,10}}));
   annotation (experiment(StopTime=16),
-              Commands(file="LogicCircuit.mos" "Simulate LogicCircuit"),
+              __Dymola_Commands(file="LogicCircuit.mos" "Simulate LogicCircuit"),
               Diagram(graphics));
 end LogicCircuit;

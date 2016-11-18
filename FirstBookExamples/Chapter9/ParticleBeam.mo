@@ -66,5 +66,5 @@ model ParticleBeam
       StopTime=7,
       Tolerance=1e-8,
       NumberOfIntervals=500),
-      Commands(file="ParticleBeam.mos" "Simulate ParticleBeam"));
+      __Dymola_Commands(file="ParticleBeam.mos" "Simulate ParticleBeam"));
 end ParticleBeam;

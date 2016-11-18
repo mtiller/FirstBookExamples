@@ -1,13 +1,13 @@
 within FirstBookExamples.Chapter6;
 model HTProblem1 "Conducting rod with boundary conditions"
   extends FirstBookExamples.Icons.RunnableExample;
-  Modelica.Blocks.Sources.Constant Tl(k={300.0})
+  Modelica.Blocks.Sources.Constant Tl(k=300.0)
     annotation (Placement(transformation(extent={{-64,0},{-44,20}},
           rotation=0)));
   Modelica.Blocks.Sources.Step Tr(
-    height={700.0},
-    offset={300.0},
-    startTime={10.0}) annotation (Placement(transformation(extent={{
+    height=700.0,
+    offset=300.0,
+    startTime=10.0)   annotation (Placement(transformation(extent={{
             -62,-42},{-42,-22}}, rotation=0)));
   FixedTemperature left annotation (Placement(transformation(extent={
             {-24,0},{-4,20}}, rotation=0)));
@@ -27,8 +27,6 @@ equation
   connect(right.d, rod.b) annotation (Line(points={{-10,-32},{38,-32},
           {38,10}}));
   annotation (experiment(
-      StopTime=50,
-      Tolerance=1e-4,
-      NumberOfIntervals=500),
-      Commands(file="HTProblem1.mos" "Simulate HTProblem1"));
+      StopTime=50),
+      __Dymola_Commands(file="HTProblem1.mos" "Simulate HTProblem1"));
 end HTProblem1;

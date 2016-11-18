@@ -40,7 +40,7 @@ package BoundaryConditions
   end FixedTemperature;
 
   model VariableTemperature "Variable temperature boundary condition"
-    Modelica.Blocks.Interfaces.InPort T(final n=1) annotation (Placement(
+    Modelica.Blocks.Interfaces.RealInput T(final n=1) annotation (Placement(
           transformation(extent={{120,-10},{100,10}}, rotation=0)));
     Interfaces.Node_a n annotation (Placement(transformation(extent={
               {-110,-10},{-90,10}}, rotation=0)));
@@ -84,7 +84,7 @@ absorb or generate as much energy as required to keep the temperature at the spe
 
   model PrescribedHeatFlux "Prescribed heat flux"
     Modelica.SIunits.Area A=1.0;
-    Modelica.Blocks.Interfaces.InPort q(final n=1) annotation (Placement(
+    Modelica.Blocks.Interfaces.RealInput q(final n=1) annotation (Placement(
           transformation(
           origin={110,0},
           extent={{-10,-10},{10,10}},

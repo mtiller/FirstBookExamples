@@ -10,12 +10,12 @@ model PlantModel
   Modelica.Electrical.Analog.Sources.SignalVoltage SignalVoltage1
     annotation (Placement(transformation(extent={{-44,-2},{-24,18}},
           rotation=0)));
-  Modelica.Blocks.Interfaces.InPort v annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput v annotation (Placement(
         transformation(extent={{-120,12},{-100,32}}, rotation=0)));
   Modelica.Mechanics.Rotational.Sensors.AngleSensor AngleSensor1
     annotation (Placement(transformation(extent={{42,24},{62,44}},
           rotation=0)));
-  Modelica.Blocks.Interfaces.OutPort pos annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput pos annotation (Placement(
         transformation(extent={{100,24},{120,44}}, rotation=0)));
 equation
   connect(motor.driver, conveyor.axle)

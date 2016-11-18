@@ -4,42 +4,42 @@ block PIController "A PI Controller"
   parameter Real Ti=1 "Integral Time Constant";
   import Modelica.Blocks;
 
-  Blocks.Interfaces.InPort command "Command signal"
-    annotation (Placement(transformation(extent={{-110,10},{-90,30}},
+  Blocks.Interfaces.RealInput command "Command signal"
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
           rotation=0)));
-  Blocks.Interfaces.InPort sensor "Sensor signal"
-    annotation (Placement(transformation(extent={{-108,-70},{-88,-50}},
+  Blocks.Interfaces.RealInput sensor "Sensor signal"
+    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
           rotation=0)));
-  Blocks.Interfaces.OutPort driver "Driver signal"
+  Blocks.Interfaces.RealOutput driver "Driver signal"
     annotation (Placement(transformation(extent={{100,-10},{120,10}},
           rotation=0)));
   Blocks.Math.Feedback Difference annotation (Placement(
-        transformation(extent={{-70,10},{-50,30}}, rotation=0)));
-  Blocks.Math.Gain K1(k={Kp}) annotation (Placement(transformation(
-          extent={{-22,16},{-2,36}}, rotation=0)));
-  Blocks.Math.Gain K2(k={1/Ti}) annotation (Placement(transformation(
+        transformation(extent={{-70,-10},{-50,10}},rotation=0)));
+  Blocks.Math.Gain K1(k=Kp) annotation (Placement(transformation(
+          extent={{-22,-10},{-2,10}},rotation=0)));
+  Blocks.Math.Gain K2(k=1/Ti)   annotation (Placement(transformation(
           extent={{-10,-60},{10,-40}}, rotation=0)));
   Blocks.Math.Add Summation annotation (Placement(transformation(
-          extent={{58,10},{78,30}}, rotation=0)));
+          extent={{60,-10},{80,10}},rotation=0)));
   Blocks.Continuous.Integrator IntegratorBlock
     annotation (Placement(transformation(extent={{20,-60},{40,-40}},
           rotation=0)));
 equation
-  connect(command, Difference.u1) annotation (Line(points={{-100,20},
-          {-68,20}}));
+  connect(command, Difference.u1) annotation (Line(points={{-120,0},{
+          -68,0}}));
   connect(sensor, Difference.u2)
-    annotation (Line(points={{-98,-60},{-60,-60},{-60,12}}));
+    annotation (Line(points={{-120,-60},{-60,-60},{-60,-8}}));
   connect(Difference.y, K1.u)
-    annotation (Line(points={{-51,20},{-32,20},{-32,26},{-24,26}}));
-  connect(K1.y, Summation.u1) annotation (Line(points={{-1,26},{56,26}}));
+    annotation (Line(points={{-51,0},{-32,0},{-24,0}}));
+  connect(K1.y, Summation.u1) annotation (Line(points={{-1,0},{50,0},
+          {50,6},{58,6}}));
   connect(K1.y, K2.u)
-    annotation (Line(points={{-1,26},{4,26},{4,-20},{-20,-20},{-20,
+    annotation (Line(points={{-1,0},{10,0},{10,-30},{-30,-30},{-30,
           -50},{-12,-50}}));
   connect(IntegratorBlock.y, Summation.u2)
-    annotation (Line(points={{41,-50},{50,-50},{50,14},{56,14}}));
+    annotation (Line(points={{41,-50},{50,-50},{50,-6},{58,-6}}));
   connect(Summation.y, driver)
-    annotation (Line(points={{79,20},{88,20},{88,0},{110,0}}));
+    annotation (Line(points={{81,0},{81,0},{110,0}}));
   connect(K2.y, IntegratorBlock.u)
     annotation (Line(points={{11,-50},{18,-50}}, color={0,0,255}));
-  annotation (Diagram(graphics));
 end PIController;

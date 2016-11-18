@@ -23,5 +23,5 @@ model ParticleField
       StopTime=5,
       Tolerance=1e-8,
       NumberOfIntervals=500),
-      Commands(file="ParticleField.mos" "Simulate ParticleField"));
+      __Dymola_Commands(file="ParticleField.mos" "Simulate ParticleField"));
 end ParticleField;

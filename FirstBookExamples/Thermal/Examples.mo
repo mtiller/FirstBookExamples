@@ -47,11 +47,11 @@ Tf = (T1(t=0)*m1*cp1+T2(t=0)*m2*cp2)/(m1*cp1+m2*cp2)
     Modelica.Mechanics.Rotational.Components.Fixed mount2(phi0=1)
       annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed mount3 annotation
-      (Placement(transformation(extent={{20,-60},{40,-40}}, rotation=
+    Modelica.Mechanics.Rotational.Components.Fixed mount3 annotation (
+       Placement(transformation(extent={{20,-60},{40,-40}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.Components.Fixed mount1 annotation
-      (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Fixed mount1 annotation (
+       Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia
       annotation (Placement(transformation(extent={{-60,20},{-40,40}},
             rotation=0)));

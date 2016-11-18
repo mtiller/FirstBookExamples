@@ -30,6 +30,6 @@ equation
   end for;
   connect(Tr.n, r_conv.b);
   connect(r_conv.a, cap[nsections].n);
-  annotation (experiment(StopTime=1200), Commands(file="SolidifyingRod.mos"
+  annotation (experiment(StopTime=1200), __Dymola_Commands(file="SolidifyingRod.mos"
         "Simulate SolidifyingRod"));
 end SolidifyingRod;

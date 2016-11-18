@@ -62,6 +62,6 @@ equation
     annotation (Line(points={{-73,6},{-66,6},{-66,30},{26,30},{26,44},
           {32.2,44}}));
   annotation (experiment(StopTime=16),
-              Commands(file="LogicCircuitWithLag.mos" "Simulate LogicCircuitWithLag"),
+              __Dymola_Commands(file="LogicCircuitWithLag.mos" "Simulate LogicCircuitWithLag"),
               Diagram(graphics));
 end LogicCircuitWithLag;

@@ -47,7 +47,7 @@ equation
       StopTime=100,
       Tolerance=1e-8,
       NumberOfIntervals=500),
-    Commands(file="Factory.mos" "Simulate Factory"),
+    __Dymola_Commands(file="Factory.mos" "Simulate Factory"),
     Diagram(graphics={
         Text(
           extent={{-66,30},{-34,18}},

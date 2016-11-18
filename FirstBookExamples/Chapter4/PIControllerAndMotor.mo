@@ -4,23 +4,23 @@ model PIControllerAndMotor
   import Modelica.Blocks;
 
   Blocks.Sources.Sine sinsig(
-    amplitude={0.2},
-    freqHz={0.3},
-    offset={1.0}) annotation (Placement(transformation(extent={{-70,
-            20},{-50,40}}, rotation=0)));
+    amplitude=0.2,
+    freqHz=0.3,
+    offset=1.0) annotation (Placement(transformation(extent={{-60,-10},
+            {-40,10}},     rotation=0)));
   PIController pic(Kp=0.4) annotation (Placement(transformation(
-          extent={{-22,18},{-2,38}}, rotation=0)));
+          extent={{-20,-10},{0,10}}, rotation=0)));
   Blocks.Continuous.TransferFunction motor(a={0.8,0.1}, b={1})
-    annotation (Placement(transformation(extent={{30,18},{50,38}},
+    annotation (Placement(transformation(extent={{20,-10},{40,10}},
           rotation=0)));
 equation
-  connect(sinsig.y, pic.command) annotation (Line(points={{-49,30},{
-          -22,30}}));
-  connect(pic.driver, motor.u) annotation (Line(points={{-1,28},{28,
-          28}}));
-  connect(motor.y, pic.sensor) annotation (Line(points={{51,28},{62,
-          28},{62,-42},{-30,-42},{-30,22},{-21.8,22}}));
+  connect(sinsig.y, pic.command) annotation (Line(points={{-39,0},{-34,
+          0},{-22,0}}));
+  connect(pic.driver, motor.u) annotation (Line(points={{1,0},{16,0},{
+          18,0}}));
+  connect(motor.y, pic.sensor) annotation (Line(points={{41,0},{60,0},
+          {60,-30},{-32,-30},{-32,-6},{-22,-6}}));
   annotation (experiment(StopTime=20),
-              Commands(file="PIControllerAndMotor.mos" "Simulate Motor with PI controller"),
+              __Dymola_Commands(file="PIControllerAndMotor.mos" "Simulate Motor with PI controller"),
               Diagram(graphics));
 end PIControllerAndMotor;

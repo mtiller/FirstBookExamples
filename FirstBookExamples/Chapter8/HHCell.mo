@@ -62,7 +62,7 @@ equation
   connect(HH_Na.n, g.p) annotation (Line(points={{20,-20},{20,-58}}));
 
   annotation (experiment(StopTime=0.8),
-              Commands(file="HHCell.mos" "Simulate HHCell"),
+              __Dymola_Commands(file="HHCell.mos" "Simulate HHCell"),
     Diagram(graphics={
         Line(
           points={{-100,30},{100,30}},

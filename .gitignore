@@ -10,9 +10,7 @@ dslog.txt
 dsmodel.c
 dsmodelext[0-9].c
 dsres.txt
-dymosim.exe
-dymosim.exp
-dymosim.lib
+dymosim*
 empty.txt
 request
 stat

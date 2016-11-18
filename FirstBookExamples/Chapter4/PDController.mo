@@ -6,6 +6,6 @@ block PDController "An ideal PD controller"
 protected
   Real e "reference error";
 equation
-  e = command.signal[1] - sensor.signal[1];
-  driver.signal[1] = Kp*e + Kd*der(e);
+  e = command - sensor;
+  driver = Kp*e + Kd*der(e);
 end PDController;

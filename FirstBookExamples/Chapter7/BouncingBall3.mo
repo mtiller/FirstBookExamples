@@ -28,5 +28,5 @@ algorithm
     end if;
   end when;
   annotation (experiment(StopTime=25),
-              Commands(file="BouncingBall3.mos" "Simulate BouncingBall3"));
+              __Dymola_Commands(file="BouncingBall3.mos" "Simulate BouncingBall3"));
 end BouncingBall3;

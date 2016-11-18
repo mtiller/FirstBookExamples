@@ -26,5 +26,5 @@ equation
   i_L - i_R1 - i_R2 = 0;
   i_R1 - i_C = 0;
   annotation (experiment(StopTime=2),
-              Commands(file="RLC2.mos" "Simulate RLC2"));
+              __Dymola_Commands(file="RLC2.mos" "Simulate RLC2"));
 end RLC2;

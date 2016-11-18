@@ -46,7 +46,7 @@ public
         origin={-70,0},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  Modelica.Blocks.Interfaces.InPort Tamb
+  Modelica.Blocks.Interfaces.RealInput Tamb
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
           rotation=0)));
 protected

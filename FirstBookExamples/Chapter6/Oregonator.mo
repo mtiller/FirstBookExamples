@@ -117,7 +117,7 @@ package Oregonator
     dcz = der(cZ);
     annotation (
       experiment(StopTime=30),
-      Commands(file="Oregonator.mos" "Simulate Oregonator"),
+      __Dymola_Commands(file="Oregonator.mos" "Simulate Oregonator"),
       Diagram(graphics));
   end ChemicalSystem;
 

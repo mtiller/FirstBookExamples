@@ -41,5 +41,5 @@ equation
   connect(motor.out_sig, diff.in_sig2)
     annotation (Line(points={{-2,22},{-10,22},{-10,52},{-40,52}}));
   annotation (experiment(StopTime=20),
-              Commands(file="ControlSystem2.mos" "Simulate ControlSystem2"));
+              __Dymola_Commands(file="ControlSystem2.mos" "Simulate ControlSystem2"));
 end ControlSystem2;
