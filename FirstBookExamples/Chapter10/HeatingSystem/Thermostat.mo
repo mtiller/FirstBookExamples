@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter10.HeatingSystem;
 partial model Thermostat
   Thermal.Interfaces.Node_a thermal annotation (extent=[-110, 70; -90, 90]);
   Modelica.Electrical.Analog.Interfaces.PositivePin p

@@ -1,3 +1,4 @@
+within FirstBookExamples;
 package Thermal
 extends Modelica.Icons.Library2;
 

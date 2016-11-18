@@ -1,24 +1,6 @@
+within FirstBookExamples.Chapter10.FactoryModels;
 model Factory
   extends FirstBookExamples.Icons.RunnableExample;
-  annotation (
-    experiment(
-      StopTime=100,
-      Tolerance=1e-8,
-      NumberOfIntervals=500),
-    Commands(file="Factory.mos" "Simulate Factory"),
-    Diagram(
-      Text(
-        extent=[-66, 30; -34, 18],
-        string="Controller",
-        style(color=0)),
-      Text(
-        extent=[-6, 26; 26, 16],
-        string="Motor",
-        style(color=0)),
-      Text(
-        extent=[56, 24; 98, 6],
-        string="Conveyor Belt",
-        style(color=0))));
   BeltController controller(
     Kd=-20,
     Kp=-500,
@@ -45,4 +27,23 @@ equation
     annotation (points=[40, -20; 40, 0; 30, 1.11022e-015], style(color=0));
   connect(speed_sensor.outPort, controller.omega) annotation (points=[40, -41;
         40, -50; -80, -50; -80, -8; -72, -8], style(color=0));
+  annotation (
+    experiment(
+      StopTime=100,
+      Tolerance=1e-8,
+      NumberOfIntervals=500),
+    Commands(file="Factory.mos" "Simulate Factory"),
+    Diagram(
+      Text(
+        extent=[-66, 30; -34, 18],
+        string="Controller",
+        style(color=0)),
+      Text(
+        extent=[-6, 26; 26, 16],
+        string="Motor",
+        style(color=0)),
+      Text(
+        extent=[56, 24; 98, 6],
+        string="Conveyor Belt",
+        style(color=0))));
 end Factory;

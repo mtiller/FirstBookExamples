@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter4;
 model ControllerAndMotor
   import Modelica.Blocks;
 
@@ -5,7 +6,7 @@ model ControllerAndMotor
     amplitude={0.2},
     freqHz={0.3},
     offset={1.0}) annotation (extent=[-84, 10; -64, 30]);
-  replaceable PIController con(Kp=0.4) extends Controller
+  replaceable PIController con(Kp=0.4) constrainedby Controller
     annotation (extent=[-8, 8; 12, 28]);
   Blocks.Continuous.TransferFunction motor(a={0.8,0.1})
     annotation (extent=[34, 8; 54, 28]);

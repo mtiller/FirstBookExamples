@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model ControlSystem1 "A PI Controller with Plant Model"
   extends FirstBookExamples.Icons.RunnableExample;
   import Modelica.SIunits;
@@ -16,8 +17,6 @@ model ControlSystem1 "A PI Controller with Plant Model"
   SIunits.Torque tau;
   SIunits.Torque i;
   SIunits.Torque p;
-  annotation (experiment(StopTime=20),
-              Commands(file="ControlSystem1.mos" "Simulate ControlSystem1"));
 equation
   w_c = A*sin(2.0*Modelica.Constants.pi*F*time) + w0;
   delta_w = w_c - w_m;
@@ -25,4 +24,6 @@ equation
   p = Kp*delta_w;
   tau = i + p;
   J*der(w_m) + d*w_m = tau;
+  annotation (experiment(StopTime=20),
+              Commands(file="ControlSystem1.mos" "Simulate ControlSystem1"));
 end ControlSystem1;

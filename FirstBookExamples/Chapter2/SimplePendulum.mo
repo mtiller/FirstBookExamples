@@ -1,7 +1,6 @@
+within FirstBookExamples.Chapter2;
 model SimplePendulum
   extends FirstBookExamples.Icons.RunnableExample;
-  annotation (experiment(StopTime=10), Commands(file="SimplePendulum.mos"
-        "Simulate SimplePendulum"));
   parameter Real L=2;
   constant Real g=9.81;
   Real theta;
@@ -9,4 +8,6 @@ model SimplePendulum
 equation
   der(theta) = omega;
   der(omega) = -(g/L)*theta;
+  annotation (experiment(StopTime=10), Commands(file="SimplePendulum.mos"
+        "Simulate SimplePendulum"));
 end SimplePendulum;

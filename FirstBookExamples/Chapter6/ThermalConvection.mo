@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model ThermalConvection "1-D Convective Heat Transfer"
   // Physical parameters
   import Modelica.SIunits;

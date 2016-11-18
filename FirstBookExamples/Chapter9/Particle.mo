@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter9;
 model Particle
   parameter Modelica.SIunits.Position x_init[3];
   parameter Modelica.SIunits.Velocity v_init[3];

@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model RLC2
   extends FirstBookExamples.Icons.RunnableExample;
   import Modelica.SIunits;
@@ -15,8 +16,6 @@ model RLC2
   SIunits.Current i_R2;
   SIunits.Current i_C;
   SIunits.Current i_L;
-  annotation (experiment(StopTime=2),
-              Commands(file="RLC2.mos" "Simulate RLC2"));
 equation
   V_a = if time >= 1 then 1.0 else 0.0;
   L*der(i_L) = V_a - V_b;
@@ -26,4 +25,6 @@ equation
   i_V - i_L = 0;
   i_L - i_R1 - i_R2 = 0;
   i_R1 - i_C = 0;
+  annotation (experiment(StopTime=2),
+              Commands(file="RLC2.mos" "Simulate RLC2"));
 end RLC2;

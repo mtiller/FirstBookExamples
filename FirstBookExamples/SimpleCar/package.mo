@@ -1,3 +1,4 @@
+within FirstBookExamples;
 package SimpleCar "A library to demonstrate models used in analyzing vehicle performance"
 annotation (
   Documentation(info="The \"SimpleCar\" package and all models contained in it

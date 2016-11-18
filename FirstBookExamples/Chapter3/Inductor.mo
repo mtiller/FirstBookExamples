@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model Inductor "An electrical inductor"
   import Modelica.SIunits;
 

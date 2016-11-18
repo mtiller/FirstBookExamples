@@ -1,3 +1,4 @@
+within FirstBookExamples;
 package Chapter3 "Models from Chapter 3"
 extends FirstBookExamples.Icons.BookExample;
 

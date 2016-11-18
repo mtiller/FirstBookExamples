@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model LogicCircuitWithLag
   extends FirstBookExamples.Icons.RunnableExample;
   parameter Real c=1 "lag time constant";
@@ -19,9 +20,6 @@ model LogicCircuitWithLag
   Lag or1_lag(c=c) annotation (extent=[62, -36; 82, -16]);
   Lag not1_lag(c=c) annotation (extent=[66, -4; 86, 16]);
   Lag not2_lag(c=c) annotation (extent=[-4, 42; 16, 62]);
-  annotation (experiment(StopTime=16),
-              Commands(file="LogicCircuitWithLag.mos" "Simulate LogicCircuitWithLag"),
-              Diagram);
 equation
   connect(i1.outPort, and1.inPort1)
     annotation (points=[-73, 52; -58, 52; -58, 10; -42, 10]);
@@ -43,4 +41,7 @@ equation
     annotation (points=[86, 6; 98, 6; 98, -10; 4, -10; 4, -22; 18, -22]);
   connect(i2.outPort, and2.inPort2)
     annotation (points=[-73, 6; -66, 6; -66, 30; 26, 30; 26, 44; 32.2, 44]);
+  annotation (experiment(StopTime=16),
+              Commands(file="LogicCircuitWithLag.mos" "Simulate LogicCircuitWithLag"),
+              Diagram);
 end LogicCircuitWithLag;

@@ -1,3 +1,4 @@
+within FirstBookExamples.SimpleCar;
 package Types "Types used in vehicle modeling"
   extends Modelica.Icons.Library;
   type Degrees = Real (final unit="deg");

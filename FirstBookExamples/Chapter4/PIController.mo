@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter4;
 block PIController "A PI Controller"
   parameter Real Kp=1 "Proportional Gain";
   parameter Real Ti=1 "Integral Time Constant";
@@ -28,7 +29,7 @@ equation
     annotation (points=[41, -50; 50, -50; 50, 14; 56, 14]);
   connect(Summation.outPort, driver)
     annotation (points=[79, 20; 88, 20; 88, 0; 110, 0]);
-  annotation (Diagram);
   connect(K2.outPort, IntegratorBlock.inPort)
     annotation (points=[11, -50; 18, -50], style(color=3));
+  annotation (Diagram);
 end PIController;

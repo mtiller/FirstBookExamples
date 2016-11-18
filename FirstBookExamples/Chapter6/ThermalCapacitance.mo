@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model ThermalCapacitance "Capacitance of a rod section"
   ThermalNode p "Midpoint connection" annotation (extent=[-110, -10; -90, 10]);
   parameter Modelica.SIunits.SpecificHeatCapacity cp;

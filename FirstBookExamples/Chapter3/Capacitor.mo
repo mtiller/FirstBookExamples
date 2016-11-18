@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model Capacitor "An electrical capacitor"
   import Modelica.SIunits;
 

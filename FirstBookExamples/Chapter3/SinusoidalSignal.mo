@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 block SinusoidalSignal
   output Signal out_sig annotation (extent=[-110, -10; -90, 10]);
 

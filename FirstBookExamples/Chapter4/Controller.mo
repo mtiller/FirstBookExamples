@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter4;
 partial block Controller "A generic controller interface"
   import Modelica.Blocks;
 

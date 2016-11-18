@@ -1,3 +1,4 @@
+within FirstBookExamples.Thermal;
 package Interfaces
 
   extends Modelica.Icons.Library;
@@ -13,6 +14,7 @@ a component being considered positive should be followed when using this connect
 connectors).
 "));
   end Node;
+
   connector Node_a "A solid-filled thermal node"
     extends Node;
     annotation (
@@ -24,6 +26,7 @@ connectors).
           string="%name",
           style(color=0))));
   end Node_a;
+
   connector Node_b "A outlined thermal node connector."
     extends Node;
     annotation (
@@ -39,6 +42,7 @@ connectors).
             thickness=2,
             fillColor=7))));
   end Node_b;
+
   partial model Element1D "Basic thermal element"
   protected
     Modelica.SIunits.HeatFlowRate q "Heat flow rate from a->b";
@@ -46,6 +50,10 @@ connectors).
   public
     Node_a a annotation (extent=[-110, -10; -90, 10]);
     Node_b b annotation (extent=[90, -10; 110, 10]);
+  equation
+    dT = a.T - b.T;
+    a.q = q;
+    b.q = -q;
     annotation (
       Documentation(info="This partial model contains the basic connectors and variables to allow most thermal models to be
 created with a minimum of effort by simplying extending from this model.  This model defines and
@@ -55,9 +63,5 @@ the element, q.
 By extending this model, it should be possible to write simple constitutive equations for many
 types of heat transfer.
 "));
-  equation
-    dT = a.T - b.T;
-    a.q = q;
-    b.q = -q;
   end Element1D;
 end Interfaces;

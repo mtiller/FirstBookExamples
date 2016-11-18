@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model PeriodSensor
   import Modelica.Mechanics.Rotational;
 

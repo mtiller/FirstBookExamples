@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter2;
 model NonlinearPendulum
   Real theta;
   Real omega;

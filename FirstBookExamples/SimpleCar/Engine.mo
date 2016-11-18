@@ -1,3 +1,4 @@
+within FirstBookExamples.SimpleCar;
 package Engine "Engine models and components"
   extends Modelica.Icons.Library2;
 
@@ -17,6 +18,7 @@ the intensive properties of the gas directly from the state but it could be used
 compute pressure and temperature based on two intensive properties.
 "));
     end BasePropertyModel;
+
     model SimpleAirProperties "Very simple air properties"
       extends BasePropertyModel;
       parameter Modelica.SIunits.SpecificHeatCapacity cp=1039
@@ -26,55 +28,26 @@ compute pressure and temperature based on two intensive properties.
     protected
       parameter Modelica.SIunits.SpecificHeatCapacity cv=cp - (Modelica.
           Constants.R/mole_weight);
-      annotation (
-        Documentation(info="This property model assumes the gas is a perfect gas with the properties of air at room temperature.
-This is an overly simplified model of air but sufficient for demonstrating the basics of engine
-thermodynamics.
-"));
     equation
       h = cp*T;
       u = cv*T;
       mw = mole_weight;
       gamma = cp/cv;
+      annotation (
+        Documentation(info="This property model assumes the gas is a perfect gas with the properties of air at room temperature.
+This is an overly simplified model of air but sufficient for demonstrating the basics of engine
+thermodynamics.
+"));
     end SimpleAirProperties;
   end GasProperties;
+
   model GeometrySource "Engine geometry specification"
     parameter Modelica.SIunits.Length bore "Engine bore";
     parameter Modelica.SIunits.Length stroke "Engine stroke";
     parameter Modelica.SIunits.Length conrod "Connecting rod length";
     parameter Real comp_ratio=9.5 "Compression ratio";
-    Interfaces.EngineGeometryProvided geom annotation (extent=[-120, -10; -100
-          , 10], rotation=180);
-    annotation (
-      Icon(
-        Polygon(points=[-60, -100; -60, 40; -42, 40; -42, 44; -40, 46; -60, 60
-              ; -100, 60; -100, -100; -60, -100], style(color=0, fillColor=8))
-          ,
-        Rectangle(extent=[-58, 12; 58, -64], style(gradient=1, fillColor=8)),
-        Rectangle(extent=[-60, 6; 60, 0], style(color=0, fillColor=0)),
-        Rectangle(extent=[-60, -8; 60, -14], style(color=0, fillColor=0)),
-        Rectangle(extent=[-60, -20; 60, -26], style(color=0, fillColor=0)),
-        Polygon(points=[-58, -64; -40, -52; 40, -52; 58, -64; -58, -64], style
-            (pattern=0, fillColor=7)),
-        Ellipse(extent=[-4, -34; 4, -42], style(color=0, fillColor=0)),
-        Rectangle(extent=[-42, 44; -18, 40], style(gradient=1, fillColor=8)),
-        Polygon(points=[-42, 44; -40, 46; -20, 46; -18, 44; -42, 44], style(
-              color=9, fillColor=8)),
-        Rectangle(extent=[-32, 46; -28, 94], style(gradient=1, fillColor=8)),
-        Polygon(points=[18, 44; 20, 46; 40, 46; 42, 44; 18, 44], style(color=9
-              , fillColor=8)),
-        Rectangle(extent=[18, 44; 42, 40], style(gradient=1, fillColor=8)),
-        Rectangle(extent=[28, 46; 32, 96], style(gradient=1, fillColor=8)),
-        Polygon(points=[100, -100; 100, 60; 60, 60; 40, 46; 42, 44; 42, 40; 60
-              , 40; 60, -100; 100, -100], style(color=0, fillColor=8)),
-        Polygon(points=[-100, 96; -60, 96; -40, 80; -20, 60; -20, 46; -18, 44
-              ; -18, 40; 18, 40; 18, 44; 20, 46; 20, 60; 40, 80; 60, 96; 100,
-              96; 100, 100; -100, 100; -100, 96], style(color=0, fillColor=8))
-          ,
-        Text(extent=[-60, -66; 60, -100], string="%name")),
-      Documentation(info="This model takes basic engine geometry parameters and computes the complete
-set of engine geometry characteristics.
-"));
+    Interfaces.EngineGeometryProvided geom annotation (extent=[-120, -10; -100,
+            10], rotation=180);
   equation
     assert(bore > 0, "Invalid bore value");
     assert(stroke > 0, "Invalid stroke value");
@@ -87,29 +60,63 @@ set of engine geometry characteristics.
     geom.Ap = Modelica.Constants.PI*(bore/2)^2;
     geom.Vd = stroke*geom.Ap;
     geom.crank = stroke/2.0;
+    annotation (
+      Icon(
+        Polygon(points=[-60, -100; -60, 40; -42, 40; -42, 44; -40, 46; -60, 60;
+                -100, 60; -100, -100; -60, -100], style(color=0, fillColor=8)),
+        Rectangle(extent=[-58, 12; 58, -64], style(gradient=1, fillColor=8)),
+        Rectangle(extent=[-60, 6; 60, 0], style(color=0, fillColor=0)),
+        Rectangle(extent=[-60, -8; 60, -14], style(color=0, fillColor=0)),
+        Rectangle(extent=[-60, -20; 60, -26], style(color=0, fillColor=0)),
+        Polygon(points=[-58, -64; -40, -52; 40, -52; 58, -64; -58, -64], style(
+             pattern=0, fillColor=7)),
+        Ellipse(extent=[-4, -34; 4, -42], style(color=0, fillColor=0)),
+        Rectangle(extent=[-42, 44; -18, 40], style(gradient=1, fillColor=8)),
+        Polygon(points=[-42, 44; -40, 46; -20, 46; -18, 44; -42, 44], style(
+              color=9, fillColor=8)),
+        Rectangle(extent=[-32, 46; -28, 94], style(gradient=1, fillColor=8)),
+        Polygon(points=[18, 44; 20, 46; 40, 46; 42, 44; 18, 44], style(color=9,
+                fillColor=8)),
+        Rectangle(extent=[18, 44; 42, 40], style(gradient=1, fillColor=8)),
+        Rectangle(extent=[28, 46; 32, 96], style(gradient=1, fillColor=8)),
+        Polygon(points=[100, -100; 100, 60; 60, 60; 40, 46; 42, 44; 42, 40; 60,
+                40; 60, -100; 100, -100], style(color=0, fillColor=8)),
+        Polygon(points=[-100, 96; -60, 96; -40, 80; -20, 60; -20, 46; -18, 44;
+                -18, 40; 18, 40; 18, 44; 20, 46; 20, 60; 40, 80; 60, 96; 100,
+              96; 100, 100; -100, 100; -100, 96], style(color=0, fillColor=8)),
+        Text(extent=[-60, -66; 60, -100], string="%name")),
+      Documentation(info="This model takes basic engine geometry parameters and computes the complete
+set of engine geometry characteristics.
+"));
   end GeometrySource;
+
   model SportsCarGeometry "Geometry of a sports car with an I4 engine"
     extends GeometrySource(
-      bore=.09604,
-      stroke=.0794,
+      bore=0.09604,
+      stroke=0.0794,
       comp_ratio=9.5,
       conrod=0.157);
     annotation (
       Documentation(info="This model has default engine geometry parameters that would be typical of a sports car.
 "));
   end SportsCarGeometry;
+
   package Components "A collection of components used to build engines"
     extends Modelica.Icons.Library2;
 
-    replaceable model PropertyModel = GasProperties.SimpleAirProperties;
+    replaceable model PropertyModel =
+        GasProperties.SimpleAirProperties;
     model ChamberVolume
       "Computes combustion chamber volume as a function of piston position"
       Modelica.Mechanics.Translational.Interfaces.Flange_a piston annotation (
           extent=[-10, -90; 10, -70]);
       Modelica.Blocks.Interfaces.OutPort volume(final n=1) annotation (extent=
             [-120, -10; -100, 10], rotation=180);
-      Interfaces.EngineGeometryRequired geom annotation (extent=[100, -10; 120
-            , 10], rotation=180);
+      Interfaces.EngineGeometryRequired geom annotation (extent=[100, -10; 120,
+              10], rotation=180);
+    equation
+      volume.signal[1] = geom.Vc + geom.Ap*piston.s;
+      piston.f = 0;
       annotation (
         Icon(
           Polygon(points=[-60, -100; -60, 40; -42, 40; -42, 44; -40, 46; -60,
@@ -123,22 +130,19 @@ set of engine geometry characteristics.
               color=0,
               fillColor=7,
               fillPattern=7)),
-          Rectangle(extent=[-58, 12; 58, -64], style(gradient=1, fillColor=8))
-            ,
+          Rectangle(extent=[-58, 12; 58, -64], style(gradient=1, fillColor=8)),
           Rectangle(extent=[-60, 6; 60, 0], style(color=0, fillColor=0)),
           Rectangle(extent=[-60, -8; 60, -14], style(color=0, fillColor=0)),
           Rectangle(extent=[-60, -20; 60, -26], style(color=0, fillColor=0)),
           Polygon(points=[-58, -64; -40, -52; 40, -52; 58, -64; -58, -64],
               style(pattern=0, fillColor=7)),
           Ellipse(extent=[-4, -34; 4, -42], style(color=0, fillColor=0)),
-          Rectangle(extent=[-42, 36; -18, 32], style(gradient=1, fillColor=8))
-            ,
+          Rectangle(extent=[-42, 36; -18, 32], style(gradient=1, fillColor=8)),
           Polygon(points=[-42, 36; -40, 38; -20, 38; -18, 36; -42, 36], style(
                 color=9, fillColor=8)),
-          Rectangle(extent=[-32, 38; -28, 96], style(gradient=1, fillColor=8))
-            ,
-          Polygon(points=[18, 44; 20, 46; 40, 46; 42, 44; 18, 44], style(color
-                =9, fillColor=8)),
+          Rectangle(extent=[-32, 38; -28, 96], style(gradient=1, fillColor=8)),
+          Polygon(points=[18, 44; 20, 46; 40, 46; 42, 44; 18, 44], style(color=
+                 9, fillColor=8)),
           Rectangle(extent=[18, 44; 42, 40], style(gradient=1, fillColor=8)),
           Rectangle(extent=[28, 46; 32, 96], style(gradient=1, fillColor=8)),
           Polygon(points=[100, -100; 100, 60; 60, 60; 40, 46; 42, 44; 42, 40;
@@ -158,10 +162,8 @@ when creating models that are \"read-only\" for a given domain (e.g. the
 translational domain in the case of the piston position) that a zero
 contribution be provided for any flow variables.
 "));
-    equation
-      volume.signal[1] = geom.Vc + geom.Ap*piston.s;
-      piston.f = 0;
     end ChamberVolume;
+
     model ControlVolume "Thermodynamic control volume"
     protected
       Modelica.SIunits.Energy U(start=147) "Total energy";
@@ -186,48 +188,6 @@ contribution be provided for any flow variables.
           layer="icon");
     protected
       PropertyModel props(T=T, P=P) annotation (extent=[-80, 40; -40, 80]);
-      annotation (
-        Icon(
-          Rectangle(extent=[-60, 60; 60, -60], style(color=0, fillPattern=0))
-            ,
-          Ellipse(extent=[14, 46; 18, 50], style(color=69, fillColor=69)),
-          Line(points=[16, 48; 4, 60; -18, 42], style(
-              color=0,
-              pattern=3,
-              fillColor=0)),
-          Ellipse(extent=[52, 20; 56, 24], style(color=69, fillColor=69)),
-          Ellipse(extent=[-54, 18; -50, 22], style(color=69, fillColor=69)),
-          Line(points=[54, 22; 60, 14; 52, 2], style(
-              color=0,
-              pattern=3,
-              fillColor=0)),
-          Line(points=[-54, 40; -60, 32; -52, 20], style(color=0, pattern=3))
-            ,
-          Ellipse(extent=[0, 18; 4, 14], style(color=69, fillColor=69)),
-          Line(points=[2, 16; -18, 10], style(
-              color=0,
-              pattern=3,
-              fillColor=0)),
-          Ellipse(extent=[-40, -42; -36, -46], style(color=69, fillColor=69))
-            ,
-          Line(points=[-38, -44; -34, -60; -30, -34], style(color=0, pattern=3
-              )),
-          Ellipse(extent=[24, -24; 28, -28], style(
-              color=69,
-              pattern=3,
-              fillColor=69)),
-          Line(points=[26, -26; 38, -52], style(color=0, pattern=3)),
-          Text(extent=[-50, 108; 80, 80], string="%name"),
-          Polygon(points=[-80, 68; -80, 80; -60, 60; -60, -60; 60, -60; 60, 60
-                ; -60, 60; -80, 80; 80, 80; 80, -80; -80, -80; -80, 68], style(
-              color=0,
-              fillColor=7,
-              fillPattern=8))),
-        Documentation(info="This model contains the basic equations of a thermodynamic control volume.  These include the conservation of mass and energy
-as well as the ideal gas law and gas property equations.  The volume of the control volume is an input to this model
-and the current mass contained within the control volume is an output.  The output signal for mass is necessary to
-connect a combustion model.
-"));
     equation
       // Compute number of moles
       N = m/props.mw;
@@ -244,7 +204,46 @@ connect a combustion model.
       mass.signal[1] = m;
       logV = Modelica.Math.log(V);
       logP = Modelica.Math.log(P);
+      annotation (
+        Icon(
+          Rectangle(extent=[-60, 60; 60, -60], style(color=0, fillPattern=0)),
+          Ellipse(extent=[14, 46; 18, 50], style(color=69, fillColor=69)),
+          Line(points=[16, 48; 4, 60; -18, 42], style(
+              color=0,
+              pattern=3,
+              fillColor=0)),
+          Ellipse(extent=[52, 20; 56, 24], style(color=69, fillColor=69)),
+          Ellipse(extent=[-54, 18; -50, 22], style(color=69, fillColor=69)),
+          Line(points=[54, 22; 60, 14; 52, 2], style(
+              color=0,
+              pattern=3,
+              fillColor=0)),
+          Line(points=[-54, 40; -60, 32; -52, 20], style(color=0, pattern=3)),
+          Ellipse(extent=[0, 18; 4, 14], style(color=69, fillColor=69)),
+          Line(points=[2, 16; -18, 10], style(
+              color=0,
+              pattern=3,
+              fillColor=0)),
+          Ellipse(extent=[-40, -42; -36, -46], style(color=69, fillColor=69)),
+          Line(points=[-38, -44; -34, -60; -30, -34], style(color=0, pattern=3)),
+          Ellipse(extent=[24, -24; 28, -28], style(
+              color=69,
+              pattern=3,
+              fillColor=69)),
+          Line(points=[26, -26; 38, -52], style(color=0, pattern=3)),
+          Text(extent=[-50, 108; 80, 80], string="%name"),
+          Polygon(points=[-80, 68; -80, 80; -60, 60; -60, -60; 60, -60; 60, 60;
+                  -60, 60; -80, 80; 80, 80; 80, -80; -80, -80; -80, 68], style(
+              color=0,
+              fillColor=7,
+              fillPattern=8))),
+        Documentation(info="This model contains the basic equations of a thermodynamic control volume.  These include the conservation of mass and energy
+as well as the ideal gas law and gas property equations.  The volume of the control volume is an input to this model
+and the current mass contained within the control volume is an output.  The output signal for mass is necessary to
+connect a combustion model.
+"));
     end ControlVolume;
+
     model Orifice "Isentropic flow restriction"
       parameter Modelica.SIunits.Area Aref "Reference Area";
     protected
@@ -259,11 +258,8 @@ connect a combustion model.
     protected
       PropertyModel a_props(T=a.T, P=a.P) annotation (extent=[-56.6667, 10; -
             10, 56.6667]);
-      PropertyModel b_props(T=b.T, P=b.P) annotation (extent=[10, 10; 56.6667
-            , 56.6667]);
-      annotation (
-        Documentation(info="This is a base model for other models which model isentropic flow (e.g. throttles, engine valves)
-"));
+      PropertyModel b_props(T=b.T, P=b.P) annotation (extent=[10, 10; 56.6667,
+              56.6667]);
     equation
       a.mdot = mdot;
       b.mdot = -mdot;
@@ -294,26 +290,30 @@ connect a combustion model.
              - 1.0)/gamma)))^0.5;
         end if;
       end if;
+      annotation (
+        Documentation(info="This is a base model for other models which model isentropic flow (e.g. throttles, engine valves)
+"));
     end Orifice;
+
     model Throttle "Orifice with throttle plate"
       parameter Modelica.SIunits.Diameter dia=0.1 "Throttle diameter";
       extends Orifice(final Aref=Modelica.Constants.PI*(dia/2)^2);
       Modelica.Blocks.Interfaces.InPort throttle_angle(final n=1)
-        "Throttle Angle [deg]" annotation (extent=[-10, 100; 10, 120], rotation
-          =270);
+        "Throttle Angle [deg]" annotation (extent=[-10, 100; 10, 120], rotation=
+           270);
+    equation
+      Cd = Modelica.Math.sin(throttle_angle.signal[1]*Modelica.Constants.
+        PI/180)^2;
       annotation (
         Icon(
-          Rectangle(extent=[-60, 80; 60, -80], style(gradient=1, fillColor=8))
-            ,
+          Rectangle(extent=[-60, 80; 60, -80], style(gradient=1, fillColor=8)),
           Line(points=[30, 32; -30, -28], style(color=0, thickness=2)),
           Ellipse(extent=[-6, 8; 6, -4], style(color=0, fillColor=0)),
           Text(extent=[20, 100; 100, 80], string="%name")),
         Documentation(info="A very simple engine throttle.  The input signal is the throttle angle.
 "));
-    equation
-      Cd = Modelica.Math.sin(throttle_angle.signal[1]*Modelica.Constants.
-        PI/180)^2;
     end Throttle;
+
     model Valve "Engine poppet valve"
       parameter Modelica.SIunits.Diameter dia=0.012 "Valve diameter";
       parameter Modelica.SIunits.Length max_lift=0.012 "Maximum Valve Lift";
@@ -321,17 +321,22 @@ connect a combustion model.
       extends Orifice(final Aref=Modelica.Constants.PI*(dia/2)^2);
     protected
       parameter Real c_over_l=max_discharge/max_lift;
+    public
+      Modelica.Mechanics.Translational.Interfaces.Flange_a lift annotation (
+          extent=[-10, 90; 10, 110], layer="icon");
+    equation
+      lift.f = 0;
+      Cd = c_over_l*lift.s;
+      // Cd = 0.0;
       annotation (
         Icon(
-          Rectangle(extent=[-40, -60; 40, -70], style(gradient=1, fillColor=8)
-            ),
+          Rectangle(extent=[-40, -60; 40, -70], style(gradient=1, fillColor=8)),
           Polygon(points=[-40, -60; -28, -52; 30, -52; 40, -60; -40, -60],
               style(
               color=0,
               gradient=1,
               fillColor=9)),
-          Rectangle(extent=[-10, 90; 10, -52], style(gradient=1, fillColor=8))
-            ,
+          Rectangle(extent=[-10, 90; 10, -52], style(gradient=1, fillColor=8)),
           Polygon(points=[-40, -54; -28, -46; -28, -40; -40, -30; -60, -16; -
                 100, -16; -100, -100; -60, -100; -60, -70; -60, -58; -40, -58;
                 -40, -54], style(
@@ -343,8 +348,8 @@ connect a combustion model.
               color=0,
               fillColor=7,
               fillPattern=7)),
-          Polygon(points=[10, 6; 20, 0; 30, -40; 30, -46; 40, -54; 40, -58; 60
-                , -58; 60, -100; 100, -100; 100, 100; 10, 100; 10, 6], style(
+          Polygon(points=[10, 6; 20, 0; 30, -40; 30, -46; 40, -54; 40, -58; 60,
+                  -58; 60, -100; 100, -100; 100, 100; 10, 100; 10, 6], style(
               color=0,
               fillColor=7,
               fillPattern=7)),
@@ -353,25 +358,23 @@ connect a combustion model.
 The valve model must be connected to two different gas volumes (or reservoirs).  In addition, a translational
 connector is used to represent the lift of the valve.
 "));
-    public
-      Modelica.Mechanics.Translational.Interfaces.Flange_a lift annotation (
-          extent=[-10, 90; 10, 110], layer="icon");
-    equation
-      lift.f = 0;
-      Cd = c_over_l*lift.s;
-      // Cd = 0.0;
     end Valve;
+
     model MasslessPiston "A massless piston"
       parameter Modelica.SIunits.Pressure Pcc=101800 "Crankcase pressure";
-      Interfaces.EngineGeometryRequired geom annotation (extent=[100, -10; 120
-            , 10], rotation=180);
+      Interfaces.EngineGeometryRequired geom annotation (extent=[100, -10; 120,
+              10], rotation=180);
       Interfaces.Gas chamber annotation (extent=[-10, 90; 10, 110]);
       Modelica.Mechanics.Translational.Interfaces.Flange_a piston annotation (
           extent=[-10, -32; 10, -12]);
+    equation
+      piston.f = geom.Ap*(chamber.P - Pcc);
+      chamber.mdot = 0;
+      chamber.q = 0;
+
       annotation (
         Icon(
-          Rectangle(extent=[-94, 90; 94, -100], style(gradient=1, fillColor=8)
-            ),
+          Rectangle(extent=[-94, 90; 94, -100], style(gradient=1, fillColor=8)),
           Rectangle(extent=[-100, 80; 100, 74], style(color=0, fillColor=0)),
           Rectangle(extent=[-100, 42; 100, 36], style(color=0, fillColor=0)),
           Rectangle(extent=[-100, 60; 100, 54], style(color=0, fillColor=0)),
@@ -382,19 +385,19 @@ connector is used to represent the lift of the valve.
         Documentation(info="This piston is used to translate pressure inside the cylinder into force (presumably applied to the crank slider mechanism).
 This piston has no mass.
 "));
-    equation
-      piston.f = geom.Ap*(chamber.P - Pcc);
-      chamber.mdot = 0;
-      chamber.q = 0;
-
     end MasslessPiston;
+
     model OffsetShaft "Angular displacement"
       parameter Types.Degrees shift=0 "Shift from crankshaft";
       Types.RPM shaft_speed;
       Modelica.Mechanics.Rotational.Interfaces.Flange_a crank annotation (
           extent=[-110, -10; -90, 10]);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b cyl annotation (extent
-          =[-10, -110; 10, -90]);
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b cyl annotation (extent=
+           [-10, -110; 10, -90]);
+    equation
+      shaft_speed = 30*der(crank.phi)/Modelica.Constants.pi;
+      crank.tau + cyl.tau = 0;
+      cyl.phi = crank.phi + shift*Modelica.Constants.PI/180.0;
       annotation (
         Icon(
           Rectangle(extent=[-90, 10; -40, -10], style(
@@ -407,17 +410,13 @@ This piston has no mass.
               gradient=2,
               fillColor=8)),
           Rectangle(extent=[20, 10; 40, -80], style(color=9, fillColor=8)),
-          Rectangle(extent=[40, 10; 90, -10], style(gradient=2, fillColor=8))
-            ,
+          Rectangle(extent=[40, 10; 90, -10], style(gradient=2, fillColor=8)),
           Text(extent=[-40, 40; 40, 20], string="%name")),
         Documentation(info="Each cylinder is shifted on that crank shaft.  This model enforces an angular displacement from one flange to another
 so that each cylinder can be rigidly connected to the crankshaft by independently shifted.
 "));
-    equation
-      shaft_speed = 30*der(crank.phi)/Modelica.Constants.pi;
-      crank.tau + cyl.tau = 0;
-      cyl.phi = crank.phi + shift*Modelica.Constants.PI/180.0;
     end OffsetShaft;
+
     model CrankSlider "A crank slider mechanism"
     protected
       Modelica.SIunits.Length d;
@@ -425,10 +424,22 @@ so that each cylinder can be rigidly connected to the crankshaft by independentl
       Real cp;
       Real sp;
     public
-      Interfaces.EngineGeometryRequired geom annotation (extent=[100, -10; 120
-            , 10], rotation=180);
+      Interfaces.EngineGeometryRequired geom annotation (extent=[100, -10; 120,
+              10], rotation=180);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a crank annotation (
           extent=[-10, -50; 10, -30]);
+      Modelica.Mechanics.Translational.Interfaces.Flange_a piston annotation (
+          extent=[-10, 90; 10, 110]);
+    equation
+      assert(geom.conrod > geom.crank,
+        "Connecting rod length greater than crank length");
+      cp = Modelica.Math.cos(phi);
+      sp = Modelica.Math.sin(phi);
+      phi = crank.phi;
+      d = sqrt(geom.conrod^2 - (geom.crank*sp)^2);
+      piston.s = (geom.crank + geom.conrod) - (geom.crank*cp + sqrt(geom.
+        conrod^2 - geom.crank^2*sp^2));
+      crank.tau = piston.f*(sp*geom.crank + cp*sp*geom.crank^2/sqrt(d));
       annotation (
         Icon(
           Polygon(points=[-18, -40; -46, -44; -50, -60; -20, -90; -4, -86; 0,
@@ -451,48 +462,18 @@ so that each cylinder can be rigidly connected to the crankshaft by independentl
         Documentation(info="This model represents the crank slider mechanism used to turn translational
 force into the rotational torque applied to the crankshaft.
 "));
-      Modelica.Mechanics.Translational.Interfaces.Flange_a piston annotation (
-          extent=[-10, 90; 10, 110]);
-    equation
-      assert(geom.conrod > geom.crank,
-        "Connecting rod length greater than crank length");
-      cp = Modelica.Math.cos(phi);
-      sp = Modelica.Math.sin(phi);
-      phi = crank.phi;
-      d = sqrt(geom.conrod^2 - (geom.crank*sp)^2);
-      piston.s = (geom.crank + geom.conrod) - (geom.crank*cp + sqrt(geom.
-        conrod^2 - geom.crank^2*sp^2));
-      crank.tau = piston.f*(sp*geom.crank + cp*sp*geom.crank^2/sqrt(d));
     end CrankSlider;
+
     model SparkControl "Spark plug control"
       parameter Types.Degrees spark_advance=20 "Before top-dead-center (TDC)";
     protected
       Types.Degrees cur_pos;
       Types.Degrees next_spark;
     public
-      Modelica.Blocks.Interfaces.BooleanOutPort spark annotation (extent=[100
-            , -10; 120, 10]);
+      Modelica.Blocks.Interfaces.BooleanOutPort spark annotation (extent=[100,
+              -10; 120, 10]);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a crank annotation (
           extent=[-10, -110; 10, -90]);
-      annotation (
-        Diagram,
-        Icon(
-          Rectangle(extent=[-100, 100; 100, -100], style(fillColor=52)),
-          Rectangle(extent=[-20, 60; 14, -20], style(color=0, fillColor=9)),
-          Polygon(points=[14, -20; 14, -46; -6, -50; -6, -44; 8, -42; 8, -20;
-                14, -20], style(color=0, fillColor=9)),
-          Polygon(points=[-8, -24; -34, -46; -14, -36; -20, -54; -6, -36; 0, -
-                58; 2, -36; 16, -56; 12, -36; 40, -52; 6, -24; 4, -26; -4, -26
-                ; -8, -24], style(color=45, fillColor=49)),
-          Line(points=[60, 0; 100, 0], style(color=81)),
-          Text(extent=[-64, 120; 56, 100], string="Spark Controller"),
-          Text(extent=[-88, -50; 96, -88], string=
-                "Timing: %spark_advance [deg] before TDC")),
-        Documentation(info="This model triggers the firing of the spark plug when the piston reaches a prescribed number of degrees
-before top dead center of the compression/combustion strokes.  A real spark control strategy would allow
-the spark strategy to change as engine conditions changed but this model just assumes a fixed
-\"spark advance\".
-"));
     equation
       crank.tau = 0;
       cur_pos = crank.phi*180/Modelica.Constants.PI;
@@ -507,12 +488,35 @@ the spark strategy to change as engine conditions changed but this model just as
       when spark.signal[1] then
         next_spark := next_spark + 720;
       end when;
+      annotation (
+        Diagram,
+        Icon(
+          Rectangle(extent=[-100, 100; 100, -100], style(fillColor=52)),
+          Rectangle(extent=[-20, 60; 14, -20], style(color=0, fillColor=9)),
+          Polygon(points=[14, -20; 14, -46; -6, -50; -6, -44; 8, -42; 8, -20;
+                14, -20], style(color=0, fillColor=9)),
+          Polygon(points=[-8, -24; -34, -46; -14, -36; -20, -54; -6, -36; 0, -
+                58; 2, -36; 16, -56; 12, -36; 40, -52; 6, -24; 4, -26; -4, -26;
+                  -8, -24], style(color=45, fillColor=49)),
+          Line(points=[60, 0; 100, 0], style(color=81)),
+          Text(extent=[-64, 120; 56, 100], string="Spark Controller"),
+          Text(extent=[-88, -50; 96, -88], string=
+                "Timing: %spark_advance [deg] before TDC")),
+        Documentation(info="This model triggers the firing of the spark plug when the piston reaches a prescribed number of degrees
+before top dead center of the compression/combustion strokes.  A real spark control strategy would allow
+the spark strategy to change as engine conditions changed but this model just assumes a fixed
+\"spark advance\".
+"));
     end SparkControl;
+
     model TimingBelt "Engine timing belt"
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a crankshaft annotation
-        (extent=[-10, -90; 10, -70]);
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a crankshaft annotation (
+         extent=[-10, -90; 10, -70]);
       Modelica.Mechanics.Rotational.Interfaces.Flange_b camshaft annotation (
           extent=[-10, 50; 10, 70]);
+    equation
+      2*camshaft.phi = crankshaft.phi;
+      camshaft.tau = 2*crankshaft.tau;
       annotation (
         Icon(
           Ellipse(extent=[-40, 100; 40, 20], style(color=0, fillColor=8)),
@@ -524,10 +528,8 @@ the spark strategy to change as engine conditions changed but this model just as
           Text(extent=[-60, 0; 60, -20], string="%name")),
         Documentation(info="A timing belt that makes sure the camshaft spins at half the frequency as the crank shaft.
 "));
-    equation
-      2*camshaft.phi = crankshaft.phi;
-      camshaft.tau = 2*crankshaft.tau;
     end TimingBelt;
+
     model Combustion "Simple combustion model"
       parameter Modelica.SIunits.SpecificEnergy lhv=44e+6
         "Lower heating value";
@@ -549,6 +551,25 @@ the spark strategy to change as engine conditions changed but this model just as
           extent=[-10, 100; 10, 120], rotation=270);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a crank annotation (
           extent=[-110, -50; -90, -30]);
+    equation
+      assert(burn_duration > 1, "Invalid burn duration");
+      cylinder.mdot = 0;
+      cylinder.q = if (burning) then -amplitude*Modelica.Math.sin((time -
+        start_burn)/(end_burn - start_burn)*Modelica.Constants.PI)^2 else 0.0;
+      der(tmp) = cylinder.q;
+      w = der(crank.phi);
+      dps = w*180/Modelica.Constants.PI;
+      crank.tau = 0;
+    algorithm
+      when start.signal[1] then
+        start_burn := time;
+        end_burn := time + (burn_duration/dps);
+        amplitude := lhv*(mass.signal[1]/(afr + 1))*2.0*dps/burn_duration;
+        burning := true;
+      end when;
+      when time >= end_burn then
+        burning := false;
+      end when;
       annotation (
         Icon(
           Rectangle(extent=[-8, 40; 8, 10], style(
@@ -559,15 +580,15 @@ the spark strategy to change as engine conditions changed but this model just as
               style(color=0, fillColor=8)),
           Rectangle(extent=[-2, 10; 2, 6], style(color=0, fillColor=9)),
           Polygon(points=[-12, 4; -6, -2; 8, -2; 14, 4; 22, 4; 16, 0; 20, -6;
-                12, -6; 10, -12; 6, -6; 4, -18; 0, -8; -6, -14; -6, -6; -16, -8
-                ; -12, -2; -20, 2; -12, 4], style(color=49, fillColor=49)),
-          Polygon(points=[-20, 2; -26, 2; -16, -2; -20, -12; -8, -10; -10, -20
-                ; -2, -16; 6, -26; 8, -16; 12, -18; 16, -10; 26, -8; 22, -2; 30
-                , 4; 22, 4; 16, 0; 20, -6; 12, -6; 10, -12; 6, -8; 4, -18; 0, -
+                12, -6; 10, -12; 6, -6; 4, -18; 0, -8; -6, -14; -6, -6; -16, -8;
+                  -12, -2; -20, 2; -12, 4], style(color=49, fillColor=49)),
+          Polygon(points=[-20, 2; -26, 2; -16, -2; -20, -12; -8, -10; -10, -20;
+                  -2, -16; 6, -26; 8, -16; 12, -18; 16, -10; 26, -8; 22, -2; 30,
+                  4; 22, 4; 16, 0; 20, -6; 12, -6; 10, -12; 6, -8; 4, -18; 0, -
                 8; -6, -14; -6, -6; -14, -8; -12, -2; -20, 2], style(color=41,
                 fillColor=45)),
-          Polygon(points=[-80, -80; -80, -20; -28, 0; -28, 10; -8, 10; -8, 40
-                ; -92, 40; -92, -80; -80, -80], style(
+          Polygon(points=[-80, -80; -80, -20; -28, 0; -28, 10; -8, 10; -8, 40;
+                  -92, 40; -92, -80; -80, -80], style(
               color=0,
               fillColor=7,
               fillPattern=7)),
@@ -588,26 +609,8 @@ fuel/air mixture inside the cylinder but in
 the case of this model it is assumed that
 the burn duration is a fixed parameter.
 "));
-    equation
-      assert(burn_duration > 1, "Invalid burn duration");
-      cylinder.mdot = 0;
-      cylinder.q = if (burning) then -amplitude*Modelica.Math.sin((time -
-        start_burn)/(end_burn - start_burn)*Modelica.Constants.PI)^2 else 0.0;
-      der(tmp) = cylinder.q;
-      w = der(crank.phi);
-      dps = w*180/Modelica.Constants.PI;
-      crank.tau = 0;
-    algorithm
-      when start.signal[1] then
-        start_burn := time;
-        end_burn := time + (burn_duration/dps);
-        amplitude := lhv*(mass.signal[1]/(afr + 1))*2.0*dps/burn_duration;
-        burning := true;
-      end when;
-      when time >= end_burn then
-        burning := false;
-      end when;
     end Combustion;
+
     model Dynamometer "Ideal Dynamometer"
       parameter Real cycle_fraction=1.0
         "Average over what fraction of the cycle";
@@ -622,6 +625,25 @@ the burn duration is a fixed parameter.
             120, -10; -100, 10]);
       Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft annotation (
           extent=[90, -10; 110, 10]);
+    equation
+      der(shaft.phi) = rpm.signal[1]*Modelica.Constants.pi/30;
+      der(work) = shaft.tau*der(shaft.phi);
+    algorithm
+      when initial() then
+        next_rotation := shaft.phi + cycle_fraction*4*Modelica.Constants.pi;
+        last_work := 0;
+        previous_time := time;
+        avg_rpm := rpm.signal[1];
+      end when;
+      when shaft.phi > next_rotation then
+        next_rotation := next_rotation + cycle_fraction*4*Modelica.Constants.
+          pi;
+        avg_tau := (work - pre(last_work))/(cycle_fraction*4*Modelica.
+          Constants.pi);
+        avg_rpm := 120*cycle_fraction/(time - pre(previous_time));
+        last_work := work;
+        previous_time := time;
+      end when;
       annotation (
         Icon(
           Rectangle(extent=[60, 10; 90, -10], style(
@@ -657,26 +679,8 @@ the burn duration is a fixed parameter.
 an infinite mass.  It is important that the input signal is continuous.  Furthermore the input signal has units
 of \"revolutions per minute\".
 "));
-    equation
-      der(shaft.phi) = rpm.signal[1]*Modelica.Constants.pi/30;
-      der(work) = shaft.tau*der(shaft.phi);
-    algorithm
-      when initial() then
-        next_rotation := shaft.phi + cycle_fraction*4*Modelica.Constants.pi;
-        last_work := 0;
-        previous_time := time;
-        avg_rpm := rpm.signal[1];
-      end when;
-      when shaft.phi > next_rotation then
-        next_rotation := next_rotation + cycle_fraction*4*Modelica.Constants.
-          pi;
-        avg_tau := (work - pre(last_work))/(cycle_fraction*4*Modelica.
-          Constants.pi);
-        avg_rpm := 120*cycle_fraction/(time - pre(previous_time));
-        last_work := work;
-        previous_time := time;
-      end when;
     end Dynamometer;
+
     model IndividualCylinder
       "Collection of parts for a complete individual cylinder"
       extends Interfaces.Cylinder;
@@ -689,47 +693,10 @@ of \"revolutions per minute\".
       parameter Types.Degrees crank_shift=0 "Crankshaft Shift";
       parameter Modelica.SIunits.Diameter ivd=0.032 "Intake Valve Diameter";
       parameter Modelica.SIunits.Diameter evd=0.028 "Exhaust Valve Diameter";
-      Engine.Components.MasslessPiston piston annotation (extent=[-10, -50; 10
-            , -30]);
-      Engine.Components.CrankSlider crankslider annotation (extent=[-20, -120
-            ; 20, -80]);
-      annotation (
-        Icon(
-          Polygon(points=[-60, -140; -60, 40; -42, 40; -42, 44; -40, 46; -60,
-                60; -100, 60; -100, -140; -60, -140], style(color=0, fillColor=
-                  8)),
-          Polygon(points=[-100, 96; -60, 96; -40, 80; -20, 60; -20, 46; -18,
-                44; -18, 40; 18, 40; 18, 44; 20, 46; 20, 60; 40, 80; 60, 96;
-                100, 96; 100, 100; -100, 100; -100, 96], style(color=0,
-                fillColor=8)),
-          Rectangle(extent=[-58, 12; 58, -64], style(gradient=1, fillColor=8))
-            ,
-          Rectangle(extent=[-60, 6; 60, 0], style(color=0, fillColor=0)),
-          Rectangle(extent=[-60, -8; 60, -14], style(color=0, fillColor=0)),
-          Rectangle(extent=[-60, -20; 60, -26], style(color=0, fillColor=0)),
-          Polygon(points=[-58, -64; -40, -52; 40, -52; 58, -64; -58, -64],
-              style(pattern=0, fillColor=7)),
-          Ellipse(extent=[-4, -34; 4, -42], style(color=0, fillColor=0)),
-          Ellipse(extent=[-40, -240; 40, -160], style(color=8)),
-          Line(points=[0, -200; 30, -174; 0, -38], style(color=0, thickness=4)
-            ),
-          Rectangle(extent=[-42, 36; -18, 32], style(gradient=1, fillColor=8))
-            ,
-          Polygon(points=[-42, 36; -40, 38; -20, 38; -18, 36; -42, 36], style(
-                color=9, fillColor=8)),
-          Rectangle(extent=[-32, 38; -28, 96], style(gradient=1, fillColor=8))
-            ,
-          Polygon(points=[18, 44; 20, 46; 40, 46; 42, 44; 18, 44], style(color
-                =9, fillColor=8)),
-          Rectangle(extent=[18, 44; 42, 40], style(gradient=1, fillColor=8)),
-          Rectangle(extent=[28, 46; 32, 96], style(gradient=1, fillColor=8)),
-          Polygon(points=[100, -140; 100, 60; 60, 60; 40, 46; 42, 44; 42, 40;
-                60, 40; 60, -140; 100, -140], style(color=0, fillColor=8)),
-          Text(extent=[-60, -100; 60, -120], string="%name")),
-        Documentation(info="All the basic componets of a single cylinder, 2-valve engine
-have been compiled in this model.
-"),
-        Diagram);
+      Engine.Components.MasslessPiston piston annotation (extent=[-10, -50; 10,
+              -30]);
+      Engine.Components.CrankSlider crankslider annotation (extent=[-20, -120;
+              20, -80]);
       Engine.Components.ControlVolume combustion_chamber annotation (extent=[-
             10, -20; 10, 0]);
       Engine.Components.Valve intake_valve(dia=ivd) annotation (extent=[-40,
@@ -738,14 +705,14 @@ have been compiled in this model.
             20; 20, 40]);
       Engine.Components.TimingBelt timing_belt annotation (extent=[-100, -60;
             -60, -20]);
-      Engine.Components.Cam intake_cam(vo=ivo, vc=ivc) annotation (extent=[-60
-            , 60; -40, 80]);
-      Engine.Components.Cam exhaust_cam(vo=evo, vc=evc) annotation (extent=[60
-            , 60; 40, 80]);
+      Engine.Components.Cam intake_cam(vo=ivo, vc=ivc) annotation (extent=[-60,
+              60; -40, 80]);
+      Engine.Components.Cam exhaust_cam(vo=evo, vc=evc) annotation (extent=[60,
+              60; 40, 80]);
       Engine.Components.Combustion combustion_model(burn_duration=
             burn_duration) annotation (extent=[-10, 20; 10, 40]);
-      Engine.Components.SparkControl spark_control(spark_advance=spark_advance
-        ) annotation (extent=[-24, 44; -4, 64]);
+      Engine.Components.SparkControl spark_control(spark_advance=spark_advance)
+          annotation (extent=[-24, 44; -4, 64]);
       Engine.Components.ChamberVolume chamber_volume annotation (extent=[56, -
             20; 76, 0]);
       OffsetShaft offset_shaft(shift=crank_shift) annotation (extent=[-20, -
@@ -753,12 +720,12 @@ have been compiled in this model.
     equation
       connect(crankslider.geom, geom) annotation (points=[22, -100; 80, -
             100; 80, -40; 80, -50; 110, -50], style(color=0));
-      connect(chamber_volume.geom, geom) annotation (points=[77, -10; 80, -10
-            ; 80, -40; 80, -50; 110, -50], style(color=0));
+      connect(chamber_volume.geom, geom) annotation (points=[77, -10; 80, -10;
+              80, -40; 80, -50; 110, -50], style(color=0));
       connect(intake_valve.a, intake) annotation (points=[-40, 30; -80, 30; -
             100, 30; -100, 80], style(color=45));
-      connect(exhaust_valve.a, exhaust) annotation (points=[40, 30; 80, 30; 80
-            , 80; 100, 80], style(color=45));
+      connect(exhaust_valve.a, exhaust) annotation (points=[40, 30; 80, 30; 80,
+              80; 100, 80], style(color=45));
       connect(piston.chamber, combustion_chamber.state) annotation (points=[
             5.55112e-16, -30; 5.55112e-16, -10], style(color=45));
       connect(intake_cam.valve_lift, intake_valve.lift) annotation (points=[-
@@ -773,8 +740,8 @@ have been compiled in this model.
             30, 20; 5.55112e-16, -10], style(color=45));
       connect(combustion_chamber.state, exhaust_valve.b) annotation (points=[
             5.55112e-16, -10; 30, 20], style(color=45));
-      connect(combustion_model.cylinder, combustion_chamber.state) annotation
-        (points=[5.55112e-16, 26; 5.55112e-16, -10], style(color=45));
+      connect(combustion_model.cylinder, combustion_chamber.state) annotation (
+         points=[5.55112e-16, 26; 5.55112e-16, -10], style(color=45));
       connect(combustion_model.crank, spark_control.crank) annotation (points=
             [-10, 26; -14, 26; -14, 44], style(color=9));
       connect(spark_control.spark, combustion_model.start) annotation (points=
@@ -783,21 +750,54 @@ have been compiled in this model.
           points=[55, -10; 11, -10]);
       connect(combustion_chamber.mass, combustion_model.mass) annotation (
           points=[-6, 1; -6, 19]);
-      connect(piston.geom, geom) annotation (points=[11, -40; 80, -40; 80, -50
-            ; 110, -50], style(color=0));
-      connect(piston.piston, crankslider.piston) annotation (points=[0, -42; 0
-            , -80], style(color=61));
+      connect(piston.geom, geom) annotation (points=[11, -40; 80, -40; 80, -50;
+              110, -50], style(color=0));
+      connect(piston.piston, crankslider.piston) annotation (points=[0, -42; 0,
+              -80], style(color=61));
       connect(chamber_volume.piston, crankslider.piston) annotation (points=[
             66, -18; 66, -80; 0, -80], style(color=61));
-      connect(offset_shaft.cyl, crankslider.crank) annotation (points=[0, -140
-            ; 0, -108], style(color=0));
+      connect(offset_shaft.cyl, crankslider.crank) annotation (points=[0, -140;
+              0, -108], style(color=0));
       connect(offset_shaft.crank, crankshaft) annotation (points=[-20, -160; -
             20, -200; 0, -200], style(color=0));
       connect(timing_belt.crankshaft, crankslider.crank) annotation (points=[-
             80, -56; -80, -108; 1.11022e-15, -108], style(color=0));
-      connect(spark_control.crank, crankslider.crank) annotation (points=[-14
-            , 44; -14, -108; 0, -108], style(color=0));
+      connect(spark_control.crank, crankslider.crank) annotation (points=[-14,
+              44; -14, -108; 0, -108], style(color=0));
+      annotation (
+        Icon(
+          Polygon(points=[-60, -140; -60, 40; -42, 40; -42, 44; -40, 46; -60,
+                60; -100, 60; -100, -140; -60, -140], style(color=0, fillColor=
+                  8)),
+          Polygon(points=[-100, 96; -60, 96; -40, 80; -20, 60; -20, 46; -18,
+                44; -18, 40; 18, 40; 18, 44; 20, 46; 20, 60; 40, 80; 60, 96;
+                100, 96; 100, 100; -100, 100; -100, 96], style(color=0,
+                fillColor=8)),
+          Rectangle(extent=[-58, 12; 58, -64], style(gradient=1, fillColor=8)),
+          Rectangle(extent=[-60, 6; 60, 0], style(color=0, fillColor=0)),
+          Rectangle(extent=[-60, -8; 60, -14], style(color=0, fillColor=0)),
+          Rectangle(extent=[-60, -20; 60, -26], style(color=0, fillColor=0)),
+          Polygon(points=[-58, -64; -40, -52; 40, -52; 58, -64; -58, -64],
+              style(pattern=0, fillColor=7)),
+          Ellipse(extent=[-4, -34; 4, -42], style(color=0, fillColor=0)),
+          Ellipse(extent=[-40, -240; 40, -160], style(color=8)),
+          Line(points=[0, -200; 30, -174; 0, -38], style(color=0, thickness=4)),
+          Rectangle(extent=[-42, 36; -18, 32], style(gradient=1, fillColor=8)),
+          Polygon(points=[-42, 36; -40, 38; -20, 38; -18, 36; -42, 36], style(
+                color=9, fillColor=8)),
+          Rectangle(extent=[-32, 38; -28, 96], style(gradient=1, fillColor=8)),
+          Polygon(points=[18, 44; 20, 46; 40, 46; 42, 44; 18, 44], style(color=
+                 9, fillColor=8)),
+          Rectangle(extent=[18, 44; 42, 40], style(gradient=1, fillColor=8)),
+          Rectangle(extent=[28, 46; 32, 96], style(gradient=1, fillColor=8)),
+          Polygon(points=[100, -140; 100, 60; 60, 60; 40, 46; 42, 44; 42, 40;
+                60, 40; 60, -140; 100, -140], style(color=0, fillColor=8)),
+          Text(extent=[-60, -100; 60, -120], string="%name")),
+        Documentation(info="All the basic componets of a single cylinder, 2-valve engine
+have been compiled in this model.
+"),     Diagram);
     end IndividualCylinder;
+
     model Cam "Valvetrain cam"
 
       parameter Types.Degrees vo=40 "Valve Open";
@@ -806,20 +806,6 @@ have been compiled in this model.
       Types.Degrees local_ca "Local camshaft angle";
     protected
       parameter Real norm=1.0/(vc - vo);
-      annotation (
-        Icon(
-          Ellipse(extent=[-78, 50; 22, -50], style(color=8, fillColor=8)),
-          Polygon(points=[-4, 44; 30, 26; 40, 14; 44, 0; 38, -20; 24, -32; 10
-                , -38; -8, -46; -4, 44], style(color=8, fillColor=8)),
-          Rectangle(extent=[54, 4; 90, -4], style(
-              color=0,
-              gradient=2,
-              fillColor=8)),
-          Ellipse(extent=[44, 6; 56, -6], style(color=0, fillColor=9)),
-          Text(extent=[-40, 80; 40, 60], string="%name")),
-        Documentation(info="This is an idealized cam model that computes a cam profile from the valve timing (opening and closing) and the
-maximum lift.
-"));
     public
       Modelica.Mechanics.Rotational.Interfaces.Flange_a camshaft annotation (
           extent=[-38, -10; -18, 10]);
@@ -833,15 +819,33 @@ maximum lift.
         2;
       local_ca = mod(camshaft.phi*180.0/Modelica.Constants.PI, 360);
 
+      annotation (
+        Icon(
+          Ellipse(extent=[-78, 50; 22, -50], style(color=8, fillColor=8)),
+          Polygon(points=[-4, 44; 30, 26; 40, 14; 44, 0; 38, -20; 24, -32; 10,
+                  -38; -8, -46; -4, 44], style(color=8, fillColor=8)),
+          Rectangle(extent=[54, 4; 90, -4], style(
+              color=0,
+              gradient=2,
+              fillColor=8)),
+          Ellipse(extent=[44, 6; 56, -6], style(color=0, fillColor=9)),
+          Text(extent=[-40, 80; 40, 60], string="%name")),
+        Documentation(info="This is an idealized cam model that computes a cam profile from the valve timing (opening and closing) and the
+maximum lift.
+"));
     end Cam;
+
     model Reservoir "Infinite reservoir"
       parameter Modelica.SIunits.Pressure P=101800 "Reservoir pressure";
       parameter Modelica.SIunits.Temperature T=300 "Reservoir temperature";
+      Interfaces.Gas tap annotation (extent=[-10, -110; 10, -90], layer="icon");
+    equation
+      tap.P = P;
+      tap.T = T;
       annotation (
         Diagram,
         Icon(
-          Rectangle(extent=[-100, 100; 100, -90], style(color=0, fillColor=7))
-            ,
+          Rectangle(extent=[-100, 100; 100, -90], style(color=0, fillColor=7)),
           Text(extent=[-42, 90; 34, 66], string="P=%P"),
           Line(points=[-60, 10; -40, 30; -20, 30; 0, 10; 0, -10; 20, -30; 40,
                 -30; 60, -10; 60, 10; 40, 30; 20, 30; 0, 10; 0, -10; -20, -30;
@@ -858,12 +862,8 @@ such that the constraints will be satisfied.  This kind of model is analagous to
 as much current as is necessary to sustain a specified voltage) or a mechanical ground (supplies as much
 force as is necessary to sustain a specified position).
 "));
-      Interfaces.Gas tap annotation (extent=[-10, -110; 10, -90], layer="icon"
-        );
-    equation
-      tap.P = P;
-      tap.T = T;
     end Reservoir;
+
     model I4_Engine "An Inline 4 Cylinder Engine"
       extends Interfaces.Engine;
       parameter Types.Degrees spark_advance "Spark advance";
@@ -875,6 +875,86 @@ force as is necessary to sustain a specified position).
       parameter Modelica.SIunits.Diameter ivd=0.032 "Intake Valve Diameter";
       parameter Modelica.SIunits.Diameter evd=0.028 "Exhaust Valve Diameter";
       Modelica.SIunits.Power power "Instantaneous engine power output";
+      replaceable model CylinderType = IndividualCylinder constrainedby
+        Interfaces.Cylinder;
+      CylinderType cylinder1(
+        crank_shift=0,
+        spark_advance=spark_advance,
+        burn_duration=burn_duration,
+        evo=evo,
+        ivo=ivo,
+        evc=evc,
+        ivc=ivc,
+        ivd=ivd,
+        evd=evd) annotation (extent=[-100, -20; -60, 40]);
+      CylinderType cylinder2(
+        crank_shift=360,
+        spark_advance=spark_advance,
+        burn_duration=burn_duration,
+        evo=evo,
+        ivo=ivo,
+        evc=evc,
+        ivc=ivc,
+        ivd=ivd,
+        evd=evd) annotation (extent=[0, -20; 40, 40]);
+      CylinderType cylinder3(
+        crank_shift=540,
+        spark_advance=spark_advance,
+        burn_duration=burn_duration,
+        evo=evo,
+        ivo=ivo,
+        evc=evc,
+        ivc=ivc,
+        ivd=ivd,
+        evd=evd) annotation (extent=[-50, -20; -10, 40]);
+      CylinderType cylinder4(
+        crank_shift=180,
+        spark_advance=spark_advance,
+        burn_duration=burn_duration,
+        evo=evo,
+        ivo=ivo,
+        evc=evc,
+        ivc=ivc,
+        ivd=ivd,
+        evd=evd) annotation (extent=[50, -20; 90, 40]);
+      Modelica.Mechanics.Rotational.Inertia crankshaft_inertia(J=0.03, w(start=
+             157)) annotation (extent=[-90, -60; -70, -40], rotation=90);
+    equation
+      connect(cylinder1.intake, intake) annotation (points=[-100, 36; -100,
+              80], style(color=45));
+      connect(cylinder3.intake, intake) annotation (points=[-50, 36; -50, 46;
+            -100, 46; -100, 80], style(color=45));
+      connect(cylinder2.intake, intake) annotation (points=[-1.11022e-15, 38;
+            0, 46; -100, 46; -100, 80], style(color=45));
+      connect(cylinder4.intake, intake) annotation (points=[50, 36; 50, 46; -
+            100, 46; -100, 80], style(color=45));
+      connect(cylinder1.exhaust, exhaust) annotation (points=[-60, 36; -60, 80;
+              100, 80], style(color=45));
+      connect(cylinder4.exhaust, exhaust) annotation (points=[90, 36; 100, 36;
+              100, 80], style(color=45));
+      connect(cylinder3.exhaust, exhaust) annotation (points=[-10, 36; -10, 80;
+              100, 80], style(color=45));
+      connect(cylinder2.exhaust, exhaust) annotation (points=[40, 38; 40, 80;
+            100, 80], style(color=45));
+      connect(cylinder4.geom, engine_geometry) annotation (points=[92, 10; 96,
+              10; 96, 0; 110, 0], style(color=0));
+      connect(cylinder2.geom, engine_geometry) annotation (points=[42, 12; 46,
+              10; 46, -50; 96, -50; 96, 0; 110, 0], style(color=0));
+      connect(cylinder3.geom, engine_geometry) annotation (points=[-8, 10; -4,
+              10; -4, -50; 96, -50; 96, 0; 110, 0], style(color=0));
+      connect(cylinder1.geom, engine_geometry) annotation (points=[-58, 10; -
+            54, 10; -54, -50; 96, -50; 96, 0; 110, 0], style(color=0));
+      connect(cylinder1.crankshaft, cylinder3.crankshaft) annotation (points=[
+            -80, -19.6; -30, -19.6], style(color=10));
+      connect(cylinder2.crankshaft, cylinder3.crankshaft) annotation (points=[
+            20, -19.6; -30, -19.6], style(color=10));
+      connect(cylinder4.crankshaft, cylinder2.crankshaft) annotation (points=[
+            70, -19.6; 20, -19.6], style(color=10));
+      connect(crankshaft_inertia.flange_b, cylinder1.crankshaft) annotation (
+          points=[-80, -40; -80, -19.6], style(color=0));
+      connect(crankshaft_inertia.flange_a, crankshaft) annotation (points=[-80,
+              -60; -80, -70; -100, -70; -100, -40], style(color=0));
+      power = crankshaft.tau*der(crankshaft.phi);
       annotation (
         Icon(
           Polygon(points=[-48, 32; -56, -8; -56, -48; -46, -76; -12, -76; 0, -
@@ -885,8 +965,7 @@ force as is necessary to sustain a specified position).
               color=0,
               gradient=2,
               fillColor=8)),
-          Rectangle(extent=[-90, -30; -30, -50], style(gradient=2, fillColor=8
-              )),
+          Rectangle(extent=[-90, -30; -30, -50], style(gradient=2, fillColor=8)),
           Polygon(points=[-8, 32; 72, 32; 84, -6; 84, -48; 74, -76; -12, -76;
                 0, -48; 0, -8; -8, 32; -8, 32], style(color=0, fillColor=8)),
           Line(points=[0, -6; 84, -6], style(color=9)),
@@ -895,8 +974,7 @@ force as is necessary to sustain a specified position).
           Rectangle(extent=[72, 48; 62, 32], style(color=0, fillColor=10)),
           Ellipse(extent=[60, 70; 74, 40], style(color=0, fillColor=8)),
           Line(points=[-36, 58; -46, -30], style(color=0)),
-          Rectangle(extent=[-28, 62; 68, 48], style(gradient=2, fillColor=8))
-            ,
+          Rectangle(extent=[-28, 62; 68, 48], style(gradient=2, fillColor=8)),
           Ellipse(extent=[-36, 70; -24, 44], style(color=0, fillColor=8)),
           Line(points=[-24, 58; -16, -36], style(color=0)),
           Rectangle(extent=[-16, 64; -10, 42], style(color=9, fillColor=9)),
@@ -945,115 +1023,12 @@ force as is necessary to sustain a specified position).
         Documentation(info="An assembly of components required for an I4 engine.  This model requires a connection to intake and exhaust
 gases, the crankshaft and geometry information.
 "));
-      replaceable model CylinderType = IndividualCylinder extends
-        Interfaces.Cylinder;
-      CylinderType cylinder1(
-        crank_shift=0,
-        spark_advance=spark_advance,
-        burn_duration=burn_duration,
-        evo=evo,
-        ivo=ivo,
-        evc=evc,
-        ivc=ivc,
-        ivd=ivd,
-        evd=evd) annotation (extent=[-100, -20; -60, 40]);
-      CylinderType cylinder2(
-        crank_shift=360,
-        spark_advance=spark_advance,
-        burn_duration=burn_duration,
-        evo=evo,
-        ivo=ivo,
-        evc=evc,
-        ivc=ivc,
-        ivd=ivd,
-        evd=evd) annotation (extent=[0, -20; 40, 40]);
-      CylinderType cylinder3(
-        crank_shift=540,
-        spark_advance=spark_advance,
-        burn_duration=burn_duration,
-        evo=evo,
-        ivo=ivo,
-        evc=evc,
-        ivc=ivc,
-        ivd=ivd,
-        evd=evd) annotation (extent=[-50, -20; -10, 40]);
-      CylinderType cylinder4(
-        crank_shift=180,
-        spark_advance=spark_advance,
-        burn_duration=burn_duration,
-        evo=evo,
-        ivo=ivo,
-        evc=evc,
-        ivc=ivc,
-        ivd=ivd,
-        evd=evd) annotation (extent=[50, -20; 90, 40]);
-      Modelica.Mechanics.Rotational.Inertia crankshaft_inertia(J=0.03, w(start
-            =157)) annotation (extent=[-90, -60; -70, -40], rotation=90);
-    equation
-      connect(cylinder1.intake, intake) annotation (points=[-100, 36; -100
-            , 80], style(color=45));
-      connect(cylinder3.intake, intake) annotation (points=[-50, 36; -50, 46;
-            -100, 46; -100, 80], style(color=45));
-      connect(cylinder2.intake, intake) annotation (points=[-1.11022e-15, 38;
-            0, 46; -100, 46; -100, 80], style(color=45));
-      connect(cylinder4.intake, intake) annotation (points=[50, 36; 50, 46; -
-            100, 46; -100, 80], style(color=45));
-      connect(cylinder1.exhaust, exhaust) annotation (points=[-60, 36; -60, 80
-            ; 100, 80], style(color=45));
-      connect(cylinder4.exhaust, exhaust) annotation (points=[90, 36; 100, 36
-            ; 100, 80], style(color=45));
-      connect(cylinder3.exhaust, exhaust) annotation (points=[-10, 36; -10, 80
-            ; 100, 80], style(color=45));
-      connect(cylinder2.exhaust, exhaust) annotation (points=[40, 38; 40, 80;
-            100, 80], style(color=45));
-      connect(cylinder4.geom, engine_geometry) annotation (points=[92, 10; 96
-            , 10; 96, 0; 110, 0], style(color=0));
-      connect(cylinder2.geom, engine_geometry) annotation (points=[42, 12; 46
-            , 10; 46, -50; 96, -50; 96, 0; 110, 0], style(color=0));
-      connect(cylinder3.geom, engine_geometry) annotation (points=[-8, 10; -4
-            , 10; -4, -50; 96, -50; 96, 0; 110, 0], style(color=0));
-      connect(cylinder1.geom, engine_geometry) annotation (points=[-58, 10; -
-            54, 10; -54, -50; 96, -50; 96, 0; 110, 0], style(color=0));
-      connect(cylinder1.crankshaft, cylinder3.crankshaft) annotation (points=[
-            -80, -19.6; -30, -19.6], style(color=10));
-      connect(cylinder2.crankshaft, cylinder3.crankshaft) annotation (points=[
-            20, -19.6; -30, -19.6], style(color=10));
-      connect(cylinder4.crankshaft, cylinder2.crankshaft) annotation (points=[
-            70, -19.6; 20, -19.6], style(color=10));
-      connect(crankshaft_inertia.flange_b, cylinder1.crankshaft) annotation (
-          points=[-80, -40; -80, -19.6], style(color=0));
-      connect(crankshaft_inertia.flange_a, crankshaft) annotation (points=[-80
-            , -60; -80, -70; -100, -70; -100, -40], style(color=0));
-      power = crankshaft.tau*der(crankshaft.phi);
     end I4_Engine;
+
     model Manifold "A simple filling-and-emptying manifold model"
       parameter Modelica.SIunits.Volume volume=0.004 "Manifold volume";
-      annotation (
-        Icon(
-          Rectangle(extent=[-80, 40; 80, -40], style(gradient=2, fillColor=8))
-            ,
-          Rectangle(extent=[-80, -40; -60, -80], style(gradient=1, fillColor=8
-              )),
-          Rectangle(extent=[20, -40; 40, -80], style(gradient=1, fillColor=8))
-            ,
-          Rectangle(extent=[-40, -40; -20, -80], style(gradient=1, fillColor=8
-              )),
-          Rectangle(extent=[60, -40; 80, -80], style(gradient=1, fillColor=8))
-            ,
-          Rectangle(extent=[-10, 80; 10, 40], style(gradient=1, fillColor=8))
-            ,
-          Line(points=[-6, 56; 6, 64], style(color=0, thickness=2)),
-          Ellipse(extent=[-2, 62; 2, 58], style(color=0, fillColor=0)),
-          Line(points=[-100, 0; -90, 0; -90, 60; 0, 60]),
-          Text(extent=[20, 80; 100, 60], string="%name")),
-        Documentation(info="This very simple model contains a throttle and a control volume which
-can be connected to the intake system of an engine (or cylinder) in
-order to simulate the effects of manifold filling and emptying.  A
-throttle position of 90 degrees corresponds to wide open throttle (WOT)
-while a throttle position of 0 degrees corresponds to a closed throttle.
-"));
-      Engine.Components.ControlVolume manifold_volume annotation (extent=[-40
-            , -40; 40, 40]);
+      Engine.Components.ControlVolume manifold_volume annotation (extent=[-40,
+              -40; 40, 40]);
       Modelica.Blocks.Sources.Constant volume_value(final k={volume})
         annotation (extent=[40, -60; 60, -40]);
       Interfaces.Gas ambient annotation (extent=[-10, 90; 10, 110]);
@@ -1074,12 +1049,29 @@ while a throttle position of 0 degrees corresponds to a closed throttle.
             100], style(color=45));
       connect(throttle_angle, throttle.throttle_angle) annotation (points=[-
             110, 0; -60, 0; -60, 60; -22, 60]);
+      annotation (
+        Icon(
+          Rectangle(extent=[-80, 40; 80, -40], style(gradient=2, fillColor=8)),
+          Rectangle(extent=[-80, -40; -60, -80], style(gradient=1, fillColor=8)),
+          Rectangle(extent=[20, -40; 40, -80], style(gradient=1, fillColor=8)),
+          Rectangle(extent=[-40, -40; -20, -80], style(gradient=1, fillColor=8)),
+          Rectangle(extent=[60, -40; 80, -80], style(gradient=1, fillColor=8)),
+          Rectangle(extent=[-10, 80; 10, 40], style(gradient=1, fillColor=8)),
+          Line(points=[-6, 56; 6, 64], style(color=0, thickness=2)),
+          Ellipse(extent=[-2, 62; 2, 58], style(color=0, fillColor=0)),
+          Line(points=[-100, 0; -90, 0; -90, 60; 0, 60]),
+          Text(extent=[20, 80; 100, 60], string="%name")),
+        Documentation(info="This very simple model contains a throttle and a control volume which
+can be connected to the intake system of an engine (or cylinder) in
+order to simulate the effects of manifold filling and emptying.  A
+throttle position of 90 degrees corresponds to wide open throttle (WOT)
+while a throttle position of 0 degrees corresponds to a closed throttle.
+"));
     end Manifold;
   end Components;
   annotation (
     Documentation(info="This package contains numerous engine component models and a complete I4 engine model.
-"),
-    Icon(
+"), Icon(
       Ellipse(extent=[-84, -22; -38, -42], style(color=0, fillColor=8)),
       Ellipse(extent=[-84, -20; -38, -40], style(gradient=3, fillColor=8)),
       Rectangle(extent=[-64, 22; -59, -30], style(

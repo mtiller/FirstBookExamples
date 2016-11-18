@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model CountingSensor
   import Modelica.Mechanics.Rotational;
 

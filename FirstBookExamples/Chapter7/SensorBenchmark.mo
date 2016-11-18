@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model SensorBenchmark
   import Modelica.Mechanics.Rotational;
   import Modelica.Blocks;
@@ -7,7 +8,7 @@ model SensorBenchmark
   Rotational.Damper damper(d=0.2)
     annotation (extent=[72, -12; 92, 8], rotation=270);
   Rotational.Torque actuator annotation (extent=[18, 28; 38, 48]);
-  replaceable Rotational.Sensors.SpeedSensor sensor extends
+  replaceable Rotational.Sensors.SpeedSensor sensor constrainedby
     Rotational.Interfaces.AbsoluteSensor
     annotation (extent=[34, -10; 54, 10], rotation=270);
   Blocks.Continuous.PI controller(k={100}, T={0.1})

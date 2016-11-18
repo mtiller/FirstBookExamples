@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model HTProblem2 "Variation on HTProblem1"
   extends FirstBookExamples.Icons.RunnableExample;
   Modelica.Blocks.Sources.Constant Tl(k={300.0})
@@ -18,12 +19,6 @@ model HTProblem2 "Variation on HTProblem1"
     cp=1.0,
     rho=1.0,
     h=0.3) annotation (extent=[-22, -44; -2, -24]);
-  annotation (experiment(
-      StopTime=50,
-      Tolerance=1e-4,
-      NumberOfIntervals=500),
-      Commands(file="HTProblem2.mos" "Simulate HTProblem2"),
-      Diagram);
 equation
   connect(Tl.outPort, left.T)
     annotation (points=[-67, 50; -64, 50; -64, -8; -60, -8]);
@@ -37,4 +32,10 @@ equation
     annotation (points=[-2, -34; 32, -34; 32, -8; 28, -8]);
   connect(wall.d, rod.ambient)
     annotation (points=[74, -10; 80, -10; 80, -80; -11.8, -80; -11.8, -43.8]);
+  annotation (experiment(
+      StopTime=50,
+      Tolerance=1e-4,
+      NumberOfIntervals=500),
+      Commands(file="HTProblem2.mos" "Simulate HTProblem2"),
+      Diagram);
 end HTProblem2;

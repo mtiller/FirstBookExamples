@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 package Oregonator
   extends FirstBookExamples.Icons.BookExample;
   // Based on http://www.georgetown.edu/earleyj/n64298.html
@@ -87,10 +88,6 @@ package Oregonator
     Real dcx;
     Real dcy;
     Real dcz;
-    annotation (
-      experiment(StopTime=30),
-      Commands(file="Oregonator.mos" "Simulate Oregonator"),
-      Diagram);
   equation
     connect(v.p, r_ay.p) annotation (points=[-60, 42; -70, 42; -70, 60; -28, 60;
            -28, 42; -20, 42]);
@@ -109,6 +106,10 @@ package Oregonator
     dcx = der(cX);
     dcy = der(cY);
     dcz = der(cZ);
+    annotation (
+      experiment(StopTime=30),
+      Commands(file="Oregonator.mos" "Simulate Oregonator"),
+      Diagram);
   end ChemicalSystem;
 
   model ODESystem
@@ -129,7 +130,6 @@ package Oregonator
     Real rate_ax;
     Real rate_ay;
     Real rate_bz;
-    annotation (experiment(StopTime=30));
   equation
     rate_ay = y;
     rate_xy = x*y;
@@ -142,6 +142,7 @@ package Oregonator
     der(x) = -x*y - 2*gamma*x*x + alpha*x + y;
     der(y) = -x*y - y + (f/2)*beta*z;
     der(z) = 2*alpha*x - beta*z;
+    annotation (experiment(StopTime=30));
   end ODESystem;
 
   model DebugSystem

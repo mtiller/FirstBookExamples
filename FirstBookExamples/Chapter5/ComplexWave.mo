@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter5;
 function ComplexWave
   encapsulated record Data
     import Modelica;

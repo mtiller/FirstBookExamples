@@ -1,28 +1,6 @@
+within FirstBookExamples.Chapter10.HeatingSystem;
 model ThermostatSystem
   extends FirstBookExamples.Icons.RunnableExample;
-  annotation (
-    experiment(
-      StopTime=100000,
-      Tolerance=1e-8,
-      NumberOfIntervals=500),
-    Commands(file="HeatingSystem.mos" "Simulate heating system"),
-    Diagram(
-      Text(
-        extent=[48, 58; 116, 48],
-        string="Digital Thermostat",
-        style(color=0)),
-      Text(
-        extent=[50, -62; 118, -72],
-        string="Mechanical Thermostat",
-        style(color=0)),
-      Text(
-        extent=[-6, 22; 46, 10],
-        string="Furnace",
-        style(color=0)),
-      Text(
-        extent=[-6, -98; 46, -110],
-        string="Furnace",
-        style(color=0))));
   House house1 annotation (extent=[-60, 60; -20, 100]);
   Modelica.Blocks.Sources.Trapezoid amb_temp(
     amplitude={10},
@@ -60,4 +38,27 @@ equation
     annotation (points=[60, -24; -20, -24; -20, -40], style(color=41));
   connect(thermostat2.n, furnace2.n)
     annotation (points=[60, -56; 28, -56; 28, -60]);
+  annotation (
+    experiment(
+      StopTime=100000,
+      Tolerance=1e-8,
+      NumberOfIntervals=500),
+    Commands(file="HeatingSystem.mos" "Simulate heating system"),
+    Diagram(
+      Text(
+        extent=[48, 58; 116, 48],
+        string="Digital Thermostat",
+        style(color=0)),
+      Text(
+        extent=[50, -62; 118, -72],
+        string="Mechanical Thermostat",
+        style(color=0)),
+      Text(
+        extent=[-6, 22; 46, 10],
+        string="Furnace",
+        style(color=0)),
+      Text(
+        extent=[-6, -98; 46, -110],
+        string="Furnace",
+        style(color=0))));
 end ThermostatSystem;

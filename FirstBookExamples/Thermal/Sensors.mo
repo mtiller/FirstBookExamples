@@ -1,9 +1,11 @@
+within FirstBookExamples.Thermal;
 package Sensors
   extends Modelica.Icons.Library;
   model TemperatureSensor "Absolute temperature sensor"
-    Modelica.Blocks.Interfaces.OutPort T annotation (extent=[90, -10; 110, 10]
-      );
+    Modelica.Blocks.Interfaces.OutPort T annotation (extent=[90, -10; 110, 10]);
     Interfaces.Node_a n annotation (extent=[-110, -10; -90, 10]);
+  equation
+    T.signal[1] = n.T;
     annotation (
       Diagram,
       Icon(
@@ -32,8 +34,6 @@ whatever it is connected to.  Furthermore, not
 thermocouple-like lags are associated with this
 sensor model.
 "));
-  equation
-    T.signal[1] = n.T;
   end TemperatureSensor;
 
   model HeatFlow "Heat flow rate sensor"
@@ -42,6 +42,10 @@ sensor model.
     Interfaces.Node_b b annotation (extent=[90, -10; 110, 10]);
     Modelica.Blocks.Interfaces.OutPort heat "Heat flow from a->b" annotation (
         extent=[-10, -110; 10, -90], rotation=270);
+  equation
+    a.q + b.q = 0;
+    heat.signal[1] = a.q;
+    a.T = b.T;
     annotation (
       Diagram,
       Icon(
@@ -58,9 +62,5 @@ flow is the amount that passes through this sensor while keeping the temperature
 sensor zero.  This is an ideal model so it does not absorb any energy and it has no direct effect on the
 thermal response of a system it is included in.
 "));
-  equation
-    a.q + b.q = 0;
-    heat.signal[1] = a.q;
-    a.T = b.T;
   end HeatFlow;
 end Sensors;

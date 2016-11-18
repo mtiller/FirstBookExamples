@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter5;
 model TestPiecewise
   extends FirstBookExamples.Icons.RunnableExample;
   import Modelica.SIunits;
@@ -6,10 +7,10 @@ model TestPiecewise
   Real y;
   Real x;
   Real z;
-  annotation (experiment(StopTime=9.999),
-              Commands(file="TestPiecewise.mos" "Simulate TestPiecewise"));
 equation
   y = Piecewise(x=time, x_grid=x_values, y_grid=y_values);
   der(x) = -y;
   der(z) = -x;
+  annotation (experiment(StopTime=9.999),
+              Commands(file="TestPiecewise.mos" "Simulate TestPiecewise"));
 end TestPiecewise;

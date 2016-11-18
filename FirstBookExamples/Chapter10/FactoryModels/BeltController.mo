@@ -1,33 +1,8 @@
+within FirstBookExamples.Chapter10.FactoryModels;
 model BeltController
   parameter Real Kd(start=1.0);
   parameter Real Kp(start=1.0);
   parameter Real Td(start=0.01);
-  annotation (
-    Diagram(
-      Rectangle(extent=[-48, 88; 48, 10], style(color=0, pattern=2)),
-      Text(
-        extent=[-40, 100; 40, 88],
-        string="PID Controller",
-        style(color=0)),
-      Rectangle(extent=[-88, -46; -14, -90], style(color=0, pattern=2)),
-      Text(
-        extent=[-88, -90; -14, -100],
-        string="Desired Response",
-        style(color=0))),
-    Icon(
-      Rectangle(extent=[-80, 80; 80, -80], style(color=0, fillColor=8)),
-      Rectangle(extent=[-40, 60; 40, 10], style(fillColor=72)),
-      Rectangle(extent=[-40, -10; 40, -60], style(fillColor=72)),
-      Line(points=[-40, -40; -60, -40; -60, 40; -40, 40]),
-      Line(points=[-40, 40; -46, 46]),
-      Line(points=[-40, 40; -46, 34]),
-      Line(points=[40, 40; 60, 40; 60, -40; 40, -40]),
-      Line(points=[40, -40; 46, -34]),
-      Line(points=[40, -40; 46, -46]),
-      Line(points=[90, 40; 80, 40]),
-      Line(points=[90, -40; 80, -40]),
-      Line(points=[-100, 40; -80, 40]),
-      Line(points=[-100, -40; -80, -40])));
   Modelica.Electrical.Analog.Interfaces.NegativePin n
     annotation (extent=[90, -50; 110, -30]);
   Modelica.Electrical.Analog.Interfaces.PositivePin p
@@ -42,7 +17,8 @@ model BeltController
     falling={2.0},
     period={10.0},
     offset={0},
-    startTime={.2}) annotation (extent=[-80, -80; -60, -60]);
+    startTime={0.2})
+                    annotation (extent=[-80, -80; -60, -60]);
   Modelica.Blocks.Continuous.Integrator position_profile
     annotation (extent=[-50, -80; -30, -60]);
   Modelica.Electrical.Analog.Sources.SignalVoltage motor_voltage
@@ -71,4 +47,30 @@ equation
     annotation (points=[-3, 68; 4, 68; 4, 52; 10, 52]);
   connect(position_profile.outPort, pos_error.inPort2)
     annotation (points=[-29, -70; -20, -70; -20, -18; -72, -18; -72, 32]);
+  annotation (
+    Diagram(
+      Rectangle(extent=[-48, 88; 48, 10], style(color=0, pattern=2)),
+      Text(
+        extent=[-40, 100; 40, 88],
+        string="PID Controller",
+        style(color=0)),
+      Rectangle(extent=[-88, -46; -14, -90], style(color=0, pattern=2)),
+      Text(
+        extent=[-88, -90; -14, -100],
+        string="Desired Response",
+        style(color=0))),
+    Icon(
+      Rectangle(extent=[-80, 80; 80, -80], style(color=0, fillColor=8)),
+      Rectangle(extent=[-40, 60; 40, 10], style(fillColor=72)),
+      Rectangle(extent=[-40, -10; 40, -60], style(fillColor=72)),
+      Line(points=[-40, -40; -60, -40; -60, 40; -40, 40]),
+      Line(points=[-40, 40; -46, 46]),
+      Line(points=[-40, 40; -46, 34]),
+      Line(points=[40, 40; 60, 40; 60, -40; 40, -40]),
+      Line(points=[40, -40; 46, -34]),
+      Line(points=[40, -40; 46, -46]),
+      Line(points=[90, 40; 80, 40]),
+      Line(points=[90, -40; 80, -40]),
+      Line(points=[-100, 40; -80, 40]),
+      Line(points=[-100, -40; -80, -40])));
 end BeltController;

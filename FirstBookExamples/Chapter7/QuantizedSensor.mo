@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model QuantizedSensor
   import Modelica.SIunits;
   import Modelica.Mechanics.Rotational;

@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model HeatTransfer "One Dimensional Heat Transfer"
   extends FirstBookExamples.Icons.RunnableExample;
   import Modelica.SIunits;
@@ -14,8 +15,6 @@ model HeatTransfer "One Dimensional Heat Transfer"
   // Computed parameters
 protected
   parameter SIunits.Length dx=L/n "Distance between nodes";
-  annotation (experiment(StopTime=50),
-              Commands(file="HeatTransfer.mos" "Simulate HeatTransfer"));
 equation
   // Loop over interior nodes
   for i in 2:n - 1 loop
@@ -25,4 +24,6 @@ equation
   // Boundary Conditions
   T[1] = if time >= 1 then 1000 else 300;
   T[n] = 300;
+  annotation (experiment(StopTime=50),
+              Commands(file="HeatTransfer.mos" "Simulate HeatTransfer"));
 end HeatTransfer;

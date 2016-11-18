@@ -1,5 +1,26 @@
+within FirstBookExamples.Chapter10.FactoryModels;
 class ConveyorBelt
   import Modelica.Mechanics.Rotational;
+  Rotational.Interfaces.Flange_a axle annotation (extent=[-110, -10; -90, 10]);
+  replaceable Rotational.IdealGear gears(ratio=5) constrainedby
+    Rotational.Interfaces.TwoFlanges annotation (extent=[-80, -10; -60, 10]);
+  Rotational.IdealGearR2T belt annotation (extent=[-10, -10; 10, 10]);
+  Modelica.Mechanics.Translational.SlidingMass product(m=1)
+    annotation (extent=[20, -10; 40, 10]);
+  Rotational.Fixed ground annotation (extent=[-30, -60; -10, -40]);
+  Rotational.Damper bearings(d=20)
+    annotation (extent=[-30, -40; -10, -20], rotation=90);
+  Rotational.Inertia shaft(J=0.3)
+                                 annotation (extent=[-48, -10; -28, 10]);
+equation
+  connect(gears.flange_a, axle) annotation (points=[-80, 0; -100, 0]);
+  connect(belt.flange_b, product.flange_a) annotation (points=[10, 0; 20, 0]);
+  connect(bearings.flange_b, belt.flange_a)
+    annotation (points=[-20, -20; -20, 0; -10, 0]);
+  connect(bearings.flange_a, ground.flange_b)
+    annotation (points=[-20, -40; -20, -50]);
+  connect(shaft.flange_b, belt.flange_a) annotation (points=[-28, 0; -10, 0]);
+  connect(gears.flange_b, shaft.flange_a) annotation (points=[-60, 0; -48, 0]);
   annotation (
     Icon(
       Ellipse(extent=[-70, 10; -50, -10], style(
@@ -52,23 +73,4 @@ class ConveyorBelt
           color=0,
           fillColor=7,
           fillPattern=7))));
-  Rotational.Interfaces.Flange_a axle annotation (extent=[-110, -10; -90, 10]);
-  replaceable Rotational.IdealGear gears(ratio=5) extends
-    Rotational.Interfaces.TwoFlanges annotation (extent=[-80, -10; -60, 10]);
-  Rotational.IdealGearR2T belt annotation (extent=[-10, -10; 10, 10]);
-  Modelica.Mechanics.Translational.SlidingMass product(m=1)
-    annotation (extent=[20, -10; 40, 10]);
-  Rotational.Fixed ground annotation (extent=[-30, -60; -10, -40]);
-  Rotational.Damper bearings(d=20)
-    annotation (extent=[-30, -40; -10, -20], rotation=90);
-  Rotational.Inertia shaft(J=.3) annotation (extent=[-48, -10; -28, 10]);
-equation
-  connect(gears.flange_a, axle) annotation (points=[-80, 0; -100, 0]);
-  connect(belt.flange_b, product.flange_a) annotation (points=[10, 0; 20, 0]);
-  connect(bearings.flange_b, belt.flange_a)
-    annotation (points=[-20, -20; -20, 0; -10, 0]);
-  connect(bearings.flange_a, ground.flange_b)
-    annotation (points=[-20, -40; -20, -50]);
-  connect(shaft.flange_b, belt.flange_a) annotation (points=[-28, 0; -10, 0]);
-  connect(gears.flange_b, shaft.flange_a) annotation (points=[-60, 0; -48, 0]);
 end ConveyorBelt;

@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter2;
 model TwoTanks "Hydraulic system involving two tanks"
   extends FirstBookExamples.Icons.RunnableExample;
   import Modelica.SIunits;
@@ -21,10 +22,6 @@ model TwoTanks "Hydraulic system involving two tanks"
   SIunits.Length H1;
   SIunits.Length H2(start=2);
   SIunits.VolumeFlowRate Q;
-  annotation (experiment(
-      StopTime=10,
-      NumberOfIntervals=500,
-      Tolerance=1E-8), Commands(file="TwoTanks.mos" "Simulate TwoTanks"));
 equation
   // Pressure equations
   P1 = rho*H1*g;
@@ -36,4 +33,8 @@ equation
   // Conservation of mass
   A1*der(H1) = -Q;
   A2*der(H2) = Q;
+  annotation (experiment(
+      StopTime=10,
+      NumberOfIntervals=500,
+      Tolerance=1E-8), Commands(file="TwoTanks.mos" "Simulate TwoTanks"));
 end TwoTanks;

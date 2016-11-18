@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter10.FactoryModels;
 model PlantModel
   ElectricMotor motor annotation (extent=[-10, -20; 30, 20]);
   ConveyorBelt conveyor annotation (extent=[50, -20; 90, 20]);

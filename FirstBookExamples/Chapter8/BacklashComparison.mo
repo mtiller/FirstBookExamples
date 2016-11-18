@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter8;
 package BacklashComparison
   extends FirstBookExamples.Icons.BookExample;
   partial model NoRigid
@@ -45,11 +46,11 @@ package BacklashComparison
 
   model Comparison
     extends FirstBookExamples.Icons.RunnableExample;
-    annotation (experiment(StopTime=1),
-                Commands(file="BacklashComparison.mos" "Run backlash comparison"));
     NoRigid_Nonlinear nr_nl;
     Rigid_Nonlinear r_nl;
     NoRigid_COR nr_cor;
     Rigid_COR r_cor;
+    annotation (experiment(StopTime=1),
+                Commands(file="BacklashComparison.mos" "Run backlash comparison"));
   end Comparison;
 end BacklashComparison;

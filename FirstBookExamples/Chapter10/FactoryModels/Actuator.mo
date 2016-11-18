@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter10.FactoryModels;
 partial model Actuator
   Modelica.Mechanics.Rotational.Interfaces.Flange_b driver
     annotation (extent=[90, -10; 110, 10]);

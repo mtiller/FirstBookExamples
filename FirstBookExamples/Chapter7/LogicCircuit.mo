@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model LogicCircuit
   extends FirstBookExamples.Icons.RunnableExample;
   import BS = Modelica.Blocks.Sources;
@@ -15,9 +16,6 @@ model LogicCircuit
   Not not2 annotation (extent=[-18, 56; 2, 76]);
   Boolean o1;
   Boolean o2;
-  annotation (experiment(StopTime=16),
-              Commands(file="LogicCircuit.mos" "Simulate LogicCircuit"),
-              Diagram);
 equation
   // o1
   connect(i3.outPort, and1.inPort2)
@@ -36,4 +34,7 @@ equation
   connect(and1.outPort, not1.inPort) annotation (points=[-5.6, 6; 18, 6]);
   connect(i1.outPort, and1.inPort1)
     annotation (points=[-63, 66; -48, 66; -48, 10; -26, 10]);
+  annotation (experiment(StopTime=16),
+              Commands(file="LogicCircuit.mos" "Simulate LogicCircuit"),
+              Diagram);
 end LogicCircuit;

@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter5;
 model TestComplexWave
   extends FirstBookExamples.Icons.RunnableExample;
   parameter ComplexWave.Data wdata(
@@ -8,10 +9,10 @@ model TestComplexWave
   Real signal;
   constant Real pi=Modelica.Constants.pi;
   Real ver;
-  annotation (experiment(StopTime=3),
-              Commands(file="TestComplexWave.mos" "Simulate TestComplexWave"));
 equation
   signal = ComplexWave(time, wdata);
   ver = 1.3*Modelica.Math.sin(pi*2.0*time) + 2.2*Modelica.Math.sin(pi*3.0*time
      + pi) + 5.8*Modelica.Math.sin(pi*7.0*time);
+  annotation (experiment(StopTime=3),
+              Commands(file="TestComplexWave.mos" "Simulate TestComplexWave"));
 end TestComplexWave;

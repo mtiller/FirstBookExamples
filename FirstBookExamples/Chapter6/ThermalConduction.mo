@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model ThermalConduction "1-D Conduction Heat Transfer"
   import Modelica.SIunits;
   // Physical parameters

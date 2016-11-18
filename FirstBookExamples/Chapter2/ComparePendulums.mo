@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter2;
 model ComparePendulums
   extends FirstBookExamples.Icons.RunnableExample;
   SimplePendulum linear(theta(start=2.3));

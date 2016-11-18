@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model RotationalPendulum
   import Modelica.SIunits;
 

@@ -1,6 +1,7 @@
+within FirstBookExamples.Chapter3;
 model ControlSystem3
   extends FirstBookExamples.Icons.RunnableExample;
-  parameter Real Kp=.4;
+  parameter Real Kp=0.4;
   parameter Real Ti=1;
   import Modelica.Blocks;
   Blocks.Math.Feedback Difference annotation (extent=[-66, 22; -46, 42]);
@@ -10,15 +11,12 @@ model ControlSystem3
   Blocks.Continuous.Integrator IntegratorBlock
     annotation (extent=[12, -18; 32, 2], rotation=180);
   Blocks.Sources.Sine sinsig(
-    amplitude={.2},
-    freqHz={.3},
+    amplitude={0.2},
+    freqHz={0.3},
     offset={1}) annotation (extent=[-92, 22; -72, 42]);
-  Blocks.Continuous.TransferFunction PlantModel(a={.8,.1}, b={1})
+  Blocks.Continuous.TransferFunction PlantModel(a={0.8,
+                                                      0.1},b={1})
     annotation (extent=[60, 16; 80, 36]);
-  annotation (
-    experiment(StopTime=20),
-    Commands(file="ControlSystem3.mos" "Simulate ControlSystem3"),
-    Diagram);
 equation
   connect(sinsig.outPort, Difference.inPort1)
     annotation (points=[-71, 32; -64, 32]);
@@ -36,4 +34,8 @@ equation
     annotation (points=[33, 26; 58, 26]);
   connect(PlantModel.outPort, Difference.inPort2)
     annotation (points=[81, 26; 88, 26; 88, -60; -56, -60; -56, 24]);
+  annotation (
+    experiment(StopTime=20),
+    Commands(file="ControlSystem3.mos" "Simulate ControlSystem3"),
+    Diagram);
 end ControlSystem3;

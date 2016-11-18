@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 block Integrator
   parameter Real init_val=0;
   input Signal in_sig annotation (extent=[-110, -10; -90, 10]);

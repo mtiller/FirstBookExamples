@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model ConductingRod
   import Modelica.SIunits;
 

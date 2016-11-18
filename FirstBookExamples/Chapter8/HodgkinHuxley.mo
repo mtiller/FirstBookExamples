@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter8;
 package HodgkinHuxley
   package SIunits = Modelica.SIunits;
   type ConductanceDensity = Real (final quantity="ConductanceDensity", final
@@ -40,6 +41,17 @@ package HodgkinHuxley
     SIunits.Conductance G;
     MilliVoltage E=1000*v;
     parameter SIunits.Conductance g_max=membrane_area*G_Na;
+  equation
+    G = m_prob^3*h_prob*g_max;
+    i = G*(v - E_Na);
+    der(m_prob) = 1000*(a_m*(1 - m_prob) - b_m*m_prob);
+    a_m = (0.1
+             *(E + V_am))/(1 - Modelica.Math.exp(-(E + V_am)/10));
+    b_m = 4*Modelica.Math.exp(-(E + V_bm)/18);
+    der(h_prob) = 1000*(a_h*(1 - h_prob) - b_h*h_prob);
+    a_h = 0.07
+             *Modelica.Math.exp(-(E + V_ah)/20);
+    b_h = 1/(1 + Modelica.Math.exp(-(E + V_bh)/10));
     annotation (
       Icon(
         Line(points=[-98, 0; -80, 0; -70, 20; -60, -20; -50, 20; -40, -20; -30,
@@ -52,15 +64,6 @@ package HodgkinHuxley
         Line(points=[-60, 32; -54, 32], style(color=0)),
         Line(points=[-60, 32; -60, 26], style(color=0)),
         Text(extent=[60, 40; 100, 20], string="Na")));
-  equation
-    G = m_prob^3*h_prob*g_max;
-    i = G*(v - E_Na);
-    der(m_prob) = 1000*(a_m*(1 - m_prob) - b_m*m_prob);
-    a_m = (.1*(E + V_am))/(1 - Modelica.Math.exp(-(E + V_am)/10));
-    b_m = 4*Modelica.Math.exp(-(E + V_bm)/18);
-    der(h_prob) = 1000*(a_h*(1 - h_prob) - b_h*h_prob);
-    a_h = .07*Modelica.Math.exp(-(E + V_ah)/20);
-    b_h = 1/(1 + Modelica.Math.exp(-(E + V_bh)/10));
   end SodiumChannel;
 
   model PotassiumChannel "Hodgkin-Huxley Potassium Channel"
@@ -75,6 +78,14 @@ package HodgkinHuxley
     SIunits.DecayConstant b_n;
     SIunits.Conductance G;
     MilliVoltage E=1000*v;
+  equation
+    G = n_prob^4*g_max;
+    i = G*(v - E_K);
+    der(n_prob) = 1000*(a_n*(1 - n_prob) - b_n*n_prob);
+    a_n = 0.01
+             *(E + V_an)/(1 - Modelica.Math.exp(-(E + V_an)/10));
+    b_n = 0.125
+              *Modelica.Math.exp(-(E + V_bn)/80);
     annotation (
       Icon(
         Line(points=[-98, 0; -80, 0; -70, 20; -60, -20; -50, 20; -40, -20; -30,
@@ -87,12 +98,6 @@ package HodgkinHuxley
         Line(points=[-60, 32; -54, 32], style(color=0)),
         Line(points=[-60, 32; -60, 26], style(color=0)),
         Text(extent=[60, 40; 100, 20], string="K")));
-  equation
-    G = n_prob^4*g_max;
-    i = G*(v - E_K);
-    der(n_prob) = 1000*(a_n*(1 - n_prob) - b_n*n_prob);
-    a_n = .01*(E + V_an)/(1 - Modelica.Math.exp(-(E + V_an)/10));
-    b_n = .125*Modelica.Math.exp(-(E + V_bn)/80);
   end PotassiumChannel;
 
   model LeakageChannel "Hodgkin-Huxley Leakage Channel"
@@ -100,6 +105,8 @@ package HodgkinHuxley
     parameter SIunits.Area membrane_area;
   protected
     parameter SIunits.Conductance g_max=membrane_area*G_L;
+  equation
+    i = g_max*(v - E_L);
     annotation (
       Diagram,
       Icon(
@@ -113,8 +120,6 @@ package HodgkinHuxley
         Line(points=[-60, 32; -54, 32], style(color=0)),
         Line(points=[-60, 32; -60, 26], style(color=0)),
         Text(extent=[60, 40; 100, 20], string="Leak")));
-  equation
-    i = g_max*(v - E_L);
   end LeakageChannel;
 
   annotation (

@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model Resistor "An electrical resistor"
   import Modelica.SIunits;
 

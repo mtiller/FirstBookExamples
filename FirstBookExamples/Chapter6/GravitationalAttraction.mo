@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model GravitationalAttraction
   BodyAttachment b1 annotation (extent=[-110, -10; -90, 10]);
   BodyAttachment b2 annotation (extent=[90, -10; 110, 10]);

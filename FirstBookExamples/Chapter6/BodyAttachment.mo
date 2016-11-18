@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 connector BodyAttachment
   import Modelica.SIunits;
 

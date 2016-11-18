@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter8;
 model SimplePropertyModel
   parameter Modelica.SIunits.Temperature Tl=1000;
   parameter Modelica.SIunits.Temperature Tu=1100;

@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 package Chemistry "A sample chemistry package"
   extends Modelica.Icons.Library2;
   package Types
@@ -30,6 +31,7 @@ package Chemistry "A sample chemistry package"
       end for;
       assert(rate >= -1e-12, "chemical reaction moving backward");
     end CalcReactionRate;
+
     function CalcMultiplier
       input Integer nspecies;
       input Integer reactants[:, 2];
@@ -97,7 +99,7 @@ package Chemistry "A sample chemistry package"
     model Volume "Volume containing a chemical mixture"
       import Modelica.SIunits;
       parameter Integer nspecies;
-      parameter SIunits.Volume v=.001;
+      parameter SIunits.Volume v=0.001;
       parameter SIunits.AmountOfSubstance i_moles[nspecies]=fill(1, nspecies);
       Interfaces.Mixture p(nspecies=nspecies);
     protected
@@ -129,11 +131,13 @@ package Chemistry "A sample chemistry package"
       Chemistry.Basic.Stationary s1(
         stat_species=1,
         nspecies=6,
-        c=.2) annotation (extent=[-28, -32; -8, -12]);
+        c=0.2)
+              annotation (extent=[-28, -32; -8, -12]);
       Chemistry.Basic.Stationary s4(
         stat_species=4,
         nspecies=6,
-        c=.1) annotation (extent=[6, -56; 26, -36]);
+        c=0.1)
+              annotation (extent=[6, -56; 26, -36]);
     equation
       connect(reaction.p, v.p)
         annotation (points=[6, 42; -48, 42; -48, 12; -28, 12]);

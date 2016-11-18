@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter8;
 model IdealDiode "An Ideal Diode"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
 protected

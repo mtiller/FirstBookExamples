@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter8;
 model SolidifyingRod
   extends FirstBookExamples.Icons.RunnableExample;
   import Thermal.Basic1D;
@@ -22,8 +23,6 @@ model SolidifyingRod
     each A=A,
     each k=k);
   Basic1D.Convection r_conv(A=A, h=h);
-  annotation (experiment(StopTime=1200), Commands(file="SolidifyingRod.mos"
-        "Simulate SolidifyingRod"));
 equation
   for i in 1:nsections - 1 loop
     connect(c_cond[i].a, cap[i].n);
@@ -31,4 +30,6 @@ equation
   end for;
   connect(Tr.n, r_conv.b);
   connect(r_conv.a, cap[nsections].n);
+  annotation (experiment(StopTime=1200), Commands(file="SolidifyingRod.mos"
+        "Simulate SolidifyingRod"));
 end SolidifyingRod;

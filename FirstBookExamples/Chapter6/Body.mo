@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model Body
   import Modelica.SIunits;
   parameter SIunits.Mass M=1.0;

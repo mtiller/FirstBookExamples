@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model FunctionVectorizing
   Real x1[3];
   Real x2[3];

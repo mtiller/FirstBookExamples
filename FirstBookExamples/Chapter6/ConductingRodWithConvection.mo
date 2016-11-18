@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model ConductingRodWithConvection
   import Modelica.SIunits;
   extends ConductingRod;

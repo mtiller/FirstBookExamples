@@ -1,8 +1,6 @@
+within FirstBookExamples.Chapter6;
 model TernarySystem "Earth, Moon & Sun"
   extends BinarySystem;
-  annotation (experiment(StopTime=31.5581e+6),
-              Commands(file="TernarySystem.mos" "Simulate TernarySystem"),
-              Diagram);
   Body moon(
     M=7.349e+22,
     init_v={0,29290 + 1020,0},
@@ -18,4 +16,7 @@ equation
     annotation (points=[-92, 33; -96, 33; -96, -58; 12, -58]);
   connect(moon_sun.b2, sun.b)
     annotation (points=[-58, 33; -58, 46; -48, 46; -48, 45]);
+  annotation (experiment(StopTime=31.5581e+6),
+              Commands(file="TernarySystem.mos" "Simulate TernarySystem"),
+              Diagram);
 end TernarySystem;

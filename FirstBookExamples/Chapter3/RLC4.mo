@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model RLC4 "An RLC circuit using standard components"
   extends FirstBookExamples.Icons.RunnableExample;
   import Modelica.Electrical.Analog;
@@ -12,8 +13,6 @@ model RLC4 "An RLC circuit using standard components"
   Analog.Sources.StepVoltage vs(startTime=1)
     annotation (extent=[-60, -44; -40, -24]);
   Analog.Basic.Ground g annotation (extent=[20, -64; 40, -44]);
-  annotation (experiment(StopTime=2),
-              Commands(file="RLC4.mos" "Simulate RLC4"));
 equation
   connect(vs.n, g.p) annotation (points=[-40, -34; 30, -34; 30, -44]);
   connect(vs.p, L.p)
@@ -23,4 +22,6 @@ equation
   connect(R1.n, C.p) annotation (points=[40, 50; 70, 50; 70, 20]);
   connect(C.n, g.p) annotation (points=[70, 0; 70, -34; 30, -34; 30, -44]);
   connect(R2.n, g.p) annotation (points=[-14, 0; -14, -34; 30, -34; 30, -44]);
+  annotation (experiment(StopTime=2),
+              Commands(file="RLC4.mos" "Simulate RLC4"));
 end RLC4;

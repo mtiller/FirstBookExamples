@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter9;
 function TwoBodyField
   extends GravityField;
 protected

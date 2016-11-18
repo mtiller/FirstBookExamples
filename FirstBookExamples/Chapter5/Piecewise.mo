@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter5;
 function Piecewise "A piecewise linear interpolation"
   input Real x "Independent variable";
   input Real x_grid[:] "Independent variable data points";

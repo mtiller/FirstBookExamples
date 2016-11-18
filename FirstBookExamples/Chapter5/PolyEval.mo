@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter5;
 function PolyEval "Evaluate polynomial and derivative"
   input Real x "Independent variable";
   input Real coef[:] "Coefficients (low to high order)";

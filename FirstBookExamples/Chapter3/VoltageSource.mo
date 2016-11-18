@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter3;
 model VoltageSource "A voltage source"
   import Modelica.SIunits;
 

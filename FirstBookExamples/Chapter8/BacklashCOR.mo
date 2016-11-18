@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter8;
 model BacklashCOR
   import Modelica.Mechanics.Rotational;
   extends Rotational.Interfaces.Compliant;

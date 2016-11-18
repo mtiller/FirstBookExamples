@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 block Or
   Modelica.Blocks.Interfaces.BooleanInPort inPort1(n=1)
     annotation (extent=[-110, 30; -90, 50]);

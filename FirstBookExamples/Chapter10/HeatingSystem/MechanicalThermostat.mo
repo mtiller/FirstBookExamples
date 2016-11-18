@@ -1,34 +1,9 @@
+within FirstBookExamples.Chapter10.HeatingSystem;
 model MechanicalThermostat
   parameter Modelica.SIunits.Temperature desired;
 protected
   constant Real factor=Modelica.Constants.PI/36;
   parameter Modelica.SIunits.Angle setting=-factor - 2*factor*(desired - 300)/5;
-  annotation (
-    Diagram(
-      Text(
-        extent=[-18, 68; 36, 56],
-        string="Mercury Switch",
-        style(color=0)),
-      Text(extent=[-78, -18; -30, -30], string="Temperature Sensitive Spring"),
-
-      Text(
-        extent=[-118, 70; -82, 58],
-        string="thermal",
-        style(color=41))),
-    Icon(
-      Rectangle(extent=[100, 100; -100, -100], style(color=0, fillColor=8)),
-      Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=8)),
-      Ellipse(extent=[-80, 80; 80, -80], style(color=0, fillColor=10)),
-      Ellipse(extent=[-70, 70; 70, -70], style(color=0, fillColor=9)),
-      Ellipse(extent=[-40, 40; 40, -40], style(color=0, fillColor=8)),
-      Line(points=[-34, 12; 0, 0], style(color=0)),
-      Line(points=[-24, 26; 0, 0], style(color=0)),
-      Line(points=[-10, 34; 0, 0], style(color=0)),
-      Line(points=[8, 34; 0, 0], style(color=0)),
-      Line(points=[24, 26; 0, 0], style(color=0)),
-      Line(points=[0, 0; 34, 10], style(color=0)),
-      Ellipse(extent=[-28, 28; 28, -28], style(color=0, fillColor=8)),
-      Line(points=[2, 0; -12, 22], style(color=0, thickness=2))));
 
 public
   extends Thermostat;
@@ -58,4 +33,29 @@ equation
     annotation (points=[-66, -44; -80, -44; -80, -48], style(color=0));
   connect(damper.flange_b, mechanism_inertia.flange_a) annotation (points=[-46,
          -44; -30, -44; -30, -16; -22, -16], style(color=0));
+  annotation (
+    Diagram(
+      Text(
+        extent=[-18, 68; 36, 56],
+        string="Mercury Switch",
+        style(color=0)),
+      Text(extent=[-78, -18; -30, -30], string="Temperature Sensitive Spring"),
+      Text(
+        extent=[-118, 70; -82, 58],
+        string="thermal",
+        style(color=41))),
+    Icon(
+      Rectangle(extent=[100, 100; -100, -100], style(color=0, fillColor=8)),
+      Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=8)),
+      Ellipse(extent=[-80, 80; 80, -80], style(color=0, fillColor=10)),
+      Ellipse(extent=[-70, 70; 70, -70], style(color=0, fillColor=9)),
+      Ellipse(extent=[-40, 40; 40, -40], style(color=0, fillColor=8)),
+      Line(points=[-34, 12; 0, 0], style(color=0)),
+      Line(points=[-24, 26; 0, 0], style(color=0)),
+      Line(points=[-10, 34; 0, 0], style(color=0)),
+      Line(points=[8, 34; 0, 0], style(color=0)),
+      Line(points=[24, 26; 0, 0], style(color=0)),
+      Line(points=[0, 0; 34, 10], style(color=0)),
+      Ellipse(extent=[-28, 28; 28, -28], style(color=0, fillColor=8)),
+      Line(points=[2, 0; -12, 22], style(color=0, thickness=2))));
 end MechanicalThermostat;

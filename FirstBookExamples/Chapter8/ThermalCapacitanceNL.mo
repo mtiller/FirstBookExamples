@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter8;
 model ThermalCapacitanceNL "Non-linear rod section"
   Thermal.Interfaces.Node n annotation (extent=[-110, -10; -90, 10]);
   parameter Modelica.SIunits.Density rho;

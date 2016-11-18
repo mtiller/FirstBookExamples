@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter6;
 model ConductingRod_Thermal
   import Thermal.Basic1D;
   import Modelica.SIunits;

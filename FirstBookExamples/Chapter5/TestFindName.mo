@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter5;
 model TestFindName
   extends FirstBookExamples.Icons.RunnableExample;
   parameter String names[:]={"H2O","CO2","N2"};

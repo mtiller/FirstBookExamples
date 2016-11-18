@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter4;
 block PController "A proporational gain controller"
   extends Controller;
   parameter Real Kp=1 "Proportional gain";

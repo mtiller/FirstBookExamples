@@ -1,10 +1,6 @@
+within FirstBookExamples.Chapter9;
 model ParticleBeam
   extends FirstBookExamples.Icons.RunnableExample;
-  annotation (experiment(
-      StopTime=7,
-      Tolerance=1e-8,
-      NumberOfIntervals=500),
-      Commands(file="ParticleBeam.mos" "Simulate ParticleBeam"));
   inner function gravity
     extends TwoBodyField;
   end gravity;
@@ -21,7 +17,7 @@ model ParticleBeam
   parameter Modelica.SIunits.Velocity v_init[3]={-4,0,0};
   parameter Modelica.SIunits.Position xoff=10;
   parameter Modelica.SIunits.Position yoff=0;
-  parameter Modelica.SIunits.Position dy=.1;
+  parameter Modelica.SIunits.Position dy=0.1;
   parameter Modelica.SIunits.Position dx=1;
   model DistantParticle
     extends Particle(x_init={10,0,0}, v_init=v_init);
@@ -66,4 +62,9 @@ model ParticleBeam
   Particle p47(x_init={xoff + dx*4,yoff + dy*7,0}, v_init=v_init);
   Particle p48(x_init={xoff + dx*4,yoff + dy*8,0}, v_init=v_init);
   Particle p49(x_init={xoff + dx*4,yoff + dy*9,0}, v_init=v_init);
+  annotation (experiment(
+      StopTime=7,
+      Tolerance=1e-8,
+      NumberOfIntervals=500),
+      Commands(file="ParticleBeam.mos" "Simulate ParticleBeam"));
 end ParticleBeam;

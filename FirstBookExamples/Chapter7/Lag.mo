@@ -1,6 +1,8 @@
+within FirstBookExamples.Chapter7;
 block Lag
   parameter Real c=1 "lag time constant";
-  parameter Real threshold=.7 "logical threshold";
+  parameter Real threshold=0.7
+                              "logical threshold";
   Modelica.Blocks.Interfaces.BooleanInPort inPort(n=1)
     annotation (extent=[-110, -10; -90, 10]);
   Modelica.Blocks.Interfaces.BooleanOutPort outPort(n=1)

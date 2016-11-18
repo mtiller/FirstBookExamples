@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter10.HeatingSystem;
 model DigitalCircuit
   parameter Modelica.SIunits.Temperature T_on;
   parameter Modelica.SIunits.Temperature T_off;
@@ -20,16 +21,6 @@ protected
   parameter Modelica.SIunits.Voltage V_off=polyval(tc_C, T_off);
   Boolean furnace_on;
 
-  annotation (
-    Icon(
-      Rectangle(extent=[-50, 80; 50, -80], style(color=0, fillColor=9)),
-      Text(extent=[-66, 86; -54, 74], string="Tn"),
-      Text(extent=[-66, 26; -54, 14], string="Fp"),
-      Text(extent=[-66, -34; -54, -46], string="Fn"),
-      Text(extent=[54, 86; 66, 74], string="Tp"),
-      Text(extent=[54, -34; 66, -46], string="g"),
-      Ellipse(extent=[-10, 80; 10, 60], style(color=0, fillColor=0)),
-      Rectangle(extent=[-10, 80; 10, 72], style(color=0, fillColor=0))));
 public
   Modelica.Electrical.Analog.Interfaces.PositivePin thermo_n
     annotation (extent=[-70, 50; -50, 70], layer="icon");
@@ -69,4 +60,14 @@ algorithm
   when (thermo_p.v <= V_on) then
     furnace_on := true;
   end when;
+  annotation (
+    Icon(
+      Rectangle(extent=[-50, 80; 50, -80], style(color=0, fillColor=9)),
+      Text(extent=[-66, 86; -54, 74], string="Tn"),
+      Text(extent=[-66, 26; -54, 14], string="Fp"),
+      Text(extent=[-66, -34; -54, -46], string="Fn"),
+      Text(extent=[54, 86; 66, 74], string="Tp"),
+      Text(extent=[54, -34; 66, -46], string="g"),
+      Ellipse(extent=[-10, 80; 10, 60], style(color=0, fillColor=0)),
+      Rectangle(extent=[-10, 80; 10, 72], style(color=0, fillColor=0))));
 end DigitalCircuit;

@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model SampleHoldSensor
   import Modelica.Mechanics.Rotational;
 

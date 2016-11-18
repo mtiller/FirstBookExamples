@@ -1,3 +1,4 @@
+within FirstBookExamples.Chapter7;
 model BouncingBall3
   extends FirstBookExamples.Icons.RunnableExample;
   import Modelica.SIunits;
@@ -11,8 +12,6 @@ model BouncingBall3
   SIunits.Acceleration a "Acceleration of the ball";
   Boolean bouncing(start=true) "Is the ball to still be bouncing?";
   Boolean impact "Indicates when impact occurs";
-  annotation (experiment(StopTime=25),
-              Commands(file="BouncingBall3.mos" "Simulate BouncingBall3"));
 equation
   v = der(h);
   a = der(v);
@@ -28,4 +27,6 @@ algorithm
       bouncing := false;
     end if;
   end when;
+  annotation (experiment(StopTime=25),
+              Commands(file="BouncingBall3.mos" "Simulate BouncingBall3"));
 end BouncingBall3;

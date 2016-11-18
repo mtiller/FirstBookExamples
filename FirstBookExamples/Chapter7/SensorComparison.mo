@@ -1,8 +1,7 @@
+within FirstBookExamples.Chapter7;
 package SensorComparison
   extends FirstBookExamples.Icons.BookExample;
 
-  annotation (experiment(StopTime=2),
-              Commands(file="SensorComparison.mos" "Run sensor comparison"));
   model SamplingCase1
     extends SensorBenchmark(redeclare SampleHoldSensor sensor(sample_interval=
             0.01));
@@ -43,40 +42,38 @@ package SensorComparison
 
   model TestSampling
     extends FirstBookExamples.Icons.RunnableExample;
-    annotation (experiment(StopTime=2));
     SensorBenchmark ideal;
     SamplingCase1 sampling1;
     SamplingCase2 sampling2;
+    annotation (experiment(StopTime=2));
   end TestSampling;
 
   model TestCounting
     extends FirstBookExamples.Icons.RunnableExample;
-    annotation (experiment(StopTime=2));
     SensorBenchmark ideal(controller(k={10}));
     CountingCase1 counting1;
     CountingCase2 counting2;
+    annotation (experiment(StopTime=2));
   end TestCounting;
 
   model TestPeriod
     extends FirstBookExamples.Icons.RunnableExample;
-    annotation (experiment(StopTime=2));
     SensorBenchmark ideal;
     PeriodCase1 period1;
     PeriodCase2 period2;
+    annotation (experiment(StopTime=2));
   end TestPeriod;
 
   model TestQuantized
     extends FirstBookExamples.Icons.RunnableExample;
-    annotation (experiment(StopTime=2));
     SensorBenchmark ideal;
     QuantizedCase1 quantized1;
     QuantizedCase2 quantized2;
+    annotation (experiment(StopTime=2));
   end TestQuantized;
 
   model TestAll
     extends FirstBookExamples.Icons.RunnableExample;
-    annotation (experiment(StopTime=2),
-                 Commands(file="SensorComparison.mos" "Run sensor comparison"));
     SensorBenchmark ideal1;
     SensorBenchmark ideal2(controller(k={10}));
     SamplingCase1 sampling1;
@@ -87,5 +84,9 @@ package SensorComparison
     PeriodCase2 period2;
     QuantizedCase1 quantized1;
     QuantizedCase2 quantized2;
+    annotation (experiment(StopTime=2),
+                 Commands(file="SensorComparison.mos" "Run sensor comparison"));
   end TestAll;
+  annotation (experiment(StopTime=2),
+              Commands(file="SensorComparison.mos" "Run sensor comparison"));
 end SensorComparison;
