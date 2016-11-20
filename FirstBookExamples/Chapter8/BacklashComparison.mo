@@ -5,44 +5,46 @@ package BacklashComparison
     import Modelica.Mechanics.Rotational;
 
     Modelica.Mechanics.Rotational.Components.Inertia I1 annotation (
-        Placement(transformation(extent={{-38,-8},{-18,12}}, rotation=
+        Placement(transformation(extent={{-40,-10},{-20,10}},rotation=
              0)));
     Modelica.Mechanics.Rotational.Components.Inertia I2(J=3)
-      annotation (Placement(transformation(extent={{18,-8},{38,12}},
+      annotation (Placement(transformation(extent={{20,-10},{40,10}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=
-          false) annotation (Placement(transformation(extent={{-66,-8},
-              {-46,12}}, rotation=0)));
+          false) annotation (Placement(transformation(extent={{-70,-10},
+              {-50,10}}, rotation=0)));
     Modelica.Blocks.Sources.Sine signal annotation (Placement(
-          transformation(extent={{-98,-8},{-78,12}}, rotation=0)));
+          transformation(extent={{-100,-10},{-80,10}},
+                                                     rotation=0)));
     replaceable
       Modelica.Mechanics.Rotational.Interfaces.PartialCompliant
-      backlash annotation (Placement(transformation(extent={{-10,-8},
-              {10,12}}, rotation=0)));
+      backlash annotation (Placement(transformation(extent={{-10,-10},
+              {10,10}}, rotation=0)));
   equation
-    connect(signal.y, torque.u) annotation (Line(points={{-77,2},{-68,
-            2}}));
     connect(torque.flange, I1.flange_a)
-      annotation (Line(points={{-46,2},{-38,2}}));
+      annotation (Line(points={{-50,0},{-42,0},{-40,0}}));
     connect(I1.flange_b, backlash.flange_a)
-      annotation (Line(points={{-18,2},{-10,2}}));
-    connect(backlash.flange_b, I2.flange_a) annotation (Line(points={
-            {10,2},{18,2}}));
+      annotation (Line(points={{-20,0},{-14,0},{-10,0}}));
+    connect(backlash.flange_b, I2.flange_a) annotation (Line(points={{10,0},{
+            20,0}}));
+    connect(torque.tau, signal.y)
+      annotation (Line(points={{-72,0},{-79,0}}, color={0,0,127}));
   end NoRigid;
 
   partial model Rigid
     extends NoRigid;
     import Modelica.Mechanics.Rotational;
     Modelica.Mechanics.Rotational.Components.IdealGear gear(
-        useSupport=false) annotation (Placement(transformation(extent=
-             {{48,-8},{68,12}}, rotation=0)));
+        useSupport=false) annotation (Placement(transformation(extent={{50,-10},
+              {70,10}},         rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia I3 annotation (
-        Placement(transformation(extent={{78,-8},{98,12}}, rotation=0)));
+        Placement(transformation(extent={{80,-10},{100,10}},
+                                                           rotation=0)));
   equation
-    connect(gear.flange_b, I3.flange_a) annotation (Line(points={{68,
-            2},{78,2}}));
-    connect(I2.flange_b, gear.flange_a) annotation (Line(points={{38,
-            2},{48,2}}));
+    connect(gear.flange_b, I3.flange_a) annotation (Line(points={{70,0},{
+            80,0}}));
+    connect(I2.flange_b, gear.flange_a) annotation (Line(points={{40,0},{
+            50,0}}));
   end Rigid;
 
   model NoRigid_Nonlinear

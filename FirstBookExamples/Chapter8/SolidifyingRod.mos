@@ -1,4 +1,4 @@
-translateModel("BookExamples.Chapter8.SolidifyingRod")
+﻿translateModel("FirstBookExamples.Chapter8.SolidifyingRod")
 experiment StopTime=1200 NumberOfIntervals=500
 simulate
 plot({"cap[1].n.T","cap[3].n.T","cap[5].n.T","cap[7].n.T",

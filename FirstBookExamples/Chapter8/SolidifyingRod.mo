@@ -1,8 +1,8 @@
 within FirstBookExamples.Chapter8;
 model SolidifyingRod
   extends FirstBookExamples.Icons.RunnableExample;
-  import Thermal.Basic1D;
-  import BCs = Thermal.BoundaryConditions;
+  import FirstBookExamples.Thermal.Basic1D;
+  import BCs = FirstBookExamples.Thermal.BoundaryConditions;
   import Modelica.SIunits;
   parameter SIunits.Length L=0.3 "Total length";
   parameter SIunits.Area A=4.0 "Cross-sectional area";
