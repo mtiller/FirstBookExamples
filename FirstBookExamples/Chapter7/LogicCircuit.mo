@@ -3,47 +3,47 @@ model LogicCircuit
   extends FirstBookExamples.Icons.RunnableExample;
   import BS = Modelica.Blocks.Sources;
 
-  BS.BooleanPulse i1(width={50}, period={2})
-    annotation (Placement(transformation(extent={{-84,56},{-64,76}},
+  BS.BooleanPulse i1(width=50, period=2)
+    annotation (Placement(transformation(extent={{-80,50},{-60,70}},
           rotation=0)));
-  BS.BooleanPulse i2(width={50}, period={4})
-    annotation (Placement(transformation(extent={{-86,-4},{-66,16}},
+  BS.BooleanPulse i2(width=50, period=4)
+    annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
           rotation=0)));
-  BS.BooleanPulse i3(width={50}, period={8})
-    annotation (Placement(transformation(extent={{-86,-62},{-66,-42}},
+  BS.BooleanPulse i3(width=50, period=8)
+    annotation (Placement(transformation(extent={{-80,-70},{-60,-50}},
           rotation=0)));
-  And and1 annotation (Placement(transformation(extent={{-26,-4},{-6,
-            16}}, rotation=0)));
-  And and2 annotation (Placement(transformation(extent={{42,52},{62,
-            72}}, rotation=0)));
-  Or or1 annotation (Placement(transformation(extent={{50,-36},{70,
-            -16}}, rotation=0)));
-  Not not1 annotation (Placement(transformation(extent={{18,-4},{38,
-            16}}, rotation=0)));
-  Not not2 annotation (Placement(transformation(extent={{-18,56},{2,
-            76}}, rotation=0)));
+  And and1 annotation (Placement(transformation(extent={{-20,-10},{0,10}},
+                  rotation=0)));
+  And and2 annotation (Placement(transformation(extent={{60,46},{80,66}},
+                  rotation=0)));
+  Or or1 annotation (Placement(transformation(extent={{60,-40},{80,-20}},
+                   rotation=0)));
+  Not not1 annotation (Placement(transformation(extent={{20,-10},{40,10}},
+                  rotation=0)));
+  Not not2 annotation (Placement(transformation(extent={{-20,50},{0,70}},
+                  rotation=0)));
   Boolean o1;
   Boolean o2;
 equation
   // o1
-  connect(i3.y, and1.u2)
-    annotation (Line(points={{-65,-52},{-48,-52},{-48,2},{-25.8,2}}));
-  connect(not1.y, or1.u1)
-    annotation (Line(points={{38,6},{44,6},{44,-22},{50,-22}}));
-  connect(i2.y, or1.u2)
-    annotation (Line(points={{-65,6},{-55.5,6},{-55.5,-30},{50,-30}}));
-  o1 = or1.y.signal[1];
+  o1 = or1.y;
   // o2
-  connect(i1.y, not2.u) annotation (Line(points={{-63,66},{-18,66}}));
-  connect(not2.y, and2.u1) annotation (Line(points={{2,66},{42,66}}));
-  o2 = and2.y.signal[1];
-  connect(and2.u2, i2.y)
-    annotation (Line(points={{42.2,58},{20,58},{20,32},{-56,32},{-56,
-          6},{-65,6}}));
-  connect(and1.y, not1.u) annotation (Line(points={{-5.6,6},{18,6}}));
-  connect(i1.y, and1.u1)
-    annotation (Line(points={{-63,66},{-48,66},{-48,10},{-26,10}}));
+  o2 = and2.y;
+  connect(and1.y, not1.u) annotation (Line(points={{1,0},{6,0},{18,0}}));
+  connect(i1.y, and1.u1) annotation (Line(points={{-59,60},{-32,60},{-32,
+          4},{-22,4}}, color={255,0,255}));
+  connect(i1.y, not2.u) annotation (Line(points={{-59,60},{-40.5,60},{
+          -22,60}}, color={255,0,255}));
+  connect(not2.y, and2.u1) annotation (Line(points={{1,60},{30,60},{58,
+          60}}, color={255,0,255}));
+  connect(i2.y, and2.u2) annotation (Line(points={{-59,0},{-50,0},{-50,
+          30},{30,30},{30,52},{38,52},{58,52}}, color={255,0,255}));
+  connect(i3.y, and1.u2) annotation (Line(points={{-59,-60},{-40,-60},
+          {-40,-4},{-22,-4}}, color={255,0,255}));
+  connect(i2.y, or1.u2) annotation (Line(points={{-59,0},{-50,0},{-50,
+          -34},{-50,-34},{-50,-34},{-50,-34},{58,-34}}, color={255,0,255}));
+  connect(not1.y, or1.u1) annotation (Line(points={{41,0},{50,0},{50,-26},
+          {58,-26}}, color={255,0,255}));
   annotation (experiment(StopTime=16),
-              __Dymola_Commands(file="LogicCircuit.mos" "Simulate LogicCircuit"),
-              Diagram(graphics));
+              __Dymola_Commands(file="LogicCircuit.mos" "Simulate LogicCircuit"));
 end LogicCircuit;

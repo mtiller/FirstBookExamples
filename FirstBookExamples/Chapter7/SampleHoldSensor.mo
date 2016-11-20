@@ -4,13 +4,14 @@ model SampleHoldSensor
 
   extends
     Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
-  Modelica.SIunits.AngularVelocity w;
+  Modelica.SIunits.AngularVelocity w_m;
   parameter Modelica.SIunits.Time sample_interval=0.1;
+  Modelica.Blocks.Interfaces.RealOutput w annotation (Placement(
+        transformation(extent={{100,-10},{120,10}})));
 equation
-  w = der(flange_a.phi);
-  flange_a.tau = 0;
+  w_m = der(flange.phi);
 algorithm
   when sample(0, sample_interval) then
-    outPort.signal[1] := w;
+    w := w_m;
   end when;
 end SampleHoldSensor;

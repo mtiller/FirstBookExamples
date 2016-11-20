@@ -16,15 +16,14 @@ equation
   v = der(h);
   a = der(v);
   m*a = if bouncing then -m*Modelica.Constants.g_n else 0;
-algorithm
-  impact := h <= r;
+  impact =  h <= r;
   when {impact,impact and v <= 0} then
     if edge(impact) then
-      bouncing := pre(v) <= 0;
+      bouncing =  pre(v) <= 0;
       reinit(v, -c_r*pre(v));
     else
       reinit(v, 0.0);
-      bouncing := false;
+      bouncing =  false;
     end if;
   end when;
   annotation (experiment(StopTime=25),

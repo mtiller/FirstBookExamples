@@ -13,12 +13,12 @@ package SensorComparison
   end SamplingCase2;
 
   model CountingCase1
-    extends SensorBenchmark(controller(k={10}), redeclare CountingSensor sensor(
+    extends SensorBenchmark(controller(k=10),   redeclare CountingSensor sensor(
           divisions=64, sample_interval=0.02));
   end CountingCase1;
 
   model CountingCase2
-    extends SensorBenchmark(controller(k={10}), redeclare CountingSensor sensor(
+    extends SensorBenchmark(controller(k=10),   redeclare CountingSensor sensor(
           divisions=64, sample_interval=0.06));
   end CountingCase2;
 
@@ -50,7 +50,7 @@ package SensorComparison
 
   model TestCounting
     extends FirstBookExamples.Icons.RunnableExample;
-    SensorBenchmark ideal(controller(k={10}));
+    SensorBenchmark ideal(controller(k=10));
     CountingCase1 counting1;
     CountingCase2 counting2;
     annotation (experiment(StopTime=2));
@@ -75,7 +75,7 @@ package SensorComparison
   model TestAll
     extends FirstBookExamples.Icons.RunnableExample;
     SensorBenchmark ideal1;
-    SensorBenchmark ideal2(controller(k={10}));
+    SensorBenchmark ideal2(controller(k=10));
     SamplingCase1 sampling1;
     SamplingCase2 sampling2;
     CountingCase1 counting1;

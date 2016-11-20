@@ -1,21 +1,22 @@
 within FirstBookExamples.Chapter7;
 block LogicEquation
-  Modelica.Blocks.Interfaces.BooleanInPort i1(n=1)
-    annotation (Placement(transformation(extent={{-110,30},{-90,50}},
+
+  Modelica.Blocks.Interfaces.BooleanInput i1
+    annotation (Placement(transformation(extent={{-140,40},{-100,80}},
           rotation=0)));
-  Modelica.Blocks.Interfaces.BooleanInPort i2(n=1)
-    annotation (Placement(transformation(extent={{90,30},{110,50}},
+  Modelica.Blocks.Interfaces.BooleanInput i2
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
           rotation=0)));
-  Modelica.Blocks.Interfaces.BooleanInPort i3(n=1)
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+  Modelica.Blocks.Interfaces.BooleanInput i3
+    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
           rotation=0)));
-  Modelica.Blocks.Interfaces.BooleanOutPort o1(n=1)
-    annotation (Placement(transformation(extent={{90,-10},{110,10}},
+  Modelica.Blocks.Interfaces.BooleanOutput o1
+    annotation (Placement(transformation(extent={{100,40},{120,60}},
           rotation=0)));
-  Modelica.Blocks.Interfaces.BooleanOutPort o2(n=1)
-    annotation (Placement(transformation(extent={{-110,-50},{-90,-30}},
+  Modelica.Blocks.Interfaces.BooleanOutput o2
+    annotation (Placement(transformation(extent={{100,-60},{120,-40}},
           rotation=0)));
 equation
-  o1.signal = not (i1.signal and i3.signal) or i2.signal;
-  o2.signal = not i1.signal and i2.signal;
+  o1 = not (i1 and i3) or i2;
+  o2 = not i1 and i2;
 end LogicEquation;
