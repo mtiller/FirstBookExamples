@@ -1,7 +1,7 @@
 within FirstBookExamples.Chapter10.HeatingSystem;
 model MercurySwitch
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter Modelica.SIunits.Angle hysteresis(start=Modelica.Constants.PI/18);
+  parameter Modelica.SIunits.Angle hysteresis(start=Modelica.Constants.pi/18);
   parameter Modelica.SIunits.Conductance Gon(start=1e+5);
   parameter Modelica.SIunits.Resistance Roff(start=1e+5);
 protected

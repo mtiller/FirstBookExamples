@@ -55,13 +55,13 @@ protected
   Real Tf=Tc*9/5 + 32;
 public
   Modelica.Blocks.Sources.Trapezoid sun_position(
-    amplitude={140},
-    rising={4*hour},
-    width={4*hour},
-    falling={4*hour},
-    period={day},
-    offset={240},
-    startTime={8*hour}) annotation (Placement(transformation(extent={
+    amplitude=140,
+    rising=4*hour,
+    width=4*hour,
+    falling=4*hour,
+    period=day,
+    offset=240,
+    startTime=8*hour) annotation (Placement(transformation(extent={
             {-80,66},{-60,86}}, rotation=0)));
   Thermal.BoundaryConditions.VariableTemperature solar_temp
     annotation (Placement(transformation(
@@ -85,12 +85,12 @@ equation
     annotation (Line(points={{-60,-7.21645e-16},{-52,5.55112e-16}},
         color={255,0,0}));
   connect(Tamb, ambient_temperature.T)
-    annotation (Line(points={{-100,0},{-81,1.88738e-15}}));
+    annotation (Line(points={{-100,0},{-82,1.88738e-15}}));
   connect(roof.b, solar_temp.n)
     annotation (Line(points={{1.16573e-15,44},{-5.55112e-17,50}},
         color={255,0,0}));
   connect(sun_position.y, solar_temp.T)
-    annotation (Line(points={{-59,76},{0,76},{1.22125e-15,71}}));
+    annotation (Line(points={{-59,76},{1.22125e-15,76},{1.22125e-15,72}}));
   annotation (
     Diagram(graphics={
         Ellipse(

@@ -11,20 +11,20 @@ model BeltController
           rotation=0)));
   Modelica.Blocks.Interfaces.RealInput phi
     annotation (                             layer="icon", Placement(
-        transformation(extent={{-120,30},{-100,50}}, rotation=0)));
+        transformation(extent={{-120,20},{-80,60}},  rotation=0),
+        iconTransformation(extent={{-120,20},{-80,60}})));
   Modelica.Blocks.Interfaces.RealInput omega
     annotation (                               layer="icon",
-      Placement(transformation(extent={{-120,-50},{-100,-30}},
-          rotation=0)));
+      Placement(transformation(extent={{-120,-60},{-80,-20}},
+          rotation=0), iconTransformation(extent={{-120,-60},{-80,-20}})));
   Modelica.Blocks.Sources.Trapezoid speed_profile(
-    amplitude={0.5},
-    rising={2.0},
-    falling={2.0},
-    period={10.0},
-    offset={0},
-    startTime={0.2})
-                    annotation (Placement(transformation(extent={{-80,
-            -80},{-60,-60}}, rotation=0)));
+    amplitude=0.5,
+    rising=2.0,
+    falling=2.0,
+    period=10.0,
+    offset=0,
+    startTime=0.2)  annotation (Placement(transformation(extent={{-80,-80},
+            {-60,-60}},      rotation=0)));
   Modelica.Blocks.Continuous.Integrator position_profile
     annotation (Placement(transformation(extent={{-50,-80},{-30,-60}},
           rotation=0)));
@@ -35,40 +35,40 @@ model BeltController
         rotation=90)));
   Modelica.Blocks.Math.Feedback pos_error annotation (Placement(
         transformation(extent={{-82,30},{-62,50}}, rotation=0)));
-  Modelica.Blocks.Math.Gain Pcontrol(k={Kp})
-    annotation (Placement(transformation(extent={{-24,58},{-4,78}},
+  Modelica.Blocks.Math.Gain Pcontrol(k=Kp)
+    annotation (Placement(transformation(extent={{-30,50},{-10,70}},
           rotation=0)));
   Modelica.Blocks.Continuous.TransferFunction Dcontrol(a={Td,1}, b={
-        Kd,0}) annotation (Placement(transformation(extent={{-26,20},
-            {-6,40}}, rotation=0)));
+        Kd,0}) annotation (Placement(transformation(extent={{-30,20},
+            {-10,40}},rotation=0)));
   Modelica.Blocks.Math.Add sum annotation (Placement(transformation(
-          extent={{12,36},{32,56}}, rotation=0)));
+          extent={{10,36},{30,56}}, rotation=0)));
 equation
   connect(speed_profile.y, position_profile.u)
-    annotation (Line(points={{-59,-70},{-52,-70}}));
+    annotation (Line(points={{-59,-70},{-56,-70},{-52,-70}}));
   connect(motor_voltage.p, p) annotation (Line(points={{60,20},{60,40},
           {100,40}}));
   connect(motor_voltage.n, n) annotation (Line(points={{60,-20},{60,
           -40},{100,-40}}));
-  connect(phi, pos_error.u1) annotation (Line(points={{-110,40},{-80,
-          40}}));
+  connect(phi, pos_error.u1) annotation (Line(points={{-100,40},{-100,
+          40},{-80,40}}));
   connect(pos_error.y, Pcontrol.u)
-    annotation (Line(points={{-63,40},{-32,40},{-32,68},{-26,68}}));
+    annotation (Line(points={{-63,40},{-40,40},{-40,60},{-32,60}}));
   connect(Dcontrol.u, pos_error.y)
-    annotation (Line(points={{-28,30},{-32,30},{-32,40},{-63,40}}));
-  connect(sum.y, motor_voltage.u)
-    annotation (Line(points={{33,46},{38,46},{38,0},{46,-1.9984e-15}}));
+    annotation (Line(points={{-32,30},{-40,30},{-40,40},{-63,40}}));
   connect(Dcontrol.y, sum.u2)
-    annotation (Line(points={{-5,30},{0,30},{0,40},{10,40}}));
+    annotation (Line(points={{-9,30},{0,30},{0,40},{8,40}}));
   connect(Pcontrol.y, sum.u1)
-    annotation (Line(points={{-3,68},{4,68},{4,52},{10,52}}));
+    annotation (Line(points={{-9,60},{0,60},{0,52},{8,52}}));
   connect(position_profile.y, pos_error.u2)
-    annotation (Line(points={{-29,-70},{-20,-70},{-20,-18},{-72,-18},
+    annotation (Line(points={{-29,-70},{-20,-70},{-20,-20},{-72,-20},
           {-72,32}}));
+  connect(sum.y, motor_voltage.v) annotation (Line(points={{31,46},{
+          38,46},{38,8.88178e-16},{46,8.88178e-16}}, color={0,0,127}));
   annotation (
     Diagram(graphics={
         Rectangle(
-          extent={{-48,88},{48,10}},
+          extent={{-50,88},{46,10}},
           lineColor={0,0,0},
           pattern=LinePattern.Dash),
         Text(

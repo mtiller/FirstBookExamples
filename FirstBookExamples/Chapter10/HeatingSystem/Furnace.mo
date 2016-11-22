@@ -24,7 +24,8 @@ model Furnace
         origin={-20,60},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch relay(level=1e-3)
+  Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch
+                                                         relay(level=1e-3)
     annotation (Placement(transformation(extent={{-10,10},{10,30}},
           rotation=0)));
   Thermal.MixedDomain.HeaterElement heating_element(R=120*120/capacity)

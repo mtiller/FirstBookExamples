@@ -4,7 +4,7 @@ model ElectricMotor
   Modelica.Mechanics.Rotational.Components.Inertia rotor(J=0.2)
     annotation (Placement(transformation(extent={{0,-10},{20,10}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.EMF EMF1
+  Modelica.Electrical.Analog.Basic.EMF EMF1(k=1)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
           rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=250)
@@ -14,16 +14,18 @@ model ElectricMotor
     annotation (Placement(transformation(extent={{-50,30},{-30,50}},
           rotation=0)));
 equation
-  connect(EMF1.flange, rotor.flange_a) annotation (Line(points={{-10,
-          5.55112e-16},{-5.55112e-16,5.55112e-16}}));
-  connect(L1.n, EMF1.p) annotation (Line(points={{-30,40},{-20,40},{
-          -20,10}}));
-  connect(R1.n, L1.p) annotation (Line(points={{-60,40},{-50,40}}));
-  connect(R1.p, p) annotation (Line(points={{-80,40},{-100,40}}));
-  connect(EMF1.n, n) annotation (Line(points={{-20,-10},{-20,-40},{
-          -100,-40}}));
   connect(rotor.flange_b, driver) annotation (Line(points={{20,
           5.55112e-16},{100,0}}));
+  connect(L1.n, EMF1.p) annotation (Line(points={{-30,40},{-26,40},{
+          -20,40},{-20,10}}, color={0,0,255}));
+  connect(p, R1.p) annotation (Line(points={{-100,40},{-90,40},{-80,
+          40}}, color={0,0,255}));
+  connect(R1.n, L1.p) annotation (Line(points={{-60,40},{-55,40},{-50,
+          40}}, color={0,0,255}));
+  connect(n, EMF1.n) annotation (Line(points={{-100,-40},{-60,-40},{
+          -20,-40},{-20,-10}}, color={0,0,255}));
+  connect(EMF1.flange, rotor.flange_a)
+    annotation (Line(points={{-10,0},{0,0}}, color={0,0,0}));
   annotation (
     Icon(graphics={
         Rectangle(

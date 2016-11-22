@@ -40,7 +40,8 @@ public
   Modelica.Electrical.Analog.Interfaces.PositivePin ground
     annotation (                           layer="icon", Placement(
         transformation(extent={{50,-70},{70,-50}}, rotation=0)));
-  Modelica.Electrical.Analog.Ideal.IdealSwitch furnace_switch
+  Modelica.Electrical.Analog.Ideal.IdealClosingSwitch
+                                               furnace_switch
     annotation (Placement(transformation(
         origin={-30,-30},
         extent={{-10,-10},{10,10}},
@@ -55,7 +56,7 @@ equation
   connect(furnace_switch.n, furnace_n)
     annotation (Line(points={{-30,-40},{-30,-60},{-60,-60}}));
   thermo_p.i = 0;
-  furnace_switch.control.signal[1] = not furnace_on;
+  furnace_switch.control = not furnace_on;
 
   // Control circuit logic
 algorithm

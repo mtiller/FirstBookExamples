@@ -2,7 +2,7 @@ within FirstBookExamples.Chapter10.HeatingSystem;
 model MechanicalThermostat
   parameter Modelica.SIunits.Temperature desired;
 protected
-  constant Real factor=Modelica.Constants.PI/36;
+  constant Real factor=Modelica.Constants.pi/36;
   parameter Modelica.SIunits.Angle setting=-factor - 2*factor*(desired - 300)/5;
 
 public
@@ -10,7 +10,7 @@ public
   Thermal.MixedDomain.RotationalSpring spring(
     c=1e+6,
     T_nom=300,
-    dudT=Modelica.Constants.PI/90) annotation (Placement(
+    dudT=Modelica.Constants.pi/90) annotation (Placement(
         transformation(extent={{-64,-26},{-44,-6}}, rotation=0)));
   Modelica.Mechanics.Rotational.Components.Inertia mechanism_inertia(
       J=1e-5) annotation (Placement(transformation(extent={{-22,-26},

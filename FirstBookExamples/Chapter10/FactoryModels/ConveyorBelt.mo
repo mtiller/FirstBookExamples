@@ -9,7 +9,8 @@ class ConveyorBelt
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
           rotation=0)));
   Modelica.Mechanics.Rotational.Components.IdealGearR2T belt(
-      useSupportR=false, useSupportT=false) annotation (Placement(
+      useSupportR=false, useSupportT=false,
+    ratio=1)                                annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, rotation=0)));
   Modelica.Mechanics.Translational.Components.Mass product(m=1)
     annotation (Placement(transformation(extent={{20,-10},{40,10}},
