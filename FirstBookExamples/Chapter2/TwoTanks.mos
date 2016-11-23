@@ -1,5 +1,5 @@
-translateModel("BookExamples.Chapter2.TwoTanks")
-experiment StopTime=20 NumberOfIntervals=500 Tolerance=1E-8
+﻿translateModel("FirstBookExamples.Chapter2.TwoTanks")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500 Tolerance=1E-8
 H1:=0;
 H2:=2;
 simulate

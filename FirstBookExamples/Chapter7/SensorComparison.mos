@@ -1,5 +1,5 @@
 ﻿translateModel("FirstBookExamples.Chapter7.SensorComparison.TestAll")
-experiment StopTime=2 NumberOfIntervals=500
+experiment StopTime=2 __Dymola_NumberOfIntervals=500
 simulate
 plot({"ideal1.ref.y",
 	"ideal2.sensor.w",

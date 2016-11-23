@@ -1,5 +1,5 @@
-translateModel("BookExamples.Chapter3.PendulumSystem2")
-experiment StopTime=20 NumberOfIntervals=500
+﻿translateModel("FirstBookExamples.Chapter3.PendulumSystem2")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500
 d1.phi_rel := -1;
 s1.c := 10;
 simulate

@@ -1,4 +1,4 @@
-translateModel("BookExamples.Chapter5.TestComplexWave");
-experiment StopTime=3 NumberOfIntervals=500
+translateModel("FirstBookExamples.Chapter5.TestComplexWave");
+experiment StopTime=3 __Dymola_NumberOfIntervals=500
 simulate
 plot({"signal"});

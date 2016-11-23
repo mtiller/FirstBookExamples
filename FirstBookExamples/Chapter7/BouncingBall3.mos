@@ -1,4 +1,4 @@
-translateModel("BookExamples.Chapter7.BouncingBall3");
+translateModel("FirstBookExamples.Chapter7.BouncingBall3");
 experiment StopTime=25
 simulate
 plot({"h","bouncing","v"});

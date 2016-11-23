@@ -1,4 +1,4 @@
-experiment StopTime=2 NumberOfIntervals=500 Tolerance=1E-8
-translateModel("BookExamples.Chapter2.RLC")
+﻿experiment StopTime=2 __Dymola_NumberOfIntervals=500 Tolerance=1E-8
+translateModel("FirstBookExamples.Chapter2.RLC")
 simulate
 plot({"V_c","V_a"});

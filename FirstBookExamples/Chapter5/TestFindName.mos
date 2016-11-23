@@ -1,4 +1,4 @@
-translateModel("BookExamples.Chapter5.TestFindName");
+translateModel("FirstBookExamples.Chapter5.TestFindName");
 experiment StopTime=1
 simulate
 ConstantsInPlotSelector:=true;

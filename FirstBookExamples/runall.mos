@@ -1,4 +1,4 @@
-@Chapter2/CompareLargeTheta.mos
+﻿@Chapter2/CompareLargeTheta.mos
 @Chapter2/CompareSmallTheta.mos
 @Chapter2/CoolingGlass.mos
 @Chapter2/FixedDelay.mos
@@ -45,5 +45,5 @@
 @Chapter9/Pneumatic.mos
 @Chapter10/FactoryModels/Factory.mos
 @Chapter10/HeatingSystem/HeatingSystem.mos
-@../SimpleCar/DynoTest.mos
-@../SimpleCar/Race.mos
+@SimpleCar/DynoTest.mos
+@SimpleCar/Race.mos

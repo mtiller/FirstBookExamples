@@ -1,6 +1,6 @@
 Evaluate:=true;
 translateModel("SimpleCar.Examples.I4EngineOnDyno")
-experiment StopTime=1 NumberOfIntervals=500
+experiment StopTime=1 __Dymola_NumberOfIntervals=500
 speed_profile.height[1]:=5500;
 speed_profile.offset[1]:=1500;
 speed_profile.duration[1]:=10;

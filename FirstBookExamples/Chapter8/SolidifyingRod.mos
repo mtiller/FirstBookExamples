@@ -1,5 +1,5 @@
 ﻿translateModel("FirstBookExamples.Chapter8.SolidifyingRod")
-experiment StopTime=1200 NumberOfIntervals=500
+experiment StopTime=1200 __Dymola_NumberOfIntervals=500
 simulate
 plot({"cap[1].n.T","cap[3].n.T","cap[5].n.T","cap[7].n.T",
 	"cap[9].n.T","cap[11].n.T","cap[13].n.T","cap[15].n.T",

@@ -1,4 +1,4 @@
-﻿translateModel("BookExamples.Chapter7.LogicCircuit");
-experiment StopTime=16 NumberOfIntervals=500
+﻿translateModel("FirstBookExamples.Chapter7.LogicCircuit");
+experiment StopTime=16 __Dymola_NumberOfIntervals=500
 simulate
 plot({"i1.y","i2.y","i1.y","o1","o2"});

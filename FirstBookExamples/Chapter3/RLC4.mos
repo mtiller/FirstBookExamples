@@ -1,4 +1,4 @@
-translateModel("BookExamples.Chapter3.RLC4")
-experiment StopTime=2 NumberOfIntervals=500
+translateModel("FirstBookExamples.Chapter3.RLC4")
+experiment StopTime=2 __Dymola_NumberOfIntervals=500
 simulate
 plot({"C.p.v","vs.p.v"});

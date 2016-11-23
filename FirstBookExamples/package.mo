@@ -10,7 +10,7 @@ package FirstBookExamples "Examples from the book \"Introduction to Physical Mod
 
 
 annotation (
-  Documentation(info="The \"BookExamples\" package includes all the
+  Documentation(info="The \"FirstBookExamples\" package includes all the
 examples (and component models) from the book \"Introduction
 to Physical Modeling with Modelica\" by Michael Tiller.
 

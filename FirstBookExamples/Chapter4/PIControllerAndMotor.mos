@@ -1,4 +1,4 @@
-translateModel("BookExamples.Chapter4.PIControllerAndMotor")
-experiment StopTime=20 NumberOfIntervals=500
+﻿translateModel("FirstBookExamples.Chapter4.PIControllerAndMotor")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500
 simulate
-plot({"pic.command.signal[1]","pic.sensor.signal[1]"});
+plot({"pic.command","pic.sensor"});
