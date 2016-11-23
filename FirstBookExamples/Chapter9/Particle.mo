@@ -16,7 +16,6 @@ protected
     width=0.01,
     height=0.01);
 equation
-  // Dymola specific
   v = der(x);
   a = der(v);
   a = gravity(x);
