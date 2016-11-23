@@ -4,18 +4,18 @@ model ParticleField
   inner function gravity
     extends TwoBodyField;
   end gravity;
-  Sphere b1(
-    x=0,
-    y=0,
-    z=0,
-    R=0.05);
-  // Dymola specific
-  Sphere b2(
-    x=0,
-    y=1,
-    z=0,
-    R=0.05);
-  // Dymola specific
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape b1(
+    shapeType="sphere",
+    r={0,0,0},
+    length=0.05,
+    width=0.05,
+    height=0.05);
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape b2(
+    shapeType="sphere",
+    r={0,1,0},
+    length=0.05,
+    width=0.05,
+    height=0.05);
   Particle p1(x_init={2,-2,0}, v_init={0.7,0,0});
   Particle p2(x_init={0,0.5,0}, v_init={-1,-1,0});
   Particle p3(x_init={0.5,2,0}, v_init={-1,-0.5,0});
