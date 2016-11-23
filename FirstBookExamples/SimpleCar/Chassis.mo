@@ -27,7 +27,7 @@ package Chassis "A collection of chassis models and related components"
     connect(final_drive.flange_a, power) annotation (Line(points={{50,
             -7.21645e-16},{80,0}}));
     kmh = der(vehicle_inertia.flange_a.s)*3.6;
-    speed.signal[1] = kmh;
+    speed = kmh;
     annotation (
       Icon(graphics={
           Polygon(

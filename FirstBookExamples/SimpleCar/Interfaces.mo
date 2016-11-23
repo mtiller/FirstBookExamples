@@ -170,13 +170,14 @@ assigned to the output gear selector.
   end ShiftStrategy;
 
   partial model Chassis "Generic chassis interface"
+
     Modelica.Mechanics.Translational.Interfaces.Flange_a road "Road contact"
       annotation (Placement(transformation(extent={{-50,-110},{-30,
               -90}}, rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_a power "Driveline"
       annotation (Placement(transformation(extent={{70,-10},{90,10}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput speed(final n=1) annotation (Placement(
+    Modelica.Blocks.Interfaces.RealOutput speed annotation (Placement(
           transformation(
           origin={60,-110},
           extent={{-10,-10},{10,10}},
