@@ -60,7 +60,7 @@ thermodynamics.
     geom.stroke = stroke;
     geom.conrod = conrod;
     geom.Vc = geom.Vd/(comp_ratio - 1);
-    geom.Ap = Modelica.Constants.PI*(bore/2)^2;
+    geom.Ap = Modelica.Constants.pi*(bore/2)^2;
     geom.Vd = stroke*geom.Ap;
     geom.crank = stroke/2.0;
     annotation (
@@ -170,9 +170,10 @@ set of engine geometry characteristics.
         GasProperties.SimpleAirProperties;
     model ChamberVolume
       "Computes combustion chamber volume as a function of piston position"
+
       Modelica.Mechanics.Translational.Interfaces.Flange_a piston annotation (Placement(
             transformation(extent={{-10,-90},{10,-70}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput volume(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput volume annotation (Placement(
             transformation(
             origin={-110,0},
             extent={{-10,-10},{10,10}},
@@ -183,7 +184,7 @@ set of engine geometry characteristics.
             extent={{-10,-10},{10,10}},
             rotation=180)));
     equation
-      volume.signal[1] = geom.Vc + geom.Ap*piston.s;
+      volume = geom.Vc + geom.Ap*piston.s;
       piston.f = 0;
       annotation (
         Icon(graphics={
@@ -291,24 +292,22 @@ contribution be provided for any flow variables.
       Modelica.SIunits.Temperature T(start=300) = state.T "Temperature";
       Modelica.SIunits.MassFlowRate mdot=state.mdot "Net mass flow";
       Modelica.SIunits.Power q=state.q "Net power";
-      Modelica.SIunits.Volume V=volume.signal[1] "Chamber volume";
+      Modelica.SIunits.Volume V=volume "Chamber volume";
       Modelica.SIunits.AmountOfSubstance N "Number of moles of gas";
       Real R=Modelica.Constants.R;
       Real logV;
       Real logP;
-    public
-      Modelica.Blocks.Interfaces.RealInput volume(final n=1) annotation (Placement(
+
+      Modelica.Blocks.Interfaces.RealInput volume annotation (Placement(
             transformation(
             origin={110,0},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-    public
       Modelica.Blocks.Interfaces.RealOutput mass annotation (Placement(
             transformation(
             origin={-60,110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-    public
       Interfaces.Gas state "Gas state" annotation (
           layer="icon", Placement(transformation(extent={{-10,-10},{
                 10,10}}, rotation=0)));
@@ -328,7 +327,7 @@ contribution be provided for any flow variables.
 
       // Conservation of mass
       der(m) = mdot;
-      mass.signal[1] = m;
+      mass = m;
       logV = Modelica.Math.log(V);
       logP = Modelica.Math.log(P);
       annotation (
@@ -420,10 +419,10 @@ connect a combustion model.
                 -10,-110},{10,-90}}, rotation=0)));
     protected
       PropertyModel a_props(T=a.T, P=a.P) annotation (Placement(
-            transformation(extent={{-56.6667,10},{-10,56.6667}},
+            transformation(extent={{-60,20},{-20,60}},
               rotation=0)));
       PropertyModel b_props(T=b.T, P=b.P) annotation (Placement(
-            transformation(extent={{10,10},{56.6667,56.6667}},
+            transformation(extent={{20,20},{60,60}},
               rotation=0)));
     equation
       a.mdot = mdot;
@@ -462,15 +461,15 @@ connect a combustion model.
 
     model Throttle "Orifice with throttle plate"
       parameter Modelica.SIunits.Diameter dia=0.1 "Throttle diameter";
-      extends Orifice(final Aref=Modelica.Constants.PI*(dia/2)^2);
-      Modelica.Blocks.Interfaces.RealInput throttle_angle(final n=1)
+      extends Orifice(final Aref=Modelica.Constants.pi*(dia/2)^2);
+      Modelica.Blocks.Interfaces.RealInput throttle_angle
         "Throttle Angle [deg]" annotation (Placement(transformation(
             origin={0,110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
-      Cd = Modelica.Math.sin(throttle_angle.signal[1]*Modelica.Constants.
-        PI/180)^2;
+      Cd = Modelica.Math.sin(throttle_angle*Modelica.Constants.
+        pi/180)^2;
       annotation (
         Icon(graphics={
             Rectangle(
@@ -494,16 +493,19 @@ connect a combustion model.
     end Throttle;
 
     model Valve "Engine poppet valve"
+      extends Orifice(final Aref=Modelica.Constants.pi*(dia/2)^2);
+
       parameter Modelica.SIunits.Diameter dia=0.012 "Valve diameter";
       parameter Modelica.SIunits.Length max_lift=0.012 "Maximum Valve Lift";
       parameter Real max_discharge=0.7 "Maximum Discharge Coefficient";
-      extends Orifice(final Aref=Modelica.Constants.PI*(dia/2)^2);
-    protected
-      parameter Real c_over_l=max_discharge/max_lift;
-    public
-      Modelica.Mechanics.Translational.Interfaces.Flange_a lift annotation (
+
+     Modelica.Mechanics.Translational.Interfaces.Flange_a lift annotation (
                                      layer="icon", Placement(
             transformation(extent={{-10,90},{10,110}}, rotation=0)));
+
+    protected
+      parameter Real c_over_l=max_discharge/max_lift;
+
     equation
       lift.f = 0;
       Cd = c_over_l*lift.s;
@@ -620,7 +622,7 @@ This piston has no mass.
     equation
       shaft_speed = 30*der(crank.phi)/Modelica.Constants.pi;
       crank.tau + cyl.tau = 0;
-      cyl.phi = crank.phi + shift*Modelica.Constants.PI/180.0;
+      cyl.phi = crank.phi + shift*Modelica.Constants.pi/180.0;
       annotation (
         Icon(graphics={
             Rectangle(
@@ -754,17 +756,17 @@ force into the rotational torque applied to the crankshaft.
 
     model SparkControl "Spark plug control"
       parameter Types.Degrees spark_advance=20 "Before top-dead-center (TDC)";
-    protected
-      Types.Degrees cur_pos;
-      Types.Degrees next_spark;
-    public
-      Modelica.Blocks.Interfaces.BooleanOutPort spark annotation (Placement(
+
+      Modelica.Blocks.Interfaces.BooleanOutput spark annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a crank annotation (Placement(
             transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
+    protected
+      Types.Degrees cur_pos;
+      Types.Degrees next_spark;
     equation
       crank.tau = 0;
-      cur_pos = crank.phi*180/Modelica.Constants.PI;
+      cur_pos = crank.phi*180/Modelica.Constants.pi;
     algorithm
       when initial() then
         next_spark := -spark_advance;
@@ -772,8 +774,8 @@ force into the rotational torque applied to the crankshaft.
           next_spark := next_spark + 720;
         end while;
       end when;
-      spark.signal[1] := cur_pos > next_spark;
-      when spark.signal[1] then
+      spark := cur_pos > next_spark;
+      when spark then
         next_spark := next_spark + 720;
       end when;
       annotation (
@@ -872,12 +874,12 @@ the spark strategy to change as engine conditions changed but this model just as
     public
       Interfaces.Gas cylinder annotation (Placement(transformation(
               extent={{-10,-50},{10,-30}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput mass(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput mass annotation (Placement(
             transformation(
             origin={-60,-110},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Blocks.Interfaces.BooleanInPort start(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.BooleanInput start annotation (Placement(
             transformation(
             origin={0,110},
             extent={{-10,-10},{10,10}},
@@ -888,16 +890,16 @@ the spark strategy to change as engine conditions changed but this model just as
       assert(burn_duration > 1, "Invalid burn duration");
       cylinder.mdot = 0;
       cylinder.q = if (burning) then -amplitude*Modelica.Math.sin((time -
-        start_burn)/(end_burn - start_burn)*Modelica.Constants.PI)^2 else 0.0;
+        start_burn)/(end_burn - start_burn)*Modelica.Constants.pi)^2 else 0.0;
       der(tmp) = cylinder.q;
       w = der(crank.phi);
-      dps = w*180/Modelica.Constants.PI;
+      dps = w*180/Modelica.Constants.pi;
       crank.tau = 0;
     algorithm
-      when start.signal[1] then
+      when start then
         start_burn := time;
         end_burn := time + (burn_duration/dps);
-        amplitude := lhv*(mass.signal[1]/(afr + 1))*2.0*dps/burn_duration;
+        amplitude := lhv*(mass/(afr + 1))*2.0*dps/burn_duration;
         burning := true;
       end when;
       when time >= end_burn then
@@ -973,19 +975,19 @@ the burn duration is a fixed parameter.
       Types.RPM avg_rpm;
       Modelica.SIunits.Time previous_time;
 
-      Modelica.Blocks.Interfaces.RealInput rpm(final n=1) annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput rpm annotation (Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
     equation
-      der(shaft.phi) = rpm.signal[1]*Modelica.Constants.pi/30;
+      der(shaft.phi) = rpm*Modelica.Constants.pi/30;
       der(work) = shaft.tau*der(shaft.phi);
     algorithm
       when initial() then
         next_rotation := shaft.phi + cycle_fraction*4*Modelica.Constants.pi;
         last_work := 0;
         previous_time := time;
-        avg_rpm := rpm.signal[1];
+        avg_rpm := rpm;
       end when;
       when shaft.phi > next_rotation then
         next_rotation := next_rotation + cycle_fraction*4*Modelica.Constants.
@@ -1117,13 +1119,14 @@ of \"revolutions per minute\".
       connect(piston.geom, geom) annotation (Line(points={{11,-40},{
               80,-40},{80,-50},{110,-50}}, color={0,0,0}));
       connect(piston.piston, crankslider.piston) annotation (Line(
-            points={{0,-42},{0,-80}}, color={0,255,127}));
+            points={{0,-42.2},{0,-80}},
+                                      color={0,255,127}));
       connect(chamber_volume.piston, crankslider.piston) annotation (Line(
             points={{66,-18},{66,-80},{0,-80}}, color={0,255,127}));
       connect(offset_shaft.cyl, crankslider.crank) annotation (Line(
             points={{0,-140},{0,-108}}, color={0,0,0}));
-      connect(offset_shaft.crank, crankshaft) annotation (Line(points=
-             {{-20,-160},{-20,-200},{0,-200}}, color={0,0,0}));
+      connect(offset_shaft.crank, crankshaft) annotation (Line(points={{-20,
+              -160},{-20,-198},{0,-198}},      color={0,0,0}));
       connect(timing_belt.crankshaft, crankslider.crank) annotation (Line(
             points={{-80,-56},{-80,-108},{1.11022e-15,-108}}, color={
               0,0,0}));
@@ -1243,9 +1246,9 @@ have been compiled in this model.
       assert(vc > vo + 20, "Invalid cam timings");
       camshaft.tau = 0;
       valve_lift.s = if (local_ca < vo or local_ca > vc) then 0.0 else
-        max_lift*Modelica.Math.sin((local_ca - vo)*norm*Modelica.Constants.PI)^
+        max_lift*Modelica.Math.sin((local_ca - vo)*norm*Modelica.Constants.pi)^
         2;
-      local_ca = mod(camshaft.phi*180.0/Modelica.Constants.PI, 360);
+      local_ca = mod(camshaft.phi*180.0/Modelica.Constants.pi, 360);
 
       annotation (
         Icon(graphics={
@@ -1380,42 +1383,46 @@ force as is necessary to sustain a specified position).
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
-      connect(cylinder1.intake, intake) annotation (Line(points={{
-              -100,36},{-100,80}}, color={255,127,0}));
-      connect(cylinder3.intake, intake) annotation (Line(points={{-50,
-              36},{-50,46},{-100,46},{-100,80}}, color={255,127,0}));
+      connect(cylinder1.intake, intake) annotation (Line(points={{-100,34},
+              {-100,80}},          color={255,127,0}));
+      connect(cylinder3.intake, intake) annotation (Line(points={{-50,34},
+              {-50,46},{-100,46},{-100,80}},     color={255,127,0}));
       connect(cylinder2.intake, intake) annotation (Line(points={{
-              -1.11022e-15,38},{0,46},{-100,46},{-100,80}}, color={
+              -1.11022e-15,34},{-1.11022e-15,46},{-100,46},{-100,80}},
+                                                            color={
               255,127,0}));
-      connect(cylinder4.intake, intake) annotation (Line(points={{50,
-              36},{50,46},{-100,46},{-100,80}}, color={255,127,0}));
-      connect(cylinder1.exhaust, exhaust) annotation (Line(points={{
-              -60,36},{-60,80},{100,80}}, color={255,127,0}));
-      connect(cylinder4.exhaust, exhaust) annotation (Line(points={{
-              90,36},{100,36},{100,80}}, color={255,127,0}));
-      connect(cylinder3.exhaust, exhaust) annotation (Line(points={{
-              -10,36},{-10,80},{100,80}}, color={255,127,0}));
-      connect(cylinder2.exhaust, exhaust) annotation (Line(points={{
-              40,38},{40,80},{100,80}}, color={255,127,0}));
+      connect(cylinder4.intake, intake) annotation (Line(points={{50,34},
+              {50,46},{-100,46},{-100,80}},     color={255,127,0}));
+      connect(cylinder1.exhaust, exhaust) annotation (Line(points={{-60,34},
+              {-60,80},{100,80}},         color={255,127,0}));
+      connect(cylinder4.exhaust, exhaust) annotation (Line(points={{90,34},
+              {100,34},{100,80}},        color={255,127,0}));
+      connect(cylinder3.exhaust, exhaust) annotation (Line(points={{-10,34},
+              {-10,80},{100,80}},         color={255,127,0}));
+      connect(cylinder2.exhaust, exhaust) annotation (Line(points={{40,34},
+              {40,80},{100,80}},        color={255,127,0}));
       connect(cylinder4.geom, engine_geometry) annotation (Line(
-            points={{92,10},{96,10},{96,0},{110,0}}, color={0,0,0}));
+            points={{92,-5},{96,-5},{96,0},{110,0}}, color={0,0,0}));
       connect(cylinder2.geom, engine_geometry) annotation (Line(
-            points={{42,12},{46,10},{46,-50},{96,-50},{96,0},{110,0}},
+            points={{42,-5},{42,10},{42,-50},{96,-50},{96,0},{110,0}},
             color={0,0,0}));
       connect(cylinder3.geom, engine_geometry) annotation (Line(
-            points={{-8,10},{-4,10},{-4,-50},{96,-50},{96,0},{110,0}},
+            points={{-8,-5},{-4,-5},{-4,-50},{96,-50},{96,0},{110,0}},
             color={0,0,0}));
       connect(cylinder1.geom, engine_geometry) annotation (Line(
-            points={{-58,10},{-54,10},{-54,-50},{96,-50},{96,0},{110,
+            points={{-58,-5},{-54,-5},{-54,-50},{96,-50},{96,0},{110,
               0}}, color={0,0,0}));
       connect(cylinder1.crankshaft, cylinder3.crankshaft) annotation (Line(
-            points={{-80,-19.6},{-30,-19.6}}, color={128,128,128}));
+            points={{-80,-49.4},{-80,-49.4},{-30,-49.4},{-30,-19.6}},
+                                              color={128,128,128}));
       connect(cylinder2.crankshaft, cylinder3.crankshaft) annotation (Line(
-            points={{20,-19.6},{-30,-19.6}}, color={128,128,128}));
+            points={{20,-49.4},{20,-49.4},{-30,-49.4},{-30,-19.6}},
+                                             color={128,128,128}));
       connect(cylinder4.crankshaft, cylinder2.crankshaft) annotation (Line(
-            points={{70,-19.6},{20,-19.6}}, color={128,128,128}));
+            points={{70,-49.4},{70,-49.4},{20,-49.4},{20,-19.6}},
+                                            color={128,128,128}));
       connect(crankshaft_inertia.flange_b, cylinder1.crankshaft) annotation (Line(
-            points={{-80,-40},{-80,-19.6}}, color={0,0,0}));
+            points={{-80,-40},{-80,-49.4}}, color={0,0,0}));
       connect(crankshaft_inertia.flange_a, crankshaft) annotation (Line(
             points={{-80,-60},{-80,-70},{-100,-70},{-100,-40}}, color=
              {0,0,0}));
@@ -1574,7 +1581,7 @@ gases, the crankshaft and geometry information.
       parameter Modelica.SIunits.Volume volume=0.004 "Manifold volume";
       Engine.Components.ControlVolume manifold_volume annotation (Placement(
             transformation(extent={{-40,-40},{40,40}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant volume_value(final k={volume})
+      Modelica.Blocks.Sources.Constant volume_value(final k=volume)
         annotation (Placement(transformation(extent={{40,-60},{60,-40}},
               rotation=0)));
       Interfaces.Gas ambient annotation (Placement(transformation(
@@ -1582,7 +1589,7 @@ gases, the crankshaft and geometry information.
       Interfaces.Gas manifold annotation (                             layer=
             "icon", Placement(transformation(extent={{-10,-110},{10,
                 -90}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput throttle_angle(final n=1) annotation (
+      Modelica.Blocks.Interfaces.RealInput throttle_angle annotation (
                                         layer="icon", Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       Engine.Components.Throttle throttle(dia=0.10) annotation (Placement(
