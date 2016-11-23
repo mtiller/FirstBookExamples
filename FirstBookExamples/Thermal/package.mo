@@ -1,6 +1,12 @@
 within FirstBookExamples;
 package Thermal
-extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
+
+
+
+
+
+
 
 annotation (
   Documentation(info="The \"Thermal\" package and all models contained in it
