@@ -429,7 +429,7 @@ connect a combustion model.
       b.mdot = -mdot;
       a.q = mdot*h;
       b.q = -mdot*h;
-      if noEvent(a.P > b.P) then
+      if a.P > b.P then
         h = a_props.h;
         gamma = a_props.gamma;
         pratio = b.P/a.P;
