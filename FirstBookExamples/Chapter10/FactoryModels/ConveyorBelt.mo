@@ -1,5 +1,5 @@
 within FirstBookExamples.Chapter10.FactoryModels;
-class ConveyorBelt
+model ConveyorBelt
   import Modelica.Mechanics.Rotational;
   Rotational.Interfaces.Flange_a axle annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
