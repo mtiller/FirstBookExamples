@@ -9,6 +9,8 @@ package Sensors
               {-110,-10},{-90,10}}, rotation=0)));
   equation
     T = n.T;
+    n.q = 0;
+
     annotation (
       Icon(graphics={
           Ellipse(
@@ -73,8 +75,6 @@ whatever it is connected to.  Furthermore, not
 thermocouple-like lags are associated with this
 sensor model.
 "));
-    n.q = 0;
-
   end TemperatureSensor;
 
   model HeatFlow "Heat flow rate sensor"
