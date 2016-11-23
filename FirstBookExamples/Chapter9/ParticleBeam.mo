@@ -7,15 +7,15 @@ model ParticleBeam
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape b1(
     shapeType="sphere",
     r={0,0,0},
-    length=0.05,
-    width=0.05,
-    height=0.05);
+    length=0.1,
+    width=0.1,
+    height=0.1);
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape b2(
     shapeType="sphere",
     r={0,1,0},
-    length=0.05,
-    width=0.05,
-    height=0.05);
+    length=0.1,
+    width=0.1,
+    height=0.1);
   parameter Modelica.SIunits.Velocity v_init[3]={-4,0,0};
   parameter Modelica.SIunits.Position xoff=10;
   parameter Modelica.SIunits.Position yoff=0;

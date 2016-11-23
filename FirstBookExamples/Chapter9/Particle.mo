@@ -12,9 +12,9 @@ protected
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape p(
     shapeType="sphere",
     r=x,
-    length=0.01,
-    width=0.01,
-    height=0.01);
+    length=0.02,
+    width=0.02,
+    height=0.02);
 equation
   v = der(x);
   a = der(v);
