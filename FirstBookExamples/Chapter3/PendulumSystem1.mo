@@ -7,8 +7,8 @@ model PendulumSystem1 "Simple Pendulum"
         rotation=180)));
   FrictionlessJoint joint annotation (Placement(transformation(extent=
            {{-8,-10},{12,10}}, rotation=0)));
-  Modelica.Mechanics.Rotational.Components.Fixed
-                                      fixed;
+  Modelica.Mechanics.Rotational.Components.Fixed fixed annotation(
+    Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90, origin={58,0})));
 equation
   connect(joint.b, fixed.flange)
     annotation (Line(points={{12,0},{35,0},{58,0}}, color={0,0,0}));
