@@ -94,44 +94,47 @@ energy within the spring.
   model AllModes "Test all basic modes of heat transfer"
     Basic1D.BlackBodyRadiation radiation(F=0.5,A=0.1)
                                                      annotation (Placement(
-          transformation(extent={{40,-10},{60,10}}, rotation=0)));
+          transformation(extent={{44,-10},{64,10}}, rotation=0)));
     Basic1D.Capacitance body2(V=2) annotation (Placement(
-          transformation(extent={{10,-10},{30,10}}, rotation=0)));
+          transformation(extent={{20,-10},{40,10}}, rotation=0)));
     Basic1D.Capacitance body1(V=2) annotation (Placement(
-          transformation(extent={{-50,-10},{-30,10}}, rotation=0)));
+          transformation(extent={{-40,-10},{-20,10}}, rotation=0)));
     Basic1D.Convection convection(h=30, A=1) annotation (Placement(
-          transformation(extent={{-60,-10},{-80,10}}, rotation=0)));
+          transformation(extent={{-50,-10},{-70,10}}, rotation=0)));
     Basic1D.Conduction conduction(k=10) annotation (Placement(
-          transformation(extent={{-20,-10},{0,10}}, rotation=0)));
+          transformation(extent={{-10,-10},{10,10}},rotation=0)));
     BoundaryConditions.FixedTemperature LeftBC(T=600) annotation (Placement(
-          transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
+          transformation(extent={{-80,-10},{-100,10}}, rotation=0)));
     BoundaryConditions.VariableTemperature TempBC annotation (Placement(
           transformation(extent={{70,-10},{90,10}}, rotation=0)));
     Modelica.Blocks.Sources.Trapezoid RightTemp(
-      amplitude={800},
-      rising={0.25},
-      width={1},
-      falling={0.25},
-      period={2.5},
-      offset={500},
-      startTime={1}) annotation (Placement(transformation(extent={{50,
+      amplitude=800,
+      rising=0.25,
+      width=1,
+      falling=0.25,
+      period=2.5,
+      offset=500,
+      startTime=1)   annotation (Placement(transformation(extent={{50,
               20},{70,40}}, rotation=0)));
   equation
-    connect(conduction.b, body2.n) annotation (Line(points={{
-            5.55112e-16,5.55112e-16},{20,5.55112e-16}}, color={255,0,
+    connect(conduction.b, body2.n) annotation (Line(points={{10,0},{
+            14,0},{14,5.55112e-16},{30,5.55112e-16}},   color={255,0,
             0}));
-    connect(conduction.a, body1.n) annotation (Line(points={{-20,
-            5.55112e-16},{-40,5.55112e-16}}, color={255,0,0}));
-    connect(body2.n, radiation.a) annotation (Line(points={{20,
-            5.55112e-16},{40,5.55112e-16}}, color={255,0,0}));
-    connect(convection.a, body1.n) annotation (Line(points={{-60,
-            5.55112e-16},{-40,5.55112e-16}}, color={255,0,0}));
-    connect(LeftBC.n, convection.b) annotation (Line(points={{-90,
-            5.55112e-16},{-80,5.55112e-16}}, color={255,0,0}));
-    connect(radiation.b, TempBC.n) annotation (Line(points={{60,
-            5.55112e-16},{70,5.55112e-16}}, color={255,0,0}));
-    connect(RightTemp.y, TempBC.T) annotation (Line(points={{71,30},{
-            100,30},{100,0},{91,5.55112e-16}}));
+    connect(conduction.a, body1.n) annotation (Line(points={{-10,0},{
+            -26,0},{-26,5.55112e-16},{-30,5.55112e-16}},
+                                             color={255,0,0}));
+    connect(body2.n, radiation.a) annotation (Line(points={{30,
+            5.55112e-16},{36,5.55112e-16},{36,0},{44,0}},
+                                            color={255,0,0}));
+    connect(convection.a, body1.n) annotation (Line(points={{-50,0},{
+            -44,0},{-44,5.55112e-16},{-30,5.55112e-16}},
+                                             color={255,0,0}));
+    connect(LeftBC.n, convection.b) annotation (Line(points={{-80,0},
+            {-80,0},{-70,0}},                color={255,0,0}));
+    connect(radiation.b, TempBC.n) annotation (Line(points={{64,0},{
+            66,0},{70,0}},                  color={255,0,0}));
+    connect(TempBC.T, RightTemp.y) annotation (Line(points={{92,0},{
+            98,0},{98,30},{71,30}}, color={0,0,127}));
     annotation (
       Documentation(info="This model tests the basic modes of heat transfer (conduction, convection and radiation) along with fixed and
 variable temperature bounday conditions.

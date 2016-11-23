@@ -75,7 +75,7 @@ for the 'c' array based on the published performance characteristics of thermoco
       final unit="N.m/rad",
       final min=0) = 1 "Spring constant";
     parameter Modelica.SIunits.Temperature T_nom=273.15 "Nominal temperature";
-    parameter Real dudT(final unit="rad/L") = 1.0
+    parameter Real dudT(final unit="rad/K") = 1.0
       "Angular expansion coefficient";
     parameter Modelica.SIunits.Angle unstretched_nom=0.0
       "Nominal unstretched length (at T_nom)";

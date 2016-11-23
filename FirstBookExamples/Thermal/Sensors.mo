@@ -2,14 +2,14 @@ within FirstBookExamples.Thermal;
 package Sensors
   extends Modelica.Icons.Library;
   model TemperatureSensor "Absolute temperature sensor"
+
     Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}},rotation=0)));
     Interfaces.Node_a n annotation (Placement(transformation(extent={
               {-110,-10},{-90,10}}, rotation=0)));
   equation
-    T.signal[1] = n.T;
+    T = n.T;
     annotation (
-      Diagram(graphics),
       Icon(graphics={
           Ellipse(
             extent={{-20,-98},{20,-60}},
@@ -22,7 +22,7 @@ package Sensors
             lineColor={255,0,0},
             fillColor={255,0,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{12,0},{90,0}}),
+          Line(points={{12,0},{100,0}}),
           Line(points={{-90,0},{-12,0}}, color={255,0,0}),
           Line(
             points={{-12,52},{-22,52}},
@@ -73,6 +73,8 @@ whatever it is connected to.  Furthermore, not
 thermocouple-like lags are associated with this
 sensor model.
 "));
+    n.q = 0;
+
   end TemperatureSensor;
 
   model HeatFlow "Heat flow rate sensor"
@@ -83,15 +85,14 @@ sensor model.
               {90,-10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput heat "Heat flow from a->b" annotation (Placement(
           transformation(
-          origin={0,-100},
+          origin={0,-110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
   equation
     a.q + b.q = 0;
-    heat.signal[1] = a.q;
+    heat = a.q;
     a.T = b.T;
     annotation (
-      Diagram(graphics),
       Icon(graphics={
           Text(
             extent={{-22,-17},{22,-55}},
@@ -100,7 +101,7 @@ sensor model.
                  "q"),
           Line(points={{-70,0},{-90,0}}, color={255,0,0}),
           Line(points={{69,0},{90,0}}, color={255,0,0}),
-          Line(points={{0,-70},{0,-90}}),
+          Line(points={{0,-70},{0,-100}}),
           Text(extent={{-100,110},{100,70}}, textString=
                                                  "%name")}),
       Documentation(info="This model is capable of monitoring the heat flow through a given thermal path.  The sensed value of heat
