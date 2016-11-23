@@ -1,5 +1,5 @@
 within FirstBookExamples;
-package Chapter5
+package Chapter5 "Models from Chapter 5"
 extends FirstBookExamples.Icons.BookExample;
 
 
