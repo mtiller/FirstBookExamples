@@ -1,24 +1,5 @@
 package FirstBookExamples "Examples from the book \"Introduction to Physical Modeling with Modelica\" by Michael Tiller"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  extends Modelica.Icons.Package;
 
 annotation (
   Documentation(info="<html>

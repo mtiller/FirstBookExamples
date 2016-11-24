@@ -2,12 +2,6 @@ within FirstBookExamples;
 package Thermal
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
 annotation (
   Documentation(info="The \"Thermal\" package and all models contained in it
 are copyrighted by Michael Tiller, 2001.  These models

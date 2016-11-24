@@ -34,7 +34,6 @@ information about engine geometry.
 
   connector EngineGeometryProvided "Connector to provide geometry information"
 
-
     output Modelica.SIunits.Length bore "Engine bore";
     output Modelica.SIunits.Length stroke "Engine stroke";
     output Modelica.SIunits.Length conrod "Connecting rod length";
