@@ -17,7 +17,6 @@ equation
   a1 = der(w1);
   a2 = der(w2);
   tau = 0;
-algorithm
   when phi_rel >= b/2 or phi_rel <= -b/2 then
     reinit(w1, ((I1 - K*I2)*pre(w1) + I2*(1 + K)*pre(w2))/(I1 + I2));
     reinit(w2, ((I2 - K*I1)*pre(w2) + I1*(1 + K)*pre(w1))/(I1 + I2));
