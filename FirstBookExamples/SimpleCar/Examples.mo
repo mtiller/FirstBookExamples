@@ -95,8 +95,8 @@ model.
     Modelica.Mechanics.Rotational.Sources.Torque starter(useSupport=
           false) annotation (Placement(transformation(extent={{-68,
               -70},{-48,-50}}, rotation=0)));
-    Modelica.Blocks.Sources.Step starter_torque(height=100, startTime
-        =1)
+    Modelica.Blocks.Sources.Step starter_torque(height=100, startTime=
+         1)
       annotation (Placement(transformation(extent={{-100,-70},{-80,
               -50}}, rotation=0)));
   equation
@@ -173,8 +173,7 @@ to keep the speed fixed.
       Documentation(info="This is a simulation of an I4 engine connected to a dynamometer.  The interesting
 thing about this simulation that sets it apart from the single cylinder case is
 that this model will demonstrate manifold filling and emptying effects.
-"),
-      Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
+"),   Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
       Icon(coordinateSystem(extent={{-120,-100},{100,100}})));
   end I4EngineOnDyno;
 
