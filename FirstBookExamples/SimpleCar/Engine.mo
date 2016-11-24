@@ -308,15 +308,13 @@ contribution be provided for any flow variables.
             origin={-60,110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Interfaces.Gas state "Gas state" annotation ( Placement(transformation(extent={{-10,-10},{
+      Interfaces.Gas state "Gas state" annotation (
+          layer="icon", Placement(transformation(extent={{-10,-10},{
                 10,10}}, rotation=0)));
     protected
-      PropertyModel props annotation (Placement(
+      PropertyModel props(T=T, P=P) annotation (Placement(
             transformation(extent={{-80,40},{-40,80}}, rotation=0)));
     equation
-
-      props.T = T;
-      props.P = P;
       // Compute number of moles
       N = m/props.mw;
 
@@ -420,10 +418,10 @@ connect a combustion model.
       Modelica.SIunits.SpecificEnthalpy gamma "Upstream gamma";
       Real pratio "Pressure ratio";
       Real Cd "Discharge Coefficient";
-      PropertyModel a_props annotation (Placement(
+      PropertyModel a_props(T=a.T, P=a.P) annotation (Placement(
             transformation(extent={{-60,20},{-20,60}},
               rotation=0)));
-      PropertyModel b_props annotation (Placement(
+      PropertyModel b_props(T=b.T, P=b.P) annotation (Placement(
             transformation(extent={{20,20},{60,60}},
               rotation=0)));
     equation
@@ -431,11 +429,6 @@ connect a combustion model.
       b.mdot = -mdot;
       a.q = mdot*h;
       b.q = -mdot*h;
-      a.T = a_props.T;
-      b.T = b_props.T;
-      a.P = a_props.P;
-      b.P = b_props.P;
-
       if noEvent(a.P > b.P) then
         h = a_props.h;
         gamma = a_props.gamma;

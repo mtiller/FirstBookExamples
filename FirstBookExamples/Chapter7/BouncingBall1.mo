@@ -5,7 +5,7 @@ model BouncingBall1
 
   parameter SIunits.Mass m=1.0 "Mass of the ball";
   parameter Real c(final unit="N/m") = 1e+4 "Compliance";
-  parameter Real d(final unit="N/(m.s)") = 20 "Damping";
+  parameter Real d(final unit="N.s/m") = 20 "Damping";
   parameter SIunits.Radius r=0.02 "Radius of the ball";
 
   SIunits.Height h(start=5.0) "Height of the ball center";
