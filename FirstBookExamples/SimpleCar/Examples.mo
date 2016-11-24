@@ -15,11 +15,10 @@ package Examples "A set of examples to demonstrate the 'SimpleCar' package"
       terminate("Simulation from 0-100 kilometers per hour completed");
     end when;
     annotation (
-      Diagram(graphics),
       Documentation(info="This example allows you to study the effects of various vehicle/transmission/engine parameters.
 The simulation will automatically stop once the vehicle has reached 100 kilometers per hour unless a shorter
 simulation time is specified.
-"));
+"),   experiment(StopTime=10));
   end Race;
 
   model CylinderOnDyno "Single cylinder engine connected to a dynamometer"
@@ -71,7 +70,7 @@ in this simulation is the instantaneous torque felt
 by the dynamometer vs. the average torque.  Both are
 available as variables to be viewed within the dynamometer
 model.
-"));
+"),   experiment(StopTime=10));
   end CylinderOnDyno;
 
   model CylinderAndInertia "Single cylinder engine connected to a flywheel"
@@ -93,12 +92,12 @@ model.
       annotation (Placement(transformation(extent={{-40,-70},{-20,-50}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.Torque starter(useSupport=
-          false) annotation (Placement(transformation(extent={{-68,
-              -70},{-48,-50}}, rotation=0)));
+          false) annotation (Placement(transformation(extent={{-68,-70},
+              {-48,-50}},      rotation=0)));
     Modelica.Blocks.Sources.Step starter_torque(height=100, startTime=
          1)
-      annotation (Placement(transformation(extent={{-100,-70},{-80,
-              -50}}, rotation=0)));
+      annotation (Placement(transformation(extent={{-100,-70},{-80,-50}},
+                     rotation=0)));
   equation
     connect(cylinder1.exhaust, exhaust.tap) annotation (Line(points={{20,34},
             {50,34},{50,60}},         color={255,127,0}));
@@ -110,17 +109,16 @@ model.
     connect(flywheel.flange_b, cylinder1.crankshaft) annotation (Line(
           points={{-20,-60},{0,-60},{0,-49.4}},           color={160,
             160,164}));
-    connect(starter_torque.y, starter.u) annotation (Line(points={{
-            -79,-60},{-70,-60}}));
     connect(starter.flange, flywheel.flange_a)
-      annotation (Line(points={{-48,-60},{-40,-60}}));
+      annotation (Line(points={{-48,-60},{-44,-60},{-40,-60}}));
+    connect(starter_torque.y, starter.tau) annotation (Line(points={{-79,
+            -60},{-74.5,-60},{-70,-60}}, color={0,0,127}));
     annotation (
-      Diagram(graphics),
       Documentation(info="This is a simulation of a single cylinder engine connected to a
 flywheel.  The idea is to see the acceleration of the flywheel.
 This is in contrast to other models where dynamometers are used
 to keep the speed fixed.
-"));
+"),   experiment(StopTime=10));
   end CylinderAndInertia;
 
   model I4EngineOnDyno "I4 engine connected to a dynamometer"
@@ -173,8 +171,7 @@ to keep the speed fixed.
       Documentation(info="This is a simulation of an I4 engine connected to a dynamometer.  The interesting
 thing about this simulation that sets it apart from the single cylinder case is
 that this model will demonstrate manifold filling and emptying effects.
-"),   Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
-      Icon(coordinateSystem(extent={{-120,-100},{100,100}})));
+"),   experiment(StopTime=10));
   end I4EngineOnDyno;
 
   model I4EngineAndInertia "I4 engine connected to a flywheel"
@@ -207,7 +204,7 @@ that this model will demonstrate manifold filling and emptying effects.
           points={{20,-30},{40,-30}}, color={128,128,128}));
     annotation (
       Documentation(info="This model simulates an I4 engine accelerating an inertia.
-"));
+"),   experiment(StopTime=10));
   end I4EngineAndInertia;
   annotation (
     Documentation(info="This package contains several example models that

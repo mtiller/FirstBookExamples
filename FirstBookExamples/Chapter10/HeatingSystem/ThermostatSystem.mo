@@ -1,7 +1,13 @@
 within FirstBookExamples.Chapter10.HeatingSystem;
 model ThermostatSystem
   extends FirstBookExamples.Icons.RunnableExample;
-  House house1 annotation (Placement(transformation(extent={{-60,60},
+  House house1(
+    ground_temp=553.15,
+    footprint=250,
+    height=4,
+    h_wall=4.33,
+    k_ground=0.4)
+               annotation (Placement(transformation(extent={{-60,60},
             {-20,100}}, rotation=0)));
   Modelica.Blocks.Sources.Trapezoid amb_temp(
     amplitude=10,
@@ -12,7 +18,13 @@ model ThermostatSystem
     offset=273.15,
     startTime=9.5*60*60) annotation (Placement(transformation(
           extent={{-100,-10},{-80,10}}, rotation=0)));
-  House house2 annotation (Placement(transformation(extent={{-60,-60},
+  House house2(
+    ground_temp=553.15,
+    footprint=250,
+    height=4,
+    h_wall=4.33,
+    k_ground=0.4)
+               annotation (Placement(transformation(extent={{-60,-60},
             {-20,-20}}, rotation=0)));
   Furnace furnace1(capacity=15e+3) annotation (Placement(
         transformation(extent={{0,20},{40,60}}, rotation=0)));
@@ -21,7 +33,10 @@ model ThermostatSystem
   replaceable DigitalThermostat thermostat1(T_on=295, T_off=300)
     annotation (Placement(transformation(extent={{60,60},{100,100}},
           rotation=0)));
-  replaceable MechanicalThermostat thermostat2(desired=295)
+  replaceable MechanicalThermostat thermostat2(desired=295, switch(
+      hysteresis=0.0030461741978671,
+      Gon=100000.0,
+      Roff=100000.0))
     annotation (Placement(transformation(extent={{60,-60},{100,-20}},
           rotation=0)));
 equation
@@ -53,8 +68,7 @@ equation
   annotation (
     experiment(
       StopTime=100000,
-      Tolerance=1e-8,
-      NumberOfIntervals=500),
+      Tolerance=1e-8),
     __Dymola_Commands(file="HeatingSystem.mos" "Simulate heating system"),
     Diagram(graphics={
         Text(

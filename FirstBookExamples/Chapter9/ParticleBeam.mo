@@ -67,7 +67,6 @@ model ParticleBeam
   Particle p49(x_init={xoff + dx*4,yoff + dy*9,0}, v_init=v_init);
   annotation (experiment(
       StopTime=7,
-      Tolerance=1e-8,
-      NumberOfIntervals=500),
+      Tolerance=1e-8),
       __Dymola_Commands(file="ParticleBeam.mos" "Simulate ParticleBeam"));
 end ParticleBeam;

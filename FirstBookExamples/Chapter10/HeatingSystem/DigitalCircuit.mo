@@ -24,22 +24,22 @@ protected
 
 public
   Modelica.Electrical.Analog.Interfaces.PositivePin thermo_n
-    annotation (                           layer="icon", Placement(
+    annotation ( Placement(
         transformation(extent={{-70,50},{-50,70}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin furnace_p
-    annotation (                            layer="icon", Placement(
+    annotation ( Placement(
         transformation(extent={{-70,-10},{-50,10}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin furnace_n
-    annotation (                             layer="icon", Placement(
+    annotation ( Placement(
         transformation(extent={{-70,-70},{-50,-50}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin thermo_p
-    annotation (                         layer="icon", Placement(
+    annotation (Placement(
         transformation(extent={{50,50},{70,70}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin unused
-    annotation (                          layer="icon", Placement(
+    annotation ( Placement(
         transformation(extent={{50,-10},{70,10}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin ground
-    annotation (                           layer="icon", Placement(
+    annotation ( Placement(
         transformation(extent={{50,-70},{70,-50}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealClosingSwitch
                                                furnace_switch

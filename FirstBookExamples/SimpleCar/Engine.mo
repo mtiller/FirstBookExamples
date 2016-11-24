@@ -308,8 +308,7 @@ contribution be provided for any flow variables.
             origin={-60,110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Interfaces.Gas state "Gas state" annotation (
-          layer="icon", Placement(transformation(extent={{-10,-10},{
+      Interfaces.Gas state "Gas state" annotation (Placement(transformation(extent={{-10,-10},{
                 10,10}}, rotation=0)));
     protected
       PropertyModel props(T=T, P=P) annotation (Placement(
@@ -500,8 +499,7 @@ connect a combustion model.
       parameter Modelica.SIunits.Length max_lift=0.012 "Maximum Valve Lift";
       parameter Real max_discharge=0.7 "Maximum Discharge Coefficient";
 
-     Modelica.Mechanics.Translational.Interfaces.Flange_a lift annotation (
-                                     layer="icon", Placement(
+     Modelica.Mechanics.Translational.Interfaces.Flange_a lift annotation (Placement(
             transformation(extent={{-10,90},{10,110}}, rotation=0)));
 
     protected
@@ -1284,8 +1282,7 @@ maximum lift.
     model Reservoir "Infinite reservoir"
       parameter Modelica.SIunits.Pressure P=101800 "Reservoir pressure";
       parameter Modelica.SIunits.Temperature T=300 "Reservoir temperature";
-      Interfaces.Gas tap annotation (                             layer="icon",
-          Placement(transformation(extent={{-10,-110},{10,-90}},
+      Interfaces.Gas tap annotation ( Placement(transformation(extent={{-10,-110},{10,-90}},
               rotation=0)));
     equation
       tap.P = P;
@@ -1587,11 +1584,9 @@ gases, the crankshaft and geometry information.
               rotation=0)));
       Interfaces.Gas ambient annotation (Placement(transformation(
               extent={{-10,90},{10,110}}, rotation=0)));
-      Interfaces.Gas manifold annotation (                             layer=
-            "icon", Placement(transformation(extent={{-10,-110},{10,
+      Interfaces.Gas manifold annotation (Placement(transformation(extent={{-10,-110},{10,
                 -90}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput throttle_angle annotation (
-                                        layer="icon", Placement(
+      Modelica.Blocks.Interfaces.RealInput throttle_angle annotation (Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       Engine.Components.Throttle throttle(dia=0.10) annotation (Placement(
             transformation(

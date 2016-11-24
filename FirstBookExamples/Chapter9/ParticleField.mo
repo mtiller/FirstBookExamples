@@ -22,7 +22,6 @@ model ParticleField
   Particle p3(x_init={0.5,2,0}, v_init={-1,-0.5,0});
   annotation (experiment(
       StopTime=5,
-      Tolerance=1e-8,
-      NumberOfIntervals=500),
+      Tolerance=1e-8),
       __Dymola_Commands(file="ParticleField.mos" "Simulate ParticleField"));
 end ParticleField;

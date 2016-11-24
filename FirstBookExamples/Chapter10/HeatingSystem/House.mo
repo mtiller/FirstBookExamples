@@ -5,15 +5,9 @@ model House
   parameter Modelica.SIunits.Distance height(start=4);
   parameter Modelica.SIunits.CoefficientOfHeatTransfer h_wall(start=4.33);
   parameter Modelica.SIunits.ThermalConductivity k_ground(start=0.4);
-protected
-  parameter Modelica.SIunits.Area roof_area=footprint;
-  parameter Modelica.SIunits.Volume interior=footprint*height;
-  parameter Modelica.SIunits.Area wall_area=height*footprint^0.5;
-  constant Modelica.SIunits.Time hour=60*60;
-  constant Modelica.SIunits.Time day=24*hour;
-public
+
   Thermal.Interfaces.Node_a n
-    annotation (                           layer="icon", Placement(
+    annotation ( Placement(
         transformation(extent={{90,-10},{110,10}}, rotation=0)));
 
   Thermal.Basic1D.Capacitance indoors(
@@ -49,11 +43,6 @@ public
   Modelica.Blocks.Interfaces.RealInput Tamb
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
           rotation=0)));
-protected
-  Modelica.SIunits.Conversions.NonSIunits.Temperature_degC Tc=n.T +
-      Modelica.Constants.T_zero;
-  Real Tf=Tc*9/5 + 32;
-public
   Modelica.Blocks.Sources.Trapezoid sun_position(
     amplitude=140,
     rising=4*hour,
@@ -68,6 +57,17 @@ public
         origin={0,60},
         extent={{-10,-10},{10,10}},
         rotation=90)));
+
+protected
+  parameter Modelica.SIunits.Area roof_area=footprint;
+  parameter Modelica.SIunits.Volume interior=footprint*height;
+  parameter Modelica.SIunits.Area wall_area=height*footprint^0.5;
+  constant Modelica.SIunits.Time hour=60*60;
+  constant Modelica.SIunits.Time day=24*hour;
+  Modelica.SIunits.Conversions.NonSIunits.Temperature_degC Tc=n.T +
+      Modelica.Constants.T_zero;
+  Real Tf=Tc*9/5 + 32;
+
 equation
   connect(wall.b, indoors.n) annotation (Line(points={{-32,
           5.55112e-16},{5.55112e-16,5.55112e-16}}, color={255,0,0}));

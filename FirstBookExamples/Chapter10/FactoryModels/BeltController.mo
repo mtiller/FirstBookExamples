@@ -10,13 +10,12 @@ model BeltController
     annotation (Placement(transformation(extent={{90,30},{110,50}},
           rotation=0)));
   Modelica.Blocks.Interfaces.RealInput phi
-    annotation (                             layer="icon", Placement(
-        transformation(extent={{-120,20},{-80,60}},  rotation=0),
-        iconTransformation(extent={{-120,20},{-80,60}})));
+    annotation (Placement(
+        transformation(extent={{-140,20},{-100,60}}, rotation=0),
+        iconTransformation(extent={{-140,20},{-100,60}})));
   Modelica.Blocks.Interfaces.RealInput omega
-    annotation (                               layer="icon",
-      Placement(transformation(extent={{-120,-60},{-80,-20}},
-          rotation=0), iconTransformation(extent={{-120,-60},{-80,-20}})));
+    annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
+          rotation=0), iconTransformation(extent={{-140,-60},{-100,-20}})));
   Modelica.Blocks.Sources.Trapezoid speed_profile(
     amplitude=0.5,
     rising=2.0,
@@ -50,7 +49,7 @@ equation
           {100,40}}));
   connect(motor_voltage.n, n) annotation (Line(points={{60,-20},{60,
           -40},{100,-40}}));
-  connect(phi, pos_error.u1) annotation (Line(points={{-100,40},{-100,
+  connect(phi, pos_error.u1) annotation (Line(points={{-120,40},{-120,
           40},{-80,40}}));
   connect(pos_error.y, Pcontrol.u)
     annotation (Line(points={{-63,40},{-40,40},{-40,60},{-32,60}}));

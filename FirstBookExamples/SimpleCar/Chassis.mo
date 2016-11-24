@@ -110,7 +110,7 @@ car frame.
     Modelica.Mechanics.Rotational.Interfaces.Flange_a axle annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Mechanics.Translational.Interfaces.Flange_b body_force
-      annotation (                           layer="icon", Placement(
+      annotation (Placement(
           transformation(extent={{-10,90},{10,110}}, rotation=0)));
   equation
     road_force.f = axle.tau/tire_radius;
