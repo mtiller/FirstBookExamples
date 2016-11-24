@@ -23,5 +23,5 @@ model ParticleField
   annotation (experiment(
       StopTime=5,
       Tolerance=1e-8),
-      __Dymola_Commands(file="ParticleField.mos" "Simulate ParticleField"));
+      __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter9/ParticleField.mos" "Simulate ParticleField"));
 end ParticleField;

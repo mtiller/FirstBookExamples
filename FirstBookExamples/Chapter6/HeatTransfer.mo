@@ -25,5 +25,5 @@ equation
   T[1] = if time >= 1 then 1000 else 300;
   T[n] = 300;
   annotation (experiment(StopTime=50),
-              __Dymola_Commands(file="HeatTransfer.mos" "Simulate HeatTransfer"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter6/HeatTransfer.mos" "Simulate HeatTransfer"));
 end HeatTransfer;

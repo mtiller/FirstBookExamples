@@ -85,8 +85,8 @@ package SensorComparison
     QuantizedCase1 quantized1;
     QuantizedCase2 quantized2;
     annotation (experiment(StopTime=2),
-                 __Dymola_Commands(file="SensorComparison.mos" "Run sensor comparison"));
+                 __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter7/SensorComparison.mos" "Run sensor comparison"));
   end TestAll;
   annotation (experiment(StopTime=2),
-              __Dymola_Commands(file="SensorComparison.mos" "Run sensor comparison"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter7/SensorComparison.mos" "Run sensor comparison"));
 end SensorComparison;

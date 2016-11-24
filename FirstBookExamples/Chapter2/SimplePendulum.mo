@@ -8,6 +8,6 @@ model SimplePendulum
 equation
   der(theta) = omega;
   der(omega) = -(g/L)*theta;
-  annotation (experiment(StopTime=10), __Dymola_Commands(file="SimplePendulum.mos"
+  annotation (experiment(StopTime=10), __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter2/SimplePendulum.mos"
         "Simulate SimplePendulum"));
 end SimplePendulum;

@@ -63,7 +63,7 @@ equation
   connect(is.i, pulse.y) annotation (Line(points={{-64,8.88178e-16},{-72,
           8.88178e-16},{-72,0},{-79,0}}, color={0,0,127}));
   annotation (experiment(StopTime=0.8),
-              __Dymola_Commands(file="HHCell.mos" "Simulate HHCell"),
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter8/HHCell.mos" "Simulate HHCell"),
     Diagram(graphics={
         Line(
           points={{-100,30},{100,30}},

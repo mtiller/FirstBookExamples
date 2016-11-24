@@ -38,5 +38,5 @@ equation
   connect(R2.n, g.p) annotation (Line(points={{-14,0},{-14,-34},{30,
           -34},{30,-44}}));
   annotation (experiment(StopTime=2),
-              __Dymola_Commands(file="RLC4.mos" "Simulate RLC4"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter3/RLC4.mos" "Simulate RLC4"));
 end RLC4;

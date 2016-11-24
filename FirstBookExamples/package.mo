@@ -8,7 +8,5 @@ annotation (preferredView="info",
 <p>Updated in late 2016 in order to make it work with current Modelica tools.</p>
 </html>"),
     uses(Modelica(version="3.2.2")),
-  version="1",
-  conversion(from(version="", script=
-          "ConvertFromFirstBookExamples_.mos")));
+  version="2.0.0");
 end FirstBookExamples;

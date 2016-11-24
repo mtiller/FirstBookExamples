@@ -68,5 +68,5 @@ model ParticleBeam
   annotation (experiment(
       StopTime=7,
       Tolerance=1e-8),
-      __Dymola_Commands(file="ParticleBeam.mos" "Simulate ParticleBeam"));
+      __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter9/ParticleBeam.mos" "Simulate ParticleBeam"));
 end ParticleBeam;

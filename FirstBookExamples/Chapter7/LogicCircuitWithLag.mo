@@ -63,5 +63,5 @@ equation
   connect(not2.y, not2_lag.u)
     annotation (Line(points={{-29,50},{-10,50}}, color={255,0,255}));
   annotation (experiment(StopTime=16),
-              __Dymola_Commands(file="LogicCircuitWithLag.mos" "Simulate LogicCircuitWithLag"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter7/LogicCircuitWithLag.mos" "Simulate LogicCircuitWithLag"));
 end LogicCircuitWithLag;

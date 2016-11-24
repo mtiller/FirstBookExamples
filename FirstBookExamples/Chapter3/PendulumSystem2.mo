@@ -43,5 +43,5 @@ equation
   connect(d2.flange_b, fixed.flange)
     annotation (Line(points={{50,0},{58,0},{58,22},{86,22}}));
   annotation (experiment(StopTime=20),
-              __Dymola_Commands(file="PendulumSystem2.mos" "Simulate PendulumSystem2"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter3/PendulumSystem2.mos" "Simulate PendulumSystem2"));
 end PendulumSystem2;

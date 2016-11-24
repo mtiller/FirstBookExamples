@@ -69,7 +69,7 @@ equation
     experiment(
       StopTime=100000,
       Tolerance=1e-8),
-    __Dymola_Commands(file="HeatingSystem.mos" "Simulate heating system"),
+    __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter10/SHeatingSystem.mos" "Simulate heating system"),
     Diagram(graphics={
         Text(
           extent={{48,58},{116,48}},

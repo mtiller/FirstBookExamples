@@ -39,16 +39,16 @@ equation
   connect(controller.p, motor.p) annotation (Line(points={{-30,8},{
           -30,8},{-8,8}}, color={0,0,255}));
   connect(position_sensor.phi, controller.phi) annotation (Line(
-        points={{40,51},{40,60},{-80,60},{-80,8},{-70,8}}, color={0,0,
+        points={{40,51},{40,60},{-80,60},{-80,8},{-74,8}}, color={0,0,
           127}));
-  connect(speed_sensor.w, controller.omega) annotation (Line(points={
-          {40,-51},{40,-60},{-80,-60},{-80,-8},{-70,-8}}, color={0,0,
+  connect(speed_sensor.w, controller.omega) annotation (Line(points={{40,-51},
+          {40,-60},{-80,-60},{-80,-8},{-74,-8}},          color={0,0,
           127}));
   annotation (
     experiment(
       StopTime=100,
       Tolerance=1e-8),
-    __Dymola_Commands(file="Factory.mos" "Simulate Factory"),
+    __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter10/Factory.mos" "Simulate Factory"),
     Diagram(graphics={
         Text(
           extent={{-66,30},{-34,18}},

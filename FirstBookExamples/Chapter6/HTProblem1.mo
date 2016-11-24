@@ -28,5 +28,5 @@ equation
           {38,10}}));
   annotation (experiment(
       StopTime=50),
-      __Dymola_Commands(file="HTProblem1.mos" "Simulate HTProblem1"));
+      __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter6/HTProblem1.mos" "Simulate HTProblem1"));
 end HTProblem1;

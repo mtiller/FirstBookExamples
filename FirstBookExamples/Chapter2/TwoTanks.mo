@@ -35,5 +35,5 @@ equation
   A2*der(H2) = Q;
   annotation (experiment(
       StopTime=10,
-      Tolerance=1E-8), __Dymola_Commands(file="TwoTanks.mos" "Simulate TwoTanks"));
+      Tolerance=1E-8), __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter2/TwoTanks.mos" "Simulate TwoTanks"));
 end TwoTanks;

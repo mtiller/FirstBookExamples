@@ -15,5 +15,5 @@ equation
   connect(pend.p, joint.a) annotation (Line(points={{-50,0},{-30,0},{-8,
           0}}, color={0,0,0}));
   annotation (experiment(StopTime=20),
-              __Dymola_Commands(file="PendulumSystem1.mos" "Simulate PendulumSystem1"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter3/PendulumSystem1.mos" "Simulate PendulumSystem1"));
 end PendulumSystem1;

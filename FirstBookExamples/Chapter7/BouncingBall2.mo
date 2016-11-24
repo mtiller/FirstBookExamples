@@ -19,5 +19,5 @@ equation
     reinit(v, -c_r*pre(v));
   end when;
   annotation (experiment(StopTime=5),
-              __Dymola_Commands(file="BouncingBall2.mos" "Simulate BouncingBall2"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter7/BouncingBall2.mos" "Simulate BouncingBall2"));
 end BouncingBall2;

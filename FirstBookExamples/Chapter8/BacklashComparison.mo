@@ -74,6 +74,6 @@ package BacklashComparison
     NoRigid_COR nr_cor;
     Rigid_COR r_cor;
     annotation (experiment(StopTime=1),
-                __Dymola_Commands(file="BacklashComparison.mos" "Run backlash comparison"));
+                __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter8/BacklashComparison.mos" "Run backlash comparison"));
   end Comparison;
 end BacklashComparison;

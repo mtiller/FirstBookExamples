@@ -42,6 +42,6 @@ equation
           -39.8}}));
   annotation (experiment(
       StopTime=50),
-      __Dymola_Commands(file="HTProblem2.mos" "Simulate HTProblem2"),
+      __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter6/HTProblem2.mos" "Simulate HTProblem2"),
       Diagram(graphics));
 end HTProblem2;

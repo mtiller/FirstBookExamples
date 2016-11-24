@@ -21,6 +21,6 @@ equation
   connect(moon_sun.b2, sun.b)
     annotation (Line(points={{-58,33},{-58,46},{-48,46},{-48,45}}));
   annotation (experiment(StopTime=31.5581e+6),
-              __Dymola_Commands(file="TernarySystem.mos" "Simulate TernarySystem"),
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter6/TernarySystem.mos" "Simulate TernarySystem"),
               Diagram(graphics));
 end TernarySystem;

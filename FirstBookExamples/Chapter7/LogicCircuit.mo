@@ -45,5 +45,5 @@ equation
   connect(not1.y, or1.u1) annotation (Line(points={{41,0},{50,0},{50,-26},
           {58,-26}}, color={255,0,255}));
   annotation (experiment(StopTime=16),
-              __Dymola_Commands(file="LogicCircuit.mos" "Simulate LogicCircuit"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter7/LogicCircuit.mos" "Simulate LogicCircuit"));
 end LogicCircuit;

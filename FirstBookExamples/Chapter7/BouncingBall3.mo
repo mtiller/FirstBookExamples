@@ -27,5 +27,5 @@ equation
     end if;
   end when;
   annotation (experiment(StopTime=25),
-              __Dymola_Commands(file="BouncingBall3.mos" "Simulate BouncingBall3"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter7/BouncingBall3.mos" "Simulate BouncingBall3"));
 end BouncingBall3;

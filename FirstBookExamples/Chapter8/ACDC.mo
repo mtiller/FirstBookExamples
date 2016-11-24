@@ -78,7 +78,7 @@ equation
           {20,-20},{20,-10}}, color={0,0,255}));
   annotation (
     experiment(StopTime=1),
-      __Dymola_Commands(file="ACDC.mos" "Simulate ACDC"),
+      __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter8/ACDC.mos" "Simulate ACDC"),
     Diagram(coordinateSystem(extent={{-200,-80},{200,80}}),
             graphics={
         Rectangle(

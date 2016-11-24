@@ -21,6 +21,6 @@ equation
   connect(motor.y, pic.sensor) annotation (Line(points={{41,0},{60,0},
           {60,-30},{-32,-30},{-32,-6},{-22,-6}}));
   annotation (experiment(StopTime=20),
-              __Dymola_Commands(file="PIControllerAndMotor.mos" "Simulate Motor with PI controller"),
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter4/PIControllerAndMotor.mos" "Simulate Motor with PI controller"),
               Diagram(graphics));
 end PIControllerAndMotor;

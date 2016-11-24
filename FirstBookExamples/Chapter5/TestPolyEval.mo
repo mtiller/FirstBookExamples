@@ -9,5 +9,5 @@ equation
   (y,fdy) = PolyEval(time, coefs);
   der(y2) = fdy;
   annotation (experiment(StopTime=10),
-              __Dymola_Commands(file="TestPolyEval.mos" "Simulate TestPolyEval"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter5/TestPolyEval.mos" "Simulate TestPolyEval"));
 end TestPolyEval;

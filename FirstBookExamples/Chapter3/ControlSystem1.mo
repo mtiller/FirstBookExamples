@@ -25,5 +25,5 @@ equation
   tau = i + p;
   J*der(w_m) + d*w_m = tau;
   annotation (experiment(StopTime=20),
-              __Dymola_Commands(file="ControlSystem1.mos" "Simulate ControlSystem1"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter3/ControlSystem1.mos" "Simulate ControlSystem1"));
 end ControlSystem1;

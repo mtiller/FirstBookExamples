@@ -17,5 +17,5 @@ equation
   B = 1.3*Modelica.Math.sin(2.0*pi*2.0*time) + 2.2*Modelica.Math.sin(2.0*pi*3.0
     *time + pi);
   annotation (experiment(StopTime=3),
-              __Dymola_Commands(file="TestComplexWave2.mos" "Simulate TestComplexWave2"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter5/TestComplexWave2.mos" "Simulate TestComplexWave2"));
 end TestComplexWave2;

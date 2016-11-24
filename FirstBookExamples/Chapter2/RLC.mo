@@ -22,5 +22,5 @@ equation
   i_R - i_C = 0;
   annotation (experiment(
       StopTime=2,
-      Tolerance=1E-8), __Dymola_Commands(file="RLC.mos" "Simulate RLC"));
+      Tolerance=1E-8), __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter2/RLC.mos" "Simulate RLC"));
 end RLC;
