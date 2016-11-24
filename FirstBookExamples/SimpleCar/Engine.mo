@@ -4,8 +4,8 @@ package Engine "Engine models and components"
 
   package GasProperties "Gas property related definitions"
     partial model BasePropertyModel "Basic property model interface"
-      Modelica.SIunits.Pressure P "Gas pressure";
-      Modelica.SIunits.Temperature T "Gas temperature";
+      input Modelica.SIunits.Pressure P "Gas pressure";
+      input Modelica.SIunits.Temperature T "Gas temperature";
       Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy of gas";
       Modelica.SIunits.SpecificEnergy u "Specific energy of gas";
       Real gamma "ratio of specific heats";
