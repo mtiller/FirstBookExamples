@@ -49,11 +49,11 @@ package Chemistry "A sample chemistry package"
   package Sensors
     extends Modelica.Icons.Package;
     model ConcentrationSensor
-      parameter Integer species=1;
-      Chemistry.Interfaces.Mixture p;
-      Modelica.Blocks.Interfaces.RealOutput c;
+      parameter Integer nspecies;
+      Interfaces.Mixture p(nspecies=nspecies);
+      Modelica.Blocks.Interfaces.RealOutput c[nspecies];
     equation
-      c= p.c[species];
+      c = p.c;
     end ConcentrationSensor;
   end Sensors;
 
@@ -85,8 +85,8 @@ package Chemistry "A sample chemistry package"
     end Reservoir;
 
     model Stationary "Stationary concentration"
-      parameter Integer nspecies;
-      parameter Integer stat_species;
+      parameter Integer nspecies=1;
+      parameter Integer stat_species=1;
       parameter Modelica.SIunits.Concentration c;
       Interfaces.Mixture p(nspecies=nspecies);
     protected

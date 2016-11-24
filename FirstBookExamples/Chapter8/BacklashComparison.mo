@@ -4,16 +4,18 @@ package BacklashComparison
   partial model NoRigid
     import Modelica.Mechanics.Rotational;
 
-    Modelica.Mechanics.Rotational.Components.Inertia I1 annotation (
+    Modelica.Mechanics.Rotational.Components.Inertia I1(J=1)
+                                                        annotation (
         Placement(transformation(extent={{-40,-10},{-20,10}},rotation=
              0)));
     Modelica.Mechanics.Rotational.Components.Inertia I2(J=3)
       annotation (Placement(transformation(extent={{20,-10},{40,10}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=
-          false) annotation (Placement(transformation(extent={{-70,-10},
+    Modelica.Mechanics.Rotational.Sources.Torque torque
+                 annotation (Placement(transformation(extent={{-70,-10},
               {-50,10}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine signal annotation (Placement(
+    Modelica.Blocks.Sources.Sine signal(freqHz=1)
+                                        annotation (Placement(
           transformation(extent={{-100,-10},{-80,10}},
                                                      rotation=0)));
     replaceable
@@ -35,9 +37,11 @@ package BacklashComparison
     extends NoRigid;
     import Modelica.Mechanics.Rotational;
     Modelica.Mechanics.Rotational.Components.IdealGear gear(
-        useSupport=false) annotation (Placement(transformation(extent={{50,-10},
+        useSupport=false, ratio=1)
+                          annotation (Placement(transformation(extent={{50,-10},
               {70,10}},         rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia I3 annotation (
+    Modelica.Mechanics.Rotational.Components.Inertia I3(J=1)
+                                                        annotation (
         Placement(transformation(extent={{80,-10},{100,10}},
                                                            rotation=0)));
   equation

@@ -25,7 +25,9 @@ model ACDC "AC to DC power supply"
   Modelica.Electrical.Analog.Basic.Resistor short(R=1e-5)
     annotation (Placement(transformation(extent={{-20,10},{0,30}},
           rotation=0)));
-  Modelica.Electrical.Analog.Ideal.IdealTransformer transformer(n=22)
+  Modelica.Electrical.Analog.Ideal.IdealTransformer transformer(n=22,
+    considerMagnetization=false,
+    Lm1=1)
     annotation (Placement(transformation(
         origin={-95,7.10543e-15},
         extent={{35,-40},{-35,40}},
