@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Examples "A set of examples to demonstrate the 'SimpleCar' package"
-  extends Modelica.Icons.Example;
+  extends Modelica.Icons.ExamplesPackage;
 
   model Race "Race a car from 0-100 kilometers per hour"
     extends Modelica.Icons.Example;
@@ -11,7 +11,7 @@ package Examples "A set of examples to demonstrate the 'SimpleCar' package"
   equation
     connect(race_track.road_surface, sports_car.road) annotation (Line(
           points={{-30,-60},{-30,-40}}, color={0,255,0}));
-    when (sports_car.speed.signal[1] > 100) then
+    when (sports_car.speed > 100) then
       terminate("Simulation from 0-100 kilometers per hour completed");
     end when;
     annotation (
@@ -40,10 +40,10 @@ simulation time is specified.
     Engine.Components.Dynamometer dyno annotation (Placement(
           transformation(extent={{-40,-70},{-20,-50}}, rotation=0)));
     Modelica.Blocks.Sources.Ramp speed_profile(
-      height={3000},
-      duration={5},
-      offset={1500},
-      startTime={2}) annotation (Placement(transformation(extent={{
+      height=3000,
+      duration=5,
+      offset=1500,
+      startTime=2)   annotation (Placement(transformation(extent={{
               -80,-70},{-60,-50}}, rotation=0)));
     Engine.GeometrySource sample_geometry(
       bore=0.08,
@@ -52,17 +52,18 @@ simulation time is specified.
       comp_ratio=9.5) annotation (Placement(transformation(extent={{
               60,0},{80,20}}, rotation=0)));
   equation
-    connect(cylinder.exhaust, exhaust.tap) annotation (Line(points={{
-            20,36},{50,36},{50,60}}, color={255,127,0}));
-    connect(cylinder.intake, intake.tap) annotation (Line(points={{
-            -20,36},{-50,36},{-50,60}}, color={255,127,0}));
-    connect(dyno.shaft, cylinder.crankshaft) annotation (Line(points=
-            {{-20,-60},{0,-60},{1.11022e-15,-19.6}}, color={160,160,
+    connect(cylinder.exhaust, exhaust.tap) annotation (Line(points={{20,34},
+            {50,34},{50,60}},        color={255,127,0}));
+    connect(cylinder.intake, intake.tap) annotation (Line(points={{-20,34},
+            {-50,34},{-50,60}},         color={255,127,0}));
+    connect(dyno.shaft, cylinder.crankshaft) annotation (Line(points={{-20,-60},
+            {1.11022e-15,-60},{1.11022e-15,-49.4}},  color={160,160,
             164}));
     connect(speed_profile.y, dyno.rpm) annotation (Line(points={{-59,
             -60},{-41,-60}}));
     connect(sample_geometry.geom, cylinder.geom) annotation (Line(
-          points={{59,10},{22,10}}, color={0,0,0}));
+          points={{59,10},{40,10},{40,-5},{22,-5}},
+                                    color={0,0,0}));
     annotation (
       Documentation(info="This simulation involves a single cylinder connected
 to a dynamometer.  One interesting thing to look at
@@ -80,8 +81,8 @@ model.
     Engine.Components.Reservoir exhaust annotation (Placement(
           transformation(extent={{40,60},{60,80}}, rotation=0)));
     Engine.Components.IndividualCylinder cylinder1(spark_advance=20,
-        burn_duration=60) annotation (Placement(transformation(extent=
-             {{-20,-20},{20,40}}, rotation=0)));
+        burn_duration=60) annotation (Placement(transformation(extent={{-20,-20},
+              {20,40}},           rotation=0)));
     Engine.GeometrySource sample_geometry(
       bore=0.08,
       stroke=0.08,
@@ -94,18 +95,20 @@ model.
     Modelica.Mechanics.Rotational.Sources.Torque starter(useSupport=
           false) annotation (Placement(transformation(extent={{-68,
               -70},{-48,-50}}, rotation=0)));
-    Modelica.Blocks.Sources.Step starter_torque(height={100}, startTime={1})
+    Modelica.Blocks.Sources.Step starter_torque(height=100, startTime
+        =1)
       annotation (Placement(transformation(extent={{-100,-70},{-80,
               -50}}, rotation=0)));
   equation
-    connect(cylinder1.exhaust, exhaust.tap) annotation (Line(points={
-            {20,36},{50,36},{50,60}}, color={255,127,0}));
-    connect(cylinder1.intake, intake.tap) annotation (Line(points={{
-            -20,36},{-50,36},{-50,60}}, color={255,127,0}));
+    connect(cylinder1.exhaust, exhaust.tap) annotation (Line(points={{20,34},
+            {50,34},{50,60}},         color={255,127,0}));
+    connect(cylinder1.intake, intake.tap) annotation (Line(points={{-20,34},
+            {-50,34},{-50,60}},         color={255,127,0}));
     connect(sample_geometry.geom, cylinder1.geom) annotation (Line(
-          points={{59,10},{22,10}}, color={0,0,0}));
+          points={{59,10},{40,10},{40,-5},{22,-5}},
+                                    color={0,0,0}));
     connect(flywheel.flange_b, cylinder1.crankshaft) annotation (Line(
-          points={{-20,-60},{0,-60},{1.11022e-15,-19.6}}, color={160,
+          points={{-20,-60},{0,-60},{0,-49.4}},           color={160,
             160,164}));
     connect(starter_torque.y, starter.u) annotation (Line(points={{
             -79,-60},{-70,-60}}));
@@ -123,13 +126,13 @@ to keep the speed fixed.
   model I4EngineOnDyno "I4 engine connected to a dynamometer"
     extends Modelica.Icons.Example;
     Engine.Components.Dynamometer dyno annotation (Placement(
-          transformation(extent={{-100,-76},{-60,-36}}, rotation=0)));
+          transformation(extent={{-40,-60},{-16,-36}},  rotation=0)));
     Modelica.Blocks.Sources.Ramp speed_profile(
-      height={3000},
-      duration={5},
-      offset={1500},
-      startTime={2}) annotation (Placement(transformation(extent={{
-              -140,-66},{-120,-46}}, rotation=0)));
+      height=3000,
+      duration=5,
+      offset=1500,
+      startTime=2)   annotation (Placement(transformation(extent={{-80,-58},
+              {-60,-38}},            rotation=0)));
     Engine.Components.Reservoir intake(P=101800) annotation (Placement(
           transformation(extent={{-60,60},{-20,100}}, rotation=0)));
     Engine.Components.Reservoir exhaust annotation (Placement(
@@ -143,32 +146,36 @@ to keep the speed fixed.
     Engine.Components.I4_Engine I4(
       spark_advance=20,
       burn_duration=60,
-      evo=64) annotation (Placement(transformation(extent={{-40,-80},
-              {40,0}}, rotation=0)));
+      evo=64) annotation (Placement(transformation(extent={{0,-60},{
+              40,-20}},rotation=0)));
     Engine.Components.Manifold intake_manifold annotation (Placement(
-          transformation(extent={{-60,8},{-20,48}}, rotation=0)));
-    Modelica.Blocks.Sources.Constant throttle_angle(k={90}) annotation (Placement(
-          transformation(extent={{-140,18},{-120,38}}, rotation=0)));
+          transformation(extent={{-60,10},{-20,50}},rotation=0)));
+    Modelica.Blocks.Sources.Constant throttle_angle(k=90)   annotation (Placement(
+          transformation(extent={{-100,20},{-80,40}},  rotation=0)));
   equation
     connect(I4.engine_geometry, sample_geometry.geom) annotation (Line(
-          points={{44,-40},{59,-40}}));
-    connect(I4.exhaust, exhaust.tap) annotation (Line(points={{40,-8},
-            {40,6},{40,20}}, color={255,127,0}));
-    connect(dyno.shaft, I4.crankshaft) annotation (Line(points={{-60,
-            -56},{-40,-56}}, color={160,160,164}));
+          points={{42,-40},{42,-40},{58,-40}}));
+    connect(I4.exhaust, exhaust.tap) annotation (Line(points={{40,-24},
+            {40,20}},        color={255,127,0}));
+    connect(dyno.shaft, I4.crankshaft) annotation (Line(points={{-16,-48},
+            {-16,-48},{0,-48}},
+                             color={160,160,164}));
     connect(intake_manifold.ambient, intake.tap) annotation (Line(
-          points={{-40,48},{-40,60}}, color={255,127,0}));
+          points={{-40,50},{-40,60}}, color={255,127,0}));
     connect(intake_manifold.manifold, I4.intake) annotation (Line(
-          points={{-40,8},{-40,-8}}, color={255,127,0}));
+          points={{-40,10},{-40,10},{-40,-24},{0,-24}},
+                                     color={255,127,0}));
     connect(throttle_angle.y, intake_manifold.throttle_angle)
-      annotation (Line(points={{-119,28},{-61.5,28}}));
-    connect(speed_profile.y, dyno.rpm) annotation (Line(points={{-120,
-            -56},{-102,-56}}));
+      annotation (Line(points={{-79,30},{-72,30},{-62,30}}));
+    connect(speed_profile.y, dyno.rpm) annotation (Line(points={{-59,-48},
+            {-59,-48},{-41.2,-48}}));
     annotation (
       Documentation(info="This is a simulation of an I4 engine connected to a dynamometer.  The interesting
 thing about this simulation that sets it apart from the single cylinder case is
 that this model will demonstrate manifold filling and emptying effects.
-"));
+"),
+      Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
+      Icon(coordinateSystem(extent={{-120,-100},{100,100}})));
   end I4EngineOnDyno;
 
   model I4EngineAndInertia "I4 engine connected to a flywheel"

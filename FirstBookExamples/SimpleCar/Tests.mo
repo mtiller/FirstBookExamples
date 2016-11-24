@@ -1,12 +1,12 @@
 within FirstBookExamples.SimpleCar;
 package Tests "Models to test various models"
-  extends Modelica.Icons.Example;
+  extends Modelica.Icons.ExamplesPackage;
 
   model SingleControlVolume "Test a single control volume"
     extends Modelica.Icons.Example;
     Engine.Components.ControlVolume control_volume annotation (Placement(
           transformation(extent={{20,-20},{60,20}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine volume(amplitude={0.25},offset={1})
+    Modelica.Blocks.Sources.Sine volume(amplitude=0.25, offset=1)
       annotation (Placement(transformation(extent={{-60,-80},{-20,-40}},
             rotation=0)));
   equation
@@ -26,7 +26,7 @@ package Tests "Models to test various models"
           transformation(extent={{-23,17},{-3,37}}, rotation=0)));
     Engine.Components.ControlVolume control_volume annotation (Placement(
           transformation(extent={{-23,-25},{-3,-5}}, rotation=0)));
-    Modelica.Blocks.Sources.Constant volume(k={0.004}) annotation (Placement(
+    Modelica.Blocks.Sources.Constant volume(k=0.004)   annotation (Placement(
           transformation(extent={{-23,-55},{-3,-35}}, rotation=0)));
     Engine.Components.Cam cam annotation (Placement(transformation(
             extent={{-44,69},{-24,89}}, rotation=0)));
@@ -60,9 +60,9 @@ package Tests "Models to test various models"
       annotation (Placement(transformation(extent={{-70,-20},{-50,0}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.Torque engine_torque(
-        useSupport=false) annotation (Placement(transformation(extent=
-             {{50,50},{70,70}}, rotation=0)));
-    Modelica.Blocks.Sources.Ramp torque_profile(height={100}) annotation (Placement(
+        useSupport=false) annotation (Placement(transformation(extent={{50,50},
+              {70,70}},         rotation=0)));
+    Modelica.Blocks.Sources.Ramp torque_profile(height=100)   annotation (Placement(
           transformation(extent={{10,50},{30,70}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Damper bearing(d=10)
       annotation (Placement(transformation(
@@ -83,8 +83,6 @@ package Tests "Models to test various models"
     connect(engine_torque.flange, engine.flange_b) annotation (Line(
           points={{70,60},{80,60},{80,-10},{60,-10}}, color={128,128,
             128}));
-    connect(torque_profile.y, engine_torque.u) annotation (Line(
-          points={{31,60},{48,60}}));
     connect(driveline.flange_a, bearing.flange_b) annotation (Line(
           points={{-70,-10},{-80,-10},{-80,-20}}, color={128,128,128}));
     connect(bearing.flange_a, mount.flange) annotation (Line(points={
@@ -93,6 +91,8 @@ package Tests "Models to test various models"
       annotation (Line(points={{-10,48},{-10,23}}, color={127,0,255}));
     connect(transmission.driveline, shift_strategy.wheel) annotation (Line(
           points={{-40,-10},{-40,70},{-30,70}}, color={128,128,128}));
+    connect(torque_profile.y, engine_torque.tau) annotation (Line(
+          points={{31,60},{39.5,60},{48,60}}, color={0,0,127}));
     annotation (
       Documentation(info="This model tests the transmission and its control strategy by running the transmission
 through a range of speeds such that all gears are engaged.

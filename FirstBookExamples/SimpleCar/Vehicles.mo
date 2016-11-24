@@ -51,7 +51,7 @@ package Vehicles "Vehicle models"
     connect(shift_strategy.gear_request, transmission.gear_selector)
       annotation (Line(points={{6,8},{6,-8}}, color={127,0,255}));
     connect(chassis.wheel, shift_strategy.wheel) annotation (Line(
-          points={{-56,-48},{-80,-48},{-80,30},{-14,30}}, color={128,
+          points={{-56,-48},{-90,-48},{-90,30},{-14,30}}, color={128,
             128,128}));
     connect(chassis.speed, speed) annotation (Line(points={{-32,-63},
             {-32,-80},{60,-80},{60,-110}}));

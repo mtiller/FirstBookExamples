@@ -285,7 +285,7 @@ contribution be provided for any flow variables.
     end ChamberVolume;
 
     model ControlVolume "Thermodynamic control volume"
-    protected
+
       Modelica.SIunits.Energy U(start=147) "Total energy";
       Modelica.SIunits.Mass m(start=4e-4) "Total mass";
       Modelica.SIunits.Pressure P(start=101800) = state.P "Pressure";
@@ -308,13 +308,15 @@ contribution be provided for any flow variables.
             origin={-60,110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Interfaces.Gas state "Gas state" annotation (
-          layer="icon", Placement(transformation(extent={{-10,-10},{
+      Interfaces.Gas state "Gas state" annotation ( Placement(transformation(extent={{-10,-10},{
                 10,10}}, rotation=0)));
     protected
-      PropertyModel props(T=T, P=P) annotation (Placement(
+      PropertyModel props annotation (Placement(
             transformation(extent={{-80,40},{-40,80}}, rotation=0)));
     equation
+
+      props.T = T;
+      props.P = P;
       // Compute number of moles
       N = m/props.mw;
 
@@ -404,24 +406,24 @@ connect a combustion model.
 "));
     end ControlVolume;
 
-    model Orifice "Isentropic flow restriction"
+    partial model Orifice "Isentropic flow restriction"
       parameter Modelica.SIunits.Area Aref "Reference Area";
+
+     Interfaces.Gas a annotation (Placement(transformation(extent={{
+                -110,-10},{-90,10}}, rotation=0)));
+     Interfaces.Gas b annotation (Placement(transformation(extent={{
+                -10,-110},{10,-90}}, rotation=0)));
+
     protected
       Modelica.SIunits.MassFlowRate mdot "Flow from 'a' to 'b'";
       Modelica.SIunits.SpecificEnthalpy h "Upstream enthalpy";
       Modelica.SIunits.SpecificEnthalpy gamma "Upstream gamma";
       Real pratio "Pressure ratio";
       Real Cd "Discharge Coefficient";
-    public
-      Interfaces.Gas a annotation (Placement(transformation(extent={{
-                -110,-10},{-90,10}}, rotation=0)));
-      Interfaces.Gas b annotation (Placement(transformation(extent={{
-                -10,-110},{10,-90}}, rotation=0)));
-    protected
-      PropertyModel a_props(T=a.T, P=a.P) annotation (Placement(
+      PropertyModel a_props annotation (Placement(
             transformation(extent={{-60,20},{-20,60}},
               rotation=0)));
-      PropertyModel b_props(T=b.T, P=b.P) annotation (Placement(
+      PropertyModel b_props annotation (Placement(
             transformation(extent={{20,20},{60,60}},
               rotation=0)));
     equation
@@ -429,11 +431,16 @@ connect a combustion model.
       b.mdot = -mdot;
       a.q = mdot*h;
       b.q = -mdot*h;
-      if a.P > b.P then
+      a.T = a_props.T;
+      b.T = b_props.T;
+      a.P = a_props.P;
+      b.P = b_props.P;
+
+      if noEvent(a.P > b.P) then
         h = a_props.h;
         gamma = a_props.gamma;
         pratio = b.P/a.P;
-        if (pratio <= (2.0/(gamma + 1.0))^(gamma/(gamma - 1.0))) then
+        if noEvent(pratio <= (2.0/(gamma + 1.0))^(gamma/(gamma - 1.0))) then
           mdot = Cd*Aref*a.P/((Modelica.Constants.R/a_props.mw)*a.T)^0.5*gamma
             ^0.5*(2.0/(gamma + 1.0))^((gamma + 1.0)/(2.0*(gamma - 1.0)));
         else
@@ -445,7 +452,7 @@ connect a combustion model.
         h = b_props.h;
         gamma = b_props.gamma;
         pratio = a.P/b.P;
-        if (pratio <= (2.0/(gamma + 1.0))^(gamma/(gamma - 1.0))) then
+        if noEvent(pratio <= (2.0/(gamma + 1.0))^(gamma/(gamma - 1.0))) then
           mdot = -Cd*Aref*b.P/((Modelica.Constants.R/b_props.mw)*b.T)^0.5*
             gamma^0.5*(2.0/(gamma + 1.0))^((gamma + 1.0)/(2.0*(gamma - 1.0)));
         else
@@ -460,8 +467,9 @@ connect a combustion model.
     end Orifice;
 
     model Throttle "Orifice with throttle plate"
-      parameter Modelica.SIunits.Diameter dia=0.1 "Throttle diameter";
       extends Orifice(final Aref=Modelica.Constants.pi*(dia/2)^2);
+
+      parameter Modelica.SIunits.Diameter dia=0.1 "Throttle diameter";
       Modelica.Blocks.Interfaces.RealInput throttle_angle
         "Throttle Angle [deg]" annotation (Placement(transformation(
             origin={0,110},

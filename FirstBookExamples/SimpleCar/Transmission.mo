@@ -119,11 +119,11 @@ package Transmission "Transmissions and transmission components"
           - clutch_requested_levels[i]) else -k_on*(clutch_activation_levels[i]
          - clutch_requested_levels[i]);
     end for;
-    first_gear_clutch.u.signal[1] = clutch_activation_levels[1];
-    second_gear_clutch.u.signal[1] = clutch_activation_levels[2];
-    third_gear_clutch.u.signal[1] = clutch_activation_levels[3];
-    fourth_gear_clutch.u.signal[1] = clutch_activation_levels[4];
-    fifth_gear_clutch.u.signal[1] = clutch_activation_levels[5];
+    first_gear_clutch.f_normalized = clutch_activation_levels[1];
+    second_gear_clutch.f_normalized = clutch_activation_levels[2];
+    third_gear_clutch.f_normalized = clutch_activation_levels[3];
+    fourth_gear_clutch.f_normalized = clutch_activation_levels[4];
+    fifth_gear_clutch.f_normalized = clutch_activation_levels[5];
   algorithm
     clutch_requested_levels := zeros(5);
     if (gear_selector.gear >= 1 and gear_selector.gear <= 5) then
@@ -171,19 +171,6 @@ the dynamics of disengaging and engaging the clutch in a manual transmission.
 "));
   end FiveSpeed;
 
-  model SportsCarTransmission
-    "Five speed transmission with typical gear ratios of a sports car"
-    extends FiveSpeed(
-      first_gear=3.97,
-      second_gear=2.34,
-      third_gear=1.46,
-      fourth_gear=1.0,
-      fifth_gear=0.79);
-    annotation (
-      Documentation(info="This is a specialized five speed transmission.  The particular gear ratios used for this
-transmission correspond to the gear ratios of a sports car."));
-  end SportsCarTransmission;
-
   model SimpleShiftStrategy "A simple shifting strategy"
     extends Interfaces.ShiftStrategy;
     parameter Integer ngears=5;
@@ -213,6 +200,19 @@ kilometers per hour.
 
 "));
   end SimpleShiftStrategy;
+
+  model SportsCarTransmission
+    "Five speed transmission with typical gear ratios of a sports car"
+    extends Transmission.FiveSpeed(
+      first_gear=3.97,
+      second_gear=2.34,
+      third_gear=1.46,
+      fourth_gear=1.0,
+      fifth_gear=0.79);
+    annotation (
+      Documentation(info="This is a specialized five speed transmission.  The particular gear ratios used for this
+transmission correspond to the gear ratios of a sports car."));
+  end SportsCarTransmission;
   annotation (
     Documentation(info="This package contains transmission related models."));
 end Transmission;
