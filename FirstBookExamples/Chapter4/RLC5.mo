@@ -35,5 +35,5 @@ equation
   connect(R2.n, g.p) annotation (Line(points={{-1.77636e-15,-12},{
           -1.77636e-15,-60},{50,-60}}));
   annotation (experiment(StopTime=2),
-              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter5/RLC5.mos" "Simulate RLC5"));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter4/RLC5.mos" "Simulate RLC5"));
 end RLC5;
