@@ -1,5 +1,6 @@
 within FirstBookExamples.Chapter5;
 function FindName
+  extends Modelica.Icons.Function;
   input String names[:];
   input String name_to_find;
   output Integer index;

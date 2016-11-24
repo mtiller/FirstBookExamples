@@ -4,6 +4,7 @@ model DigitalCircuit
   parameter Modelica.SIunits.Temperature T_off;
   parameter Real tc_C[:] "C vector that characterizes the thermocouple";
   function polyval
+    extends Modelica.Icons.Function;
     input Real c[:];
     input Real u;
     output Real y;

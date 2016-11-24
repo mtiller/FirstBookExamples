@@ -2,6 +2,7 @@ within FirstBookExamples.Chapter9;
 model ParticleField
   extends FirstBookExamples.Icons.RunnableExample;
   inner function gravity
+    extends Modelica.Icons.Function;
     extends TwoBodyField;
   end gravity;
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape b1(

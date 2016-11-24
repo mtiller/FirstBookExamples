@@ -18,6 +18,7 @@ package Chemistry "A sample chemistry package"
   package Functions
     extends Modelica.Icons.Package;
     function CalcReactionRate
+      extends Modelica.Icons.Function;
       input Integer nspecies "Number of species";
       input Real k "Reaction coefficient";
       input Real c[nspecies] "Species concentrations";
@@ -33,6 +34,7 @@ package Chemistry "A sample chemistry package"
     end CalcReactionRate;
 
     function CalcMultiplier
+      extends Modelica.Icons.Function;
       input Integer nspecies;
       input Integer reactants[:, 2];
       input Integer products[:, 2];

@@ -1,5 +1,6 @@
 within FirstBookExamples.Chapter9;
 function TwoBodyField
+  extends Modelica.Icons.Function;
   extends GravityField;
 protected
   Modelica.SIunits.Position b1[3];

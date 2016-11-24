@@ -1,5 +1,6 @@
 within FirstBookExamples.Chapter6;
 function CalcForce "Calculate Force on body1 due to body2"
+  extends Modelica.Icons.Function;
   import Modelica.SIunits;
 
   input SIunits.Position body1[3];

@@ -25,6 +25,7 @@ into thermal energy.
     Interfaces.Node_a node_a annotation (Placement(transformation(
             extent={{-10,-110},{10,-90}}, rotation=0)));
     function polyval
+      extends Modelica.Icons.Function;
       input Real c[:];
       input Real u;
       output Real y;

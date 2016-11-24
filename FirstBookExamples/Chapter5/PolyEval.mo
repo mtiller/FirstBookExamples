@@ -1,5 +1,6 @@
 within FirstBookExamples.Chapter5;
 function PolyEval "Evaluate polynomial and derivative"
+  extends Modelica.Icons.Function;
   input Real x "Independent variable";
   input Real coef[:] "Coefficients (low to high order)";
   output Real y "Result of polynomial evaluation";

@@ -1,5 +1,6 @@
 within FirstBookExamples.Chapter5;
 function ComplexWave
+  extends Modelica.Icons.Function;
   encapsulated record Data
     import Modelica;
     constant Integer num "Number of waves";
