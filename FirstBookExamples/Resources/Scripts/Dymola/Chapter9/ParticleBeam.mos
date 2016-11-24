@@ -1,0 +1,3 @@
+translateModel("FirstBookExamples.Chapter9.ParticleBeam")
+experiment StopTime=7 Tolerance=1e-8 __Dymola_NumberOfIntervals=500
+simulate

@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter8.BacklashComparison.Comparison")
+experiment StopTime=1 __Dymola_NumberOfIntervals=500
+simulate
+plot({"r_nl.I1.w","r_cor.I1.w","nr_nl.I1.w","nr_cor.I1.w"});

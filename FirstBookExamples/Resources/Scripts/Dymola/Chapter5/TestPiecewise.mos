@@ -1,0 +1,4 @@
+translateModel("FirstBookExamples.Chapter5.TestPiecewise");
+experiment StopTime=9.999 __Dymola_NumberOfIntervals=500
+simulate
+plot({"y"});

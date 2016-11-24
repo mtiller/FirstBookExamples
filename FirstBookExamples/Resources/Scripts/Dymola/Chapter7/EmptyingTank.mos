@@ -1,0 +1,6 @@
+﻿translateModel("FirstBookExamples.Chapter7.EmptyingTank3");
+
+experiment StopTime=5 __Dymola_NumberOfIntervals=500
+x := 2;
+simulate
+plot("x");
