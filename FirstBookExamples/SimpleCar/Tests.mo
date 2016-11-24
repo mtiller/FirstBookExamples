@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Tests "Models to test various models"
-  extends Modelica.Icons.Example;
+  extends Modelica.Icons.ExamplesPackage;
 
   model SingleControlVolume "Test a single control volume"
     extends Modelica.Icons.Example;

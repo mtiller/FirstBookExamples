@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Examples "A set of examples to demonstrate the 'SimpleCar' package"
-  extends Modelica.Icons.Example;
+  extends Modelica.Icons.ExamplesPackage;
 
   model Race "Race a car from 0-100 kilometers per hour"
     extends Modelica.Icons.Example;
