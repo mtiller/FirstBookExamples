@@ -1,4 +1,0 @@
-translateModel("BookExamples.Chapter6.Oregonator.ChemicalSystem")
-experiment StopTime=30 NumberOfIntervals=500
-simulate
-plot({"cX","cY","cZ"});

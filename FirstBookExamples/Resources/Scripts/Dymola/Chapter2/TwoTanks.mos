@@ -1,0 +1,6 @@
+﻿translateModel("FirstBookExamples.Chapter2.TwoTanks")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500 Tolerance=1E-8
+H1:=0;
+H2:=2;
+simulate
+plot({"H1","H2"});

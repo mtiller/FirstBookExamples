@@ -1,0 +1,3 @@
+translateModel("FirstBookExamples.Chapter9.ParticleField")
+experiment StopTime=5 Tolerance=1e-8 __Dymola_NumberOfIntervals=500
+simulate

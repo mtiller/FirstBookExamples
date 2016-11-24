@@ -1,0 +1,4 @@
+translateModel("FirstBookExamples.Chapter6.Oregonator.ChemicalSystem")
+experiment StopTime=30 __Dymola_NumberOfIntervals=500
+simulate
+plot({"cX","cY","cZ"});

@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter4.PIControllerAndMotor")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500
+simulate
+plot({"pic.command","pic.sensor"});

@@ -1,0 +1,13 @@
+﻿translateModel("FirstBookExamples.Chapter7.SensorComparison.TestAll")
+experiment StopTime=2 __Dymola_NumberOfIntervals=500
+simulate
+plot({"ideal1.ref.y",
+	"ideal2.sensor.w",
+	"sampling1.sensor.w",
+	"sampling2.sensor.w",
+	"counting1.sensor.w",
+	"counting2.sensor.w",
+	"period1.sensor.w",
+	"period2.sensor.w",
+	"quantized1.sensor.w",
+	"quantized2.sensor.w"});

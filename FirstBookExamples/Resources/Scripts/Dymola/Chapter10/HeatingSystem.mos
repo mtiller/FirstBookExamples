@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter10.HeatingSystem.ThermostatSystem")
+experiment StopTime=100000 Tolerance=1e-8 __Dymola_NumberOfIntervals=500
+simulate
+plot({"house1.ambient_temperature.T","house1.indoors.n.T"});

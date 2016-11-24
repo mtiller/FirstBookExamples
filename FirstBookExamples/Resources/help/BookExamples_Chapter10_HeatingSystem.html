@@ -1,0 +1,500 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>BookExamples</TITLE></HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatingSystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="BookExamples.Chapter10.HeatingSystem"></A><A HREF="BookExamples_Chapter10.html#BookExamples.Chapter10"
+>BookExamples.Chapter10</A>.HeatingSystem</H2>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.DigitalCircuit"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.DigitalCircuitI.png" ALT="BookExamples.Chapter10.HeatingSystem.DigitalCircuit" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.DigitalThermostat"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.DigitalThermostatI.png" ALT="BookExamples.Chapter10.HeatingSystem.DigitalThermostat" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Furnace"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.FurnaceI.png" ALT="BookExamples.Chapter10.HeatingSystem.Furnace" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.House"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.HouseI.png" ALT="BookExamples.Chapter10.HeatingSystem.House" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.MechanicalThermostat"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.MechanicalThermostatI.png" ALT="BookExamples.Chapter10.HeatingSystem.MechanicalThermostat" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.MercurySwitch"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.MercurySwitchI.png" ALT="BookExamples.Chapter10.HeatingSystem.MercurySwitch" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Thermostat"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.ThermostatI.png" ALT="BookExamples.Chapter10.HeatingSystem.Thermostat" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.ThermostatSystem"
+><IMG SRC="BookExamples.Chapter10.HeatingSystem.ThermostatSystemI.png" ALT="BookExamples.Chapter10.HeatingSystem.ThermostatSystem" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.DigitalCircuit"
+>DigitalCircuit</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.DigitalThermostat"
+>DigitalThermostat</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Furnace"
+>Furnace</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.House"
+>House</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.MechanicalThermostat"
+>MechanicalThermostat</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.MercurySwitch"
+>MercurySwitch</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Thermostat"
+>Thermostat</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.ThermostatSystem"
+>ThermostatSystem</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DigitalCircuit<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.DigitalCircuitI.png" ALT="BookExamples.Chapter10.HeatingSystem.DigitalCircuit" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.DigitalCircuit"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.DigitalCircuit</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.DigitalCircuitD.png" ALT="BookExamples.Chapter10.HeatingSystem.DigitalCircuit">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>T_on</TD><TD>&nbsp;</TD><TD>[K]</TD></TR>
+<TR><TD>T_off</TD><TD>&nbsp;</TD><TD>[K]</TD></TR>
+<TR><TD>tc_C[:]</TD><TD>&nbsp;</TD><TD>C vector that characterizes the thermocouple</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DigitalCircuit
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T_on;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T_off;
+  <font color="blue">parameter </font>Real tc_C[:] <font color="darkgreen">&quot;C vector that characterizes the thermocouple&quot;</font>;
+  <font color="blue">function</font> polyval
+    <font color="blue">input </font>Real c[:];
+    <font color="blue">input </font>Real u;
+    <font color="blue">output </font>Real y;
+  <font color="blue">protected </font>
+    Integer n;
+  <font color="blue">algorithm </font>
+    n := <font color="red">size</font>(c, 1);
+    y := 0;
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      y := y + c[i]*u^(n - i);
+    <font color="blue">end for</font>;
+  <font color="blue">end </font>polyval;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V_on=<font color="red">polyval</font>(tc_C, T_on);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V_off=<font color="red">polyval</font>(tc_C, T_off);
+  Boolean furnace_on;
+  <font color="darkgreen"></font>
+<font color="blue">public </font>
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> thermo_n;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> furnace_p;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> furnace_n;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> thermo_p;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> unused;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> ground;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealSwitch</A> furnace_switch;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(thermo_n, ground);
+  <font color="red">connect</font>(unused, ground);
+  <font color="red">connect</font>(furnace_switch.p, furnace_p);
+  <font color="red">connect</font>(furnace_switch.n, furnace_n);
+  thermo_p.i = 0;
+  furnace_switch.control.signal[1] = <font color="blue">not </font>furnace_on;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Control circuit logic</font>
+<font color="blue">algorithm </font>
+  <font color="blue">when </font>(<font color="red">initial</font>())<font color="blue"> then</font>
+    furnace_on := thermo_p.v &lt; V_on;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">when </font>(thermo_p.v &gt;= V_off)<font color="blue"> then</font>
+    furnace_on := false;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">when </font>(thermo_p.v &lt;= V_on)<font color="blue"> then</font>
+    furnace_on := true;
+  <font color="blue">end when</font>;
+<font color="blue">end </font>DigitalCircuit;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DigitalThermostat<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.DigitalThermostatI.png" ALT="BookExamples.Chapter10.HeatingSystem.DigitalThermostat" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.DigitalThermostat"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.DigitalThermostat</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.DigitalThermostatD.png" ALT="BookExamples.Chapter10.HeatingSystem.DigitalThermostat">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>T_on</TD><TD>&nbsp;</TD><TD>[K]</TD></TR>
+<TR><TD>T_off</TD><TD>&nbsp;</TD><TD>[K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DigitalThermostat
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T_on(start=300);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T_off(start=305);
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Real tc_C[:]={4.5e-8,3.4e-6,2.3e-3};
+<font color="blue">public </font>
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Thermostat"
+>Thermostat</A>;
+  <A HREF="../../Thermal/help/Thermal_MixedDomain.html#Thermal.MixedDomain.Thermocouple"
+>Thermal.MixedDomain.Thermocouple</A> thermocouple(C=tc_C);
+  <A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.DigitalCircuit"
+>DigitalCircuit</A> controller(
+    T_on=T_on,
+    T_off=T_off,
+    tc_C=tc_C);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> ground;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(thermal, thermocouple.node_a);
+  <font color="red">connect</font>(controller.ground, ground.p);
+  <font color="red">connect</font>(controller.thermo_p, thermocouple.p);
+  <font color="red">connect</font>(controller.thermo_n, thermocouple.n);
+  <font color="red">connect</font>(controller.furnace_p, p);
+  <font color="red">connect</font>(controller.furnace_n, n);
+<font color="blue">end </font>DigitalThermostat;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Furnace<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.FurnaceI.png" ALT="BookExamples.Chapter10.HeatingSystem.Furnace" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.Furnace"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.Furnace</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.FurnaceD.png" ALT="BookExamples.Chapter10.HeatingSystem.Furnace">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>capacity</TD><TD>&nbsp;</TD><TD>[W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Furnace
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> capacity(start=27e+3);
+  <A HREF="../../Thermal/help/Thermal_Interfaces.html#Thermal.Interfaces.Node_a"
+>Thermal.Interfaces.Node_a</A> thermal;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> p;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> n;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> ground;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ConstantVoltage"
+>Modelica.Electrical.Analog.Sources.ConstantVoltage</A> switch_voltage(V=5);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> R1(R=1e+6);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch"
+>Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch</A> relay(level=1e-3);
+  <A HREF="../../Thermal/help/Thermal_MixedDomain.html#Thermal.MixedDomain.HeaterElement"
+>Thermal.MixedDomain.HeaterElement</A> heating_element(R=120*120/capacity);
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ConstantVoltage"
+>Modelica.Electrical.Analog.Sources.ConstantVoltage</A> heater_voltage(V=120);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ground.p, n);
+  <font color="red">connect</font>(switch_voltage.n, ground.p);
+  <font color="red">connect</font>(switch_voltage.p, R1.p);
+  <font color="red">connect</font>(R1.n, p);
+  <font color="red">connect</font>(relay.control, p);
+  <font color="red">connect</font>(relay.n, ground.p);
+  <font color="red">connect</font>(heating_element.p, relay.p);
+  <font color="red">connect</font>(heating_element.thermal, thermal);
+  <font color="red">connect</font>(heater_voltage.n, ground.p);
+  <font color="red">connect</font>(heater_voltage.p, heating_element.n);
+<font color="blue">end </font>Furnace;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE House<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.HouseI.png" ALT="BookExamples.Chapter10.HeatingSystem.House" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.House"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.House</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.HouseD.png" ALT="BookExamples.Chapter10.HeatingSystem.House">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>ground_temp</TD><TD>&nbsp;</TD><TD>[K]</TD></TR>
+<TR><TD>footprint</TD><TD>&nbsp;</TD><TD>[m2]</TD></TR>
+<TR><TD>height</TD><TD>&nbsp;</TD><TD>[m]</TD></TR>
+<TR><TD>h_wall</TD><TD>&nbsp;</TD><TD>[W/(m2.K)]</TD></TR>
+<TR><TD>k_ground</TD><TD>&nbsp;</TD><TD>[W/(m.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> House
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> ground_temp(start=280);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> footprint(start=250);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Modelica.SIunits.Distance</A> height(start=4);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>Modelica.SIunits.CoefficientOfHeatTransfer</A> h_wall(start=4.33);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>Modelica.SIunits.ThermalConductivity</A> k_ground(start=0.4);
+<font color="blue">protected </font>
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> roof_area=footprint;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> interior=footprint*height;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> wall_area=height*footprint^.5;
+  <font color="blue">constant </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> hour=60*60;
+  <font color="blue">constant </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Time"
+>Modelica.SIunits.Time</A> day=24*hour;
+<font color="blue">public </font>
+  <A HREF="../../Thermal/help/Thermal_Interfaces.html#Thermal.Interfaces.Node_a"
+>Thermal.Interfaces.Node_a</A> n;
+  <font color="darkgreen"></font>
+  <A HREF="../../Thermal/help/Thermal_Basic1D.html#Thermal.Basic1D.Capacitance"
+>Thermal.Basic1D.Capacitance</A> indoors(
+    cp=1000,
+    rho=1.5,
+    V=interior);
+  <A HREF="../../Thermal/help/Thermal_Basic1D.html#Thermal.Basic1D.BlackBodyRadiation"
+>Thermal.Basic1D.BlackBodyRadiation</A> roof(F=.01, A=roof_area);
+  <A HREF="../../Thermal/help/Thermal_Basic1D.html#Thermal.Basic1D.Convection"
+>Thermal.Basic1D.Convection</A> wall(h=h_wall, A=wall_area);
+  <A HREF="../../Thermal/help/Thermal_Basic1D.html#Thermal.Basic1D.Conduction"
+>Thermal.Basic1D.Conduction</A> floor(
+    k=k_ground,
+    L=4,
+    A=footprint);
+  <A HREF="../../Thermal/help/Thermal_BoundaryConditions.html#Thermal.BoundaryConditions.FixedTemperature"
+>Thermal.BoundaryConditions.FixedTemperature</A> ground(T=ground_temp);
+  <A HREF="../../Thermal/help/Thermal_BoundaryConditions.html#Thermal.BoundaryConditions.VariableTemperature"
+>Thermal.BoundaryConditions.VariableTemperature</A> ambient_temperature;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> Tamb;
+<font color="blue">protected </font>
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.CelsiusTemperature"
+>Modelica.SIunits.CelsiusTemperature</A> Tc=n.T + Modelica.Constants.T_zero;
+  Real Tf=Tc*9/5 + 32;
+<font color="blue">public </font>
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> sun_position(
+    amplitude={140},
+    rising={4*hour},
+    width={4*hour},
+    falling={4*hour},
+    period={day},
+    offset={240},
+    startTime={8*hour});
+  <A HREF="../../Thermal/help/Thermal_BoundaryConditions.html#Thermal.BoundaryConditions.VariableTemperature"
+>Thermal.BoundaryConditions.VariableTemperature</A> solar_temp;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(wall.b, indoors.n);
+  <font color="red">connect</font>(indoors.n, roof.a);
+  <font color="red">connect</font>(indoors.n, floor.b);
+  <font color="red">connect</font>(floor.a, ground.n);
+  <font color="red">connect</font>(indoors.n, n);
+  <font color="red">connect</font>(ambient_temperature.n, wall.a);
+  <font color="red">connect</font>(Tamb, ambient_temperature.T);
+  <font color="red">connect</font>(roof.b, solar_temp.n);
+  <font color="red">connect</font>(sun_position.outPort, solar_temp.T);
+<font color="blue">end </font>House;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MechanicalThermostat<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.MechanicalThermostatI.png" ALT="BookExamples.Chapter10.HeatingSystem.MechanicalThermostat" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.MechanicalThermostat"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.MechanicalThermostat</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.MechanicalThermostatD.png" ALT="BookExamples.Chapter10.HeatingSystem.MechanicalThermostat">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>desired</TD><TD>&nbsp;</TD><TD>[K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MechanicalThermostat
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> desired;
+<font color="blue">protected </font>
+  <font color="blue">constant </font>Real factor=Modelica.Constants.PI/36;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> setting=-factor - 2*factor*(desired - 300)/5;
+  <font color="darkgreen"></font>
+<font color="blue">public </font>
+  <font color="blue">extends </font><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Thermostat"
+>Thermostat</A>;
+  <A HREF="../../Thermal/help/Thermal_MixedDomain.html#Thermal.MixedDomain.RotationalSpring"
+>Thermal.MixedDomain.RotationalSpring</A> spring(
+    c=1e+6,
+    T_nom=300,
+    dudT=Modelica.Constants.PI/90);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Inertia"
+>Modelica.Mechanics.Rotational.Inertia</A> mechanism_inertia(J=1e-5);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Fixed"
+>Modelica.Mechanics.Rotational.Fixed</A> rotation(phi0=setting);
+  <A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.MercurySwitch"
+>MercurySwitch</A> switch;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational.Damper"
+>Modelica.Mechanics.Rotational.Damper</A> damper(d=100);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(spring.flange_b, mechanism_inertia.flange_a);
+  <font color="red">connect</font>(rotation.flange_b, spring.flange_a);
+  <font color="red">connect</font>(mechanism_inertia.flange_b, switch.rot);
+  <font color="red">connect</font>(p, switch.p);
+  <font color="red">connect</font>(switch.n, n);
+  <font color="red">connect</font>(spring.node_a, thermal);
+  <font color="red">connect</font>(damper.flange_a, rotation.flange_b);
+  <font color="red">connect</font>(damper.flange_b, mechanism_inertia.flange_a);
+<font color="blue">end </font>MechanicalThermostat;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MercurySwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.MercurySwitchI.png" ALT="BookExamples.Chapter10.HeatingSystem.MercurySwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.MercurySwitch"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.MercurySwitch</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.MercurySwitchD.png" ALT="BookExamples.Chapter10.HeatingSystem.MercurySwitch">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>hysteresis</TD><TD>&nbsp;</TD><TD>[rad]</TD></TR>
+<TR><TD>Gon</TD><TD>&nbsp;</TD><TD>[S]</TD></TR>
+<TR><TD>Roff</TD><TD>&nbsp;</TD><TD>[Ohm]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MercurySwitch
+  <font color="blue">extends </font><A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A>;
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> hysteresis(start=Modelica.Constants.PI/18);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Gon(start=1e+5);
+  <font color="blue">parameter </font><A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Roff(start=1e+5);
+<font color="blue">protected </font>
+  Boolean closed;
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> upper=hysteresis/2.0;
+  <A HREF="../../Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> lower=-hysteresis/2.0;
+<font color="blue">public </font>
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> rot;
+<font color="blue">equation </font>
+  i = <font color="blue">if </font>(closed)<font color="blue"> then </font>Gon*v<font color="blue"> else </font>v/Roff;
+  <font color="darkgreen">//  i = 0.0;</font>
+  rot.tau = 0.0;
+<font color="blue">algorithm </font>
+  <font color="blue">when </font>(<font color="red">initial</font>())<font color="blue"> then</font>
+    closed := rot.phi &lt;= lower;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">when </font>(rot.phi &lt;= lower)<font color="blue"> then</font>
+    closed := true;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">when </font>(rot.phi &gt;= upper)<font color="blue"> then</font>
+    closed := false;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>MercurySwitch;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Thermostat<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.ThermostatI.png" ALT="BookExamples.Chapter10.HeatingSystem.Thermostat" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.Thermostat"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.Thermostat</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.ThermostatD.png" ALT="BookExamples.Chapter10.HeatingSystem.Thermostat">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> Thermostat
+  <A HREF="../../Thermal/help/Thermal_Interfaces.html#Thermal.Interfaces.Node_a"
+>Thermal.Interfaces.Node_a</A> thermal;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>Modelica.Electrical.Analog.Interfaces.PositivePin</A> p;
+  <A HREF="../../Modelica/help/Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>Modelica.Electrical.Analog.Interfaces.NegativePin</A> n;
+<font color="blue">end </font>Thermostat;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermostatSystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="BookExamples.Chapter10.HeatingSystem.ThermostatSystemI.png" ALT="BookExamples.Chapter10.HeatingSystem.ThermostatSystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="BookExamples.Chapter10.HeatingSystem.ThermostatSystem"></A><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem"
+>BookExamples.Chapter10.HeatingSystem</A>.ThermostatSystem</H2>
+<IMG SRC="BookExamples.Chapter10.HeatingSystem.ThermostatSystemD.png" ALT="BookExamples.Chapter10.HeatingSystem.ThermostatSystem">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>thermostat1</TD><TD>redeclare DigitalThermostat thermostat1(T_on=295, T_off=300)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>thermostat2</TD><TD>redeclare MechanicalThermostat thermostat2(desired=295)</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThermostatSystem
+  <font color="blue">extends </font><A HREF="BookExamples_Icons.html#BookExamples.Icons.RunnableExample"
+>BookExamples.Icons.RunnableExample</A>;
+  <A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.House"
+>House</A> house1;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> amb_temp(
+    amplitude={10},
+    rising={4*60*60},
+    width={4*60*60},
+    falling={4*60*60},
+    period={24*60*60},
+    offset={273.15},
+    startTime={9.5*60*60});
+  <A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.House"
+>House</A> house2;
+  <A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Furnace"
+>Furnace</A> furnace1(capacity=15e+3);
+  <A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.Furnace"
+>Furnace</A> furnace2(capacity=15e+3);
+  <font color="blue">replaceable </font><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.DigitalThermostat"
+>DigitalThermostat</A> thermostat1(T_on=295, T_off=300);
+  <font color="blue">replaceable </font><A HREF="BookExamples_Chapter10_HeatingSystem.html#BookExamples.Chapter10.HeatingSystem.MechanicalThermostat"
+>MechanicalThermostat</A> thermostat2(desired=295);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(amb_temp.outPort, house1.Tamb);
+  <font color="red">connect</font>(house2.Tamb, amb_temp.outPort);
+  <font color="red">connect</font>(house1.n, furnace1.thermal);
+  <font color="red">connect</font>(furnace2.thermal, house2.n);
+  <font color="red">connect</font>(thermostat1.thermal, house1.n);
+  <font color="red">connect</font>(thermostat1.p, furnace1.p);
+  <font color="red">connect</font>(furnace1.n, thermostat1.n);
+  <font color="red">connect</font>(thermostat2.p, furnace2.p);
+  <font color="red">connect</font>(thermostat2.thermal, house2.n);
+  <font color="red">connect</font>(thermostat2.n, furnace2.n);
+<font color="blue">end </font>ThermostatSystem;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Wed Sep 10 16:48:03 2003
+.
+</address></BODY>
+</HTML>

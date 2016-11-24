@@ -1,0 +1,4 @@
+translateModel("FirstBookExamples.Chapter5.TestComplexWave2");
+experiment StopTime=3 __Dymola_NumberOfIntervals=500
+simulate
+plot({"signal","A","B"});

@@ -1,4 +1,0 @@
-translateModel("BookExamples.Chapter3.ControlSystem2")
-experiment StopTime=20 NumberOfIntervals=500
-simulate
-plot({"diff.in_sig1.val","diff.in_sig2.val"});

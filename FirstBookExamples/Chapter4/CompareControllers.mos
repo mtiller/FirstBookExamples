@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter4.CompareControllers")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500
+simulate
+plot({"pic.con.command","pic.con.sensor","pc.con.sensor","pdc.con.sensor"});

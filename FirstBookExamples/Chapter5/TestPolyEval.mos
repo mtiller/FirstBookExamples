@@ -1,0 +1,4 @@
+translateModel("FirstBookExamples.Chapter5.TestPolyEval");
+experiment StopTime=10 __Dymola_NumberOfIntervals=500
+simulate
+plot({"y","y2", "fdy"});

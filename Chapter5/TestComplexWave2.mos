@@ -1,4 +1,0 @@
-translateModel("BookExamples.Chapter5.TestComplexWave2");
-experiment StopTime=3 NumberOfIntervals=500
-simulate
-plot({"signal","A","B"});

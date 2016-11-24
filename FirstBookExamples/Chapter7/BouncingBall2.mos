@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter7.BouncingBall2");
+experiment StopTime=5 __Dymola_NumberOfIntervals=500
+simulate
+plot("h");

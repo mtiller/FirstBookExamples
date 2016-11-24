@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter3.ControlSystem1")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500
+simulate
+plot({"w_c","w_m"});

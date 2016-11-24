@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter10.FactoryModels.Factory")
+experiment StopTime=100 Tolerance=1e-8 __Dymola_NumberOfIntervals=500
+simulate
+plot({"controller.position_profile.y","controller.phi"});

@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter2.CoolingGlass")
+experiment StopTime=10 __Dymola_NumberOfIntervals=500
+simulate
+plot({"T","T_ambient"});

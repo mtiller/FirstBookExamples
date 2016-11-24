@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter8.ACDC")
+experiment StopTime=1 __Dymola_NumberOfIntervals=500
+simulate
+plot({"load.v","capacitor.v","switch.control"});

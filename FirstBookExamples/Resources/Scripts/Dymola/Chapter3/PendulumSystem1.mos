@@ -1,0 +1,5 @@
+﻿translateModel("FirstBookExamples.Chapter3.PendulumSystem1")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500
+pend.p.phi := 2.3;
+simulate
+plot({"pend.p.phi"});

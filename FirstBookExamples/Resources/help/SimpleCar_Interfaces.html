@@ -1,0 +1,261 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>SimpleCar</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="SimpleCar.Interfaces"></A><A HREF="SimpleCar.html#SimpleCar"
+>SimpleCar</A>.Interfaces</H2>
+<B>Collection of interfaces for the 'SimpleCar' package</B>
+<P>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.EngineGeometryRequired"
+><IMG SRC="SimpleCar.Interfaces.EngineGeometryRequiredI.gif" ALT="SimpleCar.Interfaces.EngineGeometryRequired" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.EngineGeometryProvided"
+><IMG SRC="SimpleCar.Interfaces.EngineGeometryProvidedI.gif" ALT="SimpleCar.Interfaces.EngineGeometryProvided" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Gas"
+><IMG SRC="SimpleCar.Interfaces.GasI.gif" ALT="SimpleCar.Interfaces.Gas" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.GearSelectorOutput"
+><IMG SRC="SimpleCar.Interfaces.GearSelectorOutputI.gif" ALT="SimpleCar.Interfaces.GearSelectorOutput" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.GearSelectorInput"
+><IMG SRC="SimpleCar.Interfaces.GearSelectorInputI.gif" ALT="SimpleCar.Interfaces.GearSelectorInput" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Transmission"
+><IMG SRC="SimpleCar.Interfaces.TransmissionI.gif" ALT="SimpleCar.Interfaces.Transmission" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.ShiftStrategy"
+><IMG SRC="SimpleCar.Interfaces.ShiftStrategyI.gif" ALT="SimpleCar.Interfaces.ShiftStrategy" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Chassis"
+><IMG SRC="SimpleCar.Interfaces.ChassisI.gif" ALT="SimpleCar.Interfaces.Chassis" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Cylinder"
+><IMG SRC="SimpleCar.Interfaces.CylinderI.gif" ALT="SimpleCar.Interfaces.Cylinder" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Engine"
+><IMG SRC="SimpleCar.Interfaces.EngineI.gif" ALT="SimpleCar.Interfaces.Engine" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE>This package contains numerous connector definitions and a few partial model
+definitions for the major vehicle subsystems.
+</PRE><P>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.ChassisI.gif" ALT="SimpleCar.Interfaces.Chassis" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.Chassis"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.Chassis</H2>
+<B>Generic chassis interface</B><p>
+<IMG SRC="SimpleCar.Interfaces.ChassisD.gif" ALT="SimpleCar.Interfaces.Chassis">
+<H3>Information</H3>
+<PRE>This chassis interface has connections for the driveline side of the transmission, the wheels, road and a vehicle speed output.
+This interface can be used as the constraining type in a replaceable declaration to allow easy substitution of chassis models.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+partial model Chassis &quot;Generic chassis interface&quot;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Modelica.Mechanics.Translational.Interfaces.Flange_a</A> road
+    &quot;Road contact&quot;;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> power
+    &quot;Driveline&quot;;
+  <A HREF="../../Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> speed(final n=1);
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> wheel;
+end Chassis;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.EngineGeometryProvidedI.gif" ALT="SimpleCar.Interfaces.EngineGeometryProvided" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.EngineGeometryProvided"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.EngineGeometryProvided</H2>
+<B>Connector to provide geometry information</B><p>
+<IMG SRC="SimpleCar.Interfaces.EngineGeometryProvidedD.gif" ALT="SimpleCar.Interfaces.EngineGeometryProvided">
+<H3>Information</H3>
+<PRE>This component is used with components that
+provide geometry information.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+connector EngineGeometryProvided
+  &quot;Connector to provide geometry information&quot;
+  <I></I>
+  output Modelica.SIunits.Length bore &quot;Engine bore&quot;;
+  output Modelica.SIunits.Length stroke &quot;Engine stroke&quot;;
+  output Modelica.SIunits.Length conrod &quot;Connecting rod length&quot;;
+  output Modelica.SIunits.Volume Vc &quot;Clearance volume&quot;;
+  output Modelica.SIunits.Area Ap &quot;Piston area&quot;;
+  output Modelica.SIunits.Volume Vd &quot;Displaced volume&quot;;
+  output Modelica.SIunits.Length crank &quot;Crank length&quot;;
+end EngineGeometryProvided;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.EngineGeometryRequiredI.gif" ALT="SimpleCar.Interfaces.EngineGeometryRequired" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.EngineGeometryRequired"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.EngineGeometryRequired</H2>
+<B>Connector for components or subsystems that require geometry information</B><p>
+<IMG SRC="SimpleCar.Interfaces.EngineGeometryRequiredD.gif" ALT="SimpleCar.Interfaces.EngineGeometryRequired">
+<H3>Information</H3>
+<PRE>This connector should be declared for each component that requires
+information about engine geometry.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+connector EngineGeometryRequired
+  &quot;Connector for components or subsystems that require geometry information&quot;
+
+  input Modelica.SIunits.Length bore &quot;Engine bore&quot;;
+  input Modelica.SIunits.Length stroke &quot;Engine stroke&quot;;
+  input Modelica.SIunits.Length conrod &quot;Connecting rod length&quot;;
+  input Modelica.SIunits.Volume Vc &quot;Clearance volume&quot;;
+  input Modelica.SIunits.Area Ap &quot;Piston area&quot;;
+  input Modelica.SIunits.Volume Vd &quot;Displaced volume&quot;;
+  input Modelica.SIunits.Length crank &quot;Crank length&quot;;
+end EngineGeometryRequired;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.GasI.gif" ALT="SimpleCar.Interfaces.Gas" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.Gas"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.Gas</H2>
+<B>Thermodynamic connector</B><p>
+<IMG SRC="SimpleCar.Interfaces.GasD.gif" ALT="SimpleCar.Interfaces.Gas">
+<H3>Information</H3>
+<PRE>This connector contains the potential and flow
+variables associated with the gas moving
+through the engine.  These potentials and flows
+are from both the energy and mass domains.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+connector Gas &quot;Thermodynamic connector&quot;
+  Modelica.SIunits.Pressure P &quot;Gas pressure&quot;;
+  Modelica.SIunits.Temperature T &quot;Gas temperature&quot;;
+  flow Modelica.SIunits.MassFlowRate mdot &quot;Mass flow rate&quot;;
+  flow Modelica.SIunits.HeatFlowRate q &quot;Heat flow rate&quot;;
+end Gas;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.GearSelectorOutputI.gif" ALT="SimpleCar.Interfaces.GearSelectorOutput" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.GearSelectorOutput"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.GearSelectorOutput</H2>
+<B>Controller indicated gear selection</B><p>
+<IMG SRC="SimpleCar.Interfaces.GearSelectorOutputD.gif" ALT="SimpleCar.Interfaces.GearSelectorOutput">
+<H3>Information</H3>
+<PRE>This connector is an output from any transmission shifting
+model.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+connector GearSelectorOutput &quot;Controller indicated gear selection&quot;
+  output Integer gear;
+end GearSelectorOutput;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.GearSelectorInputI.gif" ALT="SimpleCar.Interfaces.GearSelectorInput" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.GearSelectorInput"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.GearSelectorInput</H2>
+<B>Gear selection input for transmissions</B><p>
+<IMG SRC="SimpleCar.Interfaces.GearSelectorInputD.gif" ALT="SimpleCar.Interfaces.GearSelectorInput">
+<H3>Information</H3>
+<PRE>This connectoris used as an input for transmissions.  The connector
+contains information about what gear the transmission should be in.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+connector GearSelectorInput &quot;Gear selection input for transmissions&quot;
+  input Integer gear;
+end GearSelectorInput;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.TransmissionI.gif" ALT="SimpleCar.Interfaces.Transmission" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.Transmission"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.Transmission</H2>
+<B>Transmission Interface</B><p>
+<IMG SRC="SimpleCar.Interfaces.TransmissionD.gif" ALT="SimpleCar.Interfaces.Transmission">
+<H3>Information</H3>
+<PRE>The transmission interface contains a connection to the engine, a connection to the
+driveline and a gear selector input.  This interface is defined so that it can
+be used in conjunction with replaceable declarations where the transmission interface
+is the constraining type.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+partial model Transmission &quot;Transmission Interface&quot;
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.GearSelectorInput"
+>Interfaces.GearSelectorInput</A> gear_selector;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> driveline;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_b</A> engine;
+end Transmission;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.ShiftStrategyI.gif" ALT="SimpleCar.Interfaces.ShiftStrategy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.ShiftStrategy"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.ShiftStrategy</H2>
+<B>Shift strategy interface</B><p>
+<IMG SRC="SimpleCar.Interfaces.ShiftStrategyD.gif" ALT="SimpleCar.Interfaces.ShiftStrategy">
+<H3>Information</H3>
+<PRE>This is the basic interface for any shift strategy model.  It connects to the
+axle of the car and, using the tire radius, computes the vehicles translational
+speed. This speed is then used to determine the appropriate gear which is then
+assigned to the output gear selector.
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>tire_radius</TD><TD></TD><TD>Tire radius [m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+partial model ShiftStrategy &quot;Shift strategy interface&quot;
+  parameter Modelica.SIunits.Length tire_radius &quot;Tire radius&quot;;
+protected
+  Types.KilometersPerHour kph &quot;Vehicle speed&quot;;
+public
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.GearSelectorOutput"
+>Interfaces.GearSelectorOutput</A> gear_request;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> wheel;
+equation
+  kph = der(wheel.phi)*tire_radius*60*60/1000;
+  wheel.tau = 0;
+end ShiftStrategy;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.CylinderI.gif" ALT="SimpleCar.Interfaces.Cylinder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.Cylinder"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.Cylinder</H2>
+<IMG SRC="SimpleCar.Interfaces.CylinderD.gif" ALT="SimpleCar.Interfaces.Cylinder">
+<H3>Modelica definition</H3>
+<PRE>
+partial model Cylinder
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> crankshaft;
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Gas"
+>Interfaces.Gas</A> intake;
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Gas"
+>Interfaces.Gas</A> exhaust;
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.EngineGeometryRequired"
+>Interfaces.EngineGeometryRequired</A> geom;
+end Cylinder;
+</PRE>
+<HR>
+<H2><IMG SRC="SimpleCar.Interfaces.EngineI.gif" ALT="SimpleCar.Interfaces.Engine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="SimpleCar.Interfaces.Engine"></A><A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces"
+>SimpleCar.Interfaces</A>.Engine</H2>
+<B>Generic engine interface</B><p>
+<IMG SRC="SimpleCar.Interfaces.EngineD.gif" ALT="SimpleCar.Interfaces.Engine">
+<H3>Information</H3>
+<PRE>This generic engine interface includes a connection for the crankshaft, the intake system, the exhause system and an input
+for engine geometry information.  This interface can be used as the constraining type on replaceable declaration to allow
+easy substitution of engine models.
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+partial model Engine &quot;Generic engine interface&quot;
+  <A HREF="../../Modelica/help/Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> crankshaft;
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Gas"
+>Interfaces.Gas</A> intake;
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.Gas"
+>Interfaces.Gas</A> exhaust;
+  <A HREF="SimpleCar_Interfaces.html#SimpleCar.Interfaces.EngineGeometryRequired"
+>Interfaces.EngineGeometryRequired</A> engine_geometry;
+end Engine;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Tue Feb 13 21:45:59 2001
+.
+</address></BODY>
+</HTML>

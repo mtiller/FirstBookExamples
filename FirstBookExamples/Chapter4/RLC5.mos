@@ -1,0 +1,4 @@
+translateModel("FirstBookExamples.Chapter4.RLC5")
+experiment StopTime=2 __Dymola_NumberOfIntervals=500
+simulate
+plot({"C.p.v","vs.p.v"});

@@ -1,0 +1,4 @@
+﻿translateModel("FirstBookExamples.Chapter3.ControlSystem3")
+experiment StopTime=20 __Dymola_NumberOfIntervals=500
+simulate
+plot({"Difference.u1","Difference.u2"});
