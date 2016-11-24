@@ -9,7 +9,7 @@ model ControlSystem1 "A PI Controller with Plant Model"
   parameter SIunits.AngularVelocity A=0.2;
   parameter SIunits.Frequency F=0.3;
   parameter SIunits.MomentOfInertia J=0.8;
-  parameter SIunits.DampingCoefficient d=0.1;
+  parameter SIunits.RotationalDampingConstant d=0.1;
 
   SIunits.AngularVelocity w_c;
   SIunits.AngularVelocity w_m;
