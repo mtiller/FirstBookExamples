@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Transmission "Transmissions and transmission components"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
   model FiveSpeed "A simple five speed transmission"
     extends Interfaces.Transmission;
     parameter Real first_gear=4.14 "Gear ratio of first gear";

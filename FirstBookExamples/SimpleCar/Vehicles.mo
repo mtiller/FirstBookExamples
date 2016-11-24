@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Vehicles "Vehicle models"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   model PassengerCar "A sample passenger car model"
     Modelica.Mechanics.Translational.Interfaces.Flange_a road annotation (Placement(
           transformation(extent={{-50,-110},{-30,-90}}, rotation=0)));

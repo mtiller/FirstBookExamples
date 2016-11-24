@@ -1,6 +1,6 @@
 within FirstBookExamples.Thermal;
 package Sensors
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   model TemperatureSensor "Absolute temperature sensor"
 
     Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(

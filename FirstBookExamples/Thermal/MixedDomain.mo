@@ -1,6 +1,6 @@
 within FirstBookExamples.Thermal;
 package MixedDomain "Heat transfer components mixed with other domains"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   model HeaterElement "Heating element"
     extends Modelica.Electrical.Analog.Basic.Resistor;

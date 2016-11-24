@@ -1,13 +1,13 @@
 within FirstBookExamples.Chapter6;
 package Chemistry "A sample chemistry package"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
   package Types
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     type MolarFlowRate = Real (quantity="MolarFlowRate", unit="mol/s");
   end Types;
 
   package Interfaces
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     connector Mixture "A chemical mixture"
       parameter Integer nspecies;
       Modelica.SIunits.Concentration c[nspecies];
@@ -16,7 +16,7 @@ package Chemistry "A sample chemistry package"
   end Interfaces;
 
   package Functions
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     function CalcReactionRate
       input Integer nspecies "Number of species";
       input Real k "Reaction coefficient";
@@ -45,7 +45,7 @@ package Chemistry "A sample chemistry package"
   end Functions;
 
   package Sensors
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     model ConcentrationSensor
       parameter Integer species=1;
       Chemistry.Interfaces.Mixture p;
@@ -56,7 +56,7 @@ package Chemistry "A sample chemistry package"
   end Sensors;
 
   package Basic
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     partial model Reaction
       parameter Modelica.SIunits.Volume v=0.001;
       parameter Integer nspecies;
@@ -111,7 +111,7 @@ package Chemistry "A sample chemistry package"
   end Basic;
 
   package Tests
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     model NonReactingVolume "Does nothing"
       Chemistry.Basic.Volume v(nspecies=5)
         annotation (Placement(transformation(extent={{-16,-12},{20,20}},

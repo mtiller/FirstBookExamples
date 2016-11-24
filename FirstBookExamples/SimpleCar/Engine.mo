@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Engine "Engine models and components"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   package GasProperties "Gas property related definitions"
     partial model BasePropertyModel "Basic property model interface"
@@ -164,7 +164,7 @@ set of engine geometry characteristics.
   end SportsCarGeometry;
 
   package Components "A collection of components used to build engines"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     replaceable model PropertyModel =
         GasProperties.SimpleAirProperties;

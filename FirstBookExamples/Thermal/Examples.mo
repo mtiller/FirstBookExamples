@@ -1,6 +1,6 @@
 within FirstBookExamples.Thermal;
 package Examples
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   model TwoMasses "Simple conduction test"
     discrete Modelica.SIunits.Temperature Tf "Projected final temperature";
     Basic1D.Capacitance mass1(n(T(start=400, fixed=true))) annotation (Placement(

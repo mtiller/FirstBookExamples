@@ -1,6 +1,6 @@
 within FirstBookExamples.Thermal;
 package BoundaryConditions
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   model FixedTemperature "Fixed temperature boundary condition"
     parameter Modelica.SIunits.Temperature T;
     Interfaces.Node_a n annotation (Placement(transformation(extent={

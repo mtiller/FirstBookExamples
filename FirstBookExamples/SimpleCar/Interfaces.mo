@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Interfaces "Collection of interfaces for the 'SimpleCar' package"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   connector EngineGeometryRequired
     "Connector for components or subsystems that require geometry information"
     input Modelica.SIunits.Length bore "Engine bore";

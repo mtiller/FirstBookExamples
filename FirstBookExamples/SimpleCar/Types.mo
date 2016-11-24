@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Types "Types used in vehicle modeling"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   type Degrees = Real (final unit="deg");
   type KilometersPerHour = Real (final unit="km/h");
   type RPM = Real (final unit="rev/min");

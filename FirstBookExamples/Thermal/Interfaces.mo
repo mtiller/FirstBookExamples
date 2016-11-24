@@ -1,7 +1,7 @@
 within FirstBookExamples.Thermal;
 package Interfaces
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   connector Node "A connector for thermal interactions"
 
     import Modelica.SIunits;

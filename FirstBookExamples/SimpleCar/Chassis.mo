@@ -1,6 +1,6 @@
 within FirstBookExamples.SimpleCar;
 package Chassis "A collection of chassis models and related components"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
   model GenericCar "Generic car assembly"
     extends Interfaces.Chassis;
     parameter Modelica.SIunits.Mass vehicle_mass=1200 "Vehicle curb weight";

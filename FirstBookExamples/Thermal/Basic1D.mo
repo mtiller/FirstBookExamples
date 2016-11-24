@@ -1,6 +1,6 @@
 within FirstBookExamples.Thermal;
 package Basic1D
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   model Capacitance "Thermal capacitance"
     parameter Modelica.SIunits.SpecificHeatCapacity cp=1.0;
     parameter Modelica.SIunits.Density rho=1.0;
