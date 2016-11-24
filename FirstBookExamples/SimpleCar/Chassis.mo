@@ -13,10 +13,10 @@ package Chassis "A collection of chassis models and related components"
           extent={{-10,-10},{10,10}},
           rotation=180)));
     Chassis.Tire tire annotation (Placement(transformation(extent={{
-              -60,-20},{-20,20}}, rotation=0)));
+              -60,-20},{-20,20}})));
     Modelica.Mechanics.Translational.Components.Mass vehicle_inertia(
         final m=vehicle_mass) annotation (Placement(transformation(
-            extent={{-20,20},{20,60}}, rotation=0)));
+            extent={{-20,20},{20,60}})));
   equation
     connect(tire.body_force, vehicle_inertia.flange_a) annotation (Line(
           points={{-40,20},{-40,40},{-20,40}}, color={0,255,0}));
@@ -89,7 +89,6 @@ package Chassis "A collection of chassis models and related components"
           Line(points={{-40,-40},{-40,-100}}, color={127,255,0}),
           Text(extent={{-60,40},{60,20}}, textString=
                                               "%name")}),
-      Diagram(graphics),
       Documentation(info="This model contains the primitives necessary to
 model the chassis of a car.  This is a very simple model
 with only a single inertia and not compliances in the
@@ -105,13 +104,12 @@ car frame.
 
   public
     Modelica.Mechanics.Translational.Interfaces.Flange_a road_force
-      annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     Modelica.Mechanics.Rotational.Interfaces.Flange_a axle annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Mechanics.Translational.Interfaces.Flange_b body_force
       annotation (Placement(
-          transformation(extent={{-10,90},{10,110}}, rotation=0)));
+          transformation(extent={{-10,90},{10,110}})));
   equation
     road_force.f = axle.tau/tire_radius;
     road_force.f + body_force.f = 0;
@@ -146,8 +144,7 @@ the tire radius.
 
   model Road
     Modelica.Mechanics.Translational.Interfaces.Flange_a road_surface
-      annotation (Placement(transformation(extent={{-10,90},{10,110}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-10,90},{10,110}})));
   equation
     road_surface.s = 0;
     annotation (

@@ -3,39 +3,39 @@ package Vehicles "Vehicle models"
   extends Modelica.Icons.Package;
   model PassengerCar "A sample passenger car model"
     Modelica.Mechanics.Translational.Interfaces.Flange_a road annotation (Placement(
-          transformation(extent={{-50,-110},{-30,-90}}, rotation=0)));
+          transformation(extent={{-50,-110},{-30,-90}})));
     replaceable Chassis.GenericCar chassis(vehicle_mass=1200) constrainedby
       Interfaces.Chassis annotation (Placement(transformation(extent=
-              {{-80,-60},{-20,0}}, rotation=0)));
+              {{-80,-60},{-20,0}})));
     replaceable Engine.Components.I4_Engine engine(spark_advance=20,
         burn_duration=80) constrainedby Interfaces.Engine
                                                     annotation (Placement(
-          transformation(extent={{44,-36},{64,-16}}, rotation=0)));
+          transformation(extent={{44,-36},{64,-16}})));
     Engine.GeometrySource geometry(
       bore=0.080,
       stroke=0.080,
       conrod=0.157) annotation (Placement(transformation(extent={{80,
-              -36},{100,-16}}, rotation=0)));
+              -36},{100,-16}})));
     Engine.Components.Reservoir intake_manifold annotation (Placement(
-          transformation(extent={{20,70},{40,90}}, rotation=0)));
+          transformation(extent={{20,70},{40,90}})));
     Engine.Components.Reservoir exhaust_manifold annotation (Placement(
-          transformation(extent={{60,0},{80,20}}, rotation=0)));
+          transformation(extent={{60,0},{80,20}})));
     replaceable Transmission.FiveSpeed transmission constrainedby
       Interfaces.Transmission annotation (Placement(transformation(
-            extent={{-14,-50},{26,-10}}, rotation=0)));
+            extent={{-14,-50},{26,-10}})));
     replaceable Transmission.SimpleShiftStrategy shift_strategy(tire_radius=
           0.35, up_shift_schedule={10,20,30,40}) constrainedby
       Interfaces.ShiftStrategy annotation (Placement(transformation(
-            extent={{-14,10},{26,50}}, rotation=0)));
+            extent={{-14,10},{26,50}})));
     Modelica.Blocks.Interfaces.RealOutput speed annotation (Placement(
           transformation(
           origin={60,-110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
     Engine.Components.Manifold intake_manifold1 annotation (Placement(
-          transformation(extent={{20,40},{40,60}}, rotation=0)));
+          transformation(extent={{20,40},{40,60}})));
     Modelica.Blocks.Interfaces.RealInput throttle annotation (Placement(
-          transformation(extent={{-120,50},{-100,70}}, rotation=0)));
+          transformation(extent={{-120,50},{-100,70}})));
   equation
     connect(chassis.road, road) annotation (Line(points={{-62,-60},{
             -40,-60},{-40,-100}}, color={0,255,0}));
@@ -62,7 +62,6 @@ package Vehicles "Vehicle models"
     connect(intake_manifold1.throttle_angle, throttle) annotation (Line(
           points={{19,50},{10,50},{10,60},{-110,60}}));
     annotation (
-      Diagram(graphics),
       Icon(graphics={
           Polygon(
             points={{-60,-38},{82,-38},{76,-20},{60,-14},{38,-10},{20,
@@ -131,9 +130,9 @@ The throttle of the vehicle is presumably controlled by an external \"driver\" m
 
   model SportsCar "Vehicle model with the characteristics of a sports car."
     Modelica.Mechanics.Translational.Interfaces.Flange_a road annotation (Placement(
-          transformation(extent={{-50,-110},{-30,-90}}, rotation=0)));
+          transformation(extent={{-50,-110},{-30,-90}})));
     replaceable Chassis.SportsCarChassis chassis annotation (Placement(
-          transformation(extent={{-80,-60},{-20,0}}, rotation=0)));
+          transformation(extent={{-80,-60},{-20,0}})));
     replaceable Engine.Components.I4_Engine engine(
       spark_advance=20,
       burn_duration=60,
@@ -141,21 +140,18 @@ The throttle of the vehicle is presumably controlled by an external \"driver\" m
       ivo=165,
       evc=190,
       ivc=290) annotation (Placement(transformation(extent={{44,-36},
-              {64,-16}}, rotation=0)));
+              {64,-16}})));
     Engine.SportsCarGeometry geometry annotation (Placement(
-          transformation(extent={{80,-36},{100,-16}}, rotation=0)));
+          transformation(extent={{80,-36},{100,-16}})));
     Engine.Components.Reservoir intake_ambient annotation (Placement(
-          transformation(extent={{19.5365,-0.248949},{39.5365,19.7511}},
-            rotation=0)));
+          transformation(extent={{19.5365,-0.248949},{39.5365,19.7511}})));
     Engine.Components.Reservoir exhaust_manifold annotation (Placement(
-          transformation(extent={{60,0},{80,20}}, rotation=0)));
+          transformation(extent={{60,0},{80,20}})));
     Transmission.SportsCarTransmission transmission(k_on=2, k_off=6)
-      annotation (Placement(transformation(extent={{-14,-50},{26,-10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-14,-50},{26,-10}})));
     Transmission.SimpleShiftStrategy shift_strategy(tire_radius=0.35,
         up_shift_schedule={30,60,80,95}) annotation (Placement(
-          transformation(extent={{-52.4692,31.6109},{-12.4692,71.6109}},
-            rotation=0)));
+          transformation(extent={{-52.4692,31.6109},{-12.4692,71.6109}})));
     Modelica.Blocks.Interfaces.RealOutput speed annotation (Placement(
           transformation(
           origin={60,-110},
@@ -183,7 +179,6 @@ The throttle of the vehicle is presumably controlled by an external \"driver\" m
     connect(intake_ambient.tap, engine.intake) annotation (Line(
           points={{30,0},{30,-18},{44,-18}}, color={255,127,0}));
     annotation (
-      Diagram(graphics),
       Icon(graphics={
           Polygon(
             points={{-62,-40},{80,-40},{74,-22},{58,-16},{36,-12},{18,

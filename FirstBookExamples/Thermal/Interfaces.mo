@@ -61,9 +61,9 @@ connectors).
     Modelica.SIunits.Temperature dT "a.T-b.T";
   public
     Node_a a annotation (Placement(transformation(extent={{-110,-10},
-              {-90,10}}, rotation=0)));
+              {-90,10}})));
     Node_b b annotation (Placement(transformation(extent={{90,-10},{
-              110,10}}, rotation=0)));
+              110,10}})));
   equation
     dT = a.T - b.T;
     a.q = q;

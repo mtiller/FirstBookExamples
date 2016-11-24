@@ -7,23 +7,21 @@ model PendulumSystem2 "Simple Pendulum"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.Rotational.Components.Spring s1(c=10)
-    annotation (Placement(transformation(extent={{-52,12},{-32,32}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-52,12},{-32,32}})));
   Modelica.Mechanics.Rotational.Components.Damper d1(d=0.1, phi_rel(
         start=-1)) annotation (Placement(transformation(extent={{-52,
-            -10},{-32,10}}, rotation=0)));
+            -10},{-32,10}})));
   RotationalPendulum p2(L=7, m=0.7)
     annotation (Placement(transformation(
         origin={-2,-28},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.Rotational.Components.Spring s2(c=2) annotation (
-     Placement(transformation(extent={{28,12},{48,32}}, rotation=0)));
+     Placement(transformation(extent={{28,12},{48,32}})));
   Modelica.Mechanics.Rotational.Components.Damper d2(d=0.2)
-    annotation (Placement(transformation(extent={{30,-10},{50,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{30,-10},{50,10}})));
   Modelica.Mechanics.Rotational.Components.Fixed fixed annotation (
-      Placement(transformation(extent={{76,12},{96,32}}, rotation=0)));
+      Placement(transformation(extent={{76,12},{96,32}})));
 equation
   connect(p1.p, s1.flange_a) annotation (Line(points={{-78,-18},{-78,
           22},{-52,22}}));

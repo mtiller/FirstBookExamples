@@ -11,7 +11,7 @@ public
     width=10,
     period=20e-3,
     startTime=0.5)  annotation (Placement(transformation(extent={{-100,
-            -10},{-80,10}},      rotation=0)));
+            -10},{-80,10}})));
   Modelica.Electrical.Analog.Sources.SignalCurrent is
     annotation (Placement(transformation(
         origin={-50,0},
@@ -38,8 +38,7 @@ public
         extent={{-20,-20},{20,20}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground g
-    annotation (Placement(transformation(extent={{10,-78},{30,-58}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{10,-78},{30,-58}})));
 equation
   connect(HH_Na.p, is.p) annotation (Line(points={{20,20},{20,40},{-50,
           40},{-50,20}}));

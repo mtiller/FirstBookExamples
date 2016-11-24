@@ -6,7 +6,7 @@ model PendulumSystem1 "Simple Pendulum"
         extent={{-10,-10},{10,10}},
         rotation=180)));
   FrictionlessJoint joint annotation (Placement(transformation(extent=
-           {{-8,-10},{12,10}}, rotation=0)));
+           {{-8,-10},{12,10}})));
   Modelica.Mechanics.Rotational.Components.Fixed fixed annotation (
     Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90, origin={58,0})));
 equation

@@ -2,17 +2,13 @@ within FirstBookExamples.Chapter10.FactoryModels;
 model ElectricMotor
   extends Actuator;
   Modelica.Mechanics.Rotational.Components.Inertia rotor(J=0.2)
-    annotation (Placement(transformation(extent={{0,-10},{20,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.EMF EMF1(k=1)
-    annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=250)
-    annotation (Placement(transformation(extent={{-80,30},{-60,50}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
   Modelica.Electrical.Analog.Basic.Inductor L1(L=2)
-    annotation (Placement(transformation(extent={{-50,30},{-30,50}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
 equation
   connect(rotor.flange_b, driver) annotation (Line(points={{20,
           5.55112e-16},{100,0}}));

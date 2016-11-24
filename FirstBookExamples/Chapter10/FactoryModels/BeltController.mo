@@ -4,18 +4,15 @@ model BeltController
   parameter Real Kp(start=1.0);
   parameter Real Td(start=0.01);
   Modelica.Electrical.Analog.Interfaces.NegativePin n
-    annotation (Placement(transformation(extent={{90,-50},{110,-30}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{90,-50},{110,-30}})));
   Modelica.Electrical.Analog.Interfaces.PositivePin p
-    annotation (Placement(transformation(extent={{90,30},{110,50}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{90,30},{110,50}})));
   Modelica.Blocks.Interfaces.RealInput phi
     annotation (Placement(
-        transformation(extent={{-140,20},{-100,60}}, rotation=0),
+        transformation(extent={{-140,20},{-100,60}}),
         iconTransformation(extent={{-140,20},{-100,60}})));
   Modelica.Blocks.Interfaces.RealInput omega
-    annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
-          rotation=0), iconTransformation(extent={{-140,-60},{-100,-20}})));
+    annotation (Placement(transformation(extent={{-140,-60},{-100,-20}}), iconTransformation(extent={{-140,-60},{-100,-20}})));
   Modelica.Blocks.Sources.Trapezoid speed_profile(
     amplitude=0.5,
     rising=2.0,
@@ -23,25 +20,23 @@ model BeltController
     period=10.0,
     offset=0,
     startTime=0.2)  annotation (Placement(transformation(extent={{-80,-80},
-            {-60,-60}},      rotation=0)));
+            {-60,-60}})));
   Modelica.Blocks.Continuous.Integrator position_profile
-    annotation (Placement(transformation(extent={{-50,-80},{-30,-60}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-50,-80},{-30,-60}})));
   Modelica.Electrical.Analog.Sources.SignalVoltage motor_voltage
     annotation (Placement(transformation(
         origin={60,0},
         extent={{20,-20},{-20,20}},
         rotation=90)));
   Modelica.Blocks.Math.Feedback pos_error annotation (Placement(
-        transformation(extent={{-82,30},{-62,50}}, rotation=0)));
+        transformation(extent={{-82,30},{-62,50}})));
   Modelica.Blocks.Math.Gain Pcontrol(k=Kp)
-    annotation (Placement(transformation(extent={{-30,50},{-10,70}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-30,50},{-10,70}})));
   Modelica.Blocks.Continuous.TransferFunction Dcontrol(a={Td,1}, b={
         Kd,0}) annotation (Placement(transformation(extent={{-30,20},
-            {-10,40}},rotation=0)));
+            {-10,40}})));
   Modelica.Blocks.Math.Add sum annotation (Placement(transformation(
-          extent={{10,36},{30,56}}, rotation=0)));
+          extent={{10,36},{30,56}})));
 equation
   connect(speed_profile.y, position_profile.u)
     annotation (Line(points={{-59,-70},{-56,-70},{-52,-70}}));

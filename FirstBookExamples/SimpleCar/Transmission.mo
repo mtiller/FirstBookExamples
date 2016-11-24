@@ -16,8 +16,7 @@ package Transmission "Transmissions and transmission components"
     Modelica.Mechanics.Rotational.Components.Inertia
       inertia_driveline_side(J=0.03)
       "Inertia for driveline side of the transmission" annotation (
-        Placement(transformation(extent={{-72,-10},{-52,10}},
-            rotation=0)));
+        Placement(transformation(extent={{-72,-10},{-52,10}})));
     Modelica.Mechanics.Rotational.Components.IdealGear gear1(ratio=
           first_gear, useSupport=false) annotation (Placement(
           transformation(
@@ -50,23 +49,22 @@ package Transmission "Transmissions and transmission components"
           rotation=180)));
     Modelica.Mechanics.Rotational.Components.Clutch first_gear_clutch(
         fn_max=2000) annotation (Placement(transformation(extent={{24,
-              50},{44,70}}, rotation=0)));
+              50},{44,70}})));
     Modelica.Mechanics.Rotational.Components.Clutch
       second_gear_clutch(fn_max=2000) annotation (Placement(
-          transformation(extent={{24,20},{44,40}}, rotation=0)));
+          transformation(extent={{24,20},{44,40}})));
     Modelica.Mechanics.Rotational.Components.Clutch third_gear_clutch(
         fn_max=2000) annotation (Placement(transformation(extent={{24,
-              -10},{44,10}}, rotation=0)));
+              -10},{44,10}})));
     Modelica.Mechanics.Rotational.Components.Clutch
       fourth_gear_clutch(fn_max=2000) annotation (Placement(
-          transformation(extent={{24,-40},{44,-20}}, rotation=0)));
+          transformation(extent={{24,-40},{44,-20}})));
     Modelica.Mechanics.Rotational.Components.Clutch fifth_gear_clutch(
         fn_max=2000) annotation (Placement(transformation(extent={{24,
-              -70},{44,-50}}, rotation=0)));
+              -70},{44,-50}})));
     Modelica.Mechanics.Rotational.Components.Inertia
       inertia_engine_side(J=0.03) "Inertia on the engine side"
-      annotation (Placement(transformation(extent={{60,-10},{80,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{60,-10},{80,10}})));
   equation
     connect(driveline, inertia_driveline_side.flange_a) annotation (Line(
           points={{-100,0},{-72,5.55112e-16}}, color={128,128,128}));

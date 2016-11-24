@@ -9,15 +9,15 @@ model ControlSystem2 "A PI Controller with Plant Model"
         extent={{-10,-10},{10,10}},
         rotation=180)));
   Summation diff(scale2=-1.0) annotation (Placement(transformation(
-          extent={{-60,40},{-40,60}}, rotation=0)));
+          extent={{-60,40},{-40,60}})));
   Summation sum annotation (Placement(transformation(extent={{46,40},
-            {66,60}}, rotation=0)));
+            {66,60}})));
   Gain KP(K=0.4) annotation (Placement(transformation(extent={{-60,
-            -20},{-40,0}}, rotation=0)));
+            -20},{-40,0}})));
   Gain KI(K=1.0) annotation (Placement(transformation(extent={{20,-20},
-            {40,0}}, rotation=0)));
+            {40,0}})));
   Integrator integrator annotation (Placement(transformation(extent={
-            {54,-20},{74,0}}, rotation=0)));
+            {54,-20},{74,0}})));
   TransferFunction motor(c1=0.8, c2=0.1)
     annotation (Placement(transformation(
         origin={8,22},

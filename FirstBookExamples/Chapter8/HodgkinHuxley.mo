@@ -110,7 +110,6 @@ package HodgkinHuxley
   equation
     i = g_max*(v - E_L);
     annotation (
-      Diagram(graphics),
       Icon(graphics={
           Line(points={{-98,0},{-80,0},{-70,20},{-60,-20},{-50,20},{
                 -40,-20},{-30,20},{-20,-20},{-10,20},{0,-20},{10,20},

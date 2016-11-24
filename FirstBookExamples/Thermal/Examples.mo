@@ -4,11 +4,11 @@ package Examples
   model TwoMasses "Simple conduction test"
     discrete Modelica.SIunits.Temperature Tf "Projected final temperature";
     Basic1D.Capacitance mass1(n(T(start=400, fixed=true))) annotation (Placement(
-          transformation(extent={{-100,-20},{-40,40}}, rotation=0)));
+          transformation(extent={{-100,-20},{-40,40}})));
     Basic1D.Capacitance mass2 annotation (Placement(transformation(
-            extent={{40,-20},{100,40}}, rotation=0)));
+            extent={{40,-20},{100,40}})));
     Basic1D.Conduction conduction annotation (Placement(
-          transformation(extent={{-30,-20},{30,40}}, rotation=0)));
+          transformation(extent={{-30,-20},{30,40}})));
   equation
     connect(mass1.n, conduction.a) annotation (Line(points={{-70,10},
             {-30,10}}));
@@ -35,32 +35,29 @@ Tf = (T1(t=0)*m1*cp1+T2(t=0)*m2*cp2)/(m1*cp1+m2*cp2)
 
   model ThermalSpring "Thermal Spring Test"
     MixedDomain.RotationalSpring spring1(unstretched_nom=1) annotation (Placement(
-          transformation(extent={{0,20},{-20,40}}, rotation=0)));
+          transformation(extent={{0,20},{-20,40}})));
     MixedDomain.RotationalSpring spring2(unstretched_nom=1) annotation (Placement(
-          transformation(extent={{0,-60},{-20,-40}}, rotation=0)));
+          transformation(extent={{0,-60},{-20,-40}})));
     Basic1D.Capacitance mass1(n(T(start=300, fixed=true))) annotation (Placement(
-          transformation(extent={{-20,50},{0,70}}, rotation=0)));
+          transformation(extent={{-20,50},{0,70}})));
     Basic1D.Conduction Conduction1 annotation (Placement(
-          transformation(extent={{20,50},{40,70}}, rotation=0)));
+          transformation(extent={{20,50},{40,70}})));
     Basic1D.Capacitance mass2(n(T(start=400, fixed=true))) annotation (Placement(
-          transformation(extent={{60,50},{80,70}}, rotation=0)));
+          transformation(extent={{60,50},{80,70}})));
     Modelica.Mechanics.Rotational.Components.Fixed mount2(phi0=1)
-      annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
     Modelica.Mechanics.Rotational.Components.Fixed mount3 annotation (
-       Placement(transformation(extent={{20,-60},{40,-40}}, rotation=
-              0)));
+       Placement(transformation(extent={{20,-60},{40,-40}})));
     Modelica.Mechanics.Rotational.Components.Fixed mount1 annotation (
-       Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
+       Placement(transformation(extent={{20,20},{40,40}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia
-      annotation (Placement(transformation(extent={{-60,20},{-40,40}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
     Basic1D.Capacitance mass3(n(T(start=300, fixed=true))) annotation (Placement(
-          transformation(extent={{-20,-30},{0,-10}}, rotation=0)));
+          transformation(extent={{-20,-30},{0,-10}})));
     Basic1D.Conduction Conduction2 annotation (Placement(
-          transformation(extent={{20,-30},{40,-10}}, rotation=0)));
+          transformation(extent={{20,-30},{40,-10}})));
     Basic1D.Capacitance mass4(n(T(start=400, fixed=true))) annotation (Placement(
-          transformation(extent={{60,-30},{80,-10}}, rotation=0)));
+          transformation(extent={{60,-30},{80,-10}})));
   equation
     connect(mass2.n, Conduction1.b) annotation (Line(points={{70,60},
             {40,60}}, color={255,0,0}));
@@ -94,19 +91,19 @@ energy within the spring.
   model AllModes "Test all basic modes of heat transfer"
     Basic1D.BlackBodyRadiation radiation(F=0.5,A=0.1)
                                                      annotation (Placement(
-          transformation(extent={{44,-10},{64,10}}, rotation=0)));
+          transformation(extent={{44,-10},{64,10}})));
     Basic1D.Capacitance body2(V=2) annotation (Placement(
-          transformation(extent={{20,-10},{40,10}}, rotation=0)));
+          transformation(extent={{20,-10},{40,10}})));
     Basic1D.Capacitance body1(V=2) annotation (Placement(
-          transformation(extent={{-40,-10},{-20,10}}, rotation=0)));
+          transformation(extent={{-40,-10},{-20,10}})));
     Basic1D.Convection convection(h=30, A=1) annotation (Placement(
-          transformation(extent={{-50,-10},{-70,10}}, rotation=0)));
+          transformation(extent={{-50,-10},{-70,10}})));
     Basic1D.Conduction conduction(k=10) annotation (Placement(
-          transformation(extent={{-10,-10},{10,10}},rotation=0)));
+          transformation(extent={{-10,-10},{10,10}})));
     BoundaryConditions.FixedTemperature LeftBC(T=600) annotation (Placement(
-          transformation(extent={{-80,-10},{-100,10}}, rotation=0)));
+          transformation(extent={{-80,-10},{-100,10}})));
     BoundaryConditions.VariableTemperature TempBC annotation (Placement(
-          transformation(extent={{70,-10},{90,10}}, rotation=0)));
+          transformation(extent={{70,-10},{90,10}})));
     Modelica.Blocks.Sources.Trapezoid RightTemp(
       amplitude=800,
       rising=0.25,
@@ -115,7 +112,7 @@ energy within the spring.
       period=2.5,
       offset=500,
       startTime=1)   annotation (Placement(transformation(extent={{50,
-              20},{70,40}}, rotation=0)));
+              20},{70,40}})));
   equation
     connect(conduction.b, body2.n) annotation (Line(points={{10,0},{
             14,0},{14,5.55112e-16},{30,5.55112e-16}},   color={255,0,

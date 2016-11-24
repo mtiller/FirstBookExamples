@@ -15,10 +15,9 @@ public
     T_on=T_on,
     T_off=T_off,
     tc_C=tc_C) annotation (Placement(transformation(extent={{-40,-40},
-            {20,20}}, rotation=0)));
+            {20,20}})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{30,-60},{50,-40}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
 equation
   connect(thermal, thermocouple.node_a)
     annotation (Line(points={{-100,80},{-10,80}}, color={255,0,0}));

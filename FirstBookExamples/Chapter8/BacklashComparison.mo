@@ -6,22 +6,19 @@ package BacklashComparison
 
     Modelica.Mechanics.Rotational.Components.Inertia I1(J=1)
                                                         annotation (
-        Placement(transformation(extent={{-40,-10},{-20,10}},rotation=
-             0)));
+        Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Mechanics.Rotational.Components.Inertia I2(J=3)
-      annotation (Placement(transformation(extent={{20,-10},{40,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{20,-10},{40,10}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque
                  annotation (Placement(transformation(extent={{-70,-10},
-              {-50,10}}, rotation=0)));
+              {-50,10}})));
     Modelica.Blocks.Sources.Sine signal(freqHz=1)
                                         annotation (Placement(
-          transformation(extent={{-100,-10},{-80,10}},
-                                                     rotation=0)));
+          transformation(extent={{-100,-10},{-80,10}})));
     replaceable
       Modelica.Mechanics.Rotational.Interfaces.PartialCompliant
       backlash annotation (Placement(transformation(extent={{-10,-10},
-              {10,10}}, rotation=0)));
+              {10,10}})));
   equation
     connect(torque.flange, I1.flange_a)
       annotation (Line(points={{-50,0},{-42,0},{-40,0}}));
@@ -39,11 +36,10 @@ package BacklashComparison
     Modelica.Mechanics.Rotational.Components.IdealGear gear(
         useSupport=false, ratio=1)
                           annotation (Placement(transformation(extent={{50,-10},
-              {70,10}},         rotation=0)));
+              {70,10}})));
     Modelica.Mechanics.Rotational.Components.Inertia I3(J=1)
                                                         annotation (
-        Placement(transformation(extent={{80,-10},{100,10}},
-                                                           rotation=0)));
+        Placement(transformation(extent={{80,-10},{100,10}})));
   equation
     connect(gear.flange_b, I3.flange_a) annotation (Line(points={{70,0},{
             80,0}}));

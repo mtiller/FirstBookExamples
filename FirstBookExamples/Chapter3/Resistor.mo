@@ -4,9 +4,9 @@ model Resistor "An electrical resistor"
 
   parameter SIunits.Resistance R=300 "Resistance";
   ElectricalPin p annotation (Placement(transformation(extent={{-110,
-            -10},{-90,10}}, rotation=0)));
+            -10},{-90,10}})));
   ElectricalPin n annotation (Placement(transformation(extent={{90,
-            -10},{110,10}}, rotation=0)));
+            -10},{110,10}})));
 equation
   // Naming the connection points
   R*p.i = p.v - n.v;

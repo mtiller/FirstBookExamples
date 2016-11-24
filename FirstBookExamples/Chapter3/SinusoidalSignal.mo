@@ -1,7 +1,7 @@
 within FirstBookExamples.Chapter3;
 block SinusoidalSignal
   output Signal out_sig annotation (Placement(transformation(extent={
-            {-110,-10},{-90,10}}, rotation=0)));
+            {-110,-10},{-90,10}})));
 
   parameter Real A=1.0 "Amplitude";
   parameter Real offset=1.0 "Offset";

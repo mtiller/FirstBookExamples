@@ -11,18 +11,17 @@ public
     c=1e+6,
     T_nom=300,
     dudT=Modelica.Constants.pi/90) annotation (Placement(
-        transformation(extent={{-64,-26},{-44,-6}}, rotation=0)));
+        transformation(extent={{-64,-26},{-44,-6}})));
   Modelica.Mechanics.Rotational.Components.Inertia mechanism_inertia(
       J=1e-5) annotation (Placement(transformation(extent={{-22,-26},
-            {-2,-6}}, rotation=0)));
+            {-2,-6}})));
   Modelica.Mechanics.Rotational.Components.Fixed rotation(phi0=
         setting) annotation (Placement(transformation(extent={{-90,
-            -58},{-70,-38}}, rotation=0)));
+            -58},{-70,-38}})));
   MercurySwitch switch annotation (Placement(transformation(extent={{
-            -20,0},{40,60}}, rotation=0)));
+            -20,0},{40,60}})));
   Modelica.Mechanics.Rotational.Components.Damper damper(d=100)
-    annotation (Placement(transformation(extent={{-66,-54},{-46,-34}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-66,-54},{-46,-34}})));
 equation
   connect(spring.flange_b, mechanism_inertia.flange_a) annotation (Line(
         points={{-44,-16},{-40,-16},{-34,-16},{-22,-16}}, color={0,0,

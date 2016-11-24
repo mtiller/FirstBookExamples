@@ -5,14 +5,13 @@ model Factory
     Kd=-20,
     Kp=-500,
     Td=0.01) annotation (Placement(transformation(extent={{-70,-20},{
-            -30,20}}, rotation=0)));
+            -30,20}})));
   replaceable ElectricMotor motor annotation (Placement(
-        transformation(extent={{-8,-20},{32,20}},  rotation=0)));
+        transformation(extent={{-8,-20},{32,20}})));
   ConveyorBelt conveyor annotation (Placement(transformation(extent={
-            {50,-20},{90,20}}, rotation=0)));
+            {50,-20},{90,20}})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-30,-40},{-10,-20}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
   Modelica.Mechanics.Rotational.Sensors.AngleSensor position_sensor
     annotation (Placement(transformation(
         origin={40,40},

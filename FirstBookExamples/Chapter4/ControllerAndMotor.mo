@@ -6,13 +6,11 @@ model ControllerAndMotor
     amplitude=0.2,
     freqHz=0.3,
     offset=1.0)   annotation (Placement(transformation(extent={{-80,-10},
-            {-60,10}},     rotation=0)));
+            {-60,10}})));
   replaceable PIController con(Kp=0.4) constrainedby Controller
-    annotation (Placement(transformation(extent={{-8,-10},{12,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
   Blocks.Continuous.TransferFunction motor(a={0.8,0.1}, b={1})
-    annotation (Placement(transformation(extent={{40,-10},{60,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{40,-10},{60,10}})));
 equation
   connect(sinsig.y, con.command) annotation (Line(points={{-59,0},{
           -10,0}}));

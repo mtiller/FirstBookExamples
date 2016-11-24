@@ -7,24 +7,21 @@ model ACDC "AC to DC power supply"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-170,-60},{-150,-40}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-170,-60},{-150,-40}})));
   Modelica.Electrical.Analog.Sources.SineVoltage voltage(V=120, freqHz=60)
     annotation (Placement(transformation(
         origin={-160,0},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Electrical.Analog.Ideal.IdealDiode diode
-    annotation (Placement(transformation(extent={{-50,10},{-30,30}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=1e-4)
     annotation (Placement(transformation(
         origin={50,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor short(R=1e-5)
-    annotation (Placement(transformation(extent={{-20,10},{0,30}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-20,10},{0,30}})));
   Modelica.Electrical.Analog.Ideal.IdealTransformer transformer(n=22,
     considerMagnetization=false,
     Lm1=1)
@@ -34,16 +31,14 @@ model ACDC "AC to DC power supply"
         rotation=180)));
   Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch
                                                switch(Goff=0)
-    annotation (Placement(transformation(extent={{120,30},{140,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{120,30},{140,10}})));
   Modelica.Electrical.Analog.Basic.Resistor load(R=3000)
     annotation (Placement(transformation(
         origin={150,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Blocks.Sources.BooleanPulse load_switch(period=0.5)
-    annotation (Placement(transformation(extent={{90,-10},{110,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 equation
   connect(load_switch.y, switch.control)
     annotation (Line(points={{111,5.55112e-16},{130,5.55112e-16},{130,

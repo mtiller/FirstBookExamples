@@ -2,7 +2,7 @@ within FirstBookExamples.Chapter3;
 model RLC3 "Yet another RLC circuit"
   extends FirstBookExamples.Icons.RunnableExample;
   Resistor R1(R=15) annotation (Placement(transformation(extent={{20,
-            40},{40,60}}, rotation=0)));
+            40},{40,60}})));
   Resistor R2(R=5000) annotation (Placement(transformation(
         origin={-10,10},
         extent={{-10,-10},{10,10}},
@@ -12,9 +12,9 @@ model RLC3 "Yet another RLC circuit"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Inductor L(L=100e-3) annotation (Placement(transformation(extent={{
-            -60,40},{-40,60}}, rotation=0)));
+            -60,40},{-40,60}})));
   VoltageSource vs annotation (Placement(transformation(extent={{-60,
-            -50},{-40,-30}}, rotation=0)));
+            -50},{-40,-30}})));
   Ground g annotation (Placement(transformation(
         origin={40,-70},
         extent={{-10,-10},{10,10}},

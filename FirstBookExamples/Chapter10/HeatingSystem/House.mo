@@ -8,21 +8,20 @@ model House
 
   Thermal.Interfaces.Node_a n
     annotation ( Placement(
-        transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        transformation(extent={{90,-10},{110,10}})));
 
   Thermal.Basic1D.Capacitance indoors(
     cp=1000,
     rho=1.5,
     V=interior) annotation (Placement(transformation(extent={{-10,-10},
-            {10,10}}, rotation=0)));
+            {10,10}})));
   Thermal.Basic1D.BlackBodyRadiation roof(F=0.01,A=roof_area)
     annotation (Placement(transformation(
         origin={0,34},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Thermal.Basic1D.Convection wall(h=h_wall, A=wall_area)
-    annotation (Placement(transformation(extent={{-52,-10},{-32,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-52,-10},{-32,10}})));
   Thermal.Basic1D.Conduction floor(
     k=k_ground,
     L=4,
@@ -41,8 +40,7 @@ model House
         extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Blocks.Interfaces.RealInput Tamb
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   Modelica.Blocks.Sources.Trapezoid sun_position(
     amplitude=140,
     rising=4*hour,
@@ -51,7 +49,7 @@ model House
     period=day,
     offset=240,
     startTime=8*hour) annotation (Placement(transformation(extent={
-            {-80,66},{-60,86}}, rotation=0)));
+            {-80,66},{-60,86}})));
   Thermal.BoundaryConditions.VariableTemperature solar_temp
     annotation (Placement(transformation(
         origin={0,60},

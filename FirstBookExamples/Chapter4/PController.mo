@@ -7,5 +7,4 @@ protected
 equation
   e = command - sensor;
   driver = Kp*e;
-  annotation (Diagram(graphics));
 end PController;

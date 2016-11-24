@@ -4,9 +4,9 @@ model Capacitor "An electrical capacitor"
 
   parameter SIunits.Capacitance C=1e-6 "Capacitance";
   ElectricalPin p annotation (Placement(transformation(extent={{-110,
-            -10},{-90,10}}, rotation=0)));
+            -10},{-90,10}})));
   ElectricalPin n annotation (Placement(transformation(extent={{90,
-            -10},{110,10}}, rotation=0)));
+            -10},{110,10}})));
   SIunits.Voltage v;
 equation
   v = p.v - n.v;

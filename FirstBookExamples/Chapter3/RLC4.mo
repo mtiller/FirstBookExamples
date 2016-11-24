@@ -4,7 +4,7 @@ model RLC4 "An RLC circuit using standard components"
   import Modelica.Electrical.Analog;
 
   Analog.Basic.Resistor R1(R=15) annotation (Placement(transformation(
-          extent={{20,40},{40,60}}, rotation=0)));
+          extent={{20,40},{40,60}})));
   Analog.Basic.Resistor R2(R=5000)
     annotation (Placement(transformation(
         origin={-14,10},
@@ -16,13 +16,11 @@ model RLC4 "An RLC circuit using standard components"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Analog.Basic.Inductor L(L=100e-3)
-    annotation (Placement(transformation(extent={{-60,40},{-40,60}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
   Analog.Sources.StepVoltage vs(startTime=1, V=1)
-    annotation (Placement(transformation(extent={{-60,-44},{-40,-24}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-60,-44},{-40,-24}})));
   Analog.Basic.Ground g annotation (Placement(transformation(extent={
-            {20,-64},{40,-44}}, rotation=0)));
+            {20,-64},{40,-44}})));
 equation
   connect(vs.n, g.p) annotation (Line(points={{-40,-34},{30,-34},{30,
           -44}}));

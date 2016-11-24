@@ -11,31 +11,31 @@ model ConductingRod_Thermal
   parameter Integer n=10 "Number of sections";
 
   Thermal.Interfaces.Node a annotation (Placement(transformation(
-          extent={{-110,-10},{-90,10}}, rotation=0)));
+          extent={{-110,-10},{-90,10}})));
   Thermal.Interfaces.Node b annotation (Placement(transformation(
-          extent={{90,-10},{110,10}}, rotation=0)));
+          extent={{90,-10},{110,10}})));
 protected
   parameter SIunits.Length dx=L/n;
   Basic1D.Capacitance cap[n](
     each V=dx*A,
     each rho=rho,
     each cp=cp) annotation (Placement(transformation(extent={{-60,0},
-            {-40,20}}, rotation=0)));
+            {-40,20}})));
   Basic1D.Conduction c_cond[n - 1](
     each L=dx,
     each A=A,
     each k=k) annotation (Placement(transformation(extent={{20,0},{40,
-            20}}, rotation=0)));
+            20}})));
   Basic1D.Conduction l_cond(
     L=dx/2,
     A=A,
     k=k) annotation (Placement(transformation(extent={{-60,-60},{-40,
-            -40}}, rotation=0)));
+            -40}})));
   Basic1D.Conduction r_cond(
     L=dx/2,
     A=A,
     k=k) annotation (Placement(transformation(extent={{20,-60},{40,
-            -40}}, rotation=0)));
+            -40}})));
 equation
   for i in 1:n - 1 loop
     connect(c_cond[i].a, cap[i].n);
@@ -47,5 +47,4 @@ equation
   connect(b, r_cond.b) annotation (Line(points={{100,0},{70,0},{70,
           -50},{40,-50}}));
   connect(r_cond.a, cap[n].n);
-  annotation (Icon(graphics));
 end ConductingRod_Thermal;

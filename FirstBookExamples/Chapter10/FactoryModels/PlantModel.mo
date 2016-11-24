@@ -1,23 +1,21 @@
 within FirstBookExamples.Chapter10.FactoryModels;
 model PlantModel
   ElectricMotor motor annotation (Placement(transformation(extent={{-20,-20},
-            {20,20}},          rotation=0)));
+            {20,20}})));
   ConveyorBelt conveyor annotation (Placement(transformation(extent={
-            {50,-20},{90,20}}, rotation=0)));
+            {50,-20},{90,20}})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
   Modelica.Electrical.Analog.Sources.SignalVoltage SignalVoltage1
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={-50,0})));
   Modelica.Blocks.Interfaces.RealInput v annotation (Placement(
-        transformation(extent={{-140,-20},{-100,20}},rotation=0)));
+        transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Mechanics.Rotational.Sensors.AngleSensor AngleSensor1
-    annotation (Placement(transformation(extent={{40,30},{60,50}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{40,30},{60,50}})));
   Modelica.Blocks.Interfaces.RealOutput pos annotation (Placement(
-        transformation(extent={{100,30},{120,50}}, rotation=0)));
+        transformation(extent={{100,30},{120,50}})));
 equation
   connect(motor.driver, conveyor.axle)
     annotation (Line(points={{20,0},{36,0},{36,1.11022e-15},{50,

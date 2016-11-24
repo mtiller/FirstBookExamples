@@ -3,8 +3,7 @@ model RotationalPendulum
   import Modelica.SIunits;
 
   Modelica.Mechanics.Rotational.Interfaces.Flange_a p
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   parameter SIunits.Length L=2.0;
   parameter SIunits.Mass m=1.0;
 protected

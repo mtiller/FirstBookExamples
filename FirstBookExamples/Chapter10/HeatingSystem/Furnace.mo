@@ -2,7 +2,7 @@ within FirstBookExamples.Chapter10.HeatingSystem;
 model Furnace
   parameter Modelica.SIunits.Power capacity(start=27e+3);
   Thermal.Interfaces.Node_a thermal annotation (Placement(
-        transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+        transformation(extent={{-110,-10},{-90,10}})));
   Modelica.Electrical.Analog.Interfaces.PositivePin p
     annotation (Placement(transformation(
         origin={-40,100},
@@ -14,11 +14,9 @@ model Furnace
         extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{30,-50},{50,-30}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{30,-50},{50,-30}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage switch_voltage(V=5)
-    annotation (Placement(transformation(extent={{10,50},{30,70}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{10,50},{30,70}})));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1e+6)
     annotation (Placement(transformation(
         origin={-20,60},
@@ -26,16 +24,14 @@ model Furnace
         rotation=180)));
   Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch
                                                          relay(level=1e-3)
-    annotation (Placement(transformation(extent={{-10,10},{10,30}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-10,10},{10,30}})));
   Thermal.MixedDomain.HeaterElement heating_element(R=120*120/capacity)
     annotation (Placement(transformation(
         origin={-40,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Sources.ConstantVoltage heater_voltage(V=120)
-    annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
 equation
   connect(ground.p, n) annotation (Line(points={{40,-30},{40,100}}));
   connect(switch_voltage.n, ground.p)

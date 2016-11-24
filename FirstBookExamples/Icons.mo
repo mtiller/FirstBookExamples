@@ -68,8 +68,7 @@ package Icons
           Line(
             points={{-100,90},{-100,-92}},
             color={0,0,0},
-            thickness=0.5)}),
-      Diagram(graphics));
+            thickness=0.5)}));
   end BookExample;
 
   model RunnableExample
@@ -100,12 +99,10 @@ package Icons
             points={{-80,44},{-88,24},{-72,24},{-80,44}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
-      Diagram(graphics));
+            fillPattern=FillPattern.Solid)}));
 
   end RunnableExample;
   annotation (
-    Diagram(graphics),
     Icon(graphics={Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},

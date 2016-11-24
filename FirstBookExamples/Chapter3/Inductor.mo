@@ -4,9 +4,9 @@ model Inductor "An electrical inductor"
 
   parameter SIunits.Inductance L=1e-3 "Inductance";
   ElectricalPin p annotation (Placement(transformation(extent={{-110,
-            -10},{-90,10}}, rotation=0)));
+            -10},{-90,10}})));
   ElectricalPin n annotation (Placement(transformation(extent={{90,
-            -10},{110,10}}, rotation=0)));
+            -10},{110,10}})));
 equation
   L*der(p.i) = p.v - n.v;
   p.i + n.i = 0;

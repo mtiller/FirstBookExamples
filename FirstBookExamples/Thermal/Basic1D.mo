@@ -6,7 +6,7 @@ package Basic1D
     parameter Modelica.SIunits.Density rho=1.0;
     parameter Modelica.SIunits.Volume V=1.0;
     Interfaces.Node_a n annotation (Placement(transformation(extent={
-              {-10,-10},{10,10}}, rotation=0)));
+              {-10,-10},{10,10}})));
   equation
     V*cp*rho*der(n.T) = n.q;
     annotation (
@@ -70,7 +70,6 @@ indepedent of temperature.
             thickness=0.5),
           Text(extent={{-100,120},{100,80}}, textString=
                                                  "%name")}),
-      Diagram(graphics),
       Documentation(info="This is a model for linear heat conduction.  The constitutive equation for heat conduction is:
 
 q = k*(a.T-b.T)/L;

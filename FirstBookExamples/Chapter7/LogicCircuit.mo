@@ -4,24 +4,16 @@ model LogicCircuit
   import BS = Modelica.Blocks.Sources;
 
   BS.BooleanPulse i1(width=50, period=2)
-    annotation (Placement(transformation(extent={{-80,50},{-60,70}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
   BS.BooleanPulse i2(width=50, period=4)
-    annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
   BS.BooleanPulse i3(width=50, period=8)
-    annotation (Placement(transformation(extent={{-80,-70},{-60,-50}},
-          rotation=0)));
-  And and1 annotation (Placement(transformation(extent={{-20,-10},{0,10}},
-                  rotation=0)));
-  And and2 annotation (Placement(transformation(extent={{60,46},{80,66}},
-                  rotation=0)));
-  Or or1 annotation (Placement(transformation(extent={{60,-40},{80,-20}},
-                   rotation=0)));
-  Not not1 annotation (Placement(transformation(extent={{20,-10},{40,10}},
-                  rotation=0)));
-  Not not2 annotation (Placement(transformation(extent={{-20,50},{0,70}},
-                  rotation=0)));
+    annotation (Placement(transformation(extent={{-80,-70},{-60,-50}})));
+  And and1 annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+  And and2 annotation (Placement(transformation(extent={{60,46},{80,66}})));
+  Or or1 annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
+  Not not1 annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+  Not not2 annotation (Placement(transformation(extent={{-20,50},{0,70}})));
   Boolean o1;
   Boolean o2;
 equation

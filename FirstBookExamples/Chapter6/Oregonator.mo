@@ -59,32 +59,27 @@ package Oregonator
       nspecies=nspecies,
       v=1,
       i_moles=fill(1, nspecies)) annotation (Placement(transformation(
-            extent={{-60,32},{-40,52}}, rotation=0)));
+            extent={{-60,32},{-40,52}})));
     Reactions.R_AY r_ay(nspecies=nspecies, v=1)
-      annotation (Placement(transformation(extent={{-20,32},{0,52}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-20,32},{0,52}})));
     Reactions.R_XY r_xy(nspecies=nspecies, v=1)
-      annotation (Placement(transformation(extent={{40,32},{60,52}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{40,32},{60,52}})));
     Reactions.R_AX r_ax(nspecies=nspecies, v=1)
-      annotation (Placement(transformation(extent={{-58,-20},{-38,0}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-58,-20},{-38,0}})));
     Reactions.R_2X r_2x(nspecies=nspecies, v=1)
-      annotation (Placement(transformation(extent={{-20,-20},{0,0}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
     Reactions.R_BZ r_bz(nspecies=nspecies, v=1)
-      annotation (Placement(transformation(extent={{40,-20},{60,0}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{40,-20},{60,0}})));
     Chemistry.Basic.Stationary c_A(
       stat_species=A,
       nspecies=nspecies,
       c=1.0) annotation (Placement(transformation(extent={{-60,-64},{
-              -40,-44}}, rotation=0)));
+              -40,-44}})));
     Chemistry.Basic.Stationary c_B(
       stat_species=B,
       nspecies=nspecies,
       c=1.0) annotation (Placement(transformation(extent={{-20,-64},{
-              0,-44}}, rotation=0)));
+              0,-44}})));
 
     Real cA=v.moles[A];
     Real cB=v.moles[B];
@@ -117,8 +112,7 @@ package Oregonator
     dcz = der(cZ);
     annotation (
       experiment(StopTime=30),
-      __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter6/Oregonator.mos" "Simulate Oregonator"),
-      Diagram(graphics));
+      __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter6/Oregonator.mos" "Simulate Oregonator"));
   end ChemicalSystem;
 
   model ODESystem

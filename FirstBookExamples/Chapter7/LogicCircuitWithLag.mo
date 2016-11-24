@@ -6,33 +6,30 @@ model LogicCircuitWithLag
     extends Modelica.Blocks.Sources.BooleanPulse;
   end Pulse;
   Pulse i1(period=2)   annotation (Placement(transformation(extent={{-90,40},
-            {-70,60}},         rotation=0)));
+            {-70,60}})));
   Pulse i2(period=4)   annotation (Placement(transformation(extent={{-90,-8},
-            {-70,12}},         rotation=0)));
+            {-70,12}})));
   Pulse i3(period=8)   annotation (Placement(transformation(extent={{-90,-50},
-            {-70,-30}},          rotation=0)));
+            {-70,-30}})));
   And and1 annotation (Placement(transformation(extent={{-40,-10},{-20,
-            10}}, rotation=0)));
-  And and2 annotation (Placement(transformation(extent={{30,40},{50,60}},
-                  rotation=0)));
-  Or or1 annotation (Placement(transformation(extent={{32,-50},{52,-30}},
-                   rotation=0)));
-  Not not1 annotation (Placement(transformation(extent={{30,-10},{50,10}},
-                  rotation=0)));
+            10}})));
+  And and2 annotation (Placement(transformation(extent={{30,40},{50,60}})));
+  Or or1 annotation (Placement(transformation(extent={{32,-50},{52,-30}})));
+  Not not1 annotation (Placement(transformation(extent={{30,-10},{50,10}})));
   Not not2 annotation (Placement(transformation(extent={{-50,40},{-30,
-            60}}, rotation=0)));
+            60}})));
   Boolean o1;
   Boolean o2;
   Lag and1_lag(c=c) annotation (Placement(transformation(extent={{0,-10},
-            {20,10}},     rotation=0)));
+            {20,10}})));
   Lag and2_lag(c=c) annotation (Placement(transformation(extent={{70,40},
-            {90,60}},     rotation=0)));
+            {90,60}})));
   Lag or1_lag(c=c) annotation (Placement(transformation(extent={{70,-50},
-            {90,-30}},      rotation=0)));
+            {90,-30}})));
   Lag not1_lag(c=c) annotation (Placement(transformation(extent={{70,-10},
-            {90,10}},     rotation=0)));
+            {90,10}})));
   Lag not2_lag(c=c) annotation (Placement(transformation(extent={{-8,40},
-            {12,60}},     rotation=0)));
+            {12,60}})));
 equation
   o1 = or1_lag.y;
   connect(and2.y, and2_lag.u) annotation (Line(points={{51,50},{51,50},

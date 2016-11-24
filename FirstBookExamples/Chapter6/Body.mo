@@ -6,7 +6,7 @@ model Body
   parameter SIunits.Position init_x[3]={0,0,0};
 
   BodyAttachment b annotation (Placement(transformation(extent={{-110,
-            -10},{-90,10}}, rotation=0)));
+            -10},{-90,10}})));
 protected
   SIunits.Position x[3](start=init_x, fixed=true);
   SIunits.Velocity v[3](start=init_v, fixed=true);

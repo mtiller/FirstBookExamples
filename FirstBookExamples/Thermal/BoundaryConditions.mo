@@ -4,7 +4,7 @@ package BoundaryConditions
   model FixedTemperature "Fixed temperature boundary condition"
     parameter Modelica.SIunits.Temperature T;
     Interfaces.Node_a n annotation (Placement(transformation(extent={
-              {-110,-10},{-90,10}}, rotation=0)));
+              {-110,-10},{-90,10}})));
   equation
     n.T = T;
     annotation (
@@ -42,9 +42,9 @@ package BoundaryConditions
   model VariableTemperature "Variable temperature boundary condition"
 
     Modelica.Blocks.Interfaces.RealInput T annotation (Placement(
-          transformation(extent={{140,-20},{100,20}}, rotation=0)));
+          transformation(extent={{140,-20},{100,20}})));
     Interfaces.Node_a n annotation (Placement(transformation(extent={
-              {-110,-10},{-90,10}}, rotation=0)));
+              {-110,-10},{-90,10}})));
   equation
     n.T = T;
     annotation (
@@ -91,7 +91,7 @@ absorb or generate as much energy as required to keep the temperature at the spe
           extent={{-20,-20},{20,20}},
           rotation=180)));
     Interfaces.Node_a n annotation (Placement(transformation(extent={
-              {-110,-10},{-90,10}}, rotation=0)));
+              {-110,-10},{-90,10}})));
   equation
     n.q = A*q;
     annotation (

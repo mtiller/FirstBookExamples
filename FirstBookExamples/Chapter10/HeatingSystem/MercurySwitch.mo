@@ -10,8 +10,7 @@ protected
   Modelica.SIunits.Angle lower=-hysteresis/2.0;
 public
   Modelica.Mechanics.Rotational.Interfaces.Flange_a rot
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
 equation
   i = if (closed) then Gon*v else v/Roff;
   //  i = 0.0;

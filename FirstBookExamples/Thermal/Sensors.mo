@@ -4,9 +4,9 @@ package Sensors
   model TemperatureSensor "Absolute temperature sensor"
 
     Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
-          transformation(extent={{100,-10},{120,10}},rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
     Interfaces.Node_a n annotation (Placement(transformation(extent={
-              {-110,-10},{-90,10}}, rotation=0)));
+              {-110,-10},{-90,10}})));
   equation
     T = n.T;
     n.q = 0;
@@ -80,9 +80,9 @@ sensor model.
   model HeatFlow "Heat flow rate sensor"
     extends Modelica.Icons.RotationalSensor;
     Interfaces.Node_a a annotation (Placement(transformation(extent={
-              {-110,-10},{-90,10}}, rotation=0)));
+              {-110,-10},{-90,10}})));
     Interfaces.Node_b b annotation (Placement(transformation(extent={
-              {90,-10},{110,10}}, rotation=0)));
+              {90,-10},{110,10}})));
     Modelica.Blocks.Interfaces.RealOutput heat "Heat flow from a->b" annotation (Placement(
           transformation(
           origin={0,-110},

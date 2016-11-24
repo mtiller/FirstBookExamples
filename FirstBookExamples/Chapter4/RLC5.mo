@@ -5,7 +5,7 @@ model RLC5 "An RLC circuit using standard components"
 
   replaceable model ResModel = Analog.Basic.Resistor;
   ResModel R1(R=15) annotation (Placement(transformation(extent={{40,50},
-            {60,70}},     rotation=0)));
+            {60,70}})));
   ResModel R2(R=5000) annotation (Placement(transformation(
         origin={0,-2},
         extent={{-10,-10},{10,10}},
@@ -16,12 +16,11 @@ model RLC5 "An RLC circuit using standard components"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Analog.Basic.Inductor L(L=100e-3) annotation (Placement(
-        transformation(extent={{-60,50},{-40,70}}, rotation=0)));
+        transformation(extent={{-60,50},{-40,70}})));
   Analog.Sources.StepVoltage vs(startTime=1, V=1)
-    annotation (Placement(transformation(extent={{-60,-70},{-40,-50}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
   Analog.Basic.Ground g annotation (Placement(transformation(extent={{40,-80},
-            {60,-60}},          rotation=0)));
+            {60,-60}})));
 equation
   connect(vs.n, g.p) annotation (Line(points={{-40,-60},{4,-60},{50,
           -60}}));
@@ -36,6 +35,5 @@ equation
   connect(R2.n, g.p) annotation (Line(points={{-1.77636e-15,-12},{
           -1.77636e-15,-60},{50,-60}}));
   annotation (experiment(StopTime=2),
-              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter5/RLC5.mos" "Simulate RLC5"),
-              Diagram(graphics));
+              __Dymola_Commands(file="modelica://FirstBookExamples/Resources/Scripts/Dymola/Chapter5/RLC5.mos" "Simulate RLC5"));
 end RLC5;

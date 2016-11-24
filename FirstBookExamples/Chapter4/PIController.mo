@@ -5,25 +5,21 @@ block PIController "A PI Controller"
   import Modelica.Blocks;
 
   Blocks.Interfaces.RealInput command "Command signal"
-    annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Blocks.Interfaces.RealInput sensor "Sensor signal"
-    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
   Blocks.Interfaces.RealOutput driver "Driver signal"
-    annotation (Placement(transformation(extent={{100,-10},{120,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   Blocks.Math.Feedback Difference annotation (Placement(
-        transformation(extent={{-70,-10},{-50,10}},rotation=0)));
+        transformation(extent={{-70,-10},{-50,10}})));
   Blocks.Math.Gain K1(k=Kp) annotation (Placement(transformation(
-          extent={{-22,-10},{-2,10}},rotation=0)));
+          extent={{-22,-10},{-2,10}})));
   Blocks.Math.Gain K2(k=1/Ti)   annotation (Placement(transformation(
-          extent={{-10,-60},{10,-40}}, rotation=0)));
+          extent={{-10,-60},{10,-40}})));
   Blocks.Math.Add Summation annotation (Placement(transformation(
-          extent={{60,-10},{80,10}},rotation=0)));
+          extent={{60,-10},{80,10}})));
   Blocks.Continuous.Integrator IntegratorBlock
-    annotation (Placement(transformation(extent={{20,-60},{40,-40}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
 equation
   connect(command, Difference.u1) annotation (Line(points={{-120,0},{
           -68,0}}));

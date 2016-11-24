@@ -11,7 +11,6 @@ package Interfaces "Collection of interfaces for the 'SimpleCar' package"
     input Modelica.SIunits.Volume Vd "Displaced volume";
     input Modelica.SIunits.Length crank "Crank length";
     annotation (
-      Diagram(graphics),
       Icon(graphics={
           Polygon(
             points={{-100,100},{0,0},{-100,-100},{-100,98},{-100,100}},
@@ -62,7 +61,6 @@ provide geometry information.
             lineColor={255,127,0},
             textString=
                  "%name")}),
-      Diagram(graphics),
       Documentation(info="This connector contains the potential and flow
 variables associated with the gas moving
 through the engine.  These potentials and flows
@@ -93,9 +91,9 @@ contains information about what gear the transmission should be in.
           extent={{-10,-10},{10,10}},
           rotation=270)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_a driveline annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b engine annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     annotation (
       Documentation(info="The transmission interface contains a connection to the engine, a connection to the
 driveline and a gear selector input.  This interface is defined so that it can
@@ -115,7 +113,7 @@ is the constraining type.
           extent={{-10,-10},{10,10}},
           rotation=270)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_a wheel annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
   equation
     kph = der(wheel.phi)*tire_radius*60*60/1000;
     wheel.tau = 0;
@@ -172,17 +170,16 @@ assigned to the output gear selector.
 
     Modelica.Mechanics.Translational.Interfaces.Flange_a road "Road contact"
       annotation (Placement(transformation(extent={{-50,-110},{-30,
-              -90}}, rotation=0)));
+              -90}})));
     Modelica.Mechanics.Rotational.Interfaces.Flange_a power "Driveline"
-      annotation (Placement(transformation(extent={{70,-10},{90,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{70,-10},{90,10}})));
     Modelica.Blocks.Interfaces.RealOutput speed annotation (Placement(
           transformation(
           origin={60,-110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_a wheel annotation (Placement(
-          transformation(extent={{-30,-70},{-10,-50}}, rotation=0)));
+          transformation(extent={{-30,-70},{-10,-50}})));
     annotation (
       Documentation(info="This chassis interface has connections for the driveline side of the transmission, the wheels, road and a vehicle speed output.
 This interface can be used as the constraining type in a replaceable declaration to allow easy substitution of chassis models."));
@@ -190,22 +187,22 @@ This interface can be used as the constraining type in a replaceable declaration
 
   partial model Cylinder
     Modelica.Mechanics.Rotational.Interfaces.Flange_a crankshaft annotation (Placement(
-          transformation(extent={{-10,-208},{10,-188}}, rotation=0)));
+          transformation(extent={{-10,-208},{10,-188}})));
     Interfaces.Gas intake annotation (Placement(transformation(extent=
-             {{-110,70},{-90,90}}, rotation=0)));
+             {{-110,70},{-90,90}})));
     Interfaces.Gas exhaust annotation (Placement(transformation(
-            extent={{90,70},{110,90}}, rotation=0)));
+            extent={{90,70},{110,90}})));
     Interfaces.EngineGeometryRequired geom annotation (Placement(
-          transformation(extent={{120,-60},{100,-40}}, rotation=0)));
+          transformation(extent={{120,-60},{100,-40}})));
   end Cylinder;
 
   partial model Engine "Generic engine interface"
     Modelica.Mechanics.Rotational.Interfaces.Flange_a crankshaft annotation (Placement(
-          transformation(extent={{-110,-50},{-90,-30}}, rotation=0)));
+          transformation(extent={{-110,-50},{-90,-30}})));
     Interfaces.Gas intake annotation (Placement(transformation(extent=
-             {{-110,70},{-90,90}}, rotation=0)));
+             {{-110,70},{-90,90}})));
     Interfaces.Gas exhaust annotation (Placement(transformation(
-            extent={{90,70},{110,90}}, rotation=0)));
+            extent={{90,70},{110,90}})));
     Interfaces.EngineGeometryRequired engine_geometry annotation (Placement(
           transformation(
           origin={110,0},

@@ -8,7 +8,7 @@ model ThermostatSystem
     h_wall=4.33,
     k_ground=0.4)
                annotation (Placement(transformation(extent={{-60,60},
-            {-20,100}}, rotation=0)));
+            {-20,100}})));
   Modelica.Blocks.Sources.Trapezoid amb_temp(
     amplitude=10,
     rising=4*60*60,
@@ -17,7 +17,7 @@ model ThermostatSystem
     period=24*60*60,
     offset=273.15,
     startTime=9.5*60*60) annotation (Placement(transformation(
-          extent={{-100,-10},{-80,10}}, rotation=0)));
+          extent={{-100,-10},{-80,10}})));
   House house2(
     ground_temp=553.15,
     footprint=250,
@@ -25,20 +25,18 @@ model ThermostatSystem
     h_wall=4.33,
     k_ground=0.4)
                annotation (Placement(transformation(extent={{-60,-60},
-            {-20,-20}}, rotation=0)));
+            {-20,-20}})));
   Furnace furnace1(capacity=15e+3) annotation (Placement(
-        transformation(extent={{0,20},{40,60}}, rotation=0)));
+        transformation(extent={{0,20},{40,60}})));
   Furnace furnace2(capacity=15e+3) annotation (Placement(
-        transformation(extent={{0,-100},{40,-60}}, rotation=0)));
+        transformation(extent={{0,-100},{40,-60}})));
   replaceable DigitalThermostat thermostat1(T_on=295, T_off=300)
-    annotation (Placement(transformation(extent={{60,60},{100,100}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{60,60},{100,100}})));
   replaceable MechanicalThermostat thermostat2(desired=295, switch(
       hysteresis=0.0030461741978671,
       Gon=100000.0,
       Roff=100000.0))
-    annotation (Placement(transformation(extent={{60,-60},{100,-20}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{60,-60},{100,-20}})));
 equation
   connect(amb_temp.y, house1.Tamb)
     annotation (Line(points={{-79,5.55112e-16},{-70,0},{-70,80},{-60,

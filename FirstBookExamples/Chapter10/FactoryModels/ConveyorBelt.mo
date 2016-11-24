@@ -2,30 +2,26 @@ within FirstBookExamples.Chapter10.FactoryModels;
 model ConveyorBelt
   import Modelica.Mechanics.Rotational;
   Rotational.Interfaces.Flange_a axle annotation (Placement(
-        transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+        transformation(extent={{-110,-10},{-90,10}})));
   replaceable Modelica.Mechanics.Rotational.Components.IdealGear
     gears(ratio=5, useSupport=false) constrainedby
     Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges
-    annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
   Modelica.Mechanics.Rotational.Components.IdealGearR2T belt(
       useSupportR=false, useSupportT=false,
     ratio=1)                                annotation (Placement(
-        transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+        transformation(extent={{-10,-10},{10,10}})));
   Modelica.Mechanics.Translational.Components.Mass product(m=1)
-    annotation (Placement(transformation(extent={{20,-10},{40,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Mechanics.Rotational.Components.Fixed ground annotation (
-      Placement(transformation(extent={{-30,-60},{-10,-40}}, rotation=
-           0)));
+      Placement(transformation(extent={{-30,-60},{-10,-40}})));
   Modelica.Mechanics.Rotational.Components.Damper bearings(d=20)
     annotation (Placement(transformation(
         origin={-20,-30},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.Rotational.Components.Inertia shaft(J=0.3)
-    annotation (Placement(transformation(extent={{-48,-10},{-28,10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-48,-10},{-28,10}})));
 equation
   connect(gears.flange_a, axle) annotation (Line(points={{-80,0},{
           -100,0}}));
