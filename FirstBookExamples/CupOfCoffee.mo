@@ -1,5 +1,6 @@
 within FirstBookExamples;
 package CupOfCoffee "Rudimentary model"
+    extends Modelica.Icons.Package;
 
   model CupOfCoffee_1
     Real T(start=380);
@@ -274,5 +275,9 @@ package CupOfCoffee "Rudimentary model"
     CupOfCoffee_7 cup7;
   end TestAll;
   annotation (
-    conversion(noneFromVersion="", noneFromVersion="1"));
+    preferredView="info", Documentation(info="<html>
+<p>This package contains an example that shows you the thermal effects of a coffee cup being filled and emptied.</p>
+<p>At the same time it shows and how the coffee and the cup itself is cooling down and warming up again. </p>
+<p>You can find a visual explanation in the video: <a href=\"modelica://FirstBookExamples/Resources/Images/coffee.wmv\">FirstBookExamples/Resources/Images/coffee.wmv</a>.</p>
+</html>"));
 end CupOfCoffee;
